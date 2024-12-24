@@ -13,12 +13,12 @@ import { ShopContext } from '../context/shopcontext';
 import { Star, CreditCard, XCircle, Truck } from 'lucide-react';
 import RelatedProducts from '../components/RelatedProducts';
 import axios from 'axios';
-import { FaUserAlt, FaStar, FaStarHalfAlt, FaRegStar, FaShareAlt, FaLink } from 'react-icons/fa';
+import {FaHeart,FaRegHeart, FaUserAlt, FaStar, FaStarHalfAlt, FaRegStar, FaShareAlt, FaLink } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, addToCart, backendUrl } = useContext(ShopContext);
+  const { products, currency, addToCart, backendUrl,wishlist,addToWishlist,removeFromWishlist,token } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
@@ -27,6 +27,7 @@ const Product = () => {
   const [totalReviews, setTotalReviews] = useState(0);
   const [showDescription, setShowDescription] = useState(true);
   const [showShareOptions, setShowShareOptions] = useState(false);
+  const isInWishlist = wishlist.some((item) => item._id === productId);
 
   const fetchReviews = async () => {
     try {
@@ -111,6 +112,16 @@ const Product = () => {
       });
     });
   };
+  const handleWishlistClick = () => {
+    if (!token) {
+      toast.error('Please log in to use the wishlist feature.', {
+        position: "bottom-right",
+        autoClose: 3000,
+      });
+      return;
+    }
+    isInWishlist ? removeFromWishlist(productId) : addToWishlist(productId);
+  };
 
   // Generate share content
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
@@ -123,6 +134,7 @@ const Product = () => {
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
+
             {productData.image.map((item, index) => (
               <img
                 onClick={() => setImage(item)}
@@ -134,58 +146,75 @@ const Product = () => {
             ))}
           </div>
           <div className="w-full sm:w-[80%] relative">
-            <img className="w-full h-auto" src={image} alt={productData.name} />
-            {/* Share Button */}
-            <div className="absolute top-2 right-2">
-              <button 
-                onClick={() => setShowShareOptions(!showShareOptions)}
-                className="bg-white/70 p-2 rounded-full hover:bg-white/90 transition-all"
-              >
-                <FaShareAlt className="text-[#A75D5D]" />
-              </button>
-              
-              {showShareOptions && (
-                <div className="absolute right-0 z-10 bg-white shadow-lg rounded-lg p-3 mt-2 flex flex-col gap-3">
-                  <WhatsappShareButton 
-                    url={shareUrl} 
-                    title={shareDescription}
-                    className="flex text-[#D3756B] items-center gap-2 hover:bg-gray-100 p-1 rounded"
-                  >
-                    <WhatsappIcon size={24} round />
-                    <span>WhatsApp</span>
-                  </WhatsappShareButton>
-                  
-                  <FacebookShareButton 
-                    url={shareUrl} 
-                    quote={shareDescription}
-                    className="flex items-center gap-2 hover:bg-gray-100 p-1 rounded"
-                  >
-                    <FacebookIcon size={24} round />
-                    <span>Facebook</span>
-                  </FacebookShareButton>
-                  
-                  <TwitterShareButton 
-                    url={shareUrl} 
-                    title={shareDescription}
-                    className="flex items-center gap-2 hover:bg-gray-100 p-1 rounded"
-                  >
-                    <TwitterIcon size={24} round />
-                    <span>X (Twitter)</span>
-                  </TwitterShareButton>
+  {/* Main Product Image */}
+  <img className="w-full h-auto rounded-md shadow" src={image} alt={productData.name} />
 
-                 
+  {/* Wishlist and Share Buttons */}
+  <div className="absolute top-2 left-2 flex flex-col gap-2 z-10">
+    {/* Wishlist Button */}
+    <button
+      onClick={handleWishlistClick}
+      className="p-2 bg-white/90 rounded-full shadow-md hover:bg-gray-100 transition-all"
+    >
+      {isInWishlist ? (
+        <FaHeart className="text-[#A75D5D] w-5 h-5" />
+      ) : (
+        <FaRegHeart className="text-[#A75D5D] w-5 h-5" />
+      )}
+    </button>
+  </div>
 
-                  <button 
-                    onClick={copyLinkToClipboard}
-                    className="flex items-center gap-2 hover:bg-gray-100 p-1 rounded"
-                  >
-                    <FaLink className="text-[#A75D5D]" />
-                    <span>Copy Link</span>
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
+  {/* Share Button */}
+  <div className="absolute top-2 right-2 flex flex-col gap-2 z-10">
+    <button
+      onClick={() => setShowShareOptions(!showShareOptions)}
+      className="p-2 bg-white/90 rounded-full shadow-md hover:bg-gray-100 transition-all"
+    >
+      <FaShareAlt className="text-[#A75D5D] w-5 h-5" />
+    </button>
+
+    {/* Share Options Dropdown */}
+    {showShareOptions && (
+      <div className="absolute right-0 mt-10 bg-white shadow-lg rounded-lg p-3 flex flex-col gap-3 w-48">
+        <WhatsappShareButton
+          url={shareUrl}
+          title={shareDescription}
+          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
+        >
+          <WhatsappIcon size={24} round />
+          <span className="text-sm text-gray-600">WhatsApp</span>
+        </WhatsappShareButton>
+
+        <FacebookShareButton
+          url={shareUrl}
+          quote={shareDescription}
+          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
+        >
+          <FacebookIcon size={24} round />
+          <span className="text-sm text-gray-600">Facebook</span>
+        </FacebookShareButton>
+
+        <TwitterShareButton
+          url={shareUrl}
+          title={shareDescription}
+          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
+        >
+          <TwitterIcon size={24} round />
+          <span className="text-sm text-gray-600">X (Twitter)</span>
+        </TwitterShareButton>
+
+        <button
+          onClick={copyLinkToClipboard}
+          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
+        >
+          <FaLink className="text-[#A75D5D]" />
+          <span className="text-sm text-gray-600">Copy Link</span>
+        </button>
+      </div>
+    )}
+  </div>
+</div>
+
         </div>
 
         <div className="flex-1">
