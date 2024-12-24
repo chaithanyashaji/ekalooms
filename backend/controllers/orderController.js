@@ -4,7 +4,7 @@ import Stripe from 'stripe'
 import razorpay from 'razorpay'
 import { sendMail } from '../services/emailService.js';
 
-import rateLimit from 'express-rate-limit';
+
 
 
 //global variables
@@ -171,70 +171,62 @@ Forever
 //placing order using Razorpay
 
 const placeOrderRazorpay = async (req, res) => {
-  try {
-    const { items, amount, address, couponCode, deliveryOption } = req.body;
-
-    // Validate user input
-    if (!items || items.length === 0 || amount <= 0 || !address) {
-      return res.status(400).json({ success: false, message: 'Invalid order details.' });
+    try {
+      const {  items, amount, address,couponCode,deliveryOption } = req.body;
+      const userId = req.user.id;
+      // Step 1: Create order data for the database
+      const orderData = {
+        userId,
+        items,
+        amount,
+        address,
+        deliveryOption,
+        couponCode,
+        paymentMethod: 'Razorpay',
+        payment: false, // Payment not confirmed initially
+        razorpayOrderId: null, // Placeholder for now
+        date: Date.now(),
+        couponCode,
+        deliveryOption 
+        
+      };
+  
+      
+  
+      // Step 2: Save the initial order in the database
+      const newOrder = new orderModel(orderData);
+      await newOrder.save();
+  
+      // Step 3: Create Razorpay order
+      const options = {
+        amount: amount * 100, // Amount in paise
+        currency: 'INR', // Default to INR if not provided
+        receipt: newOrder._id.toString(), // Use MongoDB order ID as receipt
+      };
+  
+      
+  
+      const razorpayOrder = await razorpayInstance.orders.create(options);
+  
+      // Step 4: Update the order with the Razorpay order ID
+      newOrder.razorpayOrderId = razorpayOrder.id;
+      await newOrder.save();
+  
+      // Step 5: Send the response back to the client
+      return res.json({
+        success: true,
+        order: {
+          id: razorpayOrder.id,
+          amount: razorpayOrder.amount,
+          currency: razorpayOrder.currency,
+          razorpayOrderId: razorpayOrder.id,
+        },
+      });
+    } catch (error) {
+      console.error('Error placing Razorpay order:', error.message);
+      return res.status(500).json({ success: false, message: 'Failed to create Razorpay order' });
     }
-
-    const userId = req.user.id;
-
-    // Check for duplicate unpaid orders
-    const existingOrder = await orderModel.findOne({
-      userId,
-      payment: false,
-      razorpayOrderId: { $exists: true },
-    });
-
-    if (existingOrder) {
-      return res.status(400).json({ success: false, message: 'Complete pending payment first.' });
-    }
-
-    // Create order data
-    const orderData = {
-      userId,
-      items,
-      amount,
-      address,
-      deliveryOption,
-      couponCode,
-      paymentMethod: 'Razorpay',
-      payment: false,
-      razorpayOrderId: null,
-      date: Date.now(),
-    };
-
-    const newOrder = new orderModel(orderData);
-    await newOrder.save();
-
-    // Create Razorpay order
-    const options = {
-      amount: amount * 100, // Amount in paise
-      currency: 'INR',
-      receipt: newOrder._id.toString(),
-    };
-
-    const razorpayOrder = await razorpayInstance.orders.create(options);
-
-    // Update order with Razorpay order ID
-    newOrder.razorpayOrderId = razorpayOrder.id;
-    await newOrder.save();
-
-    res.json({
-      success: true,
-      order: {
-        id: razorpayOrder.id,
-        amount: razorpayOrder.amount,
-        currency: razorpayOrder.currency,
-      },
-    });
-  } catch (error) {
-    console.error('Error placing Razorpay order:', error.message);
-    res.status(500).json({ success: false, message: 'Failed to create Razorpay order.' });
-  }
-};
+  };
 
 
   
@@ -318,86 +310,61 @@ const placeGuestOrder = async (req, res) => {
 
 // Placing order using Razorpay for guest users
 const placeOrderRazorpayGuest = async (req, res) => {
-  try {
-    const { items, amount, address, email, couponCode, deliveryOption } = req.body;
-
-    // Input Validation
-    if (!items || !Array.isArray(items) || items.length === 0) {
-      return res.status(400).json({ success: false, message: 'Items are required and must be a valid array.' });
-    }
-
-    if (!amount || amount <= 0) {
-      return res.status(400).json({ success: false, message: 'Amount must be a positive value.' });
-    }
-
-    if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      return res.status(400).json({ success: false, message: 'Valid email is required.' });
-    }
-
-    if (!address || typeof address !== 'object') {
-      return res.status(400).json({ success: false, message: 'Valid address is required.' });
-    }
-
-    // Step 1: Check for existing unpaid orders for the same guest email
-    const existingOrder = await orderModel.findOne({
-      email,
-      payment: false,
-      razorpayOrderId: { $exists: true },
-    });
-
-    if (existingOrder) {
-      return res.status(400).json({
-        success: false,
-        message: 'You have an unpaid order. Please complete the payment or contact support.',
+    try {
+      const { items, amount, address, email,couponCode,deliveryOption  } = req.body;
+  
+      // Step 1: Create order data for the database
+      const orderData = {
+        isGuest: true,
+        items,
+        amount,
+        address,
+        email,
+        paymentMethod: 'Razorpay',
+        payment: false, // Payment not confirmed initially
+        razorpayOrderId: null, // Placeholder for Razorpay Order ID
+        date: Date.now(),
+        couponCode,
+        deliveryOption 
+      };
+  
+      
+  
+      // Step 2: Save the initial order in the database
+      const newOrder = new orderModel(orderData);
+      await newOrder.save();
+  
+      // Step 3: Create Razorpay order
+      const options = {
+        amount: amount * 100, // Amount in paise
+        currency: 'INR', // Default to INR
+        receipt: newOrder._id.toString(), // Use MongoDB order ID as receipt
+      };
+  
+      
+  
+      const razorpayOrder = await razorpayInstance.orders.create(options);
+  
+      // Step 4: Update the order with the Razorpay order ID
+      newOrder.razorpayOrderId = razorpayOrder.id;
+      await newOrder.save();
+  
+      // Step 5: Send the response back to the client
+      return res.json({
+        success: true,
+        order: {
+          id: razorpayOrder.id,
+          amount: razorpayOrder.amount,
+          currency: razorpayOrder.currency,
+          razorpayOrderId: razorpayOrder.id,
+        },
       });
+    } catch (error) {
+      console.error('Error placing Razorpay guest order:', error.message);
+      return res.status(500).json({ success: false, message: 'Failed to create Razorpay guest order' });
     }
-
-    // Step 2: Create order data for the database
-    const orderData = {
-      isGuest: true,
-      items,
-      amount,
-      address,
-      email,
-      paymentMethod: 'Razorpay',
-      payment: false, // Payment not confirmed initially
-      razorpayOrderId: null, // Placeholder for Razorpay Order ID
-      date: Date.now(),
-      couponCode,
-      deliveryOption,
-    };
-
-    const newOrder = new orderModel(orderData);
-    await newOrder.save();
-
-    // Step 3: Create Razorpay order
-    const options = {
-      amount: amount * 100, // Convert to paise
-      currency: 'INR', // Default currency
-      receipt: newOrder._id.toString(), // Use MongoDB order ID as receipt
-    };
-
-    const razorpayOrder = await razorpayInstance.orders.create(options);
-
-    // Step 4: Update the order with the Razorpay order ID
-    newOrder.razorpayOrderId = razorpayOrder.id;
-    await newOrder.save();
-
-    // Step 5: Send the response back to the client
-    return res.status(201).json({
-      success: true,
-      order: {
-        id: razorpayOrder.id,
-        amount: razorpayOrder.amount,
-        currency: razorpayOrder.currency,
-        razorpayOrderId: razorpayOrder.id,
-      },
-    });
-  } catch (error) {
-    console.error('Error placing Razorpay guest order:', error.message);
-    return res.status(500).json({ success: false, message: 'Failed to create Razorpay guest order.' });
-  }
-};
+  };
+  
 
 // Verifying Razorpay payment for guest users
 
