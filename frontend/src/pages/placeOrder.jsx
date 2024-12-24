@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const PlaceOrder = () => {
   const [method, setMethod] = useState('razorpay'); // Default to Razorpay
-  const { navigate, backendUrl, token, cartItems, setCartItems, getCartAmount, delivery_fee, products } = useContext(ShopContext);
+  const { navigate, backendUrl, token, cartItems, setCartItems, getCartAmount, products } = useContext(ShopContext);
   const [isGuest, setIsGuest] = useState(!token);
   const [deliveryOption, setDeliveryOption] = useState('normal');
   const [couponCode, setCouponCode] = useState('');
@@ -162,22 +162,18 @@ const PlaceOrder = () => {
         amount: totalAmount + deliveryFee - discountedAmount,
         deliveryOption,
         couponCode,
- // Total amount in rupees
+
       };
   
-      const headers = token
-      ? { Authorization: `Bearer ${token}` }
-      : {};
+      const headers = token? { Authorization: `Bearer ${token}` } : {};
   
-      let response;
+     
 if (method === 'razorpay') {
-    response = await axios.post(
+   const  response = await axios.post(
         backendUrl + (isGuest ? '/api/order/razorpayguest' : '/api/order/razorpay'),
         orderData,
         {
-            headers: {
-                Authorization: `Bearer ${token}`, // Replace `token` with your actual token variable
-            },
+           headers
         }
     );
 

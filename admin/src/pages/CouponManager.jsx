@@ -15,7 +15,9 @@ const CouponManager = ({ token }) => {
   const fetchCoupons = async () => {
     try {
       const response = await axios.get(`${backendUrl}/api/coupon/list`, {
-        headers: { token },
+        headers: {
+          Authorization: `Bearer ${token}`, // Use 'Bearer <token>' for Authorization
+        },
       });
       if (response.data.success) {
         setCoupons(response.data.coupons);

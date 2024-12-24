@@ -27,9 +27,14 @@ const List = ({ token }) => {
     try {
       const response = await axios.post(
         backendUrl + '/api/product/remove',
-        { id },
-        { headers: { token } }
+        { id }, // Payload containing the product ID
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Pass token as 'Bearer <token>'
+          },
+        }
       );
+      
       if (response.data.success) {
         toast.success(response.data.message);
         await fetchList();
