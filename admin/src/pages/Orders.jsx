@@ -152,97 +152,99 @@ const ordersPerPage = 10;
 
       {/* Order List */}
       <div className="space-y-4">
-        {filteredOrders.map((order, index) => (
-          <div
-            className="grid grid-cols-1 sm:grid-cols-[0.2fr_1.5fr_1fr_1fr_1fr] gap-3 w-full items-center border bg-white p-2 rounded-lg shadow-sm pb-20"
-            key={order._id}
-          >
-            {/* Order Index */}
-            <div className="font-bold text-gray-600">#{index + 1}</div>
-
-            {/* Order Items */}
-            <div>
-              <div className="flex flex-wrap gap-2">
-                {order.items.map((item, idx) => (
-                  <img
-                    key={idx}
-                    src={item.image[0]}
-                    alt={item.name}
-                    className="w-24 h-24 object-cover rounded-lg border"
-                  />
-                ))}
-              </div>
-              <div className="mt-3">
-                {order.items.map((item, idx) => (
-                  <p className="text-sm text-gray-700" key={idx}>
-                    {item.name} x {item.quantity}
-                    {item.size && <span> (Size: {item.size})</span>}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            {/* Address */}
-            <div>
-              <p className="font-medium text-gray-800">
-                {order.address.firstName + " " + order.address.lastName}
-              </p>
-              <p className="text-sm text-gray-600">{order.address.email}</p>
-              <p className="text-sm text-gray-600">
-                {order.address.street}, {order.address.city}
-              </p>
-              <p className="text-sm text-gray-600">
-                {order.address.state}, {order.address.country},{" "}
-                {order.address.zipcode}
-              </p>
-              <p className="text-sm text-gray-600">{order.address.phone}</p>
-            </div>
-
-            {/* Order Details */}
-            <div>
-              <p className="text-sm text-gray-800">
-                Delivery Option: {order.deliveryOption}
-              </p>
-              <p className="text-sm text-gray-800">
-                Coupon Used: {order.couponCode || "None"}
-              </p>
-              <p className="text-sm text-gray-800">
-                Payment Method: {order.paymentMethod || "N/A"}
-              </p>
-              <p className="text-sm text-gray-800">
-                Payment: {order.payment ? "Done" : "Pending"}
-              </p>
-              <p className="text-sm text-gray-800">
-                Date: {new Date(order.date).toLocaleDateString()}
-              </p>
-            </div>
-
-            {/* Order Status */}
-            
-              <div className="text-right">
-  <p className="text-lg font-bold text-gray-800">
-    {currency} {order.amount}
-  </p>
-  <select
-    onChange={(event) => statusHandler(event, order._id)}
-    value={order.status}
-    className="mt-2 p-2 border rounded w-full bg-gray-100 font-medium"
+      {currentOrders.map((order, index) => (
+  <div
+    className="grid grid-cols-1 sm:grid-cols-[0.2fr_1.5fr_1fr_1fr_1fr] gap-3 w-full items-center border bg-white p-2 rounded-lg shadow-sm pb-20"
+    key={order._id}
   >
-    <option value="Order Placed">Order Placed</option>
-    <option value="Packing">Packing</option>
-    <option value="Shipped">Shipped</option>
-    <option value="Out for delivery">Out for delivery</option>
-    <option value="Delivered">Delivered</option>
-    <option value="Cancelled">Cancelled</option>
-    <option value="Cancelled and Eligible for Refund">
-      Cancelled and Eligible for Refund
-    </option>
-  </select>
-</div>
+    {/* Adjust the index to reflect the overall position */}
+    <div className="font-bold text-gray-600">
+      #{(currentPage - 1) * ordersPerPage + index + 1}
+    </div>
 
-            </div>
-         
+    {/* Order Items */}
+    <div>
+      <div className="flex flex-wrap gap-2">
+        {order.items.map((item, idx) => (
+          <img
+            key={idx}
+            src={item.image[0]}
+            alt={item.name}
+            className="w-24 h-24 object-cover rounded-lg border"
+          />
         ))}
+      </div>
+      <div className="mt-3">
+        {order.items.map((item, idx) => (
+          <p className="text-sm text-gray-700" key={idx}>
+            {item.name} x {item.quantity}
+            {item.size && <span> (Size: {item.size})</span>}
+          </p>
+        ))}
+      </div>
+    </div>
+
+    {/* Address */}
+    <div>
+      <p className="font-medium text-gray-800">
+        {order.address.firstName + " " + order.address.lastName}
+      </p>
+      <p className="text-sm text-gray-600">{order.address.email}</p>
+      <p className="text-sm text-gray-600">
+        {order.address.street}, {order.address.city}
+      </p>
+      <p className="text-sm text-gray-600">
+        {order.address.state}, {order.address.country},{" "}
+        {order.address.zipcode}
+      </p>
+      <p className="text-sm text-gray-600">{order.address.phone}</p>
+    </div>
+
+    {/* Order Details */}
+    <div>
+      <p className="text-sm text-gray-800">
+        Delivery Option: {order.deliveryOption}
+      </p>
+      <p className="text-sm text-gray-800">
+        Coupon Used: {order.couponCode || "None"}
+      </p>
+      <p className="text-sm text-gray-800">
+        Payment Method: {order.paymentMethod || "N/A"}
+      </p>
+      <p className="text-sm text-gray-800">
+        Payment: {order.payment ? "Done" : "Pending"}
+      </p>
+      <p className="text-sm text-gray-800">
+        Date: {new Date(order.date).toLocaleDateString()}
+      </p>
+    </div>
+
+    {/* Order Status */}
+    <div className="text-right">
+      <p className="text-lg font-bold text-gray-800">
+        {currency} {order.amount}
+      </p>
+      <select
+        onChange={(event) => statusHandler(event, order._id)}
+        value={order.status}
+        className="mt-2 p-2 border rounded w-full bg-gray-100 font-medium"
+      >
+        <option value="Order Placed">Order Placed</option>
+        <option value="Packing">Packing</option>
+        <option value="Shipped">Shipped</option>
+        <option value="Out for delivery">Out for delivery</option>
+        <option value="Delivered">Delivered</option>
+        <option value="Cancelled">Cancelled</option>
+        <option value="Cancelled and Eligible for Refund">
+          Cancelled and Eligible for Refund
+        </option>
+      </select>
+    </div>
+  </div>
+))}
+
+         
+        
       </div>
     {/* Pagination */}
     <div className="flex justify-center mt-6 pb-10">
