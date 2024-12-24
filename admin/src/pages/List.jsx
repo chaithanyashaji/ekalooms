@@ -10,6 +10,8 @@ const List = ({ token }) => {
   const [confirmDelete, setConfirmDelete] = useState(null);
   const [editProduct, setEditProduct] = useState(null); // State for the product being edited
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
+  const [currentPage, setCurrentPage] = useState(1); // Current page
+  const productsPerPage = 30; // Products per page
 
   const fetchList = async () => {
     try {
@@ -57,6 +59,14 @@ const List = ({ token }) => {
       item.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Get products for current page
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredList.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="container mx-auto px-4 py-6">
       <h2 className="text-xl font-semibold mb-4">All Products List</h2>
@@ -84,12 +94,12 @@ const List = ({ token }) => {
           <b className="text-center">Actions</b>
         </div>
 
-        {filteredList.map((item, index) => (
+        {currentProducts.map((item, index) => (
           <div
             key={item._id}
             className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b text-sm hover:bg-gray-50 transition"
           >
-            <p>{index + 1}</p>
+            <p>{indexOfFirstProduct + index + 1}</p>
             <img
               className="w-12 h-12 object-cover rounded"
               src={item.image[0]}
@@ -115,12 +125,13 @@ const List = ({ token }) => {
 
       {/* Mobile View */}
       <div className="md:hidden space-y-4 pb-20">
-        {filteredList.map((item, index) => (
+        {currentProducts.map((item, index) => (
           <div
             key={item._id}
             className="border rounded-lg p-4 shadow-sm hover:shadow-md transition"
           >
             <div className="flex items-center mb-3">
+              <p className="mr-4 font-semibold">{indexOfFirstProduct + index + 1}.</p>
               <img
                 className="w-16 h-16 object-cover rounded mr-4"
                 src={item.image[0]}
@@ -153,6 +164,24 @@ const List = ({ token }) => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Pagination */}
+      <div className="flex justify-center mt-6 pb-20">
+        {Array.from(
+          { length: Math.ceil(filteredList.length / productsPerPage) },
+          (_, index) => (
+            <button
+              key={index}
+              onClick={() => paginate(index + 1)}
+              className={`px-4 py-2 mx-1 rounded ${
+                currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'
+              } hover:bg-blue-600 hover:text-white`}
+            >
+              {index + 1}
+            </button>
+          )
+        )}
       </div>
 
       {/* Confirmation Modal */}
