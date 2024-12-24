@@ -180,7 +180,7 @@ if (method === 'razorpay') {
             },
         }
     );
-}
+
 
   
         if (response.data.success) {
