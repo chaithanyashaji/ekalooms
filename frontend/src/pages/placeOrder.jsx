@@ -170,12 +170,18 @@ const PlaceOrder = () => {
       : {};
   
       let response;
-      if (method === 'razorpay') {
-        response = await axios.post(
-          backendUrl + (isGuest ? '/api/order/razorpayguest' : '/api/order/razorpay'),
-          orderData,
-          {headers}
-        );
+if (method === 'razorpay') {
+    response = await axios.post(
+        backendUrl + (isGuest ? '/api/order/razorpayguest' : '/api/order/razorpay'),
+        orderData,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`, // Replace `token` with your actual token variable
+            },
+        }
+    );
+}
+
   
         if (response.data.success) {
          
