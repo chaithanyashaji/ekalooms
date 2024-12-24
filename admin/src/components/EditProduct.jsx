@@ -106,7 +106,16 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
 
   return (
     <div className="min-h-screen flex flex-col pb-24">
+       
       <div className="flex-grow container mx-auto px-4 py-6 overflow-y-auto">
+      <div className="absolute top-4 right-4">
+        <button
+          onClick={onClose}
+          className="text-red-500 hover:text-gray-800 p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+        >
+          <i className="fas fa-times text-lg"></i>
+        </button>
+      </div>
         <form onSubmit={onSubmitHandler} className="flex flex-col w-full items-start gap-4">
           {/* Image Upload Section */}
           <div className="w-full">

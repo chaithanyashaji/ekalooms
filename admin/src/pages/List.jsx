@@ -9,6 +9,7 @@ const List = ({ token }) => {
   const [list, setList] = useState([]);
   const [confirmDelete, setConfirmDelete] = useState(null);
   const [editProduct, setEditProduct] = useState(null); // State for the product being edited
+  const [searchQuery, setSearchQuery] = useState(""); // State for search query
 
   const fetchList = async () => {
     try {
@@ -34,7 +35,7 @@ const List = ({ token }) => {
           },
         }
       );
-      
+
       if (response.data.success) {
         toast.success(response.data.message);
         await fetchList();
@@ -49,13 +50,32 @@ const List = ({ token }) => {
     fetchList();
   }, []);
 
+  // Filter products based on search query
+  const filteredList = list.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="container mx-auto px-4 py-6">
       <h2 className="text-xl font-semibold mb-4">All Products List</h2>
 
+      {/* Search Bar */}
+      <div className="mb-6">
+        <input
+          type="text"
+          placeholder="Search by name or category"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full md:w-1/3 px-3 py-2 border rounded"
+        />
+      </div>
+
       {/* Desktop Table */}
-      <div className="hidden md:block">
-        <div className="grid grid-cols-[0.5fr_2fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b bg-gray-100 font-semibold text-sm ">
+      <div className="hidden md:block pb-20">
+        <div className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b bg-gray-100 font-semibold text-sm">
+          <b>#</b>
           <b>Image</b>
           <b>Name</b>
           <b>Category</b>
@@ -64,11 +84,12 @@ const List = ({ token }) => {
           <b className="text-center">Actions</b>
         </div>
 
-        {list.map((item) => (
+        {filteredList.map((item, index) => (
           <div
             key={item._id}
-            className="grid grid-cols-[0.5fr_2fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b text-sm hover:bg-gray-50 transition "
+            className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b text-sm hover:bg-gray-50 transition"
           >
+            <p>{index + 1}</p>
             <img
               className="w-12 h-12 object-cover rounded"
               src={item.image[0]}
@@ -94,7 +115,7 @@ const List = ({ token }) => {
 
       {/* Mobile View */}
       <div className="md:hidden space-y-4 pb-20">
-        {list.map((item) => (
+        {filteredList.map((item, index) => (
           <div
             key={item._id}
             className="border rounded-lg p-4 shadow-sm hover:shadow-md transition"
@@ -159,19 +180,19 @@ const List = ({ token }) => {
 
       {/* Edit Product Modal */}
       {editProduct && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-    <div
-      className="bg-white rounded-lg shadow-xl w-full max-w-lg h-full max-h-[90vh] overflow-y-auto p-6"
-    >
-      <EditProduct
-        product={editProduct}
-        token={token}
-        onClose={() => setEditProduct(null)} // Close the modal
-        onUpdate={fetchList} // Refresh the product list
-      />
-    </div>
-  </div>
-)}
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div
+            className="bg-white rounded-lg shadow-xl w-full max-w-lg h-full max-h-[90vh] overflow-y-auto p-6"
+          >
+            <EditProduct
+              product={editProduct}
+              token={token}
+              onClose={() => setEditProduct(null)} // Close the modal
+              onUpdate={fetchList} // Refresh the product list
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

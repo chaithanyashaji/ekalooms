@@ -98,7 +98,7 @@ const ordersPerPage = 10;
       const response = await axios.post(
         `${backendUrl}/api/order/status`,
         { orderId, status: event.target.value },
-        { headers: { token } }
+        { headers: { Authorization: `Bearer ${token}` } }
       );
   
       if (response.data.success) {
@@ -154,9 +154,15 @@ const ordersPerPage = 10;
       <div className="space-y-4">
       {currentOrders.map((order, index) => (
   <div
-    className="grid grid-cols-1 sm:grid-cols-[0.2fr_1.5fr_1fr_1fr_1fr] gap-3 w-full items-center border bg-white p-2 rounded-lg shadow-sm pb-20"
-    key={order._id}
+  key={order._id}
+  className={`grid grid-cols-1 sm:grid-cols-[0.2fr_1.5fr_1fr_1fr_1fr] gap-3 w-full items-center border p-2 rounded-lg shadow-sm pb-20 ${
+    order.status?.toLowerCase() === "delivered" ? "bg-green-100" : "bg-white"
+  }`}
+  
+    
   >
+
+
     {/* Adjust the index to reflect the overall position */}
     <div className="font-bold text-gray-600">
       #{(currentPage - 1) * ordersPerPage + index + 1}
