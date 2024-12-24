@@ -14,8 +14,9 @@ const ReviewForm = ({ productId, onClose, onSubmit }) => {
       const response = await axios.post(
         `${backendUrl}/api/review/submitreview`,
         { productId, rating, comment },
-        { headers: { token } }
-      );
+        { headers: { Authorization: `Bearer ${token}` } }
+    );
+    
       if (response.data.success) {
         onSubmit();
         onClose(); // Close the modal

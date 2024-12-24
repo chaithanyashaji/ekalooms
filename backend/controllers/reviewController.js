@@ -6,9 +6,9 @@ import productModel from "../models/productModel.js";
 // Add a review
 const addReview = async (req, res) => {
     try {
-        const { productId, rating, comment,userId } = req.body;
+        const { productId, rating, comment } = req.body;
         
-        
+        const userId=req.user.id;
 
        
         
