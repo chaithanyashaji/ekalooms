@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -6,8 +6,8 @@ import { ShopContext } from '../context/shopcontext';
 
 const ResetPassword = () => {
   const [password, setPassword] = useState('');
-   const {backendUrl} = useContext(ShopContext);
   const [confirmPassword, setConfirmPassword] = useState('');
+  const { backendUrl } = useContext(ShopContext);
   const { token } = useParams();
   const navigate = useNavigate();
 
@@ -33,15 +33,28 @@ const ResetPassword = () => {
   };
 
   return (
-    <form onSubmit={onSubmitHandler} className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800">
-      <h2 className="text-3xl mb-4">Reset Password</h2>
+    <form
+      onSubmit={onSubmitHandler}
+      className="flex flex-col prata-regular items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4"
+      style={{
+        color: '#A75D5D',
+       
+        borderRadius: '10px',
+        padding: '20px',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+      }}
+    >
+      <h2 className="text-xl mb-4" style={{ color: '#D3756B' }}>
+        Reset Password
+      </h2>
       <input
         type="password"
         placeholder="New Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
-        className="w-full px-3 py-2 border border-gray-800"
+         className="w-full px-3 py-2 border-2  text-[#A75D5D] border-[#D3756B] focus:border-[#F0997D] focus:outline-none"
+       
       />
       <input
         type="password"
@@ -49,9 +62,18 @@ const ResetPassword = () => {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         required
-        className="w-full px-3 py-2 border border-gray-800"
+         className="w-full px-3 py-2 border-2 r text-[#A75D5D] border-[#D3756B] focus:border-[#F0997D] focus:outline-none"
+        
       />
-      <button type="submit" className="bg-black text-white font-light px-8 py-2 mt-4">Reset Password</button>
+      <button
+        type="submit"
+        className="bg-gradient-to-r from-[#dcb7a2] to-[#D3756B] shadow-md rounded-md text-white px-8 py-2 mt-4"
+        style={{
+          cursor: password === confirmPassword && password !== '' ? 'pointer' : 'not-allowed',
+        }}
+      >
+        Reset Password
+      </button>
     </form>
   );
 };

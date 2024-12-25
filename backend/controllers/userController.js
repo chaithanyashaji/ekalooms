@@ -34,13 +34,12 @@ const limiter = rateLimit({
 
 // Configure email transporter
 const transporter = nodemailer.createTransport({
-    service: "Gmail",
+    host: "smtp.gmail.com", // SMTP server address for Gmail
+    port: 587, // Port for TLS
+    secure: false, // Use false for TLS, true for SSL
     auth: {
-        type: "OAuth2",
-        user: process.env.EMAIL,
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: process.env.JWT_REFRESH_SECRET,
+        user: process.env.EMAIL, // Your email address
+        pass: process.env.EMAIL_PASSWORD, // Your email password or app password
     },
 });
 
@@ -174,36 +173,58 @@ const refreshToken = async (req, res) => {
     }
 };
 
+
 // Forgot password
 const forgotPassword = async (req, res) => {
     try {
         const { email } = req.body;
-        const user = await userModel.findOne({ email });
 
-        if (!user) {
-            return res.status(200).json({ success: true, message: "If the email exists, a reset link will be sent." });
+        // Validate email format
+        if (!validator.isEmail(email)) {
+            return res.status(400).json({ success: false, message: "Invalid email format" });
         }
 
+        // Check if the email exists in a case-insensitive manner
+        const user = await userModel.findOne({ email: { $regex: new RegExp(`^${email}$`, 'i') } });
+
+        // Log for debugging purposes
+        if (!user) {
+            console.log(`Email not found: ${email}`);
+            return res
+                .status(404)
+                .json({ success: false, message: "Email not found" });
+        }
+
+        // Generate reset token
         const resetToken = crypto.randomBytes(32).toString("hex");
         const hashedToken = crypto.createHash("sha256").update(resetToken).digest("hex");
 
         user.resetPasswordToken = hashedToken;
-        user.resetPasswordExpires = Date.now() + 20 * 60 * 1000; // 20 minutes
+        user.resetPasswordExpires = Date.now() + 20 * 60 * 1000; // Token valid for 20 minutes
         await user.save();
 
+        // Construct reset URL
         const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
+
+        // Send email using SMTP
         await transporter.sendMail({
-            to: email,
+            from: `"Ekalooms" <${process.env.EMAIL}>`, // Sender address
+            to: email, // Recipient address
             subject: "Password Reset Request",
-            text: `Click the link to reset your password: ${resetUrl}`,
+            html: `<p>You requested a password reset.</p>
+                   <p>Click <a href="${resetUrl}">here</a> to reset your password.</p>
+                   <p>This link is valid for 20 minutes.</p>`,
         });
 
-        res.json({ success: true, message: "If the email exists, a reset link will be sent." });
+        res.status(200).json({ success: true, message: "If the email exists, a reset link will be sent." });
     } catch (error) {
-        console.error(error);
+        console.error("Forgot Password Error:", error.message);
         res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
+
+
+
 
 // Reset password
 const resetPassword = async (req, res) => {
