@@ -216,7 +216,7 @@ const forgotPassword = async (req, res) => {
                    <p>This link is valid for 20 minutes.</p>`,
         });
 
-        res.status(200).json({ success: true, message: "If the email exists, a reset link will be sent." });
+        res.status(200).json({ success: true, message: "Password reset confirmation email was sent to your email." });
     } catch (error) {
         console.error("Forgot Password Error:", error.message);
         res.status(500).json({ success: false, message: "Internal server error" });
