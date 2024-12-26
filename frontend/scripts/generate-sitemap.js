@@ -25,12 +25,35 @@ const BACKEND_URL = 'https://ekalooms.onrender.com/api/product/list'; // Replace
 
 const fetchDynamicRoutes = async () => {
   try {
-    // Fetch product data from the backend
-    const response = await axios.get(BACKEND_URL);
-    const products = response.data; // Assume the API returns an array of product objects with `id`
+    let page = 1;
+    const limit = 100; // Adjust the limit based on your API capabilities
+    let hasMore = true;
+    const productRoutes = [];
 
-    // Generate product routes dynamically
-    const productRoutes = products.map((product) => `/product/${product.id}`);
+    while (hasMore) {
+      // Fetch paginated products
+      const response = await axios.get(BACKEND_URL, {
+        params: { page, limit },
+      });
+
+      // Check if API response indicates success
+      if (response.data.success) {
+        const products = response.data.products; // Extract products array
+
+        // Add product routes
+        products.forEach((product) => {
+          productRoutes.push(`/product/${product.id}`);
+        });
+
+        // Check pagination
+        const { currentPage, totalPages } = response.data.pagination;
+        hasMore = currentPage < totalPages; // Continue fetching if more pages exist
+        page++;
+      } else {
+        console.error('API error:', response.data.message);
+        break;
+      }
+    }
 
     // Combine static and dynamic routes
     const allRoutes = [...staticRoutes, ...productRoutes];
@@ -52,11 +75,11 @@ const fetchDynamicRoutes = async () => {
       </urlset>
     `.trim();
 
-    // Save the sitemap.xml to the public folder
+    // Write the sitemap to the public folder
     fs.writeFileSync('./public/sitemap.xml', sitemapContent, 'utf8');
     console.log('Sitemap generated successfully!');
   } catch (error) {
-    console.error('Error fetching product data:', error);
+    console.error('Error fetching product data:', error.message);
   }
 };
 
