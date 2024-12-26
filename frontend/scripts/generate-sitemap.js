@@ -26,7 +26,7 @@ const BACKEND_URL = 'https://ekalooms.onrender.com/api/product/list'; // Replace
 const fetchDynamicRoutes = async () => {
   try {
     let page = 1;
-    const limit = 100; // Adjust the limit based on your API capabilities
+    const limit = 20; // Adjust the limit based on your API capabilities
     let hasMore = true;
     const productRoutes = [];
 
@@ -42,7 +42,7 @@ const fetchDynamicRoutes = async () => {
 
         // Add product routes
         products.forEach((product) => {
-          productRoutes.push(`/product/${product.id}`);
+          productRoutes.push(`/product/${product._id}`);
         });
 
         // Check pagination
