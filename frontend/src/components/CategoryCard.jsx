@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { assets } from "../assets/assets"; // Import the assets
 
 const CategoryCard = ({ category }) => {
   const navigate = useNavigate();
@@ -29,39 +28,25 @@ const CategoryCard = ({ category }) => {
 };
 
 const CategorySection = () => {
-  const {
-    hero_img1,
-    hero_img2,
-    hero_img3,
-    hero_img4,
-    hero_img5,
-    hero_img6,
-    hero_img7,
-    hero_img8,
-    hero_img9,
-    hero_img41,
-    hero_img11,
-  } = assets;
-
   const categories = [
     {
       name: "Saree",
-      image: hero_img4,
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222267/hero_img4_xdmaiq.jpg",
       slug: "Saree",
     },
     {
       name: "Stitched Suits",
-      image: hero_img3,
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222265/hero_img3_akf5rs.jpg",
       slug: "Stitched-Suits",
     },
     {
       name: "Home Decor",
-      image: hero_img6,
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222285/hero_img6_prjeuj.jpg",
       slug: "Home-Decor",
     },
     {
       name: "Unstitched Suits",
-      image: hero_img8,
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg",
       slug: "Unstitched-Suits",
     },
   ];

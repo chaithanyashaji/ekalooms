@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { assets } from "../assets/assets";
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [fadeClass, setFadeClass] = useState("opacity-100");
 
+  // Use the Cloudinary URLs directly
   const images = [
-    assets.hero_img1,
-    assets.hero_img3,
-    assets.hero_img2,
-    assets.hero_img4,
-    assets.hero_img7,
-    assets.hero_img5,
-    assets.hero_img6,
-    assets.hero_img8,
-    assets.hero_img10,
-  ]; // Add more images as required
+    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222243/hero_img1_n4rk9q.jpg",
+    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222264/hero_img2_t8gvlm.jpg",
+    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222265/hero_img3_akf5rs.jpg",
+    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222267/hero_img4_xdmaiq.jpg",
+    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222285/hero_img5_lrofwp.jpg",
+    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222285/hero_img6_prjeuj.jpg",
+    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img7_v3rbfo.jpg",
+    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg",
+    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222304/hero_img10_uthgu7.jpg",
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,7 +28,7 @@ const Hero = () => {
       }, 800); // Duration of fade-out effect (matches CSS transition duration)
     }, 5000); // Total interval for each image (4 seconds display + 1 second transition)
     return () => clearInterval(interval); // Clear interval on unmount
-  }, []);
+  }, [images.length]);
 
   return (
     <div className="flex flex-col sm:flex-row border border-gray-400">

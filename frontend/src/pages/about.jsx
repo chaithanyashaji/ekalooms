@@ -10,7 +10,7 @@ const About = () => {
         <Title text1={'ABOUT '} text2={'US'} />
       </div>
       <div className="my-10 flex flex-col md:flex-row gap-16 justify-center items-center px-6">
-        <img className="w-full md:max-w-[300px] max-h-[370px] rounded-lg object-cover" src={assets.hero_img11} alt="About Us" />
+        <img className="w-full md:max-w-[300px] max-h-[370px] rounded-lg object-cover" src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222305/hero_img11_f61cul.jpg" alt="About Us" />
         <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600 text-left">
           <p className="Outfit">
             We’re a homegrown brand, rooted in our love for India’s rich artistry and the unmatched skill of local artisans.

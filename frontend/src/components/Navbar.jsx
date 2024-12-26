@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { ShopContext } from "../context/shopcontext";
 import { MenuIcon, SearchIcon, UserIcon, XIcon } from "@heroicons/react/outline";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { assets } from "../assets/assets";
+
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -57,7 +57,7 @@ const Navbar = () => {
       {/* Center Section: Logo */}
       <div className="flex-1 flex justify-center">
         <Link to="/" className="flex items-center gap-2">
-          <img className="w-10 sm:w-12" src={assets.logo} alt="Logo" />
+          <img className="w-10 sm:w-12" src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png" alt="Logo" />
           <h1 className="mt-2 text-xl sm:text-lg prata-regular text-[#A75D5D]">
             ekalooms
           </h1>
@@ -119,7 +119,7 @@ const Navbar = () => {
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between py-6 px-4 shadow-sm">
             <div className="flex items-center gap-2">
-              <img className="w-12" src={assets.logo} alt="Logo" />
+              <img className="w-12" src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"alt="Logo" />
               <h1 className="text-xl sm:text-2xl prata-regular text-[#A75D5D]">
                 ekalooms
               </h1>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { assets } from '../assets/assets';
+
 import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
@@ -8,7 +8,7 @@ const Footer = () => {
     <div>
       <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
         <div>
-          <img src={assets.logo} className='mb-5 w-32' alt="Logo" />
+          <img src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png" className='mb-5 w-32' alt="Logo" />
           <p className='prata-regular text-gray-600 p-2 text-left'>
           Eka Looms—Where craft meets comfort, & every thread tells a story</p>
         </div>
@@ -38,7 +38,7 @@ const Footer = () => {
       <div>
         <hr className='border-[#F0997D]' />
         <p className='py-5 text-sm text-center text-[#FFC3A1]'>
-          Copyright 2024 @EKalooms.com - All rights reserved
+          Copyright 2024 @ekalooms.com - All rights reserved
         </p>
       </div>
     </div>

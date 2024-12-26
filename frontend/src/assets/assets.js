@@ -18,16 +18,11 @@ import hero_img11 from './hero_img11.jpg'
 import bin_icon from './bin_icon.png'
 import dropdown_icon from './dropdown_icon.png'
 
-import profile_icon from './profile_icon.png'
-
-import search_icon from './search_icon.png'
 
 
 
 
-import razorpay_logo from './razorpay_logo.png'
-import stripe_logo from './stripe_logo.png'
-import cross_icon from './cross_icon.png'
+
 
 export const assets = {
     logo,
@@ -47,14 +42,12 @@ export const assets = {
    
     dropdown_icon,
    
-    profile_icon,
+ 
    
-    search_icon,
-    
+
     bin_icon,
    
-    razorpay_logo,
-    stripe_logo,
-    cross_icon
+
+    
 }
 
