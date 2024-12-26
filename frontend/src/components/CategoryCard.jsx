@@ -13,7 +13,7 @@ const CategoryCard = ({ category }) => {
       className="flex flex-col items-center cursor-pointer"
       onClick={handleClick}
     >
-      <div className="w-24 h-28 shadow-xl border border-[#A75D5D] rounded-t-full overflow-hidden">
+      <div className="w-20 h-24 shadow-xl border border-[#A75D5D] rounded-t-full overflow-hidden">
         <img
           src={category.image}
           alt={category.name}
@@ -55,7 +55,7 @@ const CategorySection = () => {
     <div className="mt-8">
       {/* Mobile: horizontal scroll, Larger screens: grid layout */}
       <div className="overflow-x-auto sm:overflow-x-visible">
-        <div className="flex sm:grid sm:grid-cols-4 sm:gap-4 sm:justify-between sm:space-x-0 space-x-8 whitespace-nowrap">
+        <div className="flex sm:grid sm:grid-cols-4 sm:gap-4 sm:justify-between sm:space-x-0 space-x-4 whitespace-nowrap">
           {categories.map((category, index) => (
             <CategoryCard key={index} category={category} />
           ))}
