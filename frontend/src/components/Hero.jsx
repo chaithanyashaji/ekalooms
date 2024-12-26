@@ -1,10 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, memo } from "react";
+
+const HeroText = memo(() => (
+  <div className="w-full sm:w-1/2 flex items-center justify-center py-5 sm:py-0">
+    <div className="text-[#A75D5D]">
+      <h1 className="prata-regular text-3xl sm:py-3 lg:text-5xl leading-relaxed">
+        Latest Arrivals
+      </h1>
+      <div className="flex items-center gap-2">
+        <p className="font-semibold text-sm md:text-base">SHOP NOW</p>
+        <div className="w-8 md:w-11 h-[2px] bg-[#A75D5D]"></div>
+      </div>
+    </div>
+  </div>
+));
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [fadeClass, setFadeClass] = useState("opacity-100");
 
-  // Use the Cloudinary URLs directly
   const images = [
     "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222243/hero_img1_n4rk9q.jpg",
     "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222264/hero_img2_t8gvlm.jpg",
@@ -17,45 +30,34 @@ const Hero = () => {
     "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222304/hero_img10_uthgu7.jpg",
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // Start fade-out
-      setFadeClass("opacity-0");
-      setTimeout(() => {
-        // Change image and start fade-in
-        setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-        setFadeClass("opacity-100");
-      }, 800); // Duration of fade-out effect (matches CSS transition duration)
-    }, 5000); // Total interval for each image (4 seconds display + 1 second transition)
-    return () => clearInterval(interval); // Clear interval on unmount
+  const changeImage = useCallback(() => {
+    setFadeClass("opacity-0");
+    setTimeout(() => {
+      setCurrentImage(prev => (prev + 1) % images.length);
+      setFadeClass("opacity-100");
+    }, 800);
   }, [images.length]);
+
+  useEffect(() => {
+    const interval = setInterval(changeImage, 5000);
+    return () => clearInterval(interval);
+  }, [changeImage]);
 
   return (
     <div className="flex flex-col sm:flex-row border border-gray-400">
-      {/* Hero Left Side */}
-      <div className="w-full sm:w-1/2 flex items-center justify-center py-5 sm:py-0">
-        <div className="text-[#A75D5D]">
-          
-          <h1 className="prata-regular text-3xl sm:py-3 lg:text-5xl leading-relaxed">
-            Latest Arrivals
-          </h1>
-          <div className="flex items-center gap-2">
-            <p className="font-semibold text-sm md:text-base">SHOP NOW</p>
-            <p className="w-8 md:w-11 h-[2px] bg-[#A75D5D]"></p>
-          </div>
-        </div>
-      </div>
-
-      {/* Hero Right Side - Image with Smooth Transition */}
+      <HeroText />
       <div className="w-full sm:w-1/2 overflow-hidden">
-        <img
-          className={`w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover transition-opacity duration-1000 ease-in-out ${fadeClass}`}
-          src={images[currentImage]} // Dynamically change image based on state
-          alt="Hero"
-        />
+        <picture>
+          <img
+            className={`w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover transition-opacity duration-1000 ease-in-out ${fadeClass}`}
+            src={images[currentImage]}
+            alt="Hero"
+            loading="lazy"
+          />
+        </picture>
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default memo(Hero);
