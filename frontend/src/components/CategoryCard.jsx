@@ -50,7 +50,7 @@ const CategorySection = () => {
 
   return (
     <div className="mt-8">
-      <div className="flex sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-x-auto">
+      <div className="flex sm:grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 overflow-x-auto">
         {categories.map((category) => (
           <CategoryCard key={category.slug} category={category} />
         ))}
