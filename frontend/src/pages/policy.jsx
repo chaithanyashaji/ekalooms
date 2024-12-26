@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from '../components/Title';
-import { assets } from '../assets/assets';
+
 
 const Policy = () => {
   return (
@@ -12,7 +12,7 @@ const Policy = () => {
         <div className="flex flex-col md:flex-row gap-10 items-center">
           <img
             className="w-full md:w-[40%] max-w-[350px] object-cover rounded-lg"
-            src={assets.hero_img8}
+            src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg"
             alt="Product"
           />
           <div className="flex flex-col Outfit justify-start">
