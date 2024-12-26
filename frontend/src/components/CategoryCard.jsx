@@ -9,7 +9,7 @@ const CategoryCard = memo(({ category }) => {
       className="flex flex-col items-center cursor-pointer"
       onClick={() => navigate(`/collection?category=${category.name}`)}
     >
-      <div className="w-20 h-24 sm:w-24 sm:h-28 lg:w-28 lg:h-32 shadow-xl border border-[#A75D5D] rounded-t-full overflow-hidden">
+      <div className="w-20 h-24 sm:w-24 sm:h-28 lg:w-28 lg:h-32 shadow-xl border border-[#A75D5D] rounded-t-full  overflow-hidden">
         <img
           src={category.image}
           alt={category.name}

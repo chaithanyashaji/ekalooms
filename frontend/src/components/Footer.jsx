@@ -22,7 +22,7 @@ const Footer = () => {
         About us
       </li>
       <li className="cursor-pointer" onClick={() => navigate('/policy')}>
-        Ekaloom Policy
+        FAQ
       </li>
      
     </ul>
@@ -37,7 +37,7 @@ const Footer = () => {
       </div>
       <div>
         <hr className='border-[#F0997D]' />
-        <p className='py-5 text-sm text-center text-[#FFC3A1]'>
+        <p className='py-5 text-sm text-center text-[#A75D5D] pb-40'>
           Copyright 2024 @ekalooms.com - All rights reserved
         </p>
       </div>

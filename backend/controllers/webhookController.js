@@ -76,7 +76,7 @@ const razorpayWebhook = async (req, res) => {
                 <li style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
                     <div style="flex: 1;">
                         <p style="margin: 0; font-size: 14px;"><strong>Item:</strong> ${item.name}</p>
-                        ${item.size ? `<p style="margin: 0; font-size: 14px;"><strong>Size:</strong> ${item.size}</p>` : ''}
+                        ${item.hasOwnProperty('size') ? `<p style="margin: 0; font-size: 14px;"><strong>Size:</strong> ${item.size}</p>` : ''}
                         <p style="margin: 0; font-size: 14px;"><strong>Quantity:</strong> ${item.quantity || 1}</p>
                     </div>
                     <img src="${item.image[0]}" alt="${item.name}" style="width: 80px; height: auto; margin-left: 15px; border-radius: 5px; border: 1px solid #ddd;" />
@@ -104,6 +104,37 @@ const razorpayWebhook = async (req, res) => {
 
             // Trigger the email
             await sendMail(email, 'Payment Confirmation', emailHTML, true);
+            const adminEmailHTML = `
+<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; padding: 20px; background-color: #f9f9f9;">
+    <h1 style="font-size: 1.5em; margin-bottom: 20px; color: #333;">New Payment Captured</h1>
+    <p><strong>Order ID:</strong> ${order._id}</p>
+    <p><strong>Customer Email:</strong> ${email}</p>
+    <p><strong>Amount Paid:</strong> ₹${(order.amount || 0).toFixed(2)}</p>
+    <h3 style="margin-bottom: 10px;">Items Purchased:</h3>
+    <ul style="padding: 0; margin-bottom: 20px;">
+        ${order.items
+            .map(
+                (item) => `
+                <li style="margin-bottom: 10px;">
+                    <strong>Item Name:</strong> ${item.name}<br>
+                    <strong>Quantity:</strong> ${item.quantity || 1}<br>
+                       ${item.hasOwnProperty('size') ? `<strong>Size:</strong> ${item.size}<br>` : ''}
+                </li>
+            `
+            )
+            .join('')}
+    </ul>
+    <h3 style="margin-bottom: 10px;">Shipping Address:</h3>
+    <p>
+        ${order.address.street || ''}, ${order.address.city || ''},<br>
+        ${order.address.state || ''}, ${order.address.country || ''} - ${order.address.zipcode || ''}
+    </p>
+</div>
+`;
+
+            // Send email to admin
+            await sendMail(process.env.ADMIN_EMAIL, 'New Payment Captured', adminEmailHTML, true);
+
 
             
             return res.status(200).json({ success: true, message: 'Payment processed successfully' });

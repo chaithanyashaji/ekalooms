@@ -92,7 +92,7 @@ const PlaceOrder = () => {
               clearInterval(pollInterval);
               toast.success('Payment confirmed! 🎉');
               setCartItems({}) // Clear cart items
-              navigate('/orders');
+              navigate('/cart');
             } else {
               
             }

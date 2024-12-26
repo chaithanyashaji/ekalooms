@@ -49,7 +49,7 @@ const Navbar = () => {
                 : "py-2 px-2 text-sm prata-regular text-[#D3756B] hover:text-[#F0997D] transition-all"
             }
           >
-            Our Policy
+            FAQ
           </NavLink>
         </div>
       </div>
@@ -164,7 +164,7 @@ const Navbar = () => {
                   : "py-3 px-6 text-[#D3756B] hover:bg-[#F8E4E7] hover:text-[#F0997D] transition-all"
               }
             >
-              Our Policy
+              FAQ
             </NavLink>
 
             {token && (

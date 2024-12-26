@@ -49,7 +49,7 @@ const Hero = () => {
       <div className="w-full sm:w-1/2 overflow-hidden">
         <picture>
           <img
-            className={`w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover transition-opacity duration-1000 ease-in-out ${fadeClass}`}
+            className={`w-full h-[450px] sm:h-[600px] md:h-[700px] object-cover transition-opacity duration-1000 ease-in-out ${fadeClass}`}
             src={images[currentImage]}
             alt="Hero"
             loading="lazy"
