@@ -129,6 +129,51 @@ const Product = () => {
     ? `Check out this amazing ${productData.name} - Only ${currency}${productData.price}! #ShopNow` 
     : '';
 
+
+    const renderDescription = () => {
+      if (!productData.description) {
+        return <p>No description available.</p>;
+      }
+      return (
+        <div
+          className="rich-text-content"
+          dangerouslySetInnerHTML={{
+            __html: productData.description,
+          }}
+        />
+      );
+    };
+
+    const renderReviews = () => {
+      if (reviews.length === 0) {
+        return <p>No reviews yet.</p>;
+      }
+      return (
+        <div className="max-h-150 overflow-y-auto">
+          {reviews.map((review) => (
+            <div key={review._id} className="border-b py-4">
+              {/* Reviewer Info */}
+              <div className="flex items-center gap-2">
+                <FaUserAlt className="w-4 h-4 text-gray-600" />
+                <p className="font-medium prata-regular text-[#9d4a54]">
+                  {review.userId.name}
+                </p>
+              </div>
+  
+              {/* Review Stars */}
+              <div className="flex gap-1">{generateStars(review.rating)}</div>
+  
+              {/* Review Date */}
+              <p className="text-xs text-gray-400">{formatDate(review.date)}</p>
+  
+              {/* Review Comment */}
+              <p>{review.comment}</p>
+            </div>
+          ))}
+        </div>
+      );
+    };
+
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
@@ -277,10 +322,7 @@ const Product = () => {
           
           <hr className="mt-8 sm:w-4/5" />
           <div className="text-sm  text-gray-500 mt-5 flex flex-col gap-2">
-      <div className="flex items-center gap-2">
-        <Star size={16} color="#D3756B" />
-        <p>Made with premium handmade fabrics showcasing authentic craftsmanship.</p>
-      </div>
+      
       <div className="flex items-center gap-2">
         <CreditCard size={16} color="#FFC3A1" />
         <p>Prepaid Orders Only</p>
@@ -291,57 +333,39 @@ const Product = () => {
       </div>
       <div className="flex items-center gap-2">
         <Truck size={16} color="#F0997D" />
-        <p>Shipped within 0-7 days.</p>
+        <p>Standard delivery time 6-7 working days</p>
       </div>
     </div>
         </div>
       </div>
 
-      <div className="mt-10 ">
-        <div className="flex border-b text-sm">
-          <button
-            onClick={() => setShowDescription(true)}
-            className={`${showDescription ? 'border-2 border-[#F0997D]' : ''}`}
-          >
-            <div className="px-4 py-2 border prata-regular">Description</div>
-          </button>
-          <button
-            onClick={() => setShowDescription(false)}
-            className={`${!showDescription ? 'border-2 border-[#F0997D]' : ''}`}
-          >
-            <div className="px-4 prata-regular py-2 border">Reviews ({totalReviews})</div>
-          </button>
-        </div>
-
-        {showDescription ? (
-          <div className="max-h-300 px-6 py-6 text-gray-700 text-sm ">
-            <p>{productData.description}</p>
-          </div>
-        ) : (
-          <div className="px-6 py-6">
-          {reviews.length > 0 ? (
-            <div className="max-h-150 overflow-y-auto">
-              {reviews.map((review) => (
-                <div key={review._id} className="border-b py-4">
-                  <div className="flex items-center gap-2">
-                    <FaUserAlt className="w-4 h-4 text-gray-600" />
-                    <p className="font-medium prata-regular text-[#9d4a54]">{review.userId.name}</p>
-                  </div>
-                  <div className="flex gap-1">
-                    {generateStars(review.rating)}
-                  </div>
-                  <p className="text-xs text-gray-400">{formatDate(review.date)}</p>
-                  <p>{review.comment}</p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p>No reviews yet.</p>
-          )}
-        </div>
-        
-        )}
+      <div className="mt-10">
+      {/* Toggle Buttons */}
+      <div className="flex border-b text-sm">
+        <button
+          onClick={() => setShowDescription(true)}
+          className={`px-4 py-2 border prata-regular ${
+            showDescription ? "border-2 border-[#F0997D] text-[#A75D5D]" : ""
+          }`}
+        >
+          Description
+        </button>
+        <button
+          onClick={() => setShowDescription(false)}
+          className={`px-4 py-2 border prata-regular ${
+            !showDescription ? "border-2 border-[#F0997D] text-[#A75D5D]" : ""
+          }`}
+        >
+          Reviews ({totalReviews})
+        </button>
       </div>
+
+      {/* Content Section */}
+      <div className="px-6 py-6 text-gray-700 text-sm">
+        {showDescription ? renderDescription() : renderReviews()}
+      </div>
+    </div>
+  
 
       <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
     </div>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'react-quill/dist/quill.snow.css'; // Import the Quill CSS
+import ReactQuill from 'react-quill';
 import axios from 'axios';
 import { backendUrl } from '../App';
 import { toast } from 'react-toastify';
@@ -176,14 +178,13 @@ const Add = ({ token }) => {
           </div>
 
           {/* Product Description */}
-          <div className='w-full'>
-            <p className='mb-2 font-semibold'>Product Description</p>
-            <textarea 
-              onChange={(e) => setDescription(e.target.value)} 
-              value={description} 
-              className="w-full max-w-[500px] px-3 py-2 border rounded" 
-              placeholder="Write content here" 
-              required 
+          <div className="w-full">
+            <p className="mb-2 font-semibold">Product Description</p>
+            <ReactQuill
+              value={description}
+              onChange={setDescription}
+              className="w-full max-w-[500px] border rounded"
+              placeholder="Write product description"
             />
           </div>
 

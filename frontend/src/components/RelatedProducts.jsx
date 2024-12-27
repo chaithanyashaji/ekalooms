@@ -1,38 +1,53 @@
-import React, { useContext,useState,useEffect } from 'react'
-import { ShopContext } from '../context/shopcontext'
-import Title from './Title';
-import ProductItem from '../components/ProductItem';
+import React, { useContext, useState, useEffect } from "react";
+import { ShopContext } from "../context/shopcontext";
+import Title from "./Title";
+import ProductItem from "../components/ProductItem";
 
-const RelatedProducts = ({category,subCategory}) => {
+const RelatedProducts = ({ category, subCategory }) => {
+  const { products } = useContext(ShopContext);
+  const [related, setRelated] = useState([]);
 
-    const {products} = useContext(ShopContext);
-    const [related,setRelated] = useState([]);
+  useEffect(() => {
+    if (products.length > 0) {
+      let productsCopy = products.slice();
+      productsCopy = productsCopy.filter(
+        (item) => category === item.category && subCategory === item.subCategory
+      );
+      setRelated(productsCopy); // Show all related products
+    }
+  }, [products, category, subCategory]);
 
-    useEffect(() =>{
-        if(products.length>0) {
-            let productsCopy= products.slice();
-            productsCopy = productsCopy.filter((item)=> category===item.category);
-            productsCopy = productsCopy.filter((item)=> subCategory===item.subCategory);
-            setRelated(productsCopy.slice(0,5)); 
-            
-
-        }
-    },[products]);
   return (
-    <div className='my-24'>
-        <div className='text-center text-3xl py-2'>
-        <Title text1={'RELATED '} text2={'PRODUCTS'}/>
+    <div className="my-24">
+      {/* Title */}
+      <div className="text-center text-xl py-2">
+        <Title text1={"You may "} text2={"also like"} />
+      </div>
 
+      {/* Horizontal Scroll */}
+      <div className="overflow-x-auto">
+        <div className="flex gap-4">
+          {related.map((item, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-40 sm:w-48 md:w-56 lg:w-64"
+            >
+              <ProductItem
+                id={item._id}
+                price={item.price}
+                image={item.image}
+                name={item.name}
+                rating={item.averageRating || 0}
+                totalReviews={item.totalReviews}
+                bestseller={item.bestseller}
+                inStock={item.inStock}
+              />
+            </div>
+          ))}
         </div>
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
-            {related.map((item,index)=>(
-                <ProductItem key={index} id={item._id} price={item.price} image={item.image} name={item.name} rating={item.averageRating||0} totalReviews={item.totalReviews} bestseller={item.bestseller} inStock={item.inStock}/>
-            ))}
-
-        </div>
-      
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default RelatedProducts
+export default RelatedProducts;
