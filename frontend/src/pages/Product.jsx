@@ -13,7 +13,7 @@ import { ShopContext } from '../context/shopcontext';
 import { Star, CreditCard, XCircle, Truck } from 'lucide-react';
 import RelatedProducts from '../components/RelatedProducts';
 import axios from 'axios';
-import {FaHeart,FaRegHeart, FaUserAlt, FaStar, FaStarHalfAlt, FaRegStar, FaShareAlt, FaLink } from 'react-icons/fa';
+import {FaHeart,FaRegHeart, FaUserAlt, FaStar, FaStarHalfAlt, FaRegStar, FaShareAlt, FaLink,FaTimes } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const Product = () => {
@@ -218,13 +218,15 @@ const Product = () => {
       >
         <FaShareAlt className="text-[#A75D5D] w-5 h-5" />
       </button>
+      
 
       {/* Share Options Dropdown */}
       {showShareOptions && (
         <div
-          className="fixed right-4 top-16 bg-white shadow-lg rounded-lg p-3 flex flex-col gap-3 w-48"
+          className="absolute right-4 top-16 bg-white shadow-lg rounded-lg p-3 flex flex-col gap-3 w-48"
           style={{ zIndex: 9999 }}
         >
+          
           <WhatsappShareButton
             url={shareUrl}
             title={shareDescription}
