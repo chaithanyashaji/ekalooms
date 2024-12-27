@@ -3,7 +3,7 @@ import { ShopContext } from '../context/shopcontext';
 import { FaHeart, FaRegHeart, FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 
-const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller, description, inStock,sizes,stockQuantity }) => {
+const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller, description, inStock,sizes,stockQuantity,category,subCategory }) => {
     const { currency, wishlist, addToWishlist, removeFromWishlist, token } = useContext(ShopContext);
     const navigate = useNavigate();
     const isInWishlist = wishlist.some((item) => item._id === id);
@@ -29,7 +29,7 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
     };
 
     return (
-        <div className="relative group border-gray-200 hover:shadow-lg transition-shadow duration-300 h-[300px] sm:h-[400px] w-full">
+        <div className="relative group border-gray-200 hover:shadow-lg transition-shadow duration-300 h-[350px] sm:h-[450px] w-full mt-2 mb-2">
             {/* Wishlist Button */}
             <button
                 onClick={() => {
@@ -59,7 +59,7 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
             <Link to={`/product/${id}`} className="block">
                 <div className="relative overflow-hidden">
                     <img
-                        className="w-full h-[200px] sm:h-[320px] rounded-md shadow-lg border border-[#e6dede] object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-[250px] sm:h-[320px] rounded-md shadow-lg border border-[#e6dede] object-cover group-hover:scale-105 transition-transform duration-300 "
                         src={image[0]}
                         alt={name}
                     />
@@ -78,12 +78,12 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
             {/* Product Details */}
             <div className="p-2 text-left">
                 {/* Brand/Product Name */}
-                <h3 className="text-sm font-bold prata-regular text-gray-800 truncate tracking-wider">
+                <h3 className="text-md font-bold prata-regular text-gray-800 truncate tracking-wider">
                     {name}
                 </h3>
 
                 {/* Product Description */}
-               
+               <p className='text-xs Outfit text-gray-600'>{category} - {subCategory}</p>
 
                 {/* Price and Ratings */}
                 <div className="mt-1 prata-regular flex flex-wrap items-center gap-2">

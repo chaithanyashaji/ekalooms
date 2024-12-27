@@ -18,7 +18,7 @@ const RelatedProducts = ({ category, subCategory }) => {
   }, [products, category, subCategory]);
 
   return (
-    <div className="my-24">
+    <div className="my-24 ">
       {/* Title */}
       <div className="text-center text-xl py-2">
         <Title text1={"You may "} text2={"also like"} />
@@ -41,6 +41,8 @@ const RelatedProducts = ({ category, subCategory }) => {
                 totalReviews={item.totalReviews}
                 bestseller={item.bestseller}
                 inStock={item.inStock}
+                category={item.category}
+              subCategory={item.subCategory}
               />
             </div>
           ))}

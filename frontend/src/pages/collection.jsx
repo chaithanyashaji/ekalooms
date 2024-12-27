@@ -244,6 +244,7 @@ const Collection = () => {
               rating={item.averageRating || 0}
               totalReviews={item.totalReviews}
               bestseller={item.bestseller}
+              category={item.category}
               subCategory={item.subCategory}
               description={item.description}
               inStock={item.inStock}

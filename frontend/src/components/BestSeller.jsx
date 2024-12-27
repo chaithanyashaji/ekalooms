@@ -21,11 +21,12 @@ useEffect(() => {
             
         </div>
 
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6 mb-8'>
             {
                 bestSeller.map((item,index)=>(
                     <ProductItem key={index} id={item._id} name={item.name} image={item.image} price={item.price} rating={item.averageRating||0 }
-                    totalReviews={item.totalReviews} bestseller={item.bestseller} inStock={item.inStock}/>
+                    totalReviews={item.totalReviews} bestseller={item.bestseller} inStock={item.inStock} category={item.category}
+                    subCategory={item.subCategory} sizes={item.sizes}/>
                 ))
             }
 
