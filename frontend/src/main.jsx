@@ -4,13 +4,12 @@ import './index.css'
 import App from './App.jsx'
 import {BrowserRouter} from 'react-router-dom';
 import ShopContextProvider from './context/shopcontext.jsx';
-import logger from "./logger";
 
-if (process.env.NODE_ENV === "production") {
-  console.error = (message) => logger.error(message);
-  console.warn = (message) => logger.warn(message);
-  console.log = (message) => logger.info(message); // Optional: Handle general logs
+if (import.meta.env.MODE === 'production') {
+  console.log = () => {}; // Suppress console.log
+  console.error = () => {}; // Suppress console.error
 }
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   <ShopContextProvider>
