@@ -12,7 +12,6 @@ import orderRouter from './routes/orderRoute.js';
 import reviewRouter from './routes/reviewRoute.js';
 import razorpayWebhookRouter from './routes/razorpayWebhook.js';
 import couponRouter from './routes/couponRoute.js';
-import bcrypt from "bcryptjs"
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -29,23 +28,14 @@ const allowedOrigins = [process.env.FRONTEND_URL, process.env.ADMIN_URL];
 
 app.use(cors({
     origin: (origin, callback) => {
-        if (!origin) {
-            // Allow requests without origin during development
-            if (process.env.NODE_ENV !== 'production') {
-                return callback(null, true);
-            }
-            return callback(new Error("CORS error: No origin provided."));
-        }
-
-        if (allowedOrigins.includes(origin)) {
-            return callback(null, true); // Allow the origin
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true); // Allow the origin
         } else {
-            return callback(new Error(`CORS error: Origin ${origin} not allowed.`));
+            callback(new Error("Not allowed by CORS")); // Reject the origin
         }
     },
     credentials: true, // Allow cookies to be sent
 }));
-
 
 // Routes
 app.use('/api/webhook/razorpay', express.raw({ type: 'application/json' }), razorpayWebhookRouter);
@@ -85,7 +75,3 @@ app.listen(port, () => {
 
     selfPing();
 });
-
-
-
-
