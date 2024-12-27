@@ -2,21 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Favicon for standard browsers -->
-<link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-<!-- Additional favicons for different sizes (optional) -->
-<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
-<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
-
-<!-- Web app manifest (if included in the ZIP) -->
-<link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ekalooms</title>
+    <meta name="description" content="Ekalooms - Latest arrivals in Sarees,Suits and home decor. Shop now for high-quality handmade collections." />
+    
+    <!-- Favicon for standard browsers -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <!-- Additional favicons for different sizes -->
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <!-- Web app manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload hero image for better LCP -->
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222243/hero_img1_n4rk9q.jpg">
+
+
+
+    <title>Ekalooms</title>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Load main app script -->
     <script type="module" src="/src/main.jsx"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <!-- Razorpay checkout script (async for performance) -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
   </body>
 </html>

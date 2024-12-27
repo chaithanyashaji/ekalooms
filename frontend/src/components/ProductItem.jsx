@@ -56,9 +56,6 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
                         className="w-full h-[200px] sm:h-[320px] rounded-md shadow-lg border border-[#e6dede] object-cover group-hover:scale-105 transition-transform duration-300"
                         src={image[0]}
                         alt={name}
-                        width="300" // Explicit width
-                        height="320" // Explicit height
-                        loading="lazy"
                     />
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>

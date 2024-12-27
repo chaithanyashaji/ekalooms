@@ -1,22 +1,27 @@
-import React, { memo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { memo } from "react";
+import { useNavigate } from "react-router-dom";
 
+// Memoized CategoryCard for performance optimization
 const CategoryCard = memo(({ category }) => {
   const navigate = useNavigate();
-  
+
   return (
     <div
       className="flex flex-col items-center cursor-pointer"
       onClick={() => navigate(`/collection?category=${category.name}`)}
     >
-      <div className="w-20 h-24 sm:w-24 sm:h-28 lg:w-28 lg:h-32 shadow-xl border border-[#A75D5D] rounded-t-full  overflow-hidden">
-      <img
-          src={category.image}
+      <div className="w-20 h-24 sm:w-24 sm:h-28 lg:w-28 lg:h-32 shadow-xl border border-[#A75D5D] rounded-t-full overflow-hidden">
+        <img
+          src={`${category.image}?w=112&h=134&c_fill`}
+          srcSet={`
+            ${category.image}?w=112&h=134&c_fill 1x,
+            ${category.image}?w=224&h=268&c_fill 2x
+          `}
           alt={category.name}
-          width="112" // Explicit width for performance (adjust as per actual size)
-          height="134" // Explicit height for performance (adjust as per actual size)
+          width="112" // Explicit width
+          height="134" // Explicit height
           className="w-full h-full object-cover"
-          loading="lazy"
+          loading="lazy" // Enable lazy loading for better performance
         />
       </div>
       <p className="mt-2 mb-2 text-xs sm:text-sm lg:text-base prata-regular text-[#A75D5D] font-medium text-center">
@@ -26,28 +31,29 @@ const CategoryCard = memo(({ category }) => {
   );
 });
 
+// CategorySection Component
 const CategorySection = () => {
   const categories = [
     {
       name: "Saree",
       image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222267/hero_img4_xdmaiq.jpg",
-      slug: "Saree"
+      slug: "Saree",
     },
     {
       name: "Stitched Suits",
       image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222265/hero_img3_akf5rs.jpg",
-      slug: "Stitched-Suits"
+      slug: "Stitched-Suits",
     },
     {
       name: "Home Decor",
       image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222285/hero_img6_prjeuj.jpg",
-      slug: "Home-Decor"
+      slug: "Home-Decor",
     },
     {
       name: "Unstitched Suits",
       image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg",
-      slug: "Unstitched-Suits"
-    }
+      slug: "Unstitched-Suits",
+    },
   ];
 
   return (
