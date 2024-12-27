@@ -213,23 +213,32 @@ const placeOrderRazorpay = async (req, res) => {
       await newOrder.save();
 
       for (const item of items) {
-        const { _id, size,quantity  } = item;
+        const { _id, size, quantity } = item;
   
-        // Find the product
         const product = await productModel.findById(_id);
   
         if (product) {
-          console.log(product.stockQuantity);
-          // Reduce the stock quantity
-          product.stockQuantity -= quantity;
+          if (size) {
+            const sizeEntry = product.sizes.find((s) => s.size === size);
+            if (sizeEntry) {
+              sizeEntry.quantity -= quantity;
+              if (sizeEntry.quantity <= 0) {
+                sizeEntry.quantity = 0;
+              }
+            }
   
-          // Check if stock is depleted
-          if (product.stockQuantity <= 0) {
-            product.stockQuantity = 0;
-            product.inStock = false; // Mark as out of stock
+            const totalStock = product.sizes.reduce((acc, s) => acc + s.quantity, 0);
+            product.stockQuantity = totalStock;
+            product.inStock = totalStock > 0;
+          } else {
+            product.stockQuantity -= quantity;
+            if (product.stockQuantity <= 0) {
+              product.stockQuantity = 0;
+              product.inStock = false;
+            }
           }
+          await product.save();
         }
-        await product.save();
       }
     
   
@@ -323,23 +332,32 @@ const placeGuestOrder = async (req, res) => {
         await newOrder.save();
 
         for (const item of items) {
-          const { _id, size,quantity  } = item;
+          const { _id, size, quantity } = item;
     
-          // Find the product
           const product = await productModel.findById(_id);
     
           if (product) {
-            console.log(product.stockQuantity);
-            // Reduce the stock quantity
-            product.stockQuantity -= quantity;
+            if (size) {
+              const sizeEntry = product.sizes.find((s) => s.size === size);
+              if (sizeEntry) {
+                sizeEntry.quantity -= quantity;
+                if (sizeEntry.quantity <= 0) {
+                  sizeEntry.quantity = 0;
+                }
+              }
     
-            // Check if stock is depleted
-            if (product.stockQuantity <= 0) {
-              product.stockQuantity = 0;
-              product.inStock = false; // Mark as out of stock
+              const totalStock = product.sizes.reduce((acc, s) => acc + s.quantity, 0);
+              product.stockQuantity = totalStock;
+              product.inStock = totalStock > 0;
+            } else {
+              product.stockQuantity -= quantity;
+              if (product.stockQuantity <= 0) {
+                product.stockQuantity = 0;
+                product.inStock = false;
+              }
             }
+            await product.save();
           }
-          await product.save();
         }
 
         res.json({ success: true, message: "Guest Order Placed", orderId: newOrder._id });
@@ -376,23 +394,32 @@ const placeOrderRazorpayGuest = async (req, res) => {
       await newOrder.save();
 
       for (const item of items) {
-        const { _id, size,quantity  } = item;
+        const { _id, size, quantity } = item;
   
-        // Find the product
         const product = await productModel.findById(_id);
   
         if (product) {
-          console.log(product.stockQuantity);
-          // Reduce the stock quantity
-          product.stockQuantity -= quantity;
+          if (size) {
+            const sizeEntry = product.sizes.find((s) => s.size === size);
+            if (sizeEntry) {
+              sizeEntry.quantity -= quantity;
+              if (sizeEntry.quantity <= 0) {
+                sizeEntry.quantity = 0;
+              }
+            }
   
-          // Check if stock is depleted
-          if (product.stockQuantity <= 0) {
-            product.stockQuantity = 0;
-            product.inStock = false; // Mark as out of stock
+            const totalStock = product.sizes.reduce((acc, s) => acc + s.quantity, 0);
+            product.stockQuantity = totalStock;
+            product.inStock = totalStock > 0;
+          } else {
+            product.stockQuantity -= quantity;
+            if (product.stockQuantity <= 0) {
+              product.stockQuantity = 0;
+              product.inStock = false;
+            }
           }
+          await product.save();
         }
-        await product.save();
       }
       
 

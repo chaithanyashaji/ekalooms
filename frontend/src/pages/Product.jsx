@@ -22,6 +22,7 @@ const Product = () => {
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
+  
   const [reviews, setReviews] = useState([]);
   const [averageRating, setAverageRating] = useState(0);
   const [totalReviews, setTotalReviews] = useState(0);
@@ -283,47 +284,90 @@ const Product = () => {
           
           {productData.sizes && productData.sizes.length > 0 && (
   <div className="flex flex-col gap-4 my-8">
-    <p className="text-[#F0997D] prata-regular">Select Size</p>
-    <div className="flex gap-2">
+    <p className="text-[#d08268] prata-regular">Select Size</p>
+    <div className="flex flex-wrap gap-4">
       {productData.sizes.map((item, index) => (
-        <button
-          onClick={() => setSize(item)}
-          className={`border rounded-md py-2 px-4 ${
-            item === size ? 'border-[#F0997D] bg-[#FFC3A1]' : 'bg-gray-100'
-          }`}
-          key={index}
-        >
-          {item}
-        </button>
+        <div key={index} className="flex flex-col items-center">
+          {/* Size Button */}
+          <button
+            onClick={() => item.quantity > 0 && setSize(item.size)} // Only allow selection if quantity > 0
+            disabled={item.quantity === 0} // Disable button if quantity is 0
+            className={`border rounded-md py-2 px-4 ${
+              item.size === size ? 'border-[#F0997D] bg-[#FFC3A1]' : 'bg-gray-100'
+            } ${
+              item.quantity === 0 ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+          >
+            {item.size}
+          </button>
+
+          {/* Quantity Indicator */}
+          {item.quantity < 5 && item.quantity > 0 && (
+            <p className="text-xs text-red-500 mt-1">{item.quantity} left</p>
+          )}
+        </div>
       ))}
     </div>
   </div>
 )}
 
+
+
 <button
-    onClick={() => {
-      if (productData.sizes && productData.sizes.length > 0 && !size) {
-        toast.error('Please select a size before adding to cart.', {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-        return;
-      }
-      addToCart(productData._id, size || null);
-    }}
-    disabled={productData.stockQuantity === 0}
-    className={`px-8 rounded-md py-3 text-sm ${
-      productData.stockQuantity > 0
-        ? "text-white bg-gradient-to-r from-[#F0997D] to-[#D3756B] hover:from-[#D3756B] hover:to-[#F0997D]"
-        : "text-gray-500 bg-gray-200 cursor-not-allowed"
-    }`}
-  >
-    {productData.stockQuantity === 0 ? "OUT OF STOCK" : "ADD TO CART"}
-  </button>
+  onClick={() => {
+    // Ensure size or color is selected if applicable
+    if (productData.sizes && productData.sizes.length > 0 && !size) {
+      toast.error('Please select a size before adding to cart.', {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      return;
+    }
+    
+    if (productData.colors && productData.colors.length > 0 && !color) {
+      toast.error('Please select a color before adding to cart.', {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      return;
+    }
+    
+
+    // Add to cart logic
+    addToCart(productData._id, size || null, color || null);
+  }}
+  disabled={
+    (!productData.sizes || productData.sizes.length === 0) // For products without sizes
+      ? productData.stockQuantity === 0 // Check stockQuantity
+      : productData.sizes.every((s) => s.quantity === 0) // Check if all sizes are out of stock
+  }
+  className={`px-8 rounded-md py-3 text-sm ${
+    ((!productData.sizes || productData.sizes.length === 0) && productData.stockQuantity > 0) || // Product without sizes and stockQuantity > 0
+    (productData.sizes && productData.sizes.some((s) => s.quantity > 0)) // Product with sizes and at least one size has quantity > 0
+      ? "text-white bg-gradient-to-r from-[#F0997D] to-[#D3756B] hover:from-[#D3756B] hover:to-[#F0997D]"
+      : "text-gray-500 bg-gray-200 cursor-not-allowed"
+  }`}
+>
+  {/* Button Label */}
+  {(!productData.sizes || productData.sizes.length === 0) // For products without sizes
+    ? productData.stockQuantity === 0 // Check stockQuantity
+      ? "OUT OF STOCK"
+      : "ADD TO CART"
+    : productData.sizes.every((s) => s.quantity === 0) // For products with sizes
+    ? "OUT OF STOCK"
+    : "ADD TO CART"}
+</button>
+
+
+
 
           
           <hr className="mt-8 sm:w-4/5" />

@@ -84,43 +84,54 @@ const List = ({ token }) => {
 
       {/* Desktop Table */}
       <div className="hidden md:block pb-20">
-        <div className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b bg-gray-100 font-semibold text-sm">
-          <b>#</b>
-          <b>Image</b>
-          <b>Name</b>
-          <b>Category</b>
-          <b>Sizes</b>
-          <b>Price</b>
-          <b className="text-center">Actions</b>
-        </div>
-
-        {currentProducts.map((item, index) => (
-          <div
-            key={item._id}
-            className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b text-sm hover:bg-gray-50 transition"
-          >
-            <p>{indexOfFirstProduct + index + 1}</p>
-            <img
-              className="w-12 h-12 object-cover rounded"
-              src={item.image[0]}
-              alt={item.name}
-            />
-            <p className="font-medium">{item.name}</p>
-            <p>{item.category}</p>
-            <p className="text-xs">{item.sizes.join(', ')}</p>
-            <p className="font-semibold">{currency}{item.price}</p>
-            <div className="flex justify-center items-center space-x-3">
-              <FaEdit
-                className="text-blue-500 cursor-pointer hover:text-blue-600"
-                onClick={() => setEditProduct(item)} // Open EditProduct with selected product
-              />
-              <FaTrash
-                className="text-red-400 cursor-pointer hover:text-red-500"
-                onClick={() => setConfirmDelete(item._id)}
-              />
-            </div>
-          </div>
-        ))}
+      <div className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b bg-gray-100 font-semibold text-sm">
+  <b>#</b>
+  <b>Image</b>
+  <b>Name</b>
+  <b>Category</b>
+  <b>Sizes</b>
+  <b>Colors</b> {/* New Column */}
+  <b>Price</b>
+  <b className="text-center">Actions</b>
+</div>
+{currentProducts.map((item, index) => (
+  <div
+    key={item._id}
+    className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b text-sm hover:bg-gray-50 transition"
+  >
+    <p>{indexOfFirstProduct + index + 1}</p>
+    <img
+      className="w-12 h-12 object-cover rounded"
+      src={item.image[0]}
+      alt={item.name}
+    />
+    <p className="font-medium">{item.name}</p>
+    <p>{item.category}</p>
+    <p className="text-xs">
+      {item.sizes
+        .filter((size) => size.quantity > 0)
+        .map((size) => `${size.size} (${size.quantity})`)
+        .join(', ')}
+    </p>
+    <p className="text-xs">
+      {item.colors
+        .filter((color) => color.quantity > 0)
+        .map((color) => `${color.color} (${color.quantity})`)
+        .join(', ')}
+    </p> {/* Display Colors */}
+    <p className="font-semibold">{currency}{item.price}</p>
+    <div className="flex justify-center items-center space-x-3">
+      <FaEdit
+        className="text-blue-500 cursor-pointer hover:text-blue-600"
+        onClick={() => setEditProduct(item)}
+      />
+      <FaTrash
+        className="text-red-400 cursor-pointer hover:text-red-500"
+        onClick={() => setConfirmDelete(item._id)}
+      />
+    </div>
+  </div>
+))}
       </div>
 
       {/* Mobile View */}
@@ -145,8 +156,21 @@ const List = ({ token }) => {
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div>
                 <p className="text-gray-500">Sizes</p>
-                <p className="font-medium">{item.sizes.join(', ')}</p>
+                <p className="font-medium">
+  {item.sizes
+    .filter((size) => size.quantity > 0)
+    .map((size) => `${size.size} (${size.quantity})`)
+    .join(', ')}
+</p>
+
               </div>
+              <p className="text-gray-500">Colors</p>
+    <p className="font-medium">
+      {item.colors
+        .filter((color) => color.quantity > 0)
+        .map((color) => `${color.color} (${color.quantity})`)
+        .join(', ')}
+    </p> {/* Display Colors */}
               <div>
                 <p className="text-gray-500">Price</p>
                 <p className="font-semibold">{currency}{item.price}</p>

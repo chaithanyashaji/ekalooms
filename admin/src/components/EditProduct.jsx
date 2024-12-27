@@ -20,6 +20,7 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
   const [bestseller, setBestseller] = useState(product?.bestseller || false);
   const [inStock, setInStock] = useState(product?.inStock || true);
   const [sizes, setSizes] = useState(product?.sizes || []);
+  const [colors, setColors] = useState(product?.colors || []);
   const [stockQuantity, setStockQuantity] = useState(product?.stockQuantity || ""); // New state for stock quantity
 
 
@@ -51,8 +52,10 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
       formData.append('subCategory', subCategory);
       formData.append('bestseller', bestseller);
       formData.append('inStock', inStock); // Append inStock to form data
-      formData.append('sizes', JSON.stringify(sizes));
+      formData.append('sizes', JSON.stringify(sizes.filter(size => size.quantity !== null)));
       formData.append('stockQuantity', stockQuantity);
+      formData.append('colors', JSON.stringify(colors.filter((color) => color.quantity !== null && color.quantity > 0)));
+
 
       if (image1) formData.append("image1", image1);
       if (image2) formData.append("image2", image2);
@@ -79,6 +82,38 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
     } catch (error) {
       toast.error("An error occurred while updating the product");
     }
+  };
+
+  const updateColorQuantity = (color, quantity) => {
+    setColors((prevColors) => {
+      const existingColor = prevColors.find((item) => item.color === color);
+      if (existingColor) {
+        return prevColors.map((item) =>
+          item.color === color ? { ...item, quantity: quantity === "" ? null : parseInt(quantity, 10) } : item
+        );
+      }
+      return prevColors;
+    });
+  };
+
+  const addNewColor = () => {
+    setColors([...colors, { color: "", quantity: 0 }]);
+  };
+  
+  const removeColor = (index) => {
+    setColors(colors.filter((_, i) => i !== index));
+  };
+
+  const updateSizeQuantity = (size, quantity) => {
+    setSizes((prevSizes) => {
+      const existingSize = prevSizes.find((item) => item.size === size);
+      if (existingSize) {
+        return prevSizes.map((item) =>
+          item.size === size ? { ...item, quantity: quantity === "" ? null : parseInt(quantity, 10) } : item
+        );
+      }
+      return [...prevSizes, { size, quantity: parseInt(quantity, 10) || 0 }];
+    });
   };
 
   const renderImageUpload = (image, setImage, id, existingImage) => (
@@ -201,26 +236,66 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
             </div>
           </div>
 
+          {/* Colors */}
+<div className="w-full max-w-[500px]">
+  <p className="mb-2 font-semibold">Product Colors and Quantities</p>
+  {colors.map((item, index) => (
+    <div key={index} className="flex items-center gap-4 mb-2">
+      <input
+        type="text"
+        placeholder="Color"
+        value={item.color || ''}
+        onChange={(e) => {
+          const updatedColors = [...colors];
+          updatedColors[index].color = e.target.value;
+          setColors(updatedColors);
+        }}
+        className="w-1/3 px-3 py-2 border rounded"
+      />
+      <input
+        type="number"
+        placeholder="Quantity"
+        min="0"
+        value={item.quantity || ''}
+        onChange={(e) => updateColorQuantity(item.color, e.target.value)}
+        className="w-1/3 px-3 py-2 border rounded"
+      />
+      <button
+        type="button"
+        onClick={() => removeColor(index)}
+        className="text-red-500 hover:text-red-700"
+      >
+        Remove
+      </button>
+    </div>
+  ))}
+  <button
+    type="button"
+    onClick={addNewColor}
+    className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300"
+  >
+    Add Color
+  </button>
+</div>
+
+
           {/* Sizes */}
           <div className="w-full max-w-[500px]">
-            <p className="mb-2 font-semibold">Product Sizes</p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {["S", "Free Size", "M", "L", "XL", "XXL", "King", "Queen", "Single", "No Size"].map((size) => (
-                <div
-                  key={size}
-                  onClick={() => setSizes((prev) =>
-                    prev.includes(size) ? prev.filter(item => item !== size) : [...prev, size]
-                  )}
-                  className={`cursor-pointer px-4 py-2 rounded-md text-center border ${
-                    sizes.includes(size) ? 'bg-pink-100 text-black' : 'bg-gray-200 text-gray-600'
-                  } hover:bg-pink-200 transition duration-200`}
-                >
-                  {size}
-                </div>
-              ))}
-            </div>
+            <p className="mb-2 font-semibold">Product Sizes and Quantities</p>
+            {['S', 'M', 'L', 'XL', 'XXL', 'King', 'Queen', 'Single', 'Free-Size'].map((size) => (
+              <div key={size} className="flex items-center gap-4 mb-2">
+                <label className="w-1/3 font-medium">{size}</label>
+                <input
+                  type="number"
+                  placeholder="Quantity"
+                  min="0"
+                  value={sizes.find((item) => item.size === size)?.quantity || ''}
+                  onChange={(e) => updateSizeQuantity(size, e.target.value)}
+                  className="w-2/3 px-3 py-2 border rounded"
+                />
+              </div>
+            ))}
           </div>
-
           {/* Bestseller Checkbox */}
           <div className="flex items-center gap-2 mt-2">
             <input
@@ -242,7 +317,7 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
     type="number"
     placeholder="Enter stock quantity"
     min="0"
-    required
+   
   />
 </div>
 

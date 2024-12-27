@@ -18,6 +18,8 @@ const Add = ({ token }) => {
   const [bestseller, setBestseller] = useState(false);
   const [inStock, setInStock] = useState(true);
   const [sizes, setSizes] = useState([]);
+  const [colors, setColors] = useState([]);
+
   const [stockQuantity, setStockQuantity] = useState(0); // New state for stock quantity
 
 
@@ -48,7 +50,13 @@ const Add = ({ token }) => {
       formData.append('subCategory', subCategory);
       formData.append('bestseller', bestseller);
       formData.append('inStock', inStock);
-      formData.append('sizes', JSON.stringify(sizes));
+      formData.append(
+        'sizes',
+        JSON.stringify(sizes.filter(size => size.quantity !== null && size.quantity > 0))
+      );
+      const filteredColors = colors.filter((color) => color.quantity > 0);
+      formData.append('colors', JSON.stringify(filteredColors));
+      
       formData.append('stockQuantity', stockQuantity);
 
 
@@ -74,6 +82,7 @@ const Add = ({ token }) => {
         setBestseller(false);
         setInStock(true);
         setSizes([]);
+        setColors([]);
         setImages([null, null, null, null]);
       } else {
         toast.error(response.data.message);
@@ -113,6 +122,21 @@ const Add = ({ token }) => {
       });
     };
   }, [imagePreviews]);
+
+  const updateColorQuantity = (color, quantity) => {
+    setColors((prevColors) => {
+      const existingColor = prevColors.find((item) => item.color === color);
+      if (existingColor) {
+        return prevColors.map((item) =>
+          item.color === color ? { ...item, quantity: parseInt(quantity, 10) || 0 } : item
+        );
+      }
+      // If color doesn't exist, return without adding a new one
+      return prevColors;
+    });
+  };
+  
+ 
 
   const renderImageUpload = (image, preview, index) => (
     <div key={index} className="relative flex-shrink-0">
@@ -235,25 +259,73 @@ const Add = ({ token }) => {
               />
             </div>
           </div>
+          <div className="w-full max-w-[500px]">
+  <p className="mb-2 font-semibold">Product Colors and Quantities</p>
+  {colors.map((item, index) => (
+    <div key={index} className="flex items-center gap-4 mb-2">
+      <input
+        type="text"
+        placeholder="Color"
+        value={item.color || ''}
+        onChange={(e) => {
+          const updatedColors = [...colors];
+          updatedColors[index].color = e.target.value;
+          setColors(updatedColors);
+        }}
+        className="w-1/3 px-3 py-2 border rounded"
+      />
+      <input
+        type="number"
+        placeholder="Quantity"
+        min="0"
+        value={item.quantity || ''}
+        onChange={(e) => {
+          const updatedColors = [...colors];
+          updatedColors[index].quantity = parseInt(e.target.value, 10) || 0;
+          setColors(updatedColors);
+        }}
+        className="w-1/3 px-3 py-2 border rounded"
+      />
+      <button
+        type="button"
+        onClick={() => {
+          const updatedColors = colors.filter((_, i) => i !== index);
+          setColors(updatedColors);
+        }}
+        className="text-red-500 hover:text-red-700"
+      >
+        Remove
+      </button>
+    </div>
+  ))}
+  <button
+    type="button"
+    onClick={() => setColors([...colors, { color: '', quantity: 0 }])}
+    className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300"
+  >
+    Add Color
+  </button>
+</div>
+
+
+
 
           {/* Sizes */}
           <div className="w-full max-w-[500px]">
-            <p className='mb-2 font-semibold'>Product Sizes</p>
-            <div className='grid grid-cols-2 sm:grid-cols-4 gap-3'>
-              {["S", "Free Size", "M", "L", "XL", "XXL", "King", "Queen", "Single", "No Size"].map((size) => (
-                <div
-                  key={size}
-                  onClick={() => setSizes((prev) =>
-                    prev.includes(size) ? prev.filter(item => item !== size) : [...prev, size]
-                  )}
-                  className={`cursor-pointer px-4 py-2 rounded-md text-center border ${
-                    sizes.includes(size) ? 'bg-pink-100 text-black' : 'bg-gray-200 text-gray-600'
-                  } hover:bg-pink-200 transition duration-200`}
-                >
-                  {size}
-                </div>
-              ))}
-            </div>
+            <p className="mb-2 font-semibold">Product Sizes and Quantities</p>
+            {['S', 'M', 'L', 'XL', 'XXL','King','Queen','Single','Free-Size'].map((size) => (
+              <div key={size} className="flex items-center gap-4 mb-2">
+                <label className="w-1/3 font-medium">{size}</label>
+                <input
+                  type="number"
+                  placeholder="Quantity"
+                  min="0"
+                  value={sizes.find((item) => item.size === size)?.quantity || ''}
+                  onChange={(e) => updateSizeQuantity(size, e.target.value)}
+                  className="w-2/3 px-3 py-2 border rounded"
+                />
+              </div>
+            ))}
           </div>
 
           {/* Bestseller Checkbox */}

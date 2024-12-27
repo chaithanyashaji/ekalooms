@@ -9,7 +9,18 @@ const productSchema = new mongoose.Schema({
     bestseller: { type: Boolean, default: false },
     category: { type: String, required: true },
     subCategory: { type: String, required: true },
-    sizes : {type: Array, required: true},
+    sizes: [
+        {
+            size: { type: String, required: true }, // e.g., "S", "M", "L"
+            quantity: { type: Number, required: true }, // Quantity for the size
+        }
+    ],
+    colors: [
+        {
+            color: { type: String, required: true }, // e.g., "Red", "Blue", "Green"
+            quantity: { type: Number, required: true }, // Quantity for the color
+        }
+    ],
     date:{type:Number, required: true},
     reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'review' }],
     averageRating: { type: Number, default: 0 },
