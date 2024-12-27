@@ -109,9 +109,10 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
       const existingSize = prevSizes.find((item) => item.size === size);
       if (existingSize) {
         return prevSizes.map((item) =>
-          item.size === size ? { ...item, quantity: quantity === "" ? null : parseInt(quantity, 10) } : item
+          item.size === size ? { ...item, quantity: parseInt(quantity, 10) || 0 } : item
         );
       }
+      // If the size doesn't exist, add it
       return [...prevSizes, { size, quantity: parseInt(quantity, 10) || 0 }];
     });
   };

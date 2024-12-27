@@ -3,10 +3,16 @@ import { ShopContext } from '../context/shopcontext';
 import { FaHeart, FaRegHeart, FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 
-const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller, description, inStock }) => {
+const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller, description, inStock,sizes,stockQuantity }) => {
     const { currency, wishlist, addToWishlist, removeFromWishlist, token } = useContext(ShopContext);
     const navigate = useNavigate();
     const isInWishlist = wishlist.some((item) => item._id === id);
+
+    const isOutOfStock =
+  !sizes || sizes.length === 0
+    ? stockQuantity === 0 || !inStock // For products without sizes, check stockQuantity and inStock
+    : sizes.every((size) => size.quantity === 0) || !inStock; // For products with sizes, check if all sizes have quantity 0 or inStock is false
+
 
     const generateStars = (rating) => {
         const fullStars = Math.floor(rating);
@@ -61,7 +67,7 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
 
                     {/* Out of Stock Badge */}
-                    {!inStock && (
+                    {isOutOfStock && (
                         <div className="absolute bottom-2 right-2 bg-[#A75D5D] text-white text-xs px-2 py-1 rounded shadow-md">
                             OUT OF STOCK
                         </div>

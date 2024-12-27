@@ -135,6 +135,20 @@ const Add = ({ token }) => {
       return prevColors;
     });
   };
+
+  const updateSizeQuantity = (size, quantity) => {
+    setSizes((prevSizes) => {
+      const existingSize = prevSizes.find((item) => item.size === size);
+      if (existingSize) {
+        return prevSizes.map((item) =>
+          item.size === size ? { ...item, quantity: parseInt(quantity, 10) || 0 } : item
+        );
+      }
+      // If the size doesn't exist, add it
+      return [...prevSizes, { size, quantity: parseInt(quantity, 10) || 0 }];
+    });
+  };
+  
   
  
 
@@ -349,7 +363,7 @@ const Add = ({ token }) => {
     type="number"
     placeholder="Enter stock quantity"
     min="0"
-    required
+   
   />
 </div>
 

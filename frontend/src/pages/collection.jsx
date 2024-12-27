@@ -247,6 +247,9 @@ const Collection = () => {
               subCategory={item.subCategory}
               description={item.description}
               inStock={item.inStock}
+              sizes={item.sizes}
+              stockQuantity={item.stockQuantity}
+              
               
             />
           ))}
