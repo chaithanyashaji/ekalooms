@@ -211,7 +211,7 @@ const Product = () => {
   </div>
 
   {/* Share Button */}
-  <div className="fixed top-4 right-4 flex flex-col gap-2 z-50">
+  <div className="absolute top-2 right-2 flex flex-col gap-2 z-10">
       <button
         onClick={() => setShowShareOptions(!showShareOptions)}
         className="p-2 bg-white/90 rounded-full shadow-md hover:bg-gray-100 transition-all"
