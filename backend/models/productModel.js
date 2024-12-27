@@ -15,6 +15,7 @@ const productSchema = new mongoose.Schema({
     averageRating: { type: Number, default: 0 },
     totalReviews: { type: Number, default: 0 },
     inStock: { type: Boolean, default: true },
+    stockQuantity: { type: Number}
 })
 
 const productModel = mongoose.models.product || mongoose.model('product', productSchema);

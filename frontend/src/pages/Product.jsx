@@ -275,7 +275,11 @@ const Product = () => {
             <p className="pl-2 text-[#D3756B] ">({totalReviews})</p>
           </div>
           <p className="mt-5 mb-5 text-2xl font-medium prata-regular text-[#A75D5D]">{currency}{productData.price}</p>
-          
+          {productData.stockQuantity === 0 ? "" : productData.stockQuantity < 5 ? (
+    <p className="text-red-600 font-sm mt-2 mb-2">
+     Only {productData.stockQuantity} left, order now!
+    </p>
+  ) : null}
           
           {productData.sizes && productData.sizes.length > 0 && (
   <div className="flex flex-col gap-4 my-8">
@@ -297,30 +301,29 @@ const Product = () => {
 )}
 
 <button
-  onClick={() => {
-    if (productData.sizes && productData.sizes.length > 0 && !size) {
-      toast.error('Please select a size before adding to cart.', {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-      return;
-    }
-    addToCart(productData._id, size || null);
-  }}
-  disabled={!productData.inStock}
-  className={`px-8 rounded-md py-3 text-sm ${
-    productData.inStock
-      ? "text-white bg-gradient-to-r from-[#F0997D] to-[#D3756B] hover:from-[#D3756B] hover:to-[#F0997D]"
-      : "text-gray-500 bg-gray-200 cursor-not-allowed"
-  }`}
->
-  {productData.inStock ? "ADD TO CART" : "OUT OF STOCK"}
-</button>
-
+    onClick={() => {
+      if (productData.sizes && productData.sizes.length > 0 && !size) {
+        toast.error('Please select a size before adding to cart.', {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        return;
+      }
+      addToCart(productData._id, size || null);
+    }}
+    disabled={productData.stockQuantity === 0}
+    className={`px-8 rounded-md py-3 text-sm ${
+      productData.stockQuantity > 0
+        ? "text-white bg-gradient-to-r from-[#F0997D] to-[#D3756B] hover:from-[#D3756B] hover:to-[#F0997D]"
+        : "text-gray-500 bg-gray-200 cursor-not-allowed"
+    }`}
+  >
+    {productData.stockQuantity === 0 ? "OUT OF STOCK" : "ADD TO CART"}
+  </button>
 
           
           <hr className="mt-8 sm:w-4/5" />

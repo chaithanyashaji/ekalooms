@@ -5,7 +5,7 @@ import fs from "fs";
 // Function to add a product
 const addProduct = async (req, res) => {
   try {
-    const { name, description, price, category, subCategory, sizes, bestseller, inStock } = req.body;
+    const { name, description, price, category, subCategory, sizes, bestseller, inStock, stockQuantity } = req.body;
     const images = [
       req.files?.image1?.[0],
       req.files?.image2?.[0],
@@ -38,6 +38,8 @@ const addProduct = async (req, res) => {
       price: Number(price),
       category,
       subCategory,
+      stockQuantity: Number(stockQuantity),
+      
       sizes: JSON.parse(sizes),
       bestseller: bestseller === "true",
       inStock: inStock === "true",
@@ -57,7 +59,7 @@ const addProduct = async (req, res) => {
 // Function to update a product
 const updateProduct = async (req, res) => {
   try {
-    const { productId, name, description, price, category, subCategory, sizes, bestseller, inStock } = req.body;
+    const { productId, name, description, price, category, subCategory, sizes, bestseller, inStock,stockQuantity } = req.body;
 
     if (!productId) {
       return res.status(400).json({ success: false, message: "Product ID is required." });
@@ -113,6 +115,7 @@ const updateProduct = async (req, res) => {
       price: price ? Number(price) : existingProduct.price,
       category: category || existingProduct.category,
       subCategory: subCategory || existingProduct.subCategory,
+      stockQuantity: stockQuantity ? Number(stockQuantity) : existingProduct.stockQuantity,
       sizes: sizes ? JSON.parse(sizes) : existingProduct.sizes,
       bestseller: bestseller !== undefined ? bestseller === "true" : existingProduct.bestseller,
       inStock: inStock !== undefined ? inStock === "true" : existingProduct.inStock,

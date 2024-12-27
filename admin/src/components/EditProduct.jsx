@@ -20,6 +20,8 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
   const [bestseller, setBestseller] = useState(product?.bestseller || false);
   const [inStock, setInStock] = useState(product?.inStock || true);
   const [sizes, setSizes] = useState(product?.sizes || []);
+  const [stockQuantity, setStockQuantity] = useState(product?.stockQuantity || ""); // New state for stock quantity
+
 
   const categories = {
     Saree: [
@@ -50,6 +52,7 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
       formData.append('bestseller', bestseller);
       formData.append('inStock', inStock); // Append inStock to form data
       formData.append('sizes', JSON.stringify(sizes));
+      formData.append('stockQuantity', stockQuantity);
 
       if (image1) formData.append("image1", image1);
       if (image2) formData.append("image2", image2);
@@ -229,6 +232,20 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
             />
             <label className="cursor-pointer" htmlFor="bestseller">Add to bestseller</label>
           </div>
+          {/* Stock Quantity */}
+<div className="w-full max-w-[500px]">
+  <p className="mb-2 font-semibold">Stock Quantity</p>
+  <input
+    onChange={(e) => setStockQuantity(e.target.value)}
+    value={stockQuantity}
+    className="w-full px-3 py-2 border rounded"
+    type="number"
+    placeholder="Enter stock quantity"
+    min="0"
+    required
+  />
+</div>
+
 
           {/* In Stock Checkbox */}
           <div className="flex items-center gap-2 mt-2">

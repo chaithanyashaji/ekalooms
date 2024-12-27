@@ -3,7 +3,7 @@ import userModel from "../models/userModel.js";
 import Stripe from 'stripe'
 import razorpay from 'razorpay'
 import { sendMail } from '../services/emailService.js';
-
+import productModel from "../models/productModel.js";
 
 
 
@@ -211,6 +211,27 @@ const placeOrderRazorpay = async (req, res) => {
       // Step 4: Update the order with the Razorpay order ID
       newOrder.razorpayOrderId = razorpayOrder.id;
       await newOrder.save();
+
+      for (const item of items) {
+        const { _id, size,quantity  } = item;
+  
+        // Find the product
+        const product = await productModel.findById(_id);
+  
+        if (product) {
+          console.log(product.stockQuantity);
+          // Reduce the stock quantity
+          product.stockQuantity -= quantity;
+  
+          // Check if stock is depleted
+          if (product.stockQuantity <= 0) {
+            product.stockQuantity = 0;
+            product.inStock = false; // Mark as out of stock
+          }
+        }
+        await product.save();
+      }
+    
   
       // Step 5: Send the response back to the client
       return res.json({
@@ -301,6 +322,26 @@ const placeGuestOrder = async (req, res) => {
         const newOrder = new orderModel(orderData);
         await newOrder.save();
 
+        for (const item of items) {
+          const { _id, size,quantity  } = item;
+    
+          // Find the product
+          const product = await productModel.findById(_id);
+    
+          if (product) {
+            console.log(product.stockQuantity);
+            // Reduce the stock quantity
+            product.stockQuantity -= quantity;
+    
+            // Check if stock is depleted
+            if (product.stockQuantity <= 0) {
+              product.stockQuantity = 0;
+              product.inStock = false; // Mark as out of stock
+            }
+          }
+          await product.save();
+        }
+
         res.json({ success: true, message: "Guest Order Placed", orderId: newOrder._id });
     } catch (error) {
         console.log(error);
@@ -333,6 +374,28 @@ const placeOrderRazorpayGuest = async (req, res) => {
       // Step 2: Save the initial order in the database
       const newOrder = new orderModel(orderData);
       await newOrder.save();
+
+      for (const item of items) {
+        const { _id, size,quantity  } = item;
+  
+        // Find the product
+        const product = await productModel.findById(_id);
+  
+        if (product) {
+          console.log(product.stockQuantity);
+          // Reduce the stock quantity
+          product.stockQuantity -= quantity;
+  
+          // Check if stock is depleted
+          if (product.stockQuantity <= 0) {
+            product.stockQuantity = 0;
+            product.inStock = false; // Mark as out of stock
+          }
+        }
+        await product.save();
+      }
+      
+
   
       // Step 3: Create Razorpay order
       const options = {
