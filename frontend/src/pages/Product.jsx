@@ -132,21 +132,22 @@ const Product = () => {
 
     const renderDescription = () => {
       if (!productData.description) {
-        return <p className="prata-regular">No description available.</p>;
+        return <p className=" text-gray-600">No description available.</p>;
       }
       return (
         <div
-          className="prata-regular rich-text-content"
+          className="rich-text-content  text-gray-600"
           dangerouslySetInnerHTML={{
             __html: productData.description,
           }}
         />
       );
     };
+    
 
     const renderReviews = () => {
       if (reviews.length === 0) {
-        return <p className="prata-regular">No reviews yet.</p>;
+        return <p>No reviews yet.</p>;
       }
       return (
         <div className="max-h-150 overflow-y-auto">
@@ -159,21 +160,20 @@ const Product = () => {
                   {review.userId.name}
                 </p>
               </div>
-    
+  
               {/* Review Stars */}
               <div className="flex gap-1">{generateStars(review.rating)}</div>
-    
+  
               {/* Review Date */}
-              <p className="text-xs text-gray-400 prata-regular">{formatDate(review.date)}</p>
-    
+              <p className="text-xs text-gray-400">{formatDate(review.date)}</p>
+  
               {/* Review Comment */}
-              <p className="prata-regular">{review.comment}</p>
+              <p>{review.comment}</p>
             </div>
           ))}
         </div>
       );
     };
-    
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
