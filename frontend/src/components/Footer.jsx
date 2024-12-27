@@ -14,14 +14,14 @@ const Footer = () => {
             className="mb-5 w-32"
             alt="Logo"
           />
-          <p className="prata-regular text-gray-600 text-left ">
-            Eka Looms — Adding colorful weaves to your wardrobe.
+          <p className="prata-regular text-gray-600 text-left">
+            Adding colorful weaves to your wardrobe.
           </p>
         </div>
 
-        {/* Company Links Section */}
+        {/* Quick Links Section */}
         <div>
-          <p className="text-xl font-medium mb-5 text-[#D3756B]">COMPANY</p>
+          <p className="text-xl font-medium mb-5 text-[#D3756B]">Quick Links</p>
           <ul className="flex flex-col gap-1 text-gray-600">
             <li
               className="cursor-pointer hover:text-[#A75D5D]"
@@ -44,18 +44,50 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact Information Section */}
+        {/* Need Help Section */}
         <div>
-          <p className="text-xl font-medium mb-5 text-[#D3756B]">GET IN TOUCH</p>
-          <ul className="flex flex-col gap-1 text-gray-600">
-            <li>Phone: +91-9113054569</li>
-            <li>Email: ekalooms@gmail.com</li>
-          </ul>
+          <p className="text-xl font-medium mb-5 text-[#D3756B]">Need Help?</p>
+          <div className="bg-[#FFF5EB] p-5 rounded-md">
+            <p className="text-sm text-[#A75D5D] mb-3 font-semibold">
+              MON - SAT: 10:00 AM TO 7:30 PM (IST)
+            </p>
+            <ul className="flex flex-col gap-2 text-gray-600">
+              <li>
+                <a
+                  href="https://wa.me/9113054569"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-[#A75D5D]"
+                >
+                  <i className="fab fa-whatsapp text-[#A75D5D]"></i> Order on WhatsApp
+                </a>
+              </li>
+              <li
+                className="cursor-pointer hover:text-[#A75D5D] flex items-center gap-2"
+                onClick={() => navigate('/policy')}
+              >
+                <i className="fas fa-handshake text-[#D3756B]"></i> Return Policy
+              </li>
+              <li>
+                <a href="tel:+919113054569" className="flex items-center gap-2 hover:text-[#A75D5D]">
+                  <i className="fas fa-phone-alt text-[#D3756B]"></i> Call Us: +91-9113054569
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:ekalooms@gmail.com"
+                  className="flex items-center gap-2 hover:text-[#A75D5D]"
+                >
+                  <i className="fas fa-envelope text-[#A75D5D]"></i> Email Us: ekalooms@gmail.com
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
       {/* Divider and Copyright */}
-      <div className="relative">
+      <div className="relative mt-8">
         <hr className="border-[#F0997D]" />
         <p
           className="py-5 text-sm text-center text-[#A75D5D]"
