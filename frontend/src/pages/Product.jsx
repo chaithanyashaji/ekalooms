@@ -336,7 +336,7 @@ const Product = () => {
       </div>
       <div className="flex items-center gap-2">
         <Truck size={16} color="#F0997D" />
-        <p>Standard delivery time 6-7 working days</p>
+        <p>Standard delivery time 6-7 is working days</p>
       </div>
     </div>
         </div>
