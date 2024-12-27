@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { X, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 
-function MobileFilterPanel({ 
-  showFilter, 
-  setShowFilter, 
-  categorySubCategoryMap, 
-  category, 
-  subCategory, 
-  toggleCategory, 
+function MobileFilterPanel({
+  showFilter,
+  setShowFilter,
+  categorySubCategoryMap = {},
+  category = [],
+  subCategory = [],
+  toggleCategory,
   toggleSubCategory,
   applyFilter,
   sortType,
-  setSortType
+  setSortType,
 }) {
   const [expandedCategories, setExpandedCategories] = useState({});
 
@@ -28,7 +28,7 @@ function MobileFilterPanel({
   };
 
   return (
-    <div 
+    <div
       className={`fixed inset-0 z-[100] bg-white transform transition-transform duration-300 ${
         showFilter ? 'translate-x-0' : 'translate-x-full'
       } flex flex-col`}
@@ -39,7 +39,10 @@ function MobileFilterPanel({
           <Filter className="w-6 h-6 text-[#9d4a54]" />
           <h2 className="text-xl font-bold text-[#9d4a54]">Filters</h2>
         </div>
-        <button onClick={() => setShowFilter(false)} className="p-2 rounded-md hover:bg-gray-200">
+        <button
+          onClick={() => setShowFilter(false)}
+          className="p-2 rounded-md hover:bg-gray-200"
+        >
           <X className="w-6 h-6 text-[#9d4a54]" />
         </button>
       </div>
@@ -77,19 +80,18 @@ function MobileFilterPanel({
           <h3 className="text-lg font-semibold mb-4 text-[#A75D5D]">Categories</h3>
           {Object.keys(categorySubCategoryMap).map((cat) => (
             <div key={cat} className="mb-4">
-              <div 
-                onClick={() => toggleCategory({ target: { value: cat } })}
+              <div
                 className="flex justify-between items-center py-2 px-3 rounded-lg bg-gray-100 hover:bg-gray-200 cursor-pointer"
               >
-                <div className="flex items-center gap-2">
+                <label className="flex items-center gap-2">
                   <input
                     type="checkbox"
                     checked={category.includes(cat)}
-                    readOnly
+                    onChange={() => toggleCategory(cat)}
                     className="w-4 h-4 accent-[#D3756B]"
                   />
                   <span className="text-[#9d4a54] font-medium">{cat}</span>
-                </div>
+                </label>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -101,25 +103,30 @@ function MobileFilterPanel({
                 </button>
               </div>
 
-              {expandedCategories[cat] && (
-                <div className="pl-6 mt-2 space-y-2">
-                  {categorySubCategoryMap[cat].map((sub) => (
-                    <div 
-                      key={sub} 
-                      className="flex items-center gap-2 cursor-pointer"
-                      onClick={() => toggleSubCategory({ target: { value: sub } })}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={subCategory.includes(sub)}
-                        readOnly
-                        className="w-4 h-4 accent-[#D3756B]"
-                      />
-                      <span className="text-[#9d4a54]">{sub}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
+              {expandedCategories[cat] && Array.isArray(categorySubCategoryMap[cat]) && (
+  <div className="pl-6 mt-2 space-y-2">
+    {categorySubCategoryMap[cat].map((sub) => (
+      <label key={sub} className="flex items-center gap-2 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={subCategory.includes(sub)}
+          onChange={() => {
+            if (category.includes(cat)) {
+              toggleSubCategory(sub);
+            } else {
+              // Ensure parent category is selected before allowing subcategory toggle
+              toggleCategory(cat);
+              toggleSubCategory(sub);
+            }
+          }}
+          className="w-4 h-4 accent-[#D3756B]"
+        />
+        <span className="text-[#9d4a54]">{sub}</span>
+      </label>
+    ))}
+  </div>
+)}
+
             </div>
           ))}
         </div>

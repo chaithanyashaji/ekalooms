@@ -77,9 +77,7 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
                 </h3>
 
                 {/* Product Description */}
-                <p className="text-xs poppins-regular text-gray-500 truncate">
-                    {description}
-                </p>
+               
 
                 {/* Price and Ratings */}
                 <div className="mt-1 prata-regular flex flex-wrap items-center gap-2">

@@ -1,3 +1,4 @@
+// Collection Component
 import React, { useContext, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -8,7 +9,7 @@ import ProductItem from '../components/ProductItem';
 import MobileFilterPanel from '../components/MobileFilterPanel';
 
 const Collection = () => {
-  const { products, search, showSearch,pagination } = useContext(ShopContext);
+  const { products, search, showSearch, pagination } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -27,6 +28,9 @@ const Collection = () => {
       'Mul Mul',
       'Linen',
       'Kota Doria',
+      'Chanderi-silk',
+      'Maheshwari-silk',
+      'Soft khadi cotton',
       'Chanderi',
       'Maheshwari',
       'Madurai Sungudi / Velthari',
@@ -35,6 +39,9 @@ const Collection = () => {
       'Organza',
     ],
     'Stitched Suits': [
+      'Cotton',
+      'Rayon',
+      'Muslin',
       'Mul Mul',
       'Linen',
       'Kota Doria',
@@ -46,6 +53,9 @@ const Collection = () => {
       'Organza',
     ],
     'Unstitched Suits': [
+      'Cotton',
+      'Rayon',
+      'Muslin',
       'Mul Mul',
       'Linen',
       'Kota Doria',
@@ -71,7 +81,7 @@ const Collection = () => {
 
   const applyFilter = () => {
     let filtered = products.slice();
-  
+
     if (showSearch && search) {
       filtered = filtered.filter((item) =>
         item.name.toLowerCase().includes(search.toLowerCase())
@@ -83,7 +93,7 @@ const Collection = () => {
     if (subCategory.length > 0) {
       filtered = filtered.filter((item) => subCategory.includes(item.subCategory));
     }
-  
+
     // Apply sorting
     if (sortType === 'low-high') {
       filtered = filtered.sort((a, b) => a.price - b.price);
@@ -94,19 +104,25 @@ const Collection = () => {
     } else if (sortType === 'bestseller') {
       filtered = filtered.sort((a, b) => (b.bestseller ? 1 : -1));
     }
-  
+
     setFilterProducts(filtered);
   };
-  
-  
 
   const paginate = () => {
     const startIndex = (currentPage - 1) * productsPerPage;
     return filterProducts.slice(startIndex, startIndex + productsPerPage);
   };
 
-  const handlePageChange = (page) => {
-    getProductsData(page, 20); // Fetch data for the selected page
+  const toggleCategory = (cat) => {
+    setCategory((prev) =>
+      prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
+    );
+  };
+
+  const toggleSubCategory = (subCat) => {
+    setSubCategory((prev) =>
+      prev.includes(subCat) ? prev.filter((s) => s !== subCat) : [...prev, subCat]
+    );
   };
 
   return (
@@ -129,138 +145,129 @@ const Collection = () => {
         categorySubCategoryMap={categorySubCategoryMap}
         category={category}
         subCategory={subCategory}
-        toggleCategory={(e) => setCategory(e.target.value)}
-        toggleSubCategory={(e) => setSubCategory(e.target.value)}
+        toggleCategory={toggleCategory}
+        toggleSubCategory={toggleSubCategory}
         applyFilter={applyFilter}
         sortType={sortType}
         setSortType={setSortType}
       />
 
-<div className="hidden sm:block w-1/4">
-  <div className="border p-6 rounded-lg shadow-lg bg-none">
-    <h2 className="text-xl font-bold text-[#A75D5D] mb-4">Filters</h2>
+<div className="hidden sm:block w-1/3">
+  <div className="sticky top-4 border border-[#D3756B]/20 p-6 rounded-xl shadow-md bg-white">
+    <h2 className="text-2xl font-bold text-[#A75D5D] mb-6">Filters</h2>
 
     {/* Category Section */}
-    <div className="mb-6">
-      <p className="text-lg font-medium text-[#D3756B] mb-3">Category</p>
-      <div className="flex flex-col gap-2">
+    <div className="mb-8">
+      <p className="text-lg font-semibold text-[#D3756B] mb-4">Category</p>
+      <div className="space-y-3">
         {Object.keys(categorySubCategoryMap).map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setCategory([cat])}
-            className={`block w-full text-left px-4 py-2 rounded-lg transition-colors duration-200 ${
-              category.includes(cat)
-                ? 'bg-[#F0997D] text-white font-semibold shadow-md opacity-70'
-                : 'bg-white hover:bg-[#F0997D] hover:text-white text-[#A75D5D] border border-[#D3756B]'
-            }`}
-          >
-            {cat}
-          </button>
+          <label key={cat} className="flex items-center gap-3 cursor-pointer group">
+            <input
+              type="checkbox"
+              checked={category.includes(cat)}
+              onChange={() => toggleCategory(cat)}
+              className="w-5 h-5 rounded-md accent-[#D3756B] cursor-pointer"
+            />
+            <span className="text-md text-[#9d4a54] group-hover:text-[#D3756B] transition-colors">
+              {cat}
+            </span>
+          </label>
         ))}
       </div>
     </div>
 
     {/* Sub-Category Section */}
-    <div className="mb-6">
-      <p className="text-lg font-medium text-[#D3756B] mb-3">Sub-Category</p>
-      {category.length > 0 ? (
-        <div className="flex flex-col gap-2">
-          {categorySubCategoryMap[category[0]].map((subCat) => (
-            <button
-              key={subCat}
-              onClick={() => setSubCategory([subCat])}
-              className={`block w-full text-left px-4 py-2 rounded-lg transition-colors duration-200 ${
-                subCategory.includes(subCat)
-                  ? 'bg-[#F0997D] text-white font-semibold shadow-md opacity-70'
-                  : 'bg-white hover:bg-[#F0997D] hover:text-white text-[#A75D5D] border border-[#D3756B]'
-              }`}
-            >
-              {subCat}
-            </button>
-          ))}
-        </div>
-      ) : (
-        <p className="text-[#A75D5D] italic">Select a category first</p>
-      )}
+    <div className="mb-8">
+      <p className="text-lg font-semibold text-[#D3756B] mb-4">Sub-Category</p>
+      <div className="space-y-3 max-h-60 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#D3756B] scrollbar-track-gray-100">
+        {category.length > 0 && Array.isArray(categorySubCategoryMap[category[0]]) ? (
+          categorySubCategoryMap[category[0]].map((subCat) => (
+            <label key={subCat} className="flex items-center gap-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                checked={subCategory.includes(subCat)}
+                onChange={() => toggleSubCategory(subCat)}
+                className="w-5 h-5 rounded-md accent-[#D3756B] cursor-pointer"
+              />
+              <span className="text-md text-[#9d4a54] group-hover:text-[#D3756B] transition-colors">
+                {subCat}
+              </span>
+            </label>
+          ))
+        ) : (
+          <p className="text-[#A75D5D] italic text-base">Select a category first</p>
+        )}
+      </div>
     </div>
 
     {/* Apply Filter Button */}
-    <div className="text-center">
-      <button
-        onClick={applyFilter}
-        className="px-6 py-3 w-full bg-[#D3756B] text-white font-semibold rounded-lg shadow hover:bg-[#A75D5D] transition-all duration-200"
-      >
-        Apply Filters
-      </button>
-    </div>
-  </div>
-</div>
-
-
-<div className="flex flex-col min-h-screen">
-<div className="hidden md:flex justify-between items-center mb-4">
-  <h2 className="text-2xl font-bold text-[#A75D5D]">Products</h2>
-  <div className="flex items-center gap-4">
-    <p className="text-lg font-semibold text-[#9d4a54]">Sort By:</p>
-    <select
-      value={sortType}
-      onChange={(e) => {
-        setSortType(e.target.value); // Update sort type
-        applyFilter(); // Apply filters and sorting
-      }}
-      className="py-2 px-4  rounded-lg text-[#A75D5D] border border-[#A75D5D]"
+    <button
+      onClick={applyFilter}
+      className="w-full py-3 bg-[#D3756B] text-white text-lg font-semibold rounded-lg shadow-md 
+                hover:bg-[#A75D5D] active:scale-[0.98] transition-all duration-200"
     >
-      <option value="relevant">Relevant</option>
-      <option value="low-high">Price: Low to High</option>
-      <option value="high-low">Price: High to Low</option>
-      <option value="rating">Rating</option>
-     <option value="bestseller">BestSeller</option>
-    </select>
+      Apply Filters
+    </button>
   </div>
 </div>
 
-  {/* Page Content */}
-  <div className="flex-1">
-    {/* Replace this comment with the rest of your page content, e.g., product grid */}
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
-      {paginate().map((item, index) => (
-        <ProductItem
-          key={index}
-          name={item.name}
-          id={item._id}
-          price={item.price}
-          image={item.image}
-          rating={item.averageRating || 0}
-          totalReviews={item.totalReviews}
-          bestseller={item.bestseller}
-          subCategory={item.subCategory}
-          description={item.description}
-          inStock={item.inStock}
-        />
-      ))}
-    </div>
-  </div>
+      <div className="flex flex-col min-h-screen">
+        <div className="hidden md:flex justify-between items-center mb-4">
+          <h2 className="text-2xl font-bold text-[#A75D5D]">Products</h2>
+          <div className="flex items-center gap-4">
+            <p className="text-lg  font-semibold text-[#9d4a54]">Sort By:</p>
+            <select
+              value={sortType}
+              onChange={(e) => {
+                setSortType(e.target.value);
+                applyFilter();
+              }}
+              className="py-2 px-4 rounded-lg text-[#A75D5D] border border-[#A75D5D]"
+            >
+              <option value="relevant">Relevant</option>
+              <option value="low-high">Price: Low to High</option>
+              <option value="high-low">Price: High to Low</option>
+              <option value="rating">Rating</option>
+              <option value="bestseller">Bestseller</option>
+            </select>
+          </div>
+        </div>
 
-  {/* Pagination Section */}
-  <div className="flex justify-center mt-6">
-      {Array.from({ length: pagination.totalPages }, (_, index) => (
-        <button
-          key={index}
-          onClick={() => handlePageChange(index + 1)}
-          className={`px-3 py-2 mx-1 rounded-md ${
-            pagination.currentPage === index + 1
-              ? 'bg-[#D3756B] text-white'
-              : 'bg-[#F3F3F5] text-[#A75D5D]'
-          }`}
-        >
-          {index + 1}
-        </button>
-      ))}
-    </div>
-  </div>
-</div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
+          {paginate().map((item, index) => (
+            <ProductItem
+              key={index}
+              name={item.name}
+              id={item._id}
+              price={item.price}
+              image={item.image}
+              rating={item.averageRating || 0}
+              totalReviews={item.totalReviews}
+              bestseller={item.bestseller}
+              subCategory={item.subCategory}
+              description={item.description}
+              inStock={item.inStock}
+            />
+          ))}
+        </div>
 
-   
+        <div className="flex justify-center mt-6">
+          {Array.from({ length: pagination.totalPages }, (_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentPage(index + 1)}
+              className={`px-3 py-2 mx-1 rounded-md ${
+                currentPage === index + 1
+                  ? 'bg-[#D3756B] text-white'
+                  : 'bg-[#F3F3F5] text-[#A75D5D]'
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

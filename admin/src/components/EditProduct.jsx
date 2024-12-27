@@ -23,15 +23,15 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
 
   const categories = {
     Saree: [
-      "Mul Mul", "Linen", "Kota Doria", "Chanderi", "Maheshwari",
+      "Mul Mul", "Linen","Chanderi-silk","Maheshwari-silk","Soft khadi cotton", "Kota Doria", "Chanderi", "Maheshwari", 
       "Madurai Sungudi / Velthari", "Soft Khadi", "Georgette", "Organza",
     ],
     "Stitched Suits": [
-      "Mul Mul", "Linen", "Kota Doria", "Chanderi", "Maheshwari",
+     "Cotton","Rayon","Muslin", "Mul Mul", "Linen", "Kota Doria", "Chanderi", "Maheshwari", 
       "Madurai Sungudi / Velthari", "Soft Khadi", "Georgette", "Organza",
     ],
     "Unstitched Suits": [
-      "Mul Mul", "Linen", "Kota Doria", "Chanderi", "Maheshwari",
+      "Cotton","Rayon","Muslin","Mul Mul", "Linen", "Kota Doria", "Chanderi", "Maheshwari", 
       "Madurai Sungudi / Velthari", "Soft Khadi", "Georgette", "Organza",
     ],
     "Home Decor": ["Bedsheets", "Cushion Covers", "Curtains", "Table Linen"],
