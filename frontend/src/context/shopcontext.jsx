@@ -32,21 +32,29 @@ const ShopContextProvider =(props) => {
             const response = await axios.post(
                 `${backendUrl}/api/user/refresh-token`,
                 {},
-                { withCredentials: true } // Use cookies
+                { withCredentials: true } // Automatically includes cookies
             );
+    
             if (response.data.success) {
-                const { newAccessToken } = response.data;
-                setToken(newAccessToken);
-                return newAccessToken;
+                const { accessToken } = response.data;
+    
+                // Save the new access token
+                setToken(accessToken);
+                localStorage.setItem("token", accessToken);
+    
+                return accessToken;
             } else {
                 throw new Error("Refresh token is invalid or expired");
             }
         } catch (error) {
             console.error("Error during refresh token process:", error.message);
             toast.error("Session expired. Please log in again.");
-            logout(); // Gracefully log out the user
+            logout(); // Log out the user if refresh fails
+            return null;
         }
     };
+    
+    
 
     // Retry Logic with Token Refresh
     const handleRequestWithRetry = async (apiCall, retryCount = 1) => {
@@ -64,7 +72,7 @@ const ShopContextProvider =(props) => {
             throw error; // Rethrow the error if not recoverable
         }
     };
-
+    
     // Logout Function
     const logout = () => {
         setToken(null);

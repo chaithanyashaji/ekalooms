@@ -10,9 +10,11 @@ const CategoryCard = memo(({ category }) => {
       onClick={() => navigate(`/collection?category=${category.name}`)}
     >
       <div className="w-20 h-24 sm:w-24 sm:h-28 lg:w-28 lg:h-32 shadow-xl border border-[#A75D5D] rounded-t-full  overflow-hidden">
-        <img
+      <img
           src={category.image}
           alt={category.name}
+          width="112" // Explicit width for performance (adjust as per actual size)
+          height="134" // Explicit height for performance (adjust as per actual size)
           className="w-full h-full object-cover"
           loading="lazy"
         />

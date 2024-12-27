@@ -30,7 +30,7 @@ const TrackYourOrder = () => {
         setError("Order not found or invalid Order ID.");
       }
     } catch (error) {
-      console.error("Error tracking order:", error.message);
+      
       setError("Something went wrong. Please try again later.");
     } finally {
       setLoading(false); // End loading

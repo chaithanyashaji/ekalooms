@@ -22,8 +22,8 @@ const About = () => {
           </div>
 
           <div className="md:w-2/3 space-y-5 text-gray-600">
-            <div className="border-l-4 border-[#A75D5D] pl-2 sm:pl-5">
-            <p className="Outfit leading-relaxed pb-4 italic text-[#A75D5D]">Welcome to ekalooms,</p>
+            <div className="pl-2 sm:pl-5">
+              <p className="Outfit leading-relaxed pb-4 italic text-[#A75D5D]">Welcome to ekalooms,</p>
               <p className="Outfit leading-relaxed">
                 We're a homegrown brand, rooted in our love for India's rich artistry and the unmatched skill of local artisans. 
                 Every saree, suit, and piece of home decor we offer is carefully handpicked from different parts of India, bringing you 
@@ -40,17 +40,15 @@ const About = () => {
                 Explore our collection today and rediscover the joy of owning pieces that feel as personal as they are beautiful.
               </p>
               <br />
-              <p className="Outfit text-lg text-left italic">
-            Happy  shopping!!
-          </p>
-             
+              <p className="text-md text-left italic text-[#A75D5D] border-t border-[#A75D5D] pt-4 font-serif ">
+                Happy Shopping! 
+              </p>
             </div>
           </div>
         </div>
 
         <div className="text-end pr-3 text-gray-600">
           <p className="prata-regular text-md text-[#A75D5D]">ekatribe ❤️</p>
-         
         </div>
       </div>
     </div>

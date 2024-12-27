@@ -48,34 +48,26 @@ const Login = () => {
     }
 
     try {
-        const url = currentState === 'Sign Up'
-            ? `${backendUrl}/api/user/register`
-            : `${backendUrl}/api/user/login`;
+      const url = currentState === 'Sign Up'
+          ? `${backendUrl}/api/user/register`
+          : `${backendUrl}/api/user/login`;
 
-        const payload = currentState === 'Sign Up'
-            ? { name, email, password }
-            : { email, password };
+      const payload = currentState === 'Sign Up'
+          ? { name, email, password }
+          : { email, password };
 
-        const response = await axios.post(url, payload);
-       
+      const response = await axios.post(url, payload, { withCredentials: true });
 
-        if (response.data.success) {
-            const { accessToken, refreshToken } = response.data;
-
-            // Save tokens to localStorage
-            localStorage.setItem("token", accessToken);
-            localStorage.setItem("refreshToken", refreshToken);
-
-            // Update state/context
-            setToken(accessToken);
-
-            // Redirect after successful login
-            navigate('/');
+      if (response.data.success) {
+          const { accessToken } = response.data;
+          localStorage.setItem("token", accessToken);
+          setToken(accessToken);
+          navigate('/');
         } else {
             toast.error(response.data.message);
         }
     } catch (error) {
-        console.error("Error in Submit Handler:", error);
+        
         toast.error("Something went wrong. Please try again.");
     }
 };

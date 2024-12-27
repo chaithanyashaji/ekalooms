@@ -1,19 +1,30 @@
 import validator from "validator";
 import userModel from "../models/userModel.js";
-
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import nodemailer from "nodemailer";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
+import winston from "winston";
 
 dotenv.config();
 
-const createToken = (id, expiresIn) => {
+// Configure logging
+const logger = winston.createLogger({
+    level: process.env.NODE_ENV === "production" ? "error" : "debug",
+    format: winston.format.json(),
+    transports: [
+        new winston.transports.File({ filename: "error.log", level: "error" }),
+        new winston.transports.Console({ format: winston.format.simple() }),
+    ],
+});
+
+// Utility to create tokens
+const createToken = (id, expiresIn, secret) => {
     return jwt.sign(
         { id },
-        process.env.JWT_SECRET,
+        secret,
         {
             expiresIn,
             audience: "your-app",
@@ -22,49 +33,49 @@ const createToken = (id, expiresIn) => {
     );
 };
 
-
-
-
-// Rate limiter to prevent brute force attacks
+// Rate limiter for brute force protection
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // Limit each IP to 100 requests per windowMs
-    message: "Too many requests, please try again later."
+    max: 100, // Limit each IP to 100 requests per window
+    message: "Too many requests, please try again later.",
 });
 
 // Configure email transporter
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com", // SMTP server address for Gmail
-    port: 587, // Port for TLS
-    secure: false, // Use false for TLS, true for SSL
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // Use true in production with TLS
     auth: {
-        user: process.env.EMAIL, // Your email address
-        pass: process.env.EMAIL_PASSWORD, // Your email password or app password
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASSWORD,
     },
 });
 
-// User registration
-const registerUser = async (req, res) => {
+// Centralized Error Handler Middleware
+const errorHandler = (err, req, res, next) => {
+    logger.error(err.message, { stack: err.stack });
+    res.status(err.status || 500).json({ success: false, message: "Internal server error" });
+};
+
+// Controllers
+
+const registerUser = async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
 
-        // Check if user already exists
         if (await userModel.findOne({ email })) {
             return res.status(400).json({ success: false, message: "User already registered" });
         }
 
-        // Validate email and password
         if (!validator.isEmail(email)) {
             return res.status(400).json({ success: false, message: "Invalid email format" });
         }
+
         if (password.length < 8) {
             return res.status(400).json({ success: false, message: "Password must be at least 8 characters long" });
         }
 
-        // Hash password
         const hashedPassword = await bcrypt.hash(password, 12);
-
-        // Create user
         const newUser = new userModel({
             name,
             email,
@@ -73,17 +84,24 @@ const registerUser = async (req, res) => {
         });
         const user = await newUser.save();
 
-        // Generate tokens
-        const accessToken = createToken(user._id, "20min");
+        const accessToken = createToken(user._id, "20min", process.env.JWT_SECRET);
+        const refreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
+
+        res.cookie("refreshToken", refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "Strict", 
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+            path: "/",
+        });
+
         res.status(201).json({ success: true, accessToken });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, message: "Internal server error" });
+        next(error);
     }
 };
 
-// User login
-const loginUser = async (req, res) => {
+const loginUser = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         const user = await userModel.findOne({ email });
@@ -92,31 +110,30 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ success: false, message: "Invalid credentials" });
         }
 
-        const accessToken = createToken(user._id, "20min");
-        const refreshToken = createToken(user._id, "7d");
+        const accessToken = createToken(user._id, "20min", process.env.JWT_SECRET);
+        const refreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        // Store refresh token in DB (limit to 1 active token)
         user.refreshTokens = [refreshToken];
         await user.save();
 
         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
-            sameSite: "Strict",
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+            sameSite: "Strict", 
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+            path: "/",
         });
 
         res.json({ success: true, accessToken });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, message: "Internal server error" });
+        next(error);
     }
 };
 
-// User logout
-const logoutUser = async (req, res) => {
+const logoutUser = async (req, res, next) => {
     try {
         const { refreshToken } = req.cookies;
+
         if (!refreshToken) {
             return res.status(401).json({ success: false, message: "Not logged in" });
         }
@@ -132,15 +149,14 @@ const logoutUser = async (req, res) => {
         res.clearCookie("refreshToken");
         res.json({ success: true, message: "Logged out successfully" });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, message: "Internal server error" });
+        next(error);
     }
 };
 
-// Refresh access token
-const refreshToken = async (req, res) => {
+const refreshToken = async (req, res, next) => {
     try {
         const { refreshToken: clientRefreshToken } = req.cookies;
+
         if (!clientRefreshToken) {
             return res.status(401).json({ success: false, message: "Refresh token is required" });
         }
@@ -149,29 +165,31 @@ const refreshToken = async (req, res) => {
         const user = await userModel.findById(decoded.id);
 
         if (!user || !user.refreshTokens.includes(clientRefreshToken)) {
-            return res.status(403).json({ success: false, message: "Invalid or expired refresh token" });
+            return res.status(403).json({ success: false, message: "Invalid refresh token" });
         }
 
-        // Generate new tokens
-        const newAccessToken = createToken(user._id, "15min");
-        const newRefreshToken = createToken(user._id, "7d");
+        user.refreshTokens = user.refreshTokens.filter((token) => token !== clientRefreshToken);
 
-        user.refreshTokens = [newRefreshToken];
+        const newAccessToken = createToken(user._id, "20min", process.env.JWT_SECRET);
+        const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
+
+        user.refreshTokens.push(newRefreshToken);
         await user.save();
 
         res.cookie("refreshToken", newRefreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
-            sameSite: "Strict",
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+            sameSite: "Lax",
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+            path: "/",
         });
 
-        res.json({ success: true, newAccessToken });
+        res.status(200).json({ success: true, accessToken: newAccessToken });
     } catch (error) {
-        console.error("Error verifying refresh token:", error.message);
-        res.status(403).json({ success: false, message: "Invalid or expired refresh token" });
+        next(error);
     }
 };
+
 
 
 // Forgot password
@@ -189,7 +207,7 @@ const forgotPassword = async (req, res) => {
 
         // Log for debugging purposes
         if (!user) {
-            console.log(`Email not found: ${email}`);
+           
             return res
                 .status(404)
                 .json({ success: false, message: "Email not found" });
@@ -218,7 +236,7 @@ const forgotPassword = async (req, res) => {
 
         res.status(200).json({ success: true, message: "Password reset confirmation email was sent to your email." });
     } catch (error) {
-        console.error("Forgot Password Error:", error.message);
+       
         res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
@@ -249,7 +267,7 @@ const resetPassword = async (req, res) => {
 
         res.json({ success: true, message: "Password reset successful" });
     } catch (error) {
-        console.error(error);
+       
         res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
@@ -259,29 +277,30 @@ const adminLogin = async (req, res) => {
         const { email, password } = req.body;
 
         if (!email || !password) {
+            logger.warn("Admin login attempt with missing credentials");
             return res.status(400).json({ success: false, message: "Email and password are required." });
         }
 
-        // Check credentials
-        if (email === process.env.ADMIN_EMAIL && bcrypt.compareSync(password, process.env.ADMIN_PASSWORD_HASH)) {
-            const token = jwt.sign(
-                { email, role: "admin" }, // Include role for authorization
-                process.env.JWT_SECRET,
-                { expiresIn: "1h" }
-            );
-
-            return res.status(200).json({ success: true, token });
-        } else {
+        if (email !== process.env.ADMIN_EMAIL || !bcrypt.compareSync(password, process.env.ADMIN_PASSWORD_HASH)) {
+            logger.warn("Invalid admin login credentials", { email });
             return res.status(401).json({ success: false, message: "Invalid credentials." });
         }
+
+        const token = jwt.sign(
+            { email, role: "admin" }, // Include role for authorization
+            process.env.JWT_SECRET,
+            { expiresIn: "1h" }
+        );
+
+        logger.info("Admin logged in successfully", { email });
+        return res.status(200).json({ success: true, token });
     } catch (error) {
-        console.error("Error during admin login:", error.message);
+        logger.error("Error during admin login", { error: error.message });
         return res.status(500).json({ success: false, message: "Internal server error." });
     }
 };
 
-
-
+// Add to wishlist
 const addToWishlist = async (req, res) => {
     try {
         const { productId } = req.body;
@@ -289,24 +308,27 @@ const addToWishlist = async (req, res) => {
 
         const user = await userModel.findById(userId);
         if (!user) {
+            logger.warn("User not found during add to wishlist", { userId });
             return res.status(404).json({ success: false, message: "User not found" });
         }
 
         if (user.wishlist.includes(productId)) {
+            logger.info("Product already in wishlist", { userId, productId });
             return res.status(409).json({ success: false, message: "Product already in wishlist" });
         }
 
         user.wishlist.push(productId);
         await user.save();
 
+        logger.info("Product added to wishlist", { userId, productId });
         res.status(200).json({ success: true, message: "Product added to wishlist" });
     } catch (error) {
-        console.error(error);
+        logger.error("Error adding to wishlist", { error: error.message });
         res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
 
-// Remove item from wishlist - requires authentication
+// Remove from wishlist
 const removeFromWishlist = async (req, res) => {
     try {
         const { productId } = req.body;
@@ -314,36 +336,39 @@ const removeFromWishlist = async (req, res) => {
 
         const user = await userModel.findById(userId);
         if (!user) {
-            return res.json({ success: false, message: "User not found" });
+            logger.warn("User not found during remove from wishlist", { userId });
+            return res.status(404).json({ success: false, message: "User not found" });
         }
 
         user.wishlist = user.wishlist.filter((id) => id.toString() !== productId);
         await user.save();
 
-        res.json({ success: true, message: "Product removed from wishlist" });
+        logger.info("Product removed from wishlist", { userId, productId });
+        res.status(200).json({ success: true, message: "Product removed from wishlist" });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Something went wrong. Please try again." });
+        logger.error("Error removing from wishlist", { error: error.message });
+        res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
 
-// Get wishlist items - requires authentication
+// Get wishlist
 const getWishlist = async (req, res) => {
     try {
         const userId = req.user.id; // Get user ID from the decoded token
         const user = await userModel.findById(userId).populate("wishlist");
 
         if (!user) {
-            return res.json({ success: false, message: "User not found" });
+            logger.warn("User not found during get wishlist", { userId });
+            return res.status(404).json({ success: false, message: "User not found" });
         }
 
-        res.json({ success: true, wishlist: user.wishlist });
+        logger.info("Wishlist retrieved successfully", { userId });
+        res.status(200).json({ success: true, wishlist: user.wishlist });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Something went wrong. Please try again." });
+        logger.error("Error retrieving wishlist", { error: error.message });
+        res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
-
 
 
 export {

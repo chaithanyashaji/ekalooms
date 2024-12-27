@@ -52,7 +52,7 @@ const Orders = () => {
         setFilteredOrders(reversedOrders); // Initialize filtered orders
       }
     } catch (error) {
-      console.error("Error loading orders:", error);
+      
     }
   };
 

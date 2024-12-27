@@ -39,10 +39,10 @@ const Product = () => {
         setAverageRating(data.averageRating);
         setTotalReviews(data.totalReviews);
       } else {
-        console.error("Failed to fetch reviews:", data.message);
+        
       }
     } catch (error) {
-      console.error("Error fetching reviews:", error.message);
+      
     }
   };
 
@@ -105,7 +105,7 @@ const Product = () => {
         draggable: true,
       });
     }).catch(err => {
-      console.error('Failed to copy: ', err);
+     
       toast.error('Failed to copy link', {
         position: "bottom-right",
         autoClose: 3000,
@@ -165,54 +165,57 @@ const Product = () => {
   </div>
 
   {/* Share Button */}
-  <div className="absolute top-2 right-2 flex flex-col gap-2 z-10">
-    <button
-      onClick={() => setShowShareOptions(!showShareOptions)}
-      className="p-2 bg-white/90 rounded-full shadow-md hover:bg-gray-100 transition-all"
-    >
-      <FaShareAlt className="text-[#A75D5D] w-5 h-5" />
-    </button>
+  <div className="fixed top-4 right-4 flex flex-col gap-2 z-50">
+      <button
+        onClick={() => setShowShareOptions(!showShareOptions)}
+        className="p-2 bg-white/90 rounded-full shadow-md hover:bg-gray-100 transition-all"
+      >
+        <FaShareAlt className="text-[#A75D5D] w-5 h-5" />
+      </button>
 
-    {/* Share Options Dropdown */}
-    {showShareOptions && (
-      <div className="absolute right-0 mt-10 bg-white shadow-lg rounded-lg p-3 flex flex-col gap-3 w-48">
-        <WhatsappShareButton
-          url={shareUrl}
-          title={shareDescription}
-          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
+      {/* Share Options Dropdown */}
+      {showShareOptions && (
+        <div
+          className="fixed right-4 top-16 bg-white shadow-lg rounded-lg p-3 flex flex-col gap-3 w-48"
+          style={{ zIndex: 9999 }}
         >
-          <WhatsappIcon size={24} round />
-          <span className="text-sm text-gray-600">WhatsApp</span>
-        </WhatsappShareButton>
+          <WhatsappShareButton
+            url={shareUrl}
+            title={shareDescription}
+            className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
+          >
+            <WhatsappIcon size={24} round />
+            <span className="text-sm text-gray-600">WhatsApp</span>
+          </WhatsappShareButton>
 
-        <FacebookShareButton
-          url={shareUrl}
-          quote={shareDescription}
-          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
-        >
-          <FacebookIcon size={24} round />
-          <span className="text-sm text-gray-600">Facebook</span>
-        </FacebookShareButton>
+          <FacebookShareButton
+            url={shareUrl}
+            quote={shareDescription}
+            className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
+          >
+            <FacebookIcon size={24} round />
+            <span className="text-sm text-gray-600">Facebook</span>
+          </FacebookShareButton>
 
-        <TwitterShareButton
-          url={shareUrl}
-          title={shareDescription}
-          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
-        >
-          <TwitterIcon size={24} round />
-          <span className="text-sm text-gray-600">X (Twitter)</span>
-        </TwitterShareButton>
+          <TwitterShareButton
+            url={shareUrl}
+            title={shareDescription}
+            className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
+          >
+            <TwitterIcon size={24} round />
+            <span className="text-sm text-gray-600">X (Twitter)</span>
+          </TwitterShareButton>
 
-        <button
-          onClick={copyLinkToClipboard}
-          className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
-        >
-          <FaLink className="text-[#A75D5D]" />
-          <span className="text-sm text-gray-600">Copy Link</span>
-        </button>
-      </div>
-    )}
-  </div>
+          <button
+            onClick={copyLinkToClipboard}
+            className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
+          >
+            <FaLink className="text-[#A75D5D]" />
+            <span className="text-sm text-gray-600">Copy Link</span>
+          </button>
+        </div>
+      )}
+    </div>
 </div>
 
         </div>

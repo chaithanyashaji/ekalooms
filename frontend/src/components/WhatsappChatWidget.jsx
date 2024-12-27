@@ -12,7 +12,7 @@ const WhatsAppChatWidget = () => {
   // Check screen size for responsive design
   useEffect(() => {
     const checkMobileView = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
     };
     
     checkMobileView();
@@ -23,14 +23,8 @@ const WhatsAppChatWidget = () => {
 
   // Open WhatsApp chat
   const openWhatsAppChat = () => {
-    const baseUrl = isMobile 
-      ? `https://wa.me/${WHATSAPP_NUMBER}` 
-      : `https://web.whatsapp.com/send?phone=${WHATSAPP_NUMBER}`;
-    
-    const encodedMessage = message 
-      ? `&text=${encodeURIComponent(message)}` 
-      : '';
-    
+    const baseUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
+    const encodedMessage = message ? `?text=${encodeURIComponent(message)}` : '';
     window.open(`${baseUrl}${encodedMessage}`, '_blank');
   };
 

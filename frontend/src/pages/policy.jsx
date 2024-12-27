@@ -1,7 +1,6 @@
 import React from 'react';
 import Title from '../components/Title';
 
-
 const Policy = () => {
   return (
     <div>
@@ -9,6 +8,7 @@ const Policy = () => {
         <Title text1={'Our '} text2={'Policy'} />
       </div>
       <div className="my-10 px-6 md:px-20 text-gray-600">
+        {/* Product Quality Information */}
         <div className="flex flex-col md:flex-row gap-10 items-center">
           <img
             className="w-full md:w-[40%] max-w-[350px] object-cover rounded-lg"
@@ -30,36 +30,83 @@ const Policy = () => {
               differences due to digital photography and your screen resolutions/device settings. Returns/exchange is
               denied for deviations in colour from the product displayed to the product received by you.
             </p>
-            <div>
-              <Title text1={'Placing Orders '} text2={'& Payments'} />
-              <p className="mb-6">
-                Kindly note we only accept prepaid orders. We do not provide Cash on Delivery options. Kindly fill your shipping information
-                in detail with the correct pincode & phone number that is in use for a smooth delivery process.
-              </p>
-            </div>
           </div>
         </div>
 
+        {/* Placing Orders & Payments */}
+        <div className="mt-8">
+          <Title text1={'Placing Orders '} text2={'& Payments'} />
+          <p className="mb-6">
+            Kindly note we only accept prepaid orders. We do not provide Cash on Delivery options. Kindly fill your
+            shipping information in detail with the correct pincode & phone number that is in use for a smooth delivery
+            process.
+          </p>
+        </div>
+
+        {/* Shipping Policy */}
         <div className="mt-8">
           <Title text1={'Shipping '} text2={'Policy'} />
           <p className="mb-8">
             All domestic shipments are dispatched within 2 working days, and all international shipments will be
-            dispatched within 7 working days & shared along with the tracking details. While shipments usually get
-            delivered earlier than or within the 7 days of standard delivery time, there can be rare exceptions where the
-            delivery gets delayed from the courier agency's side or due to any natural calamities like rains, floods, etc.,
-            which is beyond our control. We shall not be liable for any delays in delivery by the post office/courier
-            agencies.
+            dispatched within 7 working days & shared along with the tracking details. Normal delivery takes 5-7 days, and
+            fast delivery is available within 2 days for an additional charge of INR 95. Shop above INR 1499 to avail free
+            delivery. Delivery charges: Normal Delivery INR 60, Fast Delivery INR 95.
           </p>
         </div>
 
-        <Title text1={'Exchange '} text2={'Policy'} />
-        <p className="mb-8">
-          Kindly note that we do not follow a refund policy and do not offer a refund on any orders. All products are
-          pre-checked for quality & defects before they are shipped. Despite our best efforts, if the product delivered
-          is incorrect/damaged, the customer is required to inform us within 24 hours of delivery with the parcel
-          opening video as proof of the same. The cost of return/exchange in such cases has to be borne by the customer.
-          We hold all the rights to not accept the products in case they are used or damaged by the customer.
-        </p>
+        {/* Refund & Cancellation Policy */}
+        <div className="mt-8">
+          <Title text1={'Refunds '} text2={'& Cancellations'} />
+          <p className="mb-8">
+          Kindly note that we do not follow a refund policy and do not offer a refund on any orders unless the product
+            delivered is incorrect/damaged or if there is an error in order placement. The customer is required to inform us within 24 hours of delivery with the
+            parcel opening video as proof (incase of product damage). Refunds, if approved, will be processed within 5-7 working days, and the amount
+            will be credited to the customer's bank account.
+          </p>
+        </div>
+
+        <div className="mt-8">
+          <Title text1={'Wash '} text2={'Instructions'} />
+          <p className="mb-8">
+            For long-lasting care of handcrafted fabrics, please ensure:
+          </p>
+          <ul className="list-disc list-inside mb-6">
+            <li>Gentle hand wash in cold water</li>
+            <li>Use detergent specifically formulated for delicate fabrics</li>
+            <li>Air dry naturally in a shaded area. Avoid direct sunlight</li>
+          </ul>
+          <p className="mb-8">
+            <strong>Note:</strong> Handcrafted fabrics may have minor differences, color smudges, or border holes which are
+            common and usually go away in one wash. For fabric-specific wash instructions, please reach out to our team.
+          </p>
+        </div>
+
+        {/* Pricing in INR */}
+        <div className="mt-8">
+          <Title text1={'Pricing '} text2={'Details'} />
+          <p className="mb-8">All prices listed on our website are in INR and inclusive of applicable taxes.</p>
+        </div>
+
+        {/* Terms & Conditions */}
+        <div className="mt-8">
+          <Title text1={'Terms '} text2={'& Conditions'} />
+          <p className="mb-8">
+            By using this website, you agree to comply with and be bound by the terms and conditions of use. We reserve the
+            right to update or modify these terms at any time without prior notice.
+          </p>
+        </div>
+
+        {/* Contact Us */}
+        <div className="mt-8">
+          <Title text1={'Contact '} text2={'Us'} />
+          <p className="mb-8">
+            For any queries, reach out to us at:
+            <br />
+            Phone: +91-9113054569
+            <br />
+            Contact us :  ekalooms@gmail.com
+          </p>
+        </div>
       </div>
     </div>
   );

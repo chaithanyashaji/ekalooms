@@ -76,7 +76,8 @@ const razorpayWebhook = async (req, res) => {
                 <li style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
                     <div style="flex: 1;">
                         <p style="margin: 0; font-size: 14px;"><strong>Item:</strong> ${item.name}</p>
-                        ${item.hasOwnProperty('size') ? `<p style="margin: 0; font-size: 14px;"><strong>Size:</strong> ${item.size}</p>` : ''}
+                        
+                        ${item.sizes && item.sizes.length > 0 && item.size ? `<p style="margin: 0; font-size: 14px;"><strong>Size:</strong> ${item.size}</p>` : ''}
                         <p style="margin: 0; font-size: 14px;"><strong>Quantity:</strong> ${item.quantity || 1}</p>
                     </div>
                     <img src="${item.image[0]}" alt="${item.name}" style="width: 80px; height: auto; margin-left: 15px; border-radius: 5px; border: 1px solid #ddd;" />
@@ -118,7 +119,7 @@ const razorpayWebhook = async (req, res) => {
                 <li style="margin-bottom: 10px;">
                     <strong>Item Name:</strong> ${item.name}<br>
                     <strong>Quantity:</strong> ${item.quantity || 1}<br>
-                       ${item.hasOwnProperty('size') ? `<strong>Size:</strong> ${item.size}<br>` : ''}
+                       ${item.sizes && item.sizes.length > 0 && item.size ? `<p style="margin: 0; font-size: 14px;"><strong>Size:</strong> ${item.size}</p>` : ''}
                 </li>
             `
             )

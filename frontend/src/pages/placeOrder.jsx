@@ -57,7 +57,7 @@ const PlaceOrder = () => {
         setDiscount(0);
       }
     } catch (error) {
-      console.error('Error applying coupon:', error);
+     
       toast.error('Failed to apply coupon.');
     }
   };
@@ -97,7 +97,7 @@ const PlaceOrder = () => {
               
             }
           } catch (error) {
-            console.error('Error checking payment status:', error.message);
+            
             toast.error('Error verifying payment status.');
             clearInterval(pollInterval);
           }
@@ -187,7 +187,7 @@ if (method === 'razorpay') {
         }
       }
     } catch (error) {
-      console.error('Order Placement Error:', error.message);
+      
       toast.error(error.message || 'An error occurred while placing the order');
     }
   };
@@ -348,7 +348,7 @@ if (method === 'razorpay') {
         <div className="mt-8">
           <Title text1={'DELIVERY '} text2={'OPTIONS'} />
           <div className="flex flex-col gap-2">
-            <label className="flex items-center gap-2 text-gray-600">
+            <label className="flex items-center gap-2 text-gray-500">
               <input
                 type="radio"
                 name="delivery"
@@ -356,9 +356,9 @@ if (method === 'razorpay') {
                 checked={deliveryOption === 'normal'}
                 onChange={() => setDeliveryOption('normal')}
               />
-              Normal Delivery (5-7 Days) - ₹60
+              Normal Delivery (5-7 Days) - INR 60
             </label>
-            <label className="flex items-center gap-2 text-gray-600">
+            <label className="flex items-center gap-2 text-gray-500">
               <input
                 type="radio"
                 name="delivery"
@@ -366,7 +366,7 @@ if (method === 'razorpay') {
                 checked={deliveryOption === 'speedy'}
                 onChange={() => setDeliveryOption('speedy')}
               />
-              Fast Delivery (Within 2 Days) - ₹95
+              Fast Delivery (Within 2 Days) - INR 95
             </label>
             <p className="text-sm text-[#D3756B] italic text-center mt-2">  
              Shop above INR 1499 to avail free delivery. <i className="fas fa-shipping-fast text-[#D3756B]"></i> </p>

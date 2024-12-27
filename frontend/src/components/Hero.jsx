@@ -19,21 +19,57 @@ const Hero = () => {
   const [fadeClass, setFadeClass] = useState("opacity-100");
 
   const images = [
-    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222243/hero_img1_n4rk9q.jpg",
-    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222264/hero_img2_t8gvlm.jpg",
-    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222265/hero_img3_akf5rs.jpg",
-    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222267/hero_img4_xdmaiq.jpg",
-    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222285/hero_img5_lrofwp.jpg",
-    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222285/hero_img6_prjeuj.jpg",
-    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img7_v3rbfo.jpg",
-    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg",
-    "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222304/hero_img10_uthgu7.jpg",
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222243/hero_img1_n4rk9q.jpg",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222264/hero_img2_t8gvlm.jpg",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222265/hero_img3_akf5rs.jpg",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222267/hero_img4_xdmaiq.jpg",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222285/hero_img5_lrofwp.jpg",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222285/hero_img6_prjeuj.jpg",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img7_v3rbfo.jpg",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222304/hero_img10_uthgu7.jpg",
+      width: 1920,
+      height: 1080,
+    },
   ];
 
   const changeImage = useCallback(() => {
     setFadeClass("opacity-0");
     setTimeout(() => {
-      setCurrentImage(prev => (prev + 1) % images.length);
+      setCurrentImage((prev) => (prev + 1) % images.length);
       setFadeClass("opacity-100");
     }, 800);
   }, [images.length]);
@@ -50,8 +86,10 @@ const Hero = () => {
         <picture>
           <img
             className={`w-full h-[450px] sm:h-[600px] md:h-[700px] object-cover transition-opacity duration-1000 ease-in-out ${fadeClass}`}
-            src={images[currentImage]}
+            src={images[currentImage].src}
             alt="Hero"
+            width={images[currentImage].width}
+            height={images[currentImage].height}
             loading="lazy"
           />
         </picture>

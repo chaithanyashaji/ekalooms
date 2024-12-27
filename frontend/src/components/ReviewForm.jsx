@@ -22,7 +22,7 @@ const ReviewForm = ({ productId, onClose, onSubmit }) => {
         onClose(); // Close the modal
       }
     } catch (error) {
-      console.error(error);
+      
     }
   };
 
