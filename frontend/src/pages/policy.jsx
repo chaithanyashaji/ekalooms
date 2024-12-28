@@ -10,11 +10,7 @@ const Policy = () => {
       <div className="my-10 px-6 md:px-20 text-gray-600 space-y-12">
         {/* Product Quality Information */}
         <section className="flex flex-col md:flex-row gap-10 items-center">
-          <img
-            className="w-full md:w-[40%] max-w-[350px] object-cover rounded-lg"
-            src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg"
-            alt="Product"
-          />
+        
           <div className="flex flex-col justify-start">
             <Title text1={'Product Quality '} text2={'Information'} />
             <p>

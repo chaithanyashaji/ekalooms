@@ -25,13 +25,13 @@ const About = () => {
             <div className="pl-2 sm:pl-5">
               <p className="Outfit leading-relaxed pb-4 italic text-[#A75D5D]">Welcome to ekalooms,</p>
               <p className="Outfit leading-relaxed">
-                We're a homegrown brand, rooted in our love for India's rich artistry and the unmatched skill of local artisans. 
-                Every saree, suit, and piece of home decor we offer is carefully handpicked from different parts of India, bringing you 
+                We are a homegrown brand, rooted in our love for India's rich artistry and the unmatched skill of local artisans. 
+                Every saree, suit and piece of decor we offer is carefully handpicked from different parts of India, bringing you 
                 not just products but pieces of tradition wrapped in love and care.
               </p>
               <br />
               <p className="Outfit leading-relaxed">
-                At Eka Looms, we understand that your wardrobe and home deserve pieces that are as effortless as they are beautiful. 
+                At Eka Looms, we understand that your wardrobe deserves pieces that are as effortless as they are beautiful. 
                 That's why we focus on designs that drape with ease, fabrics that feel like a gentle embrace, and decor that brings warmth 
                 to your space.
               </p>
@@ -40,16 +40,16 @@ const About = () => {
                 Explore our collection today and rediscover the joy of owning pieces that feel as personal as they are beautiful.
               </p>
               <br />
-              <p className="text-md text-left italic text-[#A75D5D] border-t border-[#A75D5D] pt-4 font-serif ">
+              <p className="text-md text-left italic text-[#A75D5D]  pt-4 font-serif ">
                 Happy Shopping! 
               </p>
+             
+              <p className="prata-regular text-md text-[#A75D5D]">ekatribe ❤️</p>
             </div>
           </div>
         </div>
 
-        <div className="text-end pr-3 text-gray-600">
-          <p className="prata-regular text-md text-[#A75D5D]">ekatribe ❤️</p>
-        </div>
+        
       </div>
     </div>
   );

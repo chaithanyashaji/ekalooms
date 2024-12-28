@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback, memo } from "react";
 const HeroText = memo(() => (
   <div className="w-full sm:w-1/2 flex items-center justify-center py-5 sm:py-0">
     <div className="text-[#A75D5D]">
-      <h1 className="prata-regular text-3xl sm:py-3 lg:text-5xl leading-relaxed">
+      <h1 className="prata-regular text-2xl sm:py-3 lg:text-5xl leading-relaxed">
         Featured Collections
       </h1>
       <div className="flex items-center gap-2">
