@@ -366,7 +366,7 @@ if (method === 'razorpay') {
                 checked={deliveryOption === 'speedy'}
                 onChange={() => setDeliveryOption('speedy')}
               />
-              Fast Delivery (Within 2 Days) - INR 95
+              Speed Delivery (Within 2 Days) - INR 95
             </label>
             <p className="text-sm text-[#D3756B] italic text-center mt-2">  
              Shop above INR 1499 to avail free delivery. <i className="fas fa-shipping-fast text-[#D3756B]"></i> </p>
