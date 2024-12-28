@@ -328,21 +328,11 @@ const Product = () => {
       return;
     }
     
-    if (productData.colors && productData.colors.length > 0 && !color) {
-      toast.error('Please select a color before adding to cart.', {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-      return;
-    }
+    
     
 
     // Add to cart logic
-    addToCart(productData._id, size || null, color || null);
+    addToCart(productData._id, size || null);
   }}
   disabled={
     (!productData.sizes || productData.sizes.length === 0) // For products without sizes

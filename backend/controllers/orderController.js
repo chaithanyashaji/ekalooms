@@ -451,7 +451,7 @@ const placeOrderRazorpayGuest = async (req, res) => {
       });
     } catch (error) {
       console.error('Error placing Razorpay guest order:', error.message);
-      return res.status(500).json({ success: false, message: 'Failed to create Razorpay guest order' });
+      return res.status(500).json({ success: false, message: 'Failed to create Razorpay order' });
     }
   };
   
