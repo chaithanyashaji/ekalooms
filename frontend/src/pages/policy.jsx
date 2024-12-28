@@ -64,7 +64,7 @@ const Policy = () => {
             <li>There is an error in order placement.</li>
           </ul>
           <p className="mt-4">
-            Customers must inform us within 24 hours of delivery and provide a parcel opening video as proof in case of product damage. Refunds, if approved, will be processed within 5–7 working days and credited to the customer's bank account.
+            Customers must inform us within 24 hours of delivery and provide an uncut parcel opening video as proof in case of any valid claims. Refunds, if approved, will be processed within 5–7 working days and credited to the customer's payment source.
           </p>
         </section>
 
