@@ -54,7 +54,7 @@ const Policy = () => {
         </section>
 
         {/* Refund & Cancellation Policy */}
-        <section>
+        <section id="refund">
           <Title text1={'Refunds '} text2={'& Cancellations'} />
           <p>
             We do not offer refunds unless:
@@ -67,6 +67,17 @@ const Policy = () => {
             Customers must inform us within 24 hours of delivery and provide a parcel opening video as proof in case of product damage. Refunds, if approved, will be processed within 5–7 working days and credited to the customer's bank account.
           </p>
         </section>
+
+        <section id="privacy">
+  <Title text1={'Privacy '} text2={'Policy'} />
+  <p>
+    We are committed to protecting your personal information. All customer data, including contact and payment details, is securely stored and used only for the purposes of fulfilling your orders and improving your shopping experience. We do not share or sell your data to third parties.
+  </p>
+  <p className="mt-4">
+    Payments made on our platform are processed securely through Razorpay, a trusted and PCI DSS-compliant payment gateway. Razorpay uses advanced encryption and security protocols to ensure the safety of your transaction details. We do not store your card or banking information on our servers.
+  </p>
+</section>
+
 
         {/* Wash Instructions */}
         <section>
@@ -81,6 +92,11 @@ const Policy = () => {
             <strong>Note:</strong> Minor irregularities, such as color smudges or border holes, are common and typically disappear after the first wash. For fabric-specific care instructions, please contact our team.
           </p>
         </section>
+
+         {/* Privacy Policy */}
+        
+
+
 
         {/* Pricing in INR */}
         <section>
@@ -108,6 +124,10 @@ const Policy = () => {
             <br />
             <strong>Email:</strong> ekalooms@gmail.com
             <br />
+            <br/>
+            <strong>Address:</strong> Sree Theertham 
+              <br/>Kavinisseri House PO Chirakkal 
+              <br/>Kannur Kerala 670011
             
           </p>
         </section>

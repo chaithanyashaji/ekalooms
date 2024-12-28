@@ -64,9 +64,15 @@ const Footer = () => {
               </li>
               <li
                 className="cursor-pointer hover:text-[#A75D5D] flex items-center gap-2"
-                onClick={() => navigate('/policy')}
+                onClick={() => navigate('/policy/#refund')}
               >
-                <i className="fas fa-handshake text-[#D3756B]"></i> Return Policy
+                <i className="fas fa-handshake text-[#D3756B]"></i> Return/Refund Policy
+              </li>
+              <li
+                className="cursor-pointer hover:text-[#A75D5D] flex items-center gap-2"
+                onClick={() => navigate('/policy#privacy')}
+              >
+                <i className="fas fa-shield-alt text-[#A75D5D]"></i> Privacy Policy
               </li>
               <li>
                 <a href="tel:+919113054569" className="flex items-center gap-2 hover:text-[#A75D5D]">
@@ -81,6 +87,7 @@ const Footer = () => {
                   <i className="fas fa-envelope text-[#A75D5D]"></i> Email Us: ekalooms@gmail.com
                 </a>
               </li>
+              
             </ul>
           </div>
         </div>
