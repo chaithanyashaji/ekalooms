@@ -278,7 +278,7 @@ const Product = () => {
           <p className="mt-5 mb-5 text-2xl font-medium prata-regular text-[#A75D5D]">{currency}{productData.price}</p>
           {productData.stockQuantity === 0 ? "" : productData.stockQuantity < 5 ? (
     <p className="text-red-600 font-sm mt-2 mb-2">
-     Only {productData.stockQuantity} left, order now!
+     Only few left, order now!
     </p>
   ) : null}
           
