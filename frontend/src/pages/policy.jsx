@@ -125,7 +125,8 @@ const Policy = () => {
             <strong>Email:</strong> ekalooms@gmail.com
             <br />
             <br/>
-            <strong>Address:</strong> Banglore, India
+            <strong>Address:</strong>Akshaya Nagar,
+            <br/> Banglore, India
             
           </p>
         </section>
