@@ -21,7 +21,7 @@ connectDB();
 connectCloudinary();
 
 // Set trust proxy for reverse proxies
-app.set('trust proxy', true); // Trust reverse proxies like Render or Heroku
+ // Trust reverse proxies like Render or Heroku
 
 // Middleware
 app.use(express.json());
