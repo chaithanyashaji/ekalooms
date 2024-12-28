@@ -173,7 +173,6 @@ const refreshToken = async (req, res, next) => {
     try {
         const { refreshToken: clientRefreshToken } = req.cookies;
 
-        // Early validation of refresh token
         if (!clientRefreshToken) {
             return res.status(401).json({ 
                 success: false, 
@@ -181,7 +180,6 @@ const refreshToken = async (req, res, next) => {
             });
         }
 
-        // Verify the token with proper error handling
         let decoded;
         try {
             decoded = jwt.verify(clientRefreshToken, process.env.JWT_REFRESH_SECRET);
@@ -198,7 +196,6 @@ const refreshToken = async (req, res, next) => {
             });
         }
 
-        // Find user and validate token
         const user = await userModel.findById(decoded.id);
         if (!user) {
             return res.status(404).json({ 
@@ -207,18 +204,15 @@ const refreshToken = async (req, res, next) => {
             });
         }
 
-        // Check if the token is in the user's valid refresh tokens
         if (!user.refreshTokens.includes(clientRefreshToken)) {
-            // Remove all refresh tokens if one is found to be invalid
-            // This is a security measure against token theft
             user.refreshTokens = [];
             await user.save();
-            
+
             res.clearCookie("refreshToken", {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
                 sameSite: "None",
-                path: "/"
+                path: "/",
             });
 
             return res.status(403).json({ 
@@ -227,43 +221,14 @@ const refreshToken = async (req, res, next) => {
             });
         }
 
-        // Generate new tokens using a try-catch block
-        let newAccessToken, newRefreshToken;
-        try {
-            newAccessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
-            newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
-        } catch (err) {
-            logger.error("Token generation failed:", err);
-            return res.status(500).json({ 
-                success: false, 
-                message: "Failed to generate new tokens" 
-            });
-        }
+        const newAccessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
+        const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        // Update refresh tokens array with proper validation
-        try {
-            // Remove the old token
-            user.refreshTokens = user.refreshTokens.filter(token => token !== clientRefreshToken);
+        await userModel.findByIdAndUpdate(user._id, {
+            $pull: { refreshTokens: clientRefreshToken },
+            $push: { refreshTokens: newRefreshToken },
+        });
 
-            // Implement token rotation with a maximum limit
-            const MAX_REFRESH_TOKENS = 5;
-            if (user.refreshTokens.length >= MAX_REFRESH_TOKENS) {
-                // Remove the oldest tokens if the limit is exceeded
-                user.refreshTokens = user.refreshTokens.slice(-MAX_REFRESH_TOKENS + 1);
-            }
-
-            // Add the new refresh token
-            user.refreshTokens.push(newRefreshToken);
-            await user.save();
-        } catch (err) {
-            logger.error("Failed to update refresh tokens:", err);
-            return res.status(500).json({ 
-                success: false, 
-                message: "Failed to update refresh tokens" 
-            });
-        }
-
-        // Set the new refresh token cookie with secure options
         res.cookie("refreshToken", newRefreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
@@ -272,13 +237,12 @@ const refreshToken = async (req, res, next) => {
             path: "/",
         });
 
-        // Send the new access token
         return res.status(200).json({ 
             success: true, 
             accessToken: newAccessToken 
         });
-    } catch (error) {
-        logger.error("Refresh token error:", error);
+    } catch (err) {
+        logger.error("Failed to refresh token:", err);
         return res.status(500).json({ 
             success: false, 
             message: "Internal server error during token refresh" 
