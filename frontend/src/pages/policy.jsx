@@ -40,7 +40,7 @@ const Policy = () => {
   <p className="mb-4">
     <strong>International Shipments:</strong> Dispatched within 7 working days. Delivery time varies by destination and may take 10–15 working days. 
   </p>
-  <p className='mb-4'>Tracking details will be shared after dispatch.</p>
+  <p className='mb-4'>Tracking details will be shared after dispatch with the customer.</p>
   <p className="mb-4">
     <strong>Delivery Charges:</strong>
   </p>
