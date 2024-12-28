@@ -30,6 +30,8 @@ const Wishlist = () => {
                         rating={product.averageRating || 0}
                         totalReviews={product.totalReviews}
                         bestseller={product.bestseller}
+                        category={product.category}
+              subCategory={product.subCategory}
                         inStock={product.inStock}
                     />
                 ))}
