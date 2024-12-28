@@ -1,47 +1,80 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage -->
   <url>
     <loc>https://ekalooms.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Collection Page -->
   <url>
     <loc>https://ekalooms.com/collection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- About Page -->
   <url>
     <loc>https://ekalooms.com/about</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Contact Page -->
   <url>
     <loc>https://ekalooms.com/contact</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-    <url>
+
+  <!-- Policy Page -->
+  <url>
     <loc>https://ekalooms.com/policy</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Sarees Collection -->
   <url>
     <loc>https://ekalooms.com/collection/sarees</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222264/hero_img2_t8gvlm.jpg</image:loc>
+      <image:title>Exquisite Saree Collection</image:title>
+    </image:image>
   </url>
+
+  <!-- Home Decor Collection -->
   <url>
     <loc>https://ekalooms.com/collection/home-decor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222285/hero_img6_prjeuj.jpg</image:loc>
+      <image:title>Beautiful Home Decor Items</image:title>
+    </image:image>
   </url>
+
+  <!-- Stitched Suits Collection -->
   <url>
     <loc>https://ekalooms.com/collection/stitched-suits</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222265/hero_img3_akf5rs.jpg</image:loc>
+      <image:title>Elegant Stitched Suits</image:title>
+    </image:image>
   </url>
+
+  <!-- Unstitched Suits Collection -->
   <url>
     <loc>https://ekalooms.com/collection/unstitched-suits</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222304/hero_img10_uthgu7.jpg</image:loc>
+      <image:title>Stylish Unstitched Suits</image:title>
+    </image:image>
   </url>
 </urlset>
