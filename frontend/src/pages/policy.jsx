@@ -35,7 +35,8 @@ const Policy = () => {
         </section>
 
         {/* Shipping Policy */}
-        <section>
+       {/* Shipping Policy */}
+<section>
   <Title text1={'Shipping '} text2={'Policy'} />
   <p className="mb-4">
     <strong>Domestic Shipments:</strong> Dispatched within 2 working days. Delivery typically takes 5-7 working days.
@@ -47,9 +48,9 @@ const Policy = () => {
   <p className="mb-4">
     <strong>Delivery Charges:</strong>
   </p>
-  <ul className="list-disc list-inside mb-6">
+  <ul className="list-disc pl-5 space-y-2">
     <li>Normal Delivery: ₹60</li>
-    <li>Fast Delivery: ₹95 (delivered within 2 days)</li>
+    <li>Fast Delivery: ₹95 (delivered within 2 working days)</li>
     <li>Free Delivery: On orders above ₹1499 (only within India)</li>
     <li>Additional Shipping Charges: Applicable for international shipments based on destination and package weight. </li>
   </ul>
@@ -62,7 +63,7 @@ const Policy = () => {
           <p>
             We do not offer refunds unless:
           </p>
-          <ul className="list-disc list-inside mt-4">
+          <ul className="list-disc pl-5 space-y-2">
             <li>The product delivered is incorrect or damaged.</li>
             <li>There is an error in order placement.</li>
           </ul>
@@ -86,7 +87,7 @@ const Policy = () => {
         <section>
           <Title text1={'Wash '} text2={'Instructions'} />
           <p>To ensure the longevity of handcrafted fabrics:</p>
-          <ul className="list-disc list-inside mt-4">
+          <ul className="list-disc pl-5 space-y-2">
             <li>Hand wash gently in cold water.</li>
             <li>Use detergent formulated for delicate fabrics.</li>
             <li>Air dry naturally in a shaded area; avoid direct sunlight.</li>

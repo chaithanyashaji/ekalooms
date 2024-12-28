@@ -24,49 +24,21 @@ const Collection = () => {
   const selectedCategory = params.categorySlug || queryParams.get('category');
 
   const categorySubCategoryMap = {
-    Saree: [
-      'Mul Mul',
-      'Linen',
-      'Kota Doria',
-      'Chanderi-silk',
-      'Maheshwari-silk',
-      'Soft khadi cotton',
-      'Chanderi',
-      'Maheshwari',
-      'Madurai Sungudi / Velthari',
-      'Soft Khadi',
-      'Georgette',
-      'Organza',
+    "Saree": [
+      "Chanderi silk", "Jimmy Choo", "Kota Doria", "Linen", 
+      "Madurai Sungudi / Velthari", "Maheshwari silk", "Mul Mul", 
+      "Organza", "Soft khadi cotton","Soft silk","Viscose/Georgettes"
     ],
-    'Stitched Suits': [
-      'Cotton',
-      'Rayon',
-      'Muslin',
-      'Mul Mul',
-      'Linen',
-      'Kota Doria',
-      'Chanderi',
-      'Maheshwari',
-      'Madurai Sungudi / Velthari',
-      'Soft Khadi',
-      'Georgette',
-      'Organza',
+    "Stitched Suits": [
+      "Cotton", "Muslin", "Rayon"
     ],
-    'Unstitched Suits': [
-      'Cotton',
-      'Rayon',
-      'Muslin',
-      'Mul Mul',
-      'Linen',
-      'Kota Doria',
-      'Chanderi',
-      'Maheshwari',
-      'Madurai Sungudi / Velthari',
-      'Soft Khadi',
-      'Georgette',
-      'Organza',
+    "Unstitched Suits": [
+      "Chanderi silk", "Cotton", "Georgette", "Kota silk", 
+      "Linen", "Muslin", "Rayon", "Tissue"
     ],
-    'Home Decor': ['Bedsheets', 'Cushion Covers', 'Curtains', 'Table Linen'],
+    "Home Decor": [
+      "Bedsheets", "Cushion Covers", "Curtains", "Table Linen"
+    ]
   };
 
   useEffect(() => {

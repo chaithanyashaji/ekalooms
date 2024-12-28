@@ -25,19 +25,21 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
 
 
   const categories = {
-    Saree: [
-      "Mul Mul", "Linen","Chanderi-silk","Maheshwari-silk","Soft khadi cotton", "Kota Doria", "Chanderi", "Maheshwari", 
-      "Madurai Sungudi / Velthari", "Soft Khadi", "Georgette", "Organza",
-    ],
-    "Stitched Suits": [
-     "Cotton","Rayon","Muslin", "Mul Mul", "Linen", "Kota Doria", "Chanderi", "Maheshwari", 
-      "Madurai Sungudi / Velthari", "Soft Khadi", "Georgette", "Organza",
-    ],
-    "Unstitched Suits": [
-      "Cotton","Rayon","Muslin","Mul Mul", "Linen", "Kota Doria", "Chanderi", "Maheshwari", 
-      "Madurai Sungudi / Velthari", "Soft Khadi", "Georgette", "Organza",
-    ],
-    "Home Decor": ["Bedsheets", "Cushion Covers", "Curtains", "Table Linen"],
+   "Saree": [
+    "Chanderi silk", "Jimmy Choo", "Kota Doria", "Linen", 
+    "Madurai Sungudi / Velthari", "Maheshwari silk", "Mul Mul", 
+    "Organza", "Soft khadi cotton","Soft silk","Viscose/Georgettes"
+  ],
+  "Stitched Suits": [
+    "Cotton", "Muslin", "Rayon"
+  ],
+  "Unstitched Suits": [
+    "Chanderi silk", "Cotton", "Georgette", "Kota silk", 
+    "Linen", "Muslin", "Rayon", "Tissue"
+  ],
+  "Home Decor": [
+    "Bedsheets", "Cushion Covers", "Curtains", "Table Linen"
+  ]
   };
 
   const onSubmitHandler = async (e) => {
