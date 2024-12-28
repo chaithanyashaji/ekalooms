@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+const arrayLimit = (val) => val.length <= 5;
+
+
 const userSchema = new mongoose.Schema(
     {
       name: { type: String, required: true },
