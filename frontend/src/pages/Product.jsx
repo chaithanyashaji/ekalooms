@@ -276,11 +276,7 @@ const Product = () => {
             <p className="pl-2 text-[#D3756B] ">({totalReviews})</p>
           </div>
           <p className="mt-5 mb-5 text-2xl font-medium prata-regular text-[#A75D5D]">{currency}{productData.price}</p>
-          {productData.stockQuantity === 0 ? "" : productData.stockQuantity < 5 ? (
-    <p className="text-red-600 font-sm mt-2 mb-2">
-     Only few left, order now!
-    </p>
-  ) : null}
+         
           
           {productData.sizes && productData.sizes.length > 0 && (
   <div className="flex flex-col gap-4 my-8">
@@ -302,9 +298,7 @@ const Product = () => {
           </button>
 
           {/* Quantity Indicator */}
-          {item.quantity < 5 && item.quantity > 0 && (
-            <p className="text-xs text-red-500 mt-1">{item.quantity} left</p>
-          )}
+         
         </div>
       ))}
     </div>
