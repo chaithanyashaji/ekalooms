@@ -13,7 +13,8 @@ const orderSchema = new mongoose.Schema({
     razorpayOrderId: { type: String, sparse: true},
     receipt: { type: String, },
     couponCode: { type: String},
-    deliveryOption: { type: String}
+    deliveryOption: { type: String},
+    trackingId: { type: String, }
 });
 
 

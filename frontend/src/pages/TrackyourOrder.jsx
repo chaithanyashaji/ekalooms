@@ -7,33 +7,36 @@ const TrackYourOrder = () => {
   const { backendUrl } = useContext(ShopContext);
   const [orderId, setOrderId] = useState("");
   const [orderStatus, setOrderStatus] = useState(null);
+  const [trackingId, setTrackingId] = useState(null); // Added for tracking ID
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false); // For better UX
+  const [loading, setLoading] = useState(false);
 
   const handleTrackOrder = async () => {
     if (!orderId.trim()) {
       setError("Please enter a valid Order ID.");
       setOrderStatus(null);
+      setTrackingId(null);
       return;
     }
 
-    setLoading(true); // Start loading
+    setLoading(true);
     setError(null);
     setOrderStatus(null);
+    setTrackingId(null);
 
     try {
       const response = await axios.post(`${backendUrl}/api/order/track`, { orderId });
 
       if (response.data.success) {
         setOrderStatus(response.data.status);
+        setTrackingId(response.data.trackingId); // Fetch tracking ID
       } else {
         setError("Order not found or invalid Order ID.");
       }
     } catch (error) {
-      
       setError("Something went wrong. Please try again later.");
     } finally {
-      setLoading(false); // End loading
+      setLoading(false);
     }
   };
 
@@ -61,7 +64,7 @@ const TrackYourOrder = () => {
               background: "linear-gradient(90deg, #A75D5D, #D3756B)",
               boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
             }}
-            disabled={loading} // Disable button during loading
+            disabled={loading}
           >
             {loading ? "Tracking..." : "Track Order"}
           </button>
@@ -75,6 +78,11 @@ const TrackYourOrder = () => {
             <p>
               <strong>Order Status:</strong> {orderStatus}
             </p>
+            {trackingId && (
+              <p>
+                <strong>Tracking ID:</strong> {trackingId}
+              </p>
+            )}
           </div>
         )}
         {error && (

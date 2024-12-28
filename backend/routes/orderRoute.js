@@ -11,7 +11,7 @@ import {
   userOrders,
   updateStatus,
   verifyStripe,
-  
+  updateTrackingId,
   getOrderStatus
 } from '../controllers/orderController.js';
 import orderModel from '../models/orderModel.js';
@@ -29,6 +29,7 @@ const orderRouter = express.Router();
 // Admin routes
 orderRouter.post('/list', adminAuth, allOrders);
 orderRouter.post('/status', adminAuth, updateStatus);
+orderRouter.post('/update-tracking-id', adminAuth,updateTrackingId);
 
 // User routes
 orderRouter.post('/place', authUser, orderLimiter, placeOrder);
@@ -41,7 +42,8 @@ orderRouter.post('/razorpayguest', orderLimiter, placeOrderRazorpayGuest);
 
 // Payment status routes
 orderRouter.post('/userorders', authUser, userOrders);
-orderRouter.get('/track/:receipt', orderLimiter, getOrderStatus);
+orderRouter.post('/track', orderLimiter, getOrderStatus);
+
 
 // Verify payment
 orderRouter.post('/verifyStripe', authUser, verifyStripe);

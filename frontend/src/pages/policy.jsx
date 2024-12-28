@@ -125,9 +125,7 @@ const Policy = () => {
             <strong>Email:</strong> ekalooms@gmail.com
             <br />
             <br/>
-            <strong>Address:</strong> Sree Theertham 
-              <br/>Kavinisseri House PO Chirakkal 
-              <br/>Kannur Kerala 670011
+            <strong>Address:</strong> Banglore, India
             
           </p>
         </section>

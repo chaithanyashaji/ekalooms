@@ -313,6 +313,37 @@ const updateStatus = async (req,res) =>{
 
 }
 
+const updateTrackingId = async (req, res) => {
+  try {
+    const { orderId, trackingId } = req.body;
+
+    // Validate input
+    if (!orderId || !trackingId) {
+      return res.json({
+        success: false,
+        message: "Order ID and Tracking ID are required",
+      });
+    }
+
+    // Update the order's tracking ID
+    await orderModel.findByIdAndUpdate(orderId, { trackingId });
+
+    res.json({
+      success: true,
+      message: "Tracking ID updated successfully",
+    });
+  } catch (error) {
+    console.error(error);
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+
+
+
 const placeGuestOrder = async (req, res) => {
     try {
         const { items, amount, address, email, paymentMethod } = req.body;
@@ -463,19 +494,33 @@ const getOrderStatus = async (req, res) => {
   const { orderId } = req.body;
 
   if (!orderId) {
-    return res.status(400).json({ success: false, message: "Order ID is required" });
+    return res.status(400).json({
+      success: false,
+      message: "Order ID is required",
+    });
   }
 
   try {
+    // Find the order in the database
     const order = await orderModel.findById(orderId);
+
     if (!order) {
-      return res.status(404).json({ success: false, message: "Order not found" });
+      return res.status(404).json({
+        success: false,
+        message: "Order not found",
+      });
     }
 
-    res.json({ success: true, status: order.status });
+    res.json({
+      success: true,
+      status: order.status,
+      trackingId: order.trackingId || "Tracking ID not available",
+    });
   } catch (error) {
-    console.error("Error fetching order status:", error.message);
-    res.status(500).json({ success: false, message: "Internal server error" });
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
   }
 };
 
@@ -492,4 +537,6 @@ const getOrderStatus = async (req, res) => {
 
 
 
-export {placeOrder,placeOrderRazorpayGuest,getOrderStatus, placeOrderStripe, placeOrderRazorpay,allOrders,userOrders,updateStatus,verifyStripe,placeGuestOrder}
+
+
+export {placeOrder,placeOrderRazorpayGuest,getOrderStatus, placeOrderStripe, placeOrderRazorpay,allOrders,userOrders,updateStatus,verifyStripe,placeGuestOrder,updateTrackingId}

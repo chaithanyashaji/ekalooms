@@ -9,8 +9,16 @@ const Orders = ({ token }) => {
   const [filteredOrders, setFilteredOrders] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("");
+  const [trackingIds, setTrackingIds] = useState({});
+  const [hideDelivered, setHideDelivered] = useState(false); 
+
+// Handle tracking ID changes
+const handleTrackingIdChange = (orderId, value) => {
+  setTrackingIds((prev) => ({ ...prev, [orderId]: value }));
+};
+
   const [currentPage, setCurrentPage] = useState(1);
-const ordersPerPage = 10; 
+const ordersPerPage = 30; 
 // Number of orders per page
 
 
@@ -82,6 +90,15 @@ const ordersPerPage = 10;
     }
   };
 
+
+  const toggleHideDelivered = () => {
+    setHideDelivered((prev) => !prev);
+    const updatedOrders = hideDelivered
+      ? orders
+      : orders.filter((order) => order.status?.toLowerCase() !== "delivered");
+    setFilteredOrders(updatedOrders);
+  };
+
   const handleSort = (event) => {
     const order = event.target.value;
     setSortOrder(order);
@@ -92,6 +109,28 @@ const ordersPerPage = 10;
     });
     setFilteredOrders(sortedOrders);
   };
+
+  const saveTrackingId = async (orderId, trackingId) => {
+    try {
+      const response = await axios.post(
+        `${backendUrl}/api/order/update-tracking-id`,
+        { orderId, trackingId },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+  
+      if (response.data.success) {
+        toast.success("Tracking ID saved successfully!");
+        fetchAllOrders(); // Refresh the orders
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.error("Error saving tracking ID:", error.message);
+      toast.error("Failed to save tracking ID. Please try again.");
+    }
+  };
+  
+  
 
   const statusHandler = async (event, orderId) => {
     try {
@@ -133,7 +172,7 @@ const ordersPerPage = 10;
           className="border p-3 rounded w-full sm:w-1/2"
         />
         <select
-          onChange={handleSort}
+          onChange={(event) => setSortOrder(event.target.value)}
           value={sortOrder}
           className="p-3 border rounded w-full sm:w-1/4"
         >
@@ -148,7 +187,14 @@ const ordersPerPage = 10;
         >
           Export Complete Orders
         </CSVLink>
+        <button
+          onClick={toggleHideDelivered}
+          className="p-3 bg-gray-200 text-gray-800 rounded sm:w-1/4"
+        >
+          {hideDelivered ? "Show Delivered" : "Hide Delivered"}
+        </button>
       </div>
+
 
       {/* Order List */}
       <div className="space-y-4">
@@ -245,7 +291,29 @@ const ordersPerPage = 10;
           Cancelled and Eligible for Refund
         </option>
       </select>
-    </div>
+      <div className="mt-4">
+  <label className="block text-gray-700 text-sm font-medium">
+    Tracking ID
+  </label>
+  <div className="flex gap-2">
+    <input
+      type="text"
+      value={trackingIds[order._id] || order.trackingId || ""}
+      onChange={(e) => handleTrackingIdChange(order._id, e.target.value)}
+      placeholder="Enter Tracking ID"
+      className="mt-2 p-2 flex-1 border rounded"
+    />
+    <button
+      onClick={() => saveTrackingId(order._id, trackingIds[order._id] || "")}
+      className="mt-2 p-2 bg-blue-600 text-white rounded"
+    >
+      Save
+    </button>
+  </div>
+</div>
+
+</div>
+    
   </div>
 ))}
 
