@@ -20,7 +20,7 @@ const LatestCollections = () => {
   return (
     <div className='my-10'>
       <div className='text-center py-8 text-3xl'>
-        <Title text1={'LATEST '} text2={'COLLECTIONS'}/>
+        <Title text1={'LATEST '} text2={'ARRIVALS'}/>
        
       </div>
 
