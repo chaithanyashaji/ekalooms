@@ -1,5 +1,6 @@
 import React from 'react';
 import Title from '../components/Title';
+import { AiOutlineHeart } from "react-icons/ai";
 
 const About = () => {
   return (
@@ -43,8 +44,10 @@ const About = () => {
               <p className="text-md text-left italic text-[#A75D5D]  pt-4 font-serif ">
                 Happy Shopping! 
               </p>
-             
-              <p className="prata-regular text-md text-[#A75D5D]">ekatribe ❤️</p>
+              <p className="prata-regular text-md text-[#A75D5D] flex items-center">
+  ekatribe <AiOutlineHeart className="ml-1" size={16} />
+</p>
+
             </div>
           </div>
         </div>
