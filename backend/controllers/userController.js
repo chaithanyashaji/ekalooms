@@ -27,8 +27,8 @@ const createToken = (id, expiresIn, secret) => {
         secret,
         {
             expiresIn,
-            audience: "your-app",
-            issuer: "your-domain.com",
+            audience: "https://ekalooms.com",
+            issuer: "ekalooms.com",
         }
     );
 };
@@ -161,8 +161,12 @@ const refreshToken = async (req, res, next) => {
             return res.status(401).json({ success: false, message: "Refresh token is required" });
         }
 
-        // Verify the refresh token
-        const decoded = jwt.verify(clientRefreshToken, process.env.JWT_REFRESH_SECRET);
+        let decoded;
+        try {
+            decoded = jwt.verify(clientRefreshToken, process.env.JWT_REFRESH_SECRET);
+        } catch (err) {
+            return res.status(403).json({ success: false, message: "Invalid or expired refresh token" });
+        }
 
         const user = await userModel.findById(decoded.id);
 
@@ -171,19 +175,23 @@ const refreshToken = async (req, res, next) => {
         }
 
         // Generate new tokens
-        const newAccessToken = createToken(user._id, "20min", process.env.JWT_SECRET);
+        const newAccessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
         const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        // Atomically update refreshTokens in the database
-        await userModel.updateOne(
-            { _id: user._id },
-            {
-                $pull: { refreshTokens: clientRefreshToken }, // Remove the old token
-                $push: { refreshTokens: newRefreshToken }, // Add the new token
-            }
-        );
+        // Remove the old token and ensure array does not exceed the limit of 5
+        user.refreshTokens = user.refreshTokens.filter(token => token !== clientRefreshToken);
 
-        // Set the new refresh token in cookies
+        // Ensure the array limit is not exceeded
+        if (user.refreshTokens.length >= 5) {
+            user.refreshTokens.shift(); // Remove the oldest token
+        }
+
+        // Add the new refresh token
+        user.refreshTokens.push(newRefreshToken);
+
+        await user.save();
+
+        // Set the new refresh token in the cookie
         res.cookie("refreshToken", newRefreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
@@ -192,19 +200,10 @@ const refreshToken = async (req, res, next) => {
             path: "/",
         });
 
-        // Send the new access token in the response
         res.status(200).json({ success: true, accessToken: newAccessToken });
     } catch (error) {
-        // Catch token verification errors or other issues
-        if (error.name === "JsonWebTokenError") {
-            return res.status(403).json({ success: false, message: "Invalid or malformed token" });
-        }
-
-        if (error.name === "TokenExpiredError") {
-            return res.status(403).json({ success: false, message: "Refresh token expired" });
-        }
-
-        next(error); // Pass other errors to the global error handler
+        console.error("Error in refreshToken:", error);
+        next(error);
     }
 };
 
