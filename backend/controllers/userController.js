@@ -106,29 +106,45 @@ const loginUser = async (req, res, next) => {
         const { email, password } = req.body;
         const user = await userModel.findOne({ email });
 
+        // Validate user credentials
         if (!user || !(await bcrypt.compare(password, user.password))) {
             return res.status(401).json({ success: false, message: "Invalid credentials" });
         }
 
-        const accessToken = createToken(user._id, "20min", process.env.JWT_SECRET);
+        // Generate new tokens
+        const accessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
         const refreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        user.refreshTokens = [refreshToken];
+        // Implement token rotation with a maximum limit
+        const MAX_REFRESH_TOKENS = 5;
+
+        // Ensure old refresh tokens do not exceed the limit
+        if (user.refreshTokens.length >= MAX_REFRESH_TOKENS) {
+            user.refreshTokens = user.refreshTokens.slice(-MAX_REFRESH_TOKENS + 1); // Keep the latest tokens
+        }
+
+        // Add the new refresh token to the array
+        user.refreshTokens.push(refreshToken);
+
+        // Save the user with updated refresh tokens
         await user.save();
 
+        // Set the refresh token in an HTTP-only, secure cookie
         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
-            sameSite: "None", 
-            maxAge: 7 * 24 * 60 * 60 * 1000,
+            sameSite: "None",
+            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
             path: "/",
         });
 
-        res.json({ success: true, accessToken });
+        // Send the access token in the response
+        return res.status(200).json({ success: true, accessToken });
     } catch (error) {
         next(error);
     }
 };
+
 
 const logoutUser = async (req, res, next) => {
     try {
