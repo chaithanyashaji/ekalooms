@@ -161,21 +161,29 @@ const refreshToken = async (req, res, next) => {
             return res.status(401).json({ success: false, message: "Refresh token is required" });
         }
 
+        // Verify the refresh token
         const decoded = jwt.verify(clientRefreshToken, process.env.JWT_REFRESH_SECRET);
+
         const user = await userModel.findById(decoded.id);
 
         if (!user || !user.refreshTokens.includes(clientRefreshToken)) {
-            return res.status(403).json({ success: false, message: "Invalid refresh token" });
+            return res.status(403).json({ success: false, message: "Invalid or expired refresh token" });
         }
 
-        user.refreshTokens = user.refreshTokens.filter((token) => token !== clientRefreshToken);
-
+        // Generate new tokens
         const newAccessToken = createToken(user._id, "20min", process.env.JWT_SECRET);
         const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        user.refreshTokens.push(newRefreshToken);
-        await user.save();
+        // Atomically update refreshTokens in the database
+        await userModel.updateOne(
+            { _id: user._id },
+            {
+                $pull: { refreshTokens: clientRefreshToken }, // Remove the old token
+                $push: { refreshTokens: newRefreshToken }, // Add the new token
+            }
+        );
 
+        // Set the new refresh token in cookies
         res.cookie("refreshToken", newRefreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
@@ -184,11 +192,22 @@ const refreshToken = async (req, res, next) => {
             path: "/",
         });
 
+        // Send the new access token in the response
         res.status(200).json({ success: true, accessToken: newAccessToken });
     } catch (error) {
-        next(error);
+        // Catch token verification errors or other issues
+        if (error.name === "JsonWebTokenError") {
+            return res.status(403).json({ success: false, message: "Invalid or malformed token" });
+        }
+
+        if (error.name === "TokenExpiredError") {
+            return res.status(403).json({ success: false, message: "Refresh token expired" });
+        }
+
+        next(error); // Pass other errors to the global error handler
     }
 };
+
 
 
 
