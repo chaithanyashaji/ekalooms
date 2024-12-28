@@ -46,7 +46,7 @@ const Policy = () => {
   </p>
   <ul className="list-disc pl-5 space-y-2">
     <li>Normal Delivery: ₹60</li>
-    <li>Fast Delivery: ₹95 (delivered within 2 working days)</li>
+    <li>Speed Delivery: ₹95 (delivered within 2 working days)</li>
     <li>Free Delivery: On orders above ₹1499 (only within India)</li>
     <li>Additional Shipping Charges: Applicable for international shipments based on destination and package weight. </li>
   </ul>
