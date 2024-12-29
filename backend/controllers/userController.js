@@ -59,6 +59,16 @@ const errorHandler = (err, req, res, next) => {
 
 // Controllers
 
+const setRefreshTokenCookie = (res, token) => {
+    res.cookie("refreshToken", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "None",
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        path: "/",
+    });
+};
+
 const registerUser = async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
@@ -106,39 +116,21 @@ const loginUser = async (req, res, next) => {
         const { email, password } = req.body;
         const user = await userModel.findOne({ email });
 
-        // Validate user credentials
         if (!user || !(await bcrypt.compare(password, user.password))) {
             return res.status(401).json({ success: false, message: "Invalid credentials" });
         }
 
-        // Generate new tokens
         const accessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
         const refreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        // Implement token rotation with a maximum limit
-        const MAX_REFRESH_TOKENS = 5;
-
-        // Ensure old refresh tokens do not exceed the limit
-        if (user.refreshTokens.length >= MAX_REFRESH_TOKENS) {
-            user.refreshTokens = user.refreshTokens.slice(-MAX_REFRESH_TOKENS + 1); // Keep the latest tokens
+        if (user.refreshTokens.length >= 5) {
+            user.refreshTokens.shift(); // Keep the latest tokens
         }
-
-        // Add the new refresh token to the array
         user.refreshTokens.push(refreshToken);
 
-        // Save the user with updated refresh tokens
         await user.save();
+        setRefreshTokenCookie(res, refreshToken);
 
-        // Set the refresh token in an HTTP-only, secure cookie
-        res.cookie("refreshToken", refreshToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "None",
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-            path: "/",
-        });
-
-        // Send the access token in the response
         return res.status(200).json({ success: true, accessToken });
     } catch (error) {
         next(error);
@@ -169,99 +161,55 @@ const logoutUser = async (req, res, next) => {
     }
 };
 
+// Utility for setting cookies
+
+
 const refreshToken = async (req, res) => {
     try {
         const { refreshToken: clientRefreshToken } = req.cookies;
 
-        // Validate presence of refresh token
         if (!clientRefreshToken) {
-            return res.status(401).json({
-                success: false,
-                message: "No refresh token provided",
-            });
+            return res.status(401).json({ success: false, message: "No refresh token provided" });
         }
 
-        // Verify the refresh token
         let decoded;
         try {
             decoded = jwt.verify(clientRefreshToken, process.env.JWT_REFRESH_SECRET);
         } catch (err) {
-            if (err instanceof jwt.TokenExpiredError) {
-                return res.status(401).json({
-                    success: false,
-                    message: "Refresh token has expired",
-                });
-            }
-            return res.status(403).json({
+            const errorMessage = err instanceof jwt.TokenExpiredError
+                ? "Refresh token has expired"
+                : "Invalid refresh token";
+
+            return res.status(err instanceof jwt.TokenExpiredError ? 401 : 403).json({
                 success: false,
-                message: "Invalid refresh token",
+                message: errorMessage,
             });
         }
 
-        // Find user in the database
         const user = await userModel.findById(decoded.id);
-        if (!user) {
-            return res.status(404).json({
-                success: false,
-                message: "User not found",
-            });
+        if (!user || !user.refreshTokens.includes(clientRefreshToken)) {
+            if (user) {
+                user.refreshTokens = [];
+                await user.save();
+            }
+
+            res.clearCookie("refreshToken", { httpOnly: true, secure: true, sameSite: "None", path: "/" });
+            return res.status(403).json({ success: false, message: "Invalid refresh token" });
         }
 
-        // Check if the refresh token exists in the user's tokens
-        if (!user.refreshTokens.includes(clientRefreshToken)) {
-            // Clear all tokens for security
-            user.refreshTokens = [];
-            await user.save();
-
-            res.clearCookie("refreshToken", {
-                httpOnly: true,
-                secure: process.env.NODE_ENV === "production",
-                sameSite: "None",
-                path: "/",
-            });
-
-            return res.status(403).json({
-                success: false,
-                message: "Invalid refresh token",
-            });
-        }
-
-        // Generate new tokens
         const newAccessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
         const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        // Step 1: Remove the old token
-        await userModel.updateOne(
-            { _id: user._id },
-            { $pull: { refreshTokens: clientRefreshToken } }
-        );
+        user.refreshTokens = user.refreshTokens.filter(token => token !== clientRefreshToken);
+        user.refreshTokens.push(newRefreshToken);
+        await user.save();
 
-        // Step 2: Add the new token with a maximum limit of 5
-        await userModel.updateOne(
-            { _id: user._id },
-            { $push: { refreshTokens: { $each: [newRefreshToken], $slice: -5 } } }
-        );
+        setRefreshTokenCookie(res, newRefreshToken);
 
-        // Set new refresh token in cookie
-        res.cookie("refreshToken", newRefreshToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "None",
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-            path: "/",
-        });
-
-        // Send the new access token
-        return res.status(200).json({
-            success: true,
-            accessToken: newAccessToken,
-        });
+        return res.status(200).json({ success: true, accessToken: newAccessToken });
     } catch (error) {
         console.error("Refresh token error:", error);
-        return res.status(500).json({
-            success: false,
-            message: "Internal server error during token refresh",
-        });
+        return res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
 
