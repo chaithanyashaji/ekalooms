@@ -41,7 +41,7 @@ const TrackYourOrder = () => {
   };
 
   return (
-    <div className="border-t pt-16 font-poppins">
+    <div className="border-t pt-16 Outfit">
       <div className="text-2xl mb-6">
         <Title text1={"TRACK "} text2={"YOUR ORDER"} />
       </div>

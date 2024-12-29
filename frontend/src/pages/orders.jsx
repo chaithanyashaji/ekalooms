@@ -75,7 +75,7 @@ const Orders = () => {
   }, [token]);
 
   return (
-    <div className="border-t pt-16 font-poppins">
+    <div className="border-t pt-16 ">
       <div className="text-2xl">
         <Title text1={"MY "} text2={"ORDERS"} />
       </div>
