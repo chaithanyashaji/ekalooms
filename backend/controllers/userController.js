@@ -230,16 +230,16 @@ const refreshToken = async (req, res) => {
         const newAccessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
         const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        // Atomic update to refresh tokens
-        await userModel.findOneAndUpdate(
+        // Step 1: Remove the old token
+        await userModel.updateOne(
             { _id: user._id },
-            {
-                $pull: { refreshTokens: clientRefreshToken }, // Remove the old token
-                $push: {
-                    refreshTokens: { $each: [newRefreshToken], $slice: -5 }, // Add new token with max limit
-                },
-            },
-            { new: true }
+            { $pull: { refreshTokens: clientRefreshToken } }
+        );
+
+        // Step 2: Add the new token with a maximum limit of 5
+        await userModel.updateOne(
+            { _id: user._id },
+            { $push: { refreshTokens: { $each: [newRefreshToken], $slice: -5 } } }
         );
 
         // Set new refresh token in cookie
@@ -264,6 +264,7 @@ const refreshToken = async (req, res) => {
         });
     }
 };
+
 
 
 
