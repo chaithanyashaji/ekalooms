@@ -52,10 +52,14 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
 
             {/* Bestseller Badge */}
             {bestseller && (
-                <div role="status" aria-label="Bestseller" className="absolute shadow-lg top-2 left-2 bg-white text-[#A75D5D] text-xs px-2 py-0.5 rounded z-10">
-
-                    BESTSELLER
-                </div>
+                <div
+                role="status"
+                aria-label="This product is a bestseller"
+                className="absolute shadow-lg top-2 left-2 bg-white text-[#A75D5D] text-xs px-2 py-0.5 rounded z-10"
+              >
+                BESTSELLER
+              </div>
+              
             )}
 
             {/* Product Image */}
@@ -64,7 +68,7 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
                     <img
                         className="w-full h-[250px] sm:h-[320px] rounded-md shadow-lg border border-[#e6dede] object-cover group-hover:scale-105 transition-transform duration-300 "
                         src={image[0]}
-                        alt={name}
+                        alt={`Image of ${name}`}
                     />
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
@@ -82,25 +86,38 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
             {/* Product Details */}
             <div className="p-2 text-left">
                 {/* Brand/Product Name */}
-                <h3 className="text-md font-bold prata-regular text-gray-800 truncate tracking-wider">
+                <h3 className="text-md font-bold prata-regular text-gray-900 truncate tracking-wider">
                     {name}
                 </h3>
 
                 {/* Product Description */}
-               <p className='text-xs Outfit text-gray-600'>{category} - {subCategory}</p>
+               <p className='text-xs Outfit text-gray-600 truncate tracking-wider'>{category} - {subCategory}</p>
 
                 {/* Price and Ratings */}
                 <div className="mt-1 prata-regular flex flex-wrap items-center gap-2">
-                    <span className="text-sm text-[#D3756B]">
-                        {currency}{price}
-                    </span>
-                    <span className="text-xs line-through text-gray-400">
-                        {currency}{Math.round(price * 1.2)}
-                    </span>
-                    <span className="text-xs text-[#A75D5D] font-semibold">
-                        30% OFF
-                    </span>
-                </div>
+  <span
+    role="text"
+    style={{ color: "#A75D5D" }}
+    aria-label={`Price: ${currency}${price}`}
+  >
+    {currency}{price}
+  </span>
+  <span
+    role="text"
+    aria-label={`Original price: ${currency}${Math.round(price * 1.2)}`}
+    className="text-xs line-through text-gray-400"
+  >
+    {currency}{Math.round(price * 1.2)}
+  </span>
+  <span
+    role="text"
+    aria-label="30% discount on the original price"
+    className="text-xs text-[#A75D5D] font-semibold"
+  >
+    30% OFF
+  </span>
+</div>
+
 
                 {/* Ratings */}
                 <div className="flex items-center gap-1 mt-1">
