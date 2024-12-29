@@ -4,41 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* Dome shape using clip-path */
-.clip-dome {
-  clip-path: ellipse(50% 85% at 50% 50%);
-}
-
-
-
-
-
-
-.nav-link {
-  color: #9d4750;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-.nav-link:hover {
-  color: #d9534f;
-}
-.icon {
-  font-size: 1.5rem;
-  color: #9d4750;
-  cursor: pointer;
-}
-.mobile-link {
-  padding: 1rem 2rem;
-  color: #9d4750;
-  font-weight: bold;
-  border-bottom: 1px solid #f0f0f0;
-}
-.mobile-link:hover {
-  background: #f8f9fa;
-}
-
-
 .prata-regular {
     font-family: "Prata", serif;
     font-weight: 400;
@@ -47,11 +12,7 @@
 
   body {
     font-family: 'Outfit', sans-serif;
-}
-
-
-  
-  
+} 
 
   ::-webkit-scrollbar{
     display: none;
