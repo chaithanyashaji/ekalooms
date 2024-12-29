@@ -55,8 +55,12 @@ const Collection = () => {
     let filtered = products.slice();
 
     if (showSearch && search) {
-      filtered = filtered.filter((item) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
+      const searchLowerCase = search.toLowerCase();
+      filtered = filtered.filter(
+        (item) =>
+          item.name.toLowerCase().includes(searchLowerCase) || // Search in name
+          item.category.toLowerCase().includes(searchLowerCase) || // Search in category
+          item.subCategory.toLowerCase().includes(searchLowerCase) // Search in subcategory
       );
     }
     if (category.length > 0) {
