@@ -28,11 +28,17 @@ const ShopContextProvider =(props) => {
 
 
       const refreshToken = async () => {
+        // Prevent multiple refresh requests
+        if (isRefreshing) {
+            return null; // Skip if a refresh is already in progress
+        }
+    
+        setIsRefreshing(true); // Set refreshing state to true
         try {
             const response = await axios.post(
                 `${backendUrl}/api/user/refresh-token`,
                 {},
-                { withCredentials: true } // Automatically includes cookies
+                { withCredentials: true }
             );
     
             if (response.data.success) {
@@ -51,8 +57,11 @@ const ShopContextProvider =(props) => {
             toast.error("Session expired. Please log in again.");
             logout(); // Log out the user if refresh fails
             return null;
+        } finally {
+            setIsRefreshing(false); // Reset refreshing state
         }
     };
+    
     
     
 
@@ -61,17 +70,29 @@ const ShopContextProvider =(props) => {
         try {
             return await apiCall(); // Attempt the original API call
         } catch (error) {
-            if (error.response?.status === 401 && retryCount > 0 && !isRefreshing) {
-                setIsRefreshing(true);
+            if (error.response?.status === 401 && retryCount > 0) {
+                // Wait for any ongoing refresh process to complete
+                if (isRefreshing) {
+                    await new Promise((resolve) => {
+                        const interval = setInterval(() => {
+                            if (!isRefreshing) {
+                                clearInterval(interval);
+                                resolve();
+                            }
+                        }, 100); // Check every 100ms
+                    });
+                }
+    
+                // Retry with a refreshed token
                 const newToken = await refreshToken();
-                setIsRefreshing(false);
                 if (newToken) {
-                    return await handleRequestWithRetry(apiCall, retryCount - 1); // Retry the API call
+                    return await handleRequestWithRetry(apiCall, retryCount - 1);
                 }
             }
             throw error; // Rethrow the error if not recoverable
         }
     };
+    
     
     // Logout Function
     const logout = () => {
@@ -161,43 +182,66 @@ const updateQuantity = async (itemId, size, quantity) => {
 };
 
 
+let cartFetchPromise = null; // A promise to manage concurrent calls to getUserCart
+
 const getUserCart = async () => {
-    try {
-        const accessToken = localStorage.getItem("token");
-        
-
-        if (!accessToken) {
-            console.error("No access token found in localStorage.");
-            return;
-        }
-
-        const response = await axios.post(
-            `${backendUrl}/api/cart/get`,
-            {},
-            {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            }
-        );
-
-      
-        setCartItems(response.data.cartData || {});
-        return response.data.cartData;
-    } catch (error) {
-        console.error("Error fetching user cart:", error.message);
-
-        if (error.response && error.response.status === 401) {
-            console.error("Access token expired. Refreshing...");
-            const newAccessToken = await refreshToken();
-            if (newAccessToken) {
-                return await getUserCart(); // Retry with new token
-            } else {
-                console.error("Failed to refresh token. Redirecting to login.");
-                navigate("/login");
-            }
-        }
+    // If a cart fetch is already in progress, return the existing promise
+    if (cartFetchPromise) {
+        return cartFetchPromise;
     }
+
+    // Create a new promise for the ongoing fetch
+    cartFetchPromise = (async () => {
+        try {
+            const accessToken = localStorage.getItem("token");
+
+            if (!accessToken) {
+                console.error("No access token found in localStorage.");
+                return;
+            }
+
+            // Fetch cart data from the backend
+            const response = await axios.post(
+                `${backendUrl}/api/cart/get`,
+                {},
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                }
+            );
+
+            if (response.data.success) {
+                setCartItems(response.data.cartData || {});
+                return response.data.cartData;
+            } else {
+                console.error("Failed to fetch cart data:", response.data.message);
+                toast.error("Failed to fetch cart data.");
+            }
+        } catch (error) {
+            console.error("Error fetching user cart:", error.message);
+
+            // Handle token expiration and refresh
+            if (error.response && error.response.status === 401) {
+                console.error("Access token expired. Attempting token refresh...");
+                const newAccessToken = await refreshToken();
+
+                if (newAccessToken) {
+                    // Retry fetching the cart after refreshing the token
+                    return await getUserCart();
+                } else {
+                    console.error("Failed to refresh token. Redirecting to login.");
+                    navigate("/login");
+                }
+            } else {
+                toast.error("Failed to fetch cart data. Please try again.");
+            }
+        } finally {
+            cartFetchPromise = null; // Reset the promise after the fetch completes
+        }
+    })();
+
+    return cartFetchPromise;
 };
 
 
