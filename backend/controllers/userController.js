@@ -200,14 +200,16 @@ const refreshToken = async (req, res) => {
         const newAccessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
         const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        // Use atomic update for modifying the refreshTokens array
+        // Step 1: Remove the old refresh token
         await userModel.findByIdAndUpdate(
             user._id,
-            {
-                $pull: { refreshTokens: clientRefreshToken },
-                $push: { refreshTokens: newRefreshToken }
-            },
-            { new: true }
+            { $pull: { refreshTokens: clientRefreshToken } }
+        );
+
+        // Step 2: Add the new refresh token
+        await userModel.findByIdAndUpdate(
+            user._id,
+            { $push: { refreshTokens: newRefreshToken } }
         );
 
         setRefreshTokenCookie(res, newRefreshToken);
@@ -218,6 +220,7 @@ const refreshToken = async (req, res) => {
         return res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
+
 
 
 
