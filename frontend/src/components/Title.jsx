@@ -1,13 +1,19 @@
 import React from 'react';
 
-const Title = ({ text1, text2 }) => {
+const Title = ({ text1, text2, level = 1 }) => {
+  const HeadingTag = `h${level}`; // Dynamically determine the heading level
+
   return (
     <div className="inline-flex gap-1 items-center mb-3">
-      <p className="text-[#A75D5D] prata-regular">
+      <HeadingTag className="text-[#A75D5D] prata-regular">
         {text1}
-        <span className="text-[#F0997D]  prata-regular">{text2}</span>
-      </p>
-      <p className="w-10 sm:w-12 h-[1px] sm:h-[2px] bg-gradient-to-r from-[#D3756B] to-[#FFC3A1]"></p>
+        <span className="text-[#d1856c] prata-regular">{text2}</span>
+      </HeadingTag>
+      <span
+        className="w-10 sm:w-12 h-[1px] sm:h-[2px] bg-gradient-to-r from-[#D3756B] to-[#FFC3A1]"
+        role="separator"
+        aria-hidden="true"
+      ></span>
     </div>
   );
 };

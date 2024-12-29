@@ -40,6 +40,8 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
                     }
                 }}
                 className="absolute top-2 right-2 z-10 p-1.5 bg-white rounded-full shadow-md hover:bg-gray-100"
+                aria-label={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
+
             >
                 {isInWishlist ? (
                     <FaHeart className="text-[#A75D5D] w-4 h-4" />
@@ -50,7 +52,8 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
 
             {/* Bestseller Badge */}
             {bestseller && (
-                <div className="absolute shadow-lg top-2 left-2 bg-white text-[#A75D5D] text-xs px-2 py-0.5 rounded z-10">
+                <div role="status" aria-label="Bestseller" className="absolute shadow-lg top-2 left-2 bg-white text-[#A75D5D] text-xs px-2 py-0.5 rounded z-10">
+
                     BESTSELLER
                 </div>
             )}
@@ -68,7 +71,8 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
 
                     {/* Out of Stock Badge */}
                     {isOutOfStock && (
-                        <div className="absolute bottom-2 right-2 bg-[#A75D5D] text-white text-xs px-2 py-1 rounded shadow-md">
+                        <div role="status" aria-label="Out of Stock" className="absolute bottom-2 right-2 bg-[#A75D5D] text-white text-xs px-2 py-1 rounded shadow-md">
+
                             OUT OF STOCK
                         </div>
                     )}

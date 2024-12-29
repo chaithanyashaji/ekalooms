@@ -237,13 +237,15 @@ const Add = ({ token }) => {
             <div>
               <p className='mb-2 font-semibold'>Product Category</p>
               <select
-                onChange={(e) => {
-                  setCategory(e.target.value);
-                  setSubCategory(categories[e.target.value][0]);
-                }}
-                value={category}
-                className='w-full px-3 py-2 border rounded'
-              >
+  onChange={(e) => {
+    const selectedCategory = e.target.value;
+    setCategory(selectedCategory);
+    setSubCategory(categories[selectedCategory]?.[0] || ""); // Ensure valid subcategory
+  }}
+  value={category}
+  className='w-full px-3 py-2 border rounded'
+>
+
                 {Object.keys(categories).map((cat) => (
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
@@ -253,14 +255,16 @@ const Add = ({ token }) => {
             <div>
               <p className='mb-2 font-semibold'>Sub Category</p>
               <select
-                onChange={(e) => setSubCategory(e.target.value)}
-                value={subCategory}
-                className='w-full px-3 py-2 border rounded'
-              >
-                {categories[category]?.map((subCat) => (
-                  <option key={subCat} value={subCat}>{subCat}</option>
-                ))}
-              </select>
+  onChange={(e) => setSubCategory(e.target.value)}
+  value={subCategory}
+  className='w-full px-3 py-2 border rounded'
+>
+  {categories[category]?.map((subCat) => (
+    <option key={subCat} value={subCat}>{subCat}</option>
+  ))}
+</select>
+
+
             </div>
 
             <div>
