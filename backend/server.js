@@ -20,6 +20,7 @@ const port = process.env.PORT || 4000;
 connectDB();
 connectCloudinary();
 
+app.set('trust proxy', 1);
 // Set trust proxy for reverse proxies
  // Trust reverse proxies like Render or Heroku
 
