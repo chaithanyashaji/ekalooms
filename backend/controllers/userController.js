@@ -173,38 +173,43 @@ const refreshToken = async (req, res, next) => {
     try {
         const { refreshToken: clientRefreshToken } = req.cookies;
 
+        // Early validation: Check if refresh token exists
         if (!clientRefreshToken) {
-            return res.status(401).json({ 
-                success: false, 
-                message: "No refresh token provided" 
+            return res.status(401).json({
+                success: false,
+                message: "No refresh token provided",
             });
         }
 
+        // Verify refresh token
         let decoded;
         try {
             decoded = jwt.verify(clientRefreshToken, process.env.JWT_REFRESH_SECRET);
         } catch (err) {
             if (err instanceof jwt.TokenExpiredError) {
-                return res.status(401).json({ 
-                    success: false, 
-                    message: "Refresh token has expired" 
+                return res.status(401).json({
+                    success: false,
+                    message: "Refresh token has expired",
                 });
             }
-            return res.status(403).json({ 
-                success: false, 
-                message: "Invalid refresh token" 
+            return res.status(403).json({
+                success: false,
+                message: "Invalid refresh token",
             });
         }
 
+        // Retrieve user from the database
         const user = await userModel.findById(decoded.id);
         if (!user) {
-            return res.status(404).json({ 
-                success: false, 
-                message: "User not found" 
+            return res.status(404).json({
+                success: false,
+                message: "User not found",
             });
         }
 
+        // Check if the refresh token is valid
         if (!user.refreshTokens.includes(clientRefreshToken)) {
+            // Clear all refresh tokens (security measure for token theft)
             user.refreshTokens = [];
             await user.save();
 
@@ -215,20 +220,32 @@ const refreshToken = async (req, res, next) => {
                 path: "/",
             });
 
-            return res.status(403).json({ 
-                success: false, 
-                message: "Invalid refresh token" 
+            return res.status(403).json({
+                success: false,
+                message: "Invalid refresh token",
             });
         }
 
+        // Generate new tokens
         const newAccessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
         const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        await userModel.findByIdAndUpdate(user._id, {
-            $pull: { refreshTokens: clientRefreshToken },
-            $push: { refreshTokens: newRefreshToken },
-        });
+        // Rotate refresh tokens and enforce maximum limit
+        const MAX_REFRESH_TOKENS = 5;
+        user.refreshTokens = user.refreshTokens.filter(token => token !== clientRefreshToken);
 
+        // Remove the oldest token if exceeding the limit
+        if (user.refreshTokens.length >= MAX_REFRESH_TOKENS) {
+            user.refreshTokens.shift();
+        }
+
+        // Add the new refresh token
+        user.refreshTokens.push(newRefreshToken);
+
+        // Save user data
+        await user.save();
+
+        // Set new refresh token as HTTP-only secure cookie
         res.cookie("refreshToken", newRefreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
@@ -237,18 +254,20 @@ const refreshToken = async (req, res, next) => {
             path: "/",
         });
 
-        return res.status(200).json({ 
-            success: true, 
-            accessToken: newAccessToken 
+        // Send the new access token
+        return res.status(200).json({
+            success: true,
+            accessToken: newAccessToken,
         });
-    } catch (err) {
-        logger.error("Failed to refresh token:", err);
-        return res.status(500).json({ 
-            success: false, 
-            message: "Internal server error during token refresh" 
+    } catch (error) {
+        console.error("Refresh token error:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error during token refresh",
         });
     }
 };
+
 
 
 
