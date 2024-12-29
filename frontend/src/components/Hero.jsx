@@ -99,7 +99,7 @@ const Hero = () => {
           <img
             className={`w-full h-[450px] sm:h-[600px] md:h-[700px] object-cover transition-opacity duration-1000 ease-in-out ${fadeClass}`}
             src={images[currentImage].src}
-            loading="lazy"
+            loading="eager"
             alt={images[currentImage].alt}
             width={images[currentImage].width}
             height={images[currentImage].height}
