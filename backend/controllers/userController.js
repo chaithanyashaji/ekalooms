@@ -323,7 +323,7 @@ const adminLogin = async (req, res) => {
         const token = jwt.sign(
             { email, role: "admin" }, // Include role for authorization
             process.env.JWT_SECRET,
-            { expiresIn: "1h" }
+            { expiresIn: "24h" }
         );
 
         logger.info("Admin logged in successfully", { email });
