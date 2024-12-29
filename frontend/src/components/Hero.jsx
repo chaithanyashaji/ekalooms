@@ -21,25 +21,24 @@ const Hero = () => {
   const images = [
     {
       src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222243/hero_img1_n4rk9q.jpg",
-      alt: "ekalooms image",
-      width: 1920,
-      height: 1080,
-    },
-    {
-      
-      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222267/hero_img4_xdmaiq.jpg",
-      alt: "ekalooms image",
-      width: 1920,
-      height: 1080,
-    },
-    {
-      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222265/hero_img3_akf5rs.jpg",
-      alt: "ekalooms image",
+      alt: "Hero Image 1",
       width: 1920,
       height: 1080,
     },
     {
       src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222264/hero_img2_t8gvlm.jpg",
+      alt: "Hero Image 2",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222265/hero_img3_akf5rs.jpg",
+      alt: "Hero Image 3",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222267/hero_img4_xdmaiq.jpg",
       width: 1920,
       height: 1080,
     },
@@ -100,7 +99,7 @@ const Hero = () => {
           <img
             className={`w-full h-[450px] sm:h-[600px] md:h-[700px] object-cover transition-opacity duration-1000 ease-in-out ${fadeClass}`}
             src={images[currentImage].src}
-            loading={currentImage < 1 ? "eager" : "lazy"} 
+            loading="lazy"
             alt={images[currentImage].alt}
             width={images[currentImage].width}
             height={images[currentImage].height}
