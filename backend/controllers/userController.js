@@ -169,11 +169,11 @@ const logoutUser = async (req, res, next) => {
     }
 };
 
-const refreshToken = async (req, res, next) => {
+const refreshToken = async (req, res) => {
     try {
         const { refreshToken: clientRefreshToken } = req.cookies;
 
-        // Early validation: Check if refresh token exists
+        // Validate presence of refresh token
         if (!clientRefreshToken) {
             return res.status(401).json({
                 success: false,
@@ -181,7 +181,7 @@ const refreshToken = async (req, res, next) => {
             });
         }
 
-        // Verify refresh token
+        // Verify the refresh token
         let decoded;
         try {
             decoded = jwt.verify(clientRefreshToken, process.env.JWT_REFRESH_SECRET);
@@ -198,7 +198,7 @@ const refreshToken = async (req, res, next) => {
             });
         }
 
-        // Retrieve user from the database
+        // Find user in the database
         const user = await userModel.findById(decoded.id);
         if (!user) {
             return res.status(404).json({
@@ -207,9 +207,9 @@ const refreshToken = async (req, res, next) => {
             });
         }
 
-        // Check if the refresh token is valid
+        // Check if the refresh token exists in the user's tokens
         if (!user.refreshTokens.includes(clientRefreshToken)) {
-            // Clear all refresh tokens (security measure for token theft)
+            // Clear all tokens for security
             user.refreshTokens = [];
             await user.save();
 
@@ -230,22 +230,19 @@ const refreshToken = async (req, res, next) => {
         const newAccessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
         const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        // Rotate refresh tokens and enforce maximum limit
-        const MAX_REFRESH_TOKENS = 5;
-        user.refreshTokens = user.refreshTokens.filter(token => token !== clientRefreshToken);
+        // Atomic update to refresh tokens
+        await userModel.findOneAndUpdate(
+            { _id: user._id },
+            {
+                $pull: { refreshTokens: clientRefreshToken }, // Remove the old token
+                $push: {
+                    refreshTokens: { $each: [newRefreshToken], $slice: -5 }, // Add new token with max limit
+                },
+            },
+            { new: true }
+        );
 
-        // Remove the oldest token if exceeding the limit
-        if (user.refreshTokens.length >= MAX_REFRESH_TOKENS) {
-            user.refreshTokens.shift();
-        }
-
-        // Add the new refresh token
-        user.refreshTokens.push(newRefreshToken);
-
-        // Save user data
-        await user.save();
-
-        // Set new refresh token as HTTP-only secure cookie
+        // Set new refresh token in cookie
         res.cookie("refreshToken", newRefreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
@@ -267,7 +264,6 @@ const refreshToken = async (req, res, next) => {
         });
     }
 };
-
 
 
 
