@@ -189,8 +189,8 @@ const refreshToken = async (req, res) => {
         const user = await userModel.findById(decoded.id);
         if (!user || !user.refreshTokens.includes(clientRefreshToken)) {
             if (user) {
-                user.refreshTokens = [];
-                await user.save();
+                // Clear all refresh tokens if the token is invalid
+                await userModel.findByIdAndUpdate(user._id, { refreshTokens: [] });
             }
 
             res.clearCookie("refreshToken", { httpOnly: true, secure: true, sameSite: "None", path: "/" });
@@ -200,9 +200,15 @@ const refreshToken = async (req, res) => {
         const newAccessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
         const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
-        user.refreshTokens = user.refreshTokens.filter(token => token !== clientRefreshToken);
-        user.refreshTokens.push(newRefreshToken);
-        await user.save();
+        // Use atomic update for modifying the refreshTokens array
+        await userModel.findByIdAndUpdate(
+            user._id,
+            {
+                $pull: { refreshTokens: clientRefreshToken },
+                $push: { refreshTokens: newRefreshToken }
+            },
+            { new: true }
+        );
 
         setRefreshTokenCookie(res, newRefreshToken);
 
