@@ -265,22 +265,30 @@ const getCartAmount = () =>{
 }
 
 
-const getProductsData = async (page = 1, limit = 20) => {
+const getProductsData = async () => {
     try {
-        const response = await axios.get(`${backendUrl}/api/product/list`, {
-            params: { page, limit },
-        });
-        if (response.data.success) {
-            setProducts(response.data.products);
-            setPagination(response.data.pagination);
-        } else {
-            toast.error(response.data.message);
-        }
+      const response = await axios.get(`${backendUrl}/api/product/list`);
+  
+      if (response.data.success) {
+        const { products } = response.data;
+        setProducts(products);
+      } else {
+        toast.error(response.data.message || "Failed to fetch products.");
+      }
     } catch (error) {
-        console.error("Error fetching products:", error.message);
-        toast.error("Failed to fetch products.");
+      console.error("Error fetching products:", error);
+  
+      if (error.response) {
+        // API responded with an error
+        toast.error(error.response.data.message || "Failed to fetch products.");
+      } else {
+        // Network or other errors
+        toast.error("Unable to connect to the server. Please try again.");
+      }
     }
-};
+  };
+  
+  
 
   
 

@@ -9,14 +9,14 @@ import ProductItem from '../components/ProductItem';
 import MobileFilterPanel from '../components/MobileFilterPanel';
 
 const Collection = () => {
-  const { products, search, showSearch, pagination } = useContext(ShopContext);
+  const { products, search, showSearch, } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState('relevant');
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 20;
+  const productsPerPage = 30;
 
   const location = useLocation();
   const params = useParams();
@@ -52,17 +52,20 @@ const Collection = () => {
   }, [category, subCategory, search, showSearch, products]);
 
   const applyFilter = () => {
-    let filtered = products.slice();
+    let filtered = [...products];
 
+    // Apply search filter
     if (showSearch && search) {
       const searchLowerCase = search.toLowerCase();
       filtered = filtered.filter(
         (item) =>
-          item.name.toLowerCase().includes(searchLowerCase) || // Search in name
-          item.category.toLowerCase().includes(searchLowerCase) || // Search in category
-          item.subCategory.toLowerCase().includes(searchLowerCase) // Search in subcategory
+          item.name.toLowerCase().includes(searchLowerCase) ||
+          item.category.toLowerCase().includes(searchLowerCase) ||
+          item.subCategory.toLowerCase().includes(searchLowerCase)
       );
     }
+
+    // Apply category and subcategory filters
     if (category.length > 0) {
       filtered = filtered.filter((item) => category.includes(item.category));
     }
@@ -71,22 +74,26 @@ const Collection = () => {
     }
 
     // Apply sorting
-    if (sortType === 'low-high') {
-      filtered = filtered.sort((a, b) => a.price - b.price);
-    } else if (sortType === 'high-low') {
-      filtered = filtered.sort((a, b) => b.price - a.price);
-    } else if (sortType === 'rating') {
-      filtered = filtered.sort((a, b) => b.averageRating - a.averageRating);
-    } else if (sortType === 'bestseller') {
-      filtered = filtered.sort((a, b) => (b.bestseller ? 1 : -1));
-    }
+    filtered.sort((a, b) => {
+      if (sortType === 'low-high') return a.price - b.price;
+      if (sortType === 'high-low') return b.price - a.price;
+      if (sortType === 'rating') return b.averageRating - a.averageRating;
+      if (sortType === 'bestseller') return b.bestseller ? 1 : -1;
+      return 0; // Default: Relevant
+    });
 
     setFilterProducts(filtered);
+    setCurrentPage(1); // Reset to the first page whenever filters are applied
   };
 
   const paginate = () => {
     const startIndex = (currentPage - 1) * productsPerPage;
-    return filterProducts.slice(startIndex, startIndex + productsPerPage);
+    const endIndex = startIndex + productsPerPage;
+    return filterProducts.slice(startIndex, endIndex);
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
   };
 
   const toggleCategory = (cat) => {
@@ -233,15 +240,16 @@ const Collection = () => {
         </div>
 
         <div className="flex justify-center mt-6">
-          {Array.from({ length: pagination.totalPages }, (_, index) => (
+          {Array.from({ length: Math.ceil(filterProducts.length / productsPerPage) }, (_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentPage(index + 1)}
+              onClick={() => handlePageChange(index + 1)}
               className={`px-3 py-2 mx-1 rounded-md ${
                 currentPage === index + 1
                   ? 'bg-[#D3756B] text-white'
                   : 'bg-[#F3F3F5] text-[#A75D5D]'
               }`}
+              aria-label={`Go to page ${index + 1}`}
             >
               {index + 1}
             </button>

@@ -142,8 +142,6 @@ const updateProduct = async (req, res) => {
 const listProducts = async (req, res) => {
   try {
     const {
-      page = 1,
-      limit = 20,
       category,
       subCategory,
       minPrice,
@@ -162,36 +160,17 @@ const listProducts = async (req, res) => {
       if (minPrice) filter.price.$gte = Number(minPrice);
       if (maxPrice) filter.price.$lte = Number(maxPrice);
     }
-    if (bestseller !== undefined) {
-      filter.bestseller = bestseller === "true";
-    }
-    if (inStock !== undefined) {
-      filter.inStock = inStock === "true";
-    }
+    if (bestseller !== undefined) filter.bestseller = bestseller === "true";
+    if (inStock !== undefined) filter.inStock = inStock === "true";
 
-    const sortOptions = {};
-    if (sortField === "bestseller") {
-      sortOptions.bestseller = -1; // Sort bestseller products first
-    } else {
-      sortOptions[sortField] = sortOrder;
-    }
+    const sortOptions = {
+      [sortField]: sortField === "bestseller" ? -1 : Number(sortOrder),
+    };
 
-    const totalProducts = await productModel.countDocuments(filter);
+    // Fetch all filtered and sorted products
+    const products = await productModel.find(filter).sort(sortOptions);
 
-    if (totalProducts === 0) {
-      return res.status(200).json({
-        success: true,
-        products: [],
-        pagination: { totalProducts: 0, currentPage: page, totalPages: 0 },
-      });
-    }
-
-    const products = await productModel
-      .find(filter)
-      .skip((page - 1) * limit)
-      .limit(Number(limit))
-      .sort(sortOptions); // Use dynamic sorting options
-
+    // Transform product data
     const transformedProducts = products.map((product) => ({
       ...product._doc,
       image: product.image?.map((url) =>
@@ -208,17 +187,14 @@ const listProducts = async (req, res) => {
     res.status(200).json({
       success: true,
       products: transformedProducts,
-      pagination: {
-        totalProducts,
-        currentPage: Number(page),
-        totalPages: Math.ceil(totalProducts / limit),
-      },
+      totalProducts: products.length, // Provide the total count for frontend reference
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ success: false, message: err.message });
+    console.error("Error in listProducts:", err);
+    res.status(500).json({ success: false, message: "Internal server error." });
   }
 };
+
 
 
 // Function to remove a product
