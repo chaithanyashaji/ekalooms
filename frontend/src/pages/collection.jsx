@@ -16,7 +16,7 @@ const Collection = () => {
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState('relevant');
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 30;
+  const productsPerPage = 60;
 
   const location = useLocation();
   const params = useParams();

@@ -2,21 +2,24 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ShopContext } from "../context/shopcontext";
 import { MenuIcon, SearchIcon, UserIcon, XIcon } from "@heroicons/react/outline";
+import { useLocation } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch, navigate, token, setToken, } = useContext(ShopContext);
+  const { setShowSearch, navigate, token, setToken } = useContext(ShopContext);
+  const location = useLocation(); // Get the current location
 
   const logout = () => {
     // Clear tokens and navigate to the login page
     localStorage.removeItem("token");
-    
     localStorage.removeItem("refreshToken"); // Clear the refresh token as well
     setToken("");
     navigate("/login");
   };
+
+  // Determine if the current page is a "collection" page
+  const isCollectionPage = location.pathname.includes("collection");
 
   return (
     <div className="flex items-center justify-between h-16 px-4 sm:px-6 md:px-10 font-medium w-full mx-auto">
@@ -57,7 +60,11 @@ const Navbar = () => {
       {/* Center Section: Logo */}
       <div className="flex-1 flex justify-center">
         <Link to="/" className="flex items-center gap-2">
-          <img className="w-10 sm:w-12" src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png" alt="Logo" />
+          <img
+            className="w-10 sm:w-12"
+            src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"
+            alt="Logo"
+          />
           <h1 className="mt-2 text-xl sm:text-lg prata-regular text-[#A75D5D]">
             ekalooms
           </h1>
@@ -67,10 +74,12 @@ const Navbar = () => {
       {/* Right Section: Search, Cart, and User */}
       <div className="flex items-center gap-4 sm:gap-6">
         {/* Search Icon */}
-        <SearchIcon
-          onClick={() => setShowSearch(true)}
-          className="w-6 h-6 cursor-pointer text-[#D3756B] hover:text-[#F0997D] transition-all"
-        />
+        {isCollectionPage && ( // Render the search icon only on collection pages
+          <SearchIcon
+            onClick={() => setShowSearch(true)}
+            className="w-6 h-6 cursor-pointer text-[#D3756B] hover:text-[#F0997D] transition-all"
+          />
+        )}
 
         {/* User Icon */}
         <div className="relative group">
@@ -83,7 +92,6 @@ const Navbar = () => {
           {token && (
             <div className="absolute right-0 mt-2 hidden group-hover:block z-50">
               <div className="flex flex-col gap-2 w-32 py-3 px-4 bg-white border border-gray-200 shadow-lg text-[#D3756B] rounded-lg transition-transform duration-150 ease-in-out">
-                
                 <p
                   onClick={logout}
                   className="hover:text-[#F0997D] cursor-pointer transition-colors duration-150 ease-in-out"
@@ -119,7 +127,11 @@ const Navbar = () => {
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between py-6 px-4 shadow-sm">
             <div className="flex items-center gap-2">
-              <img className="w-12" src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"alt="Logo" />
+              <img
+                className="w-12"
+                src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"
+                alt="Logo"
+              />
               <h1 className="text-xl sm:text-2xl prata-regular text-[#A75D5D]">
                 ekalooms
               </h1>
@@ -155,6 +167,7 @@ const Navbar = () => {
             >
               Track Your Order
             </NavLink>
+
             <NavLink
               to="/policy"
               onClick={() => setVisible(false)}
