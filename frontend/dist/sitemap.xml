@@ -36,7 +36,7 @@
 
   <!-- Sarees Collection -->
   <url>
-    <loc>https://ekalooms.com/collection/sarees</loc>
+    <loc>https://ekalooms.com/collection?category=Saree</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -47,7 +47,7 @@
 
   <!-- Home Decor Collection -->
   <url>
-    <loc>https://ekalooms.com/collection/home-decor</loc>
+    <loc>https://ekalooms.com/collection?category=Home%20Decor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -58,7 +58,7 @@
 
   <!-- Stitched Suits Collection -->
   <url>
-    <loc>https://ekalooms.com/collection/stitched-suits</loc>
+    <loc>https://ekalooms.com/collection?category=Stitched%20Suits</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -69,7 +69,7 @@
 
   <!-- Unstitched Suits Collection -->
   <url>
-    <loc>https://ekalooms.com/collection/unstitched-suits</loc>
+    <loc>https://ekalooms.com/collection?category=Unstitched%20Suits</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
