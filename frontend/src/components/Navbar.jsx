@@ -11,13 +11,12 @@ const Navbar = () => {
   const location = useLocation(); // Get the current location
 
   const logout = () => {
-    // Clear tokens and navigate to the login page
+    setToken(null);
+    setCartItems({});
+    setWishlist([]);
     localStorage.removeItem("token");
-    localStorage.removeItem("refreshToken"); // Clear the refresh token as well
-    setToken("");
     navigate("/login");
-  };
-
+};
   // Determine if the current page is a "collection" page
   const isCollectionPage = location.pathname.includes("collection");
 

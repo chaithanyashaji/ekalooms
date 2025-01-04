@@ -120,7 +120,7 @@ const loginUser = async (req, res, next) => {
             return res.status(401).json({ success: false, message: "Invalid credentials" });
         }
 
-        const accessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
+        const accessToken = createToken(user._id, "20min", process.env.JWT_SECRET);
         const refreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
         if (user.refreshTokens.length >= 5) {
@@ -197,7 +197,7 @@ const refreshToken = async (req, res) => {
             return res.status(403).json({ success: false, message: "Invalid refresh token" });
         }
 
-        const newAccessToken = createToken(user._id, "20m", process.env.JWT_SECRET);
+        const newAccessToken = createToken(user._id, "20min", process.env.JWT_SECRET);
         const newRefreshToken = createToken(user._id, "7d", process.env.JWT_REFRESH_SECRET);
 
         // Step 1: Remove the old refresh token
