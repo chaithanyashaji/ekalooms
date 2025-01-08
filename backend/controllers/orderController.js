@@ -401,7 +401,7 @@ const placeGuestOrder = async (req, res) => {
 // Placing order using Razorpay for guest users
 const placeOrderRazorpayGuest = async (req, res) => {
     try {
-      const { items, amount, address, couponCode,deliveryOption,email  } = req.body;
+      const { items, amount, address, email,couponCode,deliveryOption  } = req.body;
   
       // Step 1: Create order data for the database
       const orderData = {
