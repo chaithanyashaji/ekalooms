@@ -78,7 +78,7 @@ const PlaceOrder = () => {
       description: 'Complete your order payment',
       order_id: order.id, // Razorpay order ID
       prefill: {
-        email: order.address.email || '', // Prefill the user's email
+        email: formData.email || '', // Prefill the user's email
       },
       handler: async (response) => {
         toast.info('Processing payment...');
