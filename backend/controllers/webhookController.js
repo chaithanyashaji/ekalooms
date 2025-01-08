@@ -104,12 +104,12 @@ const razorpayWebhook = async (req, res) => {
 
 
             // Trigger the email
-            await sendMail(email, 'Payment Confirmation', emailHTML, true);
+            await sendMail(order.address.email, 'Payment Confirmation', emailHTML, true);
             const adminEmailHTML = `
 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; padding: 20px; background-color: #f9f9f9;">
     <h1 style="font-size: 1.5em; margin-bottom: 20px; color: #333;">New Payment Captured</h1>
     <p><strong>Order ID:</strong> ${order._id}</p>
-    <p><strong>Customer Email:</strong> ${email}</p>
+    <p><strong>Customer Email:</strong> ${order.address.email}</p>
     <p><strong>Amount Paid:</strong> ₹${(order.amount || 0).toFixed(2)}</p>
     <h3 style="margin-bottom: 10px;">Items Purchased:</h3>
     <ul style="padding: 0; margin-bottom: 20px;">
