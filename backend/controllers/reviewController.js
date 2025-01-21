@@ -6,19 +6,22 @@ import productModel from "../models/productModel.js";
 // Add a review
 const addReview = async (req, res) => {
     try {
-        const { productId, rating, comment } = req.body;
-        
-        const userId=req.user.id;
+        const { productId, rating, comment, guestName, guestEmail } = req.body;
 
-       
-        
+        if (!rating || !comment || !productId || (!req.user && (!guestName || !guestEmail))) {
+            return res.status(400).json({ success: false, message: "All fields are required." });
+        }
 
-        const review = new reviewModel({ userId, productId, rating, comment});
+        const reviewData = req.user
+            ? { userId: req.user.id, productId, rating, comment }
+            : { guestName, guestEmail, productId, rating, comment };
+
+        const review = new reviewModel(reviewData);
         await review.save();
 
         const product = await productModel.findById(productId);
         if (!product) {
-            return res.json({ success: false, message: "Product not found" });
+            return res.status(404).json({ success: false, message: "Product not found." });
         }
 
         const newTotalReviews = product.totalReviews + 1;
@@ -31,10 +34,10 @@ const addReview = async (req, res) => {
 
         await product.save();
 
-        res.json({ success: true, message: "Review added successfully" });
+        res.json({ success: true, message: "Review added successfully." });
     } catch (error) {
-        console.error(error); // Log the error
-        res.json({ success: false, message: error.message });
+        console.error(error);
+        res.status(500).json({ success: false, message: "Internal server error." });
     }
 };
 

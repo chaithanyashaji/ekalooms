@@ -15,6 +15,7 @@ import RelatedProducts from '../components/RelatedProducts';
 import axios from 'axios';
 import {FaHeart,FaRegHeart, FaUserAlt, FaStar, FaStarHalfAlt, FaRegStar, FaShareAlt, FaLink,FaTimes } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import Title from '../components/Title';
 
 const Product = () => {
   const { productId } = useParams();
@@ -22,7 +23,11 @@ const Product = () => {
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
-  
+  const [guestName, setGuestName] = useState('');
+const [guestEmail, setGuestEmail] = useState('');
+const [reviewRating, setReviewRating] = useState(0);
+const [reviewComment, setReviewComment] = useState('');
+const [isSubmittingReview, setIsSubmittingReview] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [averageRating, setAverageRating] = useState(0);
   const [totalReviews, setTotalReviews] = useState(0);
@@ -146,35 +151,152 @@ const Product = () => {
     };
     
 
-    const renderReviews = () => {
-      if (reviews.length === 0) {
-        return <p>No reviews yet.</p>;
-      }
-      return (
-        <div className="max-h-150 overflow-y-auto">
-          {reviews.map((review) => (
-            <div key={review._id} className="border-b py-4">
-              {/* Reviewer Info */}
-              <div className="flex items-center gap-2">
-                <FaUserAlt className="w-4 h-4 text-gray-600" />
-                <p className="font-medium prata-regular text-[#9d4a54]">
-                  {review.userId.name}
-                </p>
-              </div>
-  
-              {/* Review Stars */}
-              <div className="flex gap-1">{generateStars(review.rating)}</div>
-  
-              {/* Review Date */}
-              <p className="text-xs text-gray-400">{formatDate(review.date)}</p>
-  
-              {/* Review Comment */}
-              <p>{review.comment}</p>
-            </div>
-          ))}
+
+const submitReview = async () => {
+    if (!reviewRating || !reviewComment || (!token && (!guestName || !guestEmail))) {
+        toast.error('All fields are required.', {
+            position: "bottom-right",
+            autoClose: 3000,
+        });
+        return;
+    }
+
+    try {
+        setIsSubmittingReview(true);
+        const reviewData = token
+            ? { productId, rating: reviewRating, comment: reviewComment }
+            : { productId, rating: reviewRating, comment: reviewComment, guestName, guestEmail };
+
+        const response = await axios.post(
+            `${backendUrl}/api/review/submitreview`,
+            reviewData,
+            token ? { headers: { Authorization: `Bearer ${token}` } } : {}
+        );
+
+        const data = response.data;
+        if (data.success) {
+            toast.success('Review submitted successfully!', {
+                position: "bottom-right",
+                autoClose: 3000,
+            });
+            setGuestName('');
+            setGuestEmail('');
+            setReviewRating(0);
+            setReviewComment('');
+            fetchReviews(); // Refresh reviews
+        } else {
+            toast.error(data.message, {
+                position: "bottom-right",
+                autoClose: 3000,
+            });
+        }
+    } catch (error) {
+        toast.error('Failed to submit review. Please try again.', {
+            position: "bottom-right",
+            autoClose: 3000,
+        });
+    } finally {
+        setIsSubmittingReview(false);
+    }
+};
+
+const renderWriteReview = () => (
+  <div className="mt-6 p-6 bg-white shadow rounded-lg border border-gray-200">
+       <Title text1={'WRITE A '} text2={'REVIEW'} />
+
+    {/* Guest Input Fields */}
+    {!token && (
+      <div className="flex flex-col gap-4 mb-4">
+        <input
+          type="text"
+          placeholder="Your Name"
+          value={guestName}
+          onChange={(e) => setGuestName(e.target.value)}
+          className="border border-gray-300 rounded-md p-3 w-full text-sm focus:outline-none focus:ring-2 focus:ring-[#F0997D]"
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          value={guestEmail}
+          onChange={(e) => setGuestEmail(e.target.value)}
+          className="border border-gray-300 rounded-md p-3 w-full text-sm focus:outline-none focus:ring-2 focus:ring-[#F0997D]"
+        />
+      </div>
+    )}
+
+    {/* Rating Selector */}
+    <div className="flex flex-col gap-4">
+      <div className="flex gap-1 items-center">
+        <label className="text-sm text-gray-600 font-medium">Rating:</label>
+        {[1, 2, 3, 4, 5].map((num) => (
+          <button
+            key={num}
+            className={`text-2xl transition ${
+              reviewRating >= num ? 'text-[#F0997D]' : 'text-gray-300'
+            }`}
+            onClick={() => setReviewRating(num)}
+          >
+            ★
+          </button>
+        ))}
+      </div>
+
+      {/* Comment Input */}
+      <textarea
+        className="border border-gray-300 rounded-md p-3 w-full h-28 text-sm focus:outline-none focus:ring-2 focus:ring-[#F0997D] resize-none"
+        placeholder="Write your comment here..."
+        value={reviewComment}
+        onChange={(e) => setReviewComment(e.target.value)}
+      ></textarea>
+
+      {/* Submit Button */}
+      <button
+        onClick={submitReview}
+        disabled={isSubmittingReview}
+        className={`px-6 py-3 rounded-md font-medium transition ${
+          isSubmittingReview
+            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+            : 'bg-gradient-to-r from-[#F0997D] to-[#D3756B] text-white hover:from-[#D3756B] hover:to-[#F0997D]'
+        }`}
+      >
+        {isSubmittingReview ? 'Submitting...' : 'Submit Review'}
+      </button>
+    </div>
+  </div>
+);
+
+
+   const renderReviews = () => {
+  if (reviews.length === 0) {
+    return <p>No reviews yet.</p>;
+  }
+
+  return (
+    <div className="max-h-150 overflow-y-auto">
+      {reviews.map((review) => (
+        <div key={review._id} className="border-b py-4">
+          {/* Reviewer Info */}
+          <div className="flex items-center gap-2">
+            <FaUserAlt className="w-4 h-4 text-gray-600" />
+            <p className="font-medium prata-regular text-[#9d4a54]">
+              {review.userId?.name || review.guestName || "Anonymous"}
+            </p>
+          </div>
+
+          {/* Review Stars */}
+          <div className="flex gap-1">{generateStars(review.rating)}</div>
+
+          {/* Review Date */}
+          <p className="text-xs text-gray-400">{formatDate(review.date)}</p>
+
+          {/* Review Comment */}
+          <p>{review.comment}</p>
         </div>
-      );
-    };
+      ))}
+    </div>
+  );
+};
+
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
@@ -399,6 +521,10 @@ const Product = () => {
         {showDescription ? renderDescription() : renderReviews()}
       </div>
     </div>
+    <div>
+  {renderWriteReview()}
+ 
+</div>
   
 
       <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
