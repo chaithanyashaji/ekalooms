@@ -14,6 +14,7 @@ const PlaceOrder = () => {
   const [couponCode, setCouponCode] = useState('');
   const [discount, setDiscount] = useState(0);
   const [discountApplied, setDiscountApplied] = useState(false);
+  const [orderId, setOrderId] = useState("");
  // Automatically set guest mode if no token
   const [formData, setFormData] = useState({
     firstName: '',
@@ -76,7 +77,7 @@ const PlaceOrder = () => {
       currency: order.currency,
       name: 'Order Payment',
       description: 'Complete your order payment',
-      order_id: order.id, // Razorpay order ID
+      order_id: order.razorpayOrderId, // Razorpay order ID
       prefill: {
         email: order.email || '', // Prefill the user's email
       },
@@ -86,13 +87,15 @@ const PlaceOrder = () => {
         // Poll the backend to check for payment confirmation
         const pollPaymentStatus = async () => {
           try {
-            const statusResponse = await axios.get(`${backendUrl}/api/order/status/${order.id}`);
+            const statusResponse = await axios.get(`${backendUrl}/api/order/status/${ order.razorpayOrderId}`);
   
             if (statusResponse.data.success && statusResponse.data.payment) {
               clearInterval(pollInterval);
               toast.success('Payment confirmed! 🎉');
               setCartItems({}) // Clear cart items
-              navigate('/cart');
+              navigate(`/order-details/${order.id}`);
+
+
             } else {
               
             }

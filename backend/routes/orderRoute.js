@@ -2,15 +2,15 @@ import express from 'express';
 import rateLimit from "express-rate-limit";
 import {
   placeOrder,
-  placeGuestOrder,
+
   placeOrderRazorpayGuest,
 
   placeOrderRazorpay,
-  placeOrderStripe,
+
   allOrders,
   userOrders,
   updateStatus,
-  verifyStripe,
+
   updateTrackingId,
   getOrderStatus
 } from '../controllers/orderController.js';
@@ -33,11 +33,10 @@ orderRouter.post('/update-tracking-id', adminAuth,updateTrackingId);
 
 // User routes
 orderRouter.post('/place', authUser, orderLimiter, placeOrder);
-orderRouter.post('/stripe', authUser, placeOrderStripe);
 orderRouter.post('/razorpay', authUser, placeOrderRazorpay);
 
 // Guest routes
-orderRouter.post('/guest', orderLimiter, placeGuestOrder);
+
 orderRouter.post('/razorpayguest', orderLimiter, placeOrderRazorpayGuest);
 
 // Payment status routes
@@ -46,7 +45,7 @@ orderRouter.post('/track', orderLimiter, getOrderStatus);
 
 
 // Verify payment
-orderRouter.post('/verifyStripe', authUser, verifyStripe);
+
 
 // Route to check payment status via polling
 orderRouter.get('/status/:receipt', async (req, res) => {
@@ -83,5 +82,22 @@ orderRouter.get('/status/:receipt', async (req, res) => {
       });
     }
   });
+
+  orderRouter.get("/details/:orderId", async (req, res) => {
+    try {
+      console.log("Fetching order details for:", req.params.orderId); // Debugging
+      const order = await orderModel.findOne({ orderId: req.params.orderId });
+  
+      if (!order) {
+        return res.status(404).json({ success: false, message: "Order not found" });
+      }
+  
+      res.json({ success: true, order });
+    } catch (error) {
+      console.error("Error fetching order details:", error.message);
+      res.status(500).json({ success: false, message: "Internal server error" });
+    }
+  });
+  
   
 export default orderRouter;

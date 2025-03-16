@@ -22,7 +22,7 @@ import TrackYourOrder from './pages/TrackyourOrder';
 import Policy from './pages/policy';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from "./components/Spinner";
-
+import OrderDetails from "./pages/OrderDetails";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -61,7 +61,8 @@ const App = () => {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route path='/trackyourOrder' element={<TrackYourOrder />} />
-            <Route path='policy' element={<Policy />} />
+            <Route path='/policy' element={<Policy />} />
+            <Route path="/order-details/:orderId" element={<OrderDetails />} />
           </Routes>
           <Footer />
         </>

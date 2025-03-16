@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema({
+    orderId: { type: String,   unique: true },
     userId: { type: String, required: false }, // Optional for guest orders
     isGuest: { type: Boolean, default: false }, // New field for guest orders
     items: { type: Array, required: true },

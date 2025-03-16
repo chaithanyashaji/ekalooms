@@ -27,7 +27,7 @@ const Add = ({ token }) => {
     "Saree": [
      "Chanderi silk", "Jimmy Choo", "Kota Doria", "Linen", 
      "Madurai Sungudi / Velthari", "Maheshwari silk", "Mul Mul", 
-     "Organza", "Soft khadi cotton","Soft silk","Viscose/Georgettes","Silk"
+     "Organza", "Soft khadi cotton","Soft silk","Viscose/Georgettes","Silk","Chiffon","Modal Silk","Cotton"
    ],
    "Readymades": [
      "Cotton", "Muslin", "Rayon","Georgette"

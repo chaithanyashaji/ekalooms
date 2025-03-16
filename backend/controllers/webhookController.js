@@ -5,6 +5,7 @@ import { sendMail } from '../services/emailService.js';
 const razorpayWebhook = async (req, res) => {
     try {
         const secret = process.env.RAZORPAY_WEBHOOK_SECRET;
+        const FRONTEND_URL = process.env.FRONTEND_URL;
 
         // Parse the raw body as a string
         const rawBody = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
@@ -31,12 +32,12 @@ const razorpayWebhook = async (req, res) => {
         if (payload.event === 'payment.captured') {
             // Update the order based on Razorpay orderId
             const { order_id, amount, email, address } = payload.payload.payment.entity;
-
+            const razorpayOrderId = payload?.payload?.payment?.entity?.order_id;
             
 
             // Query using razorpayOrderId
             const order = await orderModel.findOneAndUpdate(
-                { razorpayOrderId: order_id },
+                { razorpayOrderId },
                 { payment: true },
                 { new: true }
             );
@@ -59,11 +60,11 @@ const razorpayWebhook = async (req, res) => {
 
     <p style="margin-bottom: 15px; text-align: left;">Dear <strong>${order.address.firstName || "Customer"}</strong>,</p>
 
-    <p style="margin-bottom: 15px;">Thank you for your order! Your payment for <strong>Order ID: ${order._id}</strong> has been successfully received.</p>
+    <p style="margin-bottom: 15px;">Thank you for your order! Your payment for <strong>Order ID: ${order.orderId}</strong> has been successfully received.</p>
 
     <h3 style="margin-bottom: 10px;">Order Details:</h3>
     <ul style=" padding: 0; margin-bottom: 20px;">
-        <li style="margin-bottom: 5px;"><strong>Order ID:</strong> ${order._id}</li>
+        <li style="margin-bottom: 5px;"><strong>Order ID:</strong> ${order.orderId}</li>
         <li style="margin-bottom: 5px;"><strong>Payment Status:</strong> Paid</li>
         <li style="margin-bottom: 5px;"><strong>Total Amount:</strong> ₹${(order.amount || 0).toFixed(2)}</li>
     </ul>
@@ -93,6 +94,12 @@ const razorpayWebhook = async (req, res) => {
         ${order.address.state || ''}, ${order.address.country || ''} - ${order.address.zipcode || ''}
     </p>
 
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="${FRONTEND_URL}/order-details/${order.orderId}" style="background-color: #D3756B; color: white; padding: 12px 20px; border-radius: 6px; text-decoration: none; font-size: 16px;">
+            View Order Details
+        </a>
+    </div>
+
     <p style="margin-bottom: 20px; font-size: 14px;">If you have any questions about your order, feel free to contact our support team at <a href="mailto:ekalooms@gmail.com" style="color: #007BFF; text-decoration: none;">ekalooms@gmail.com</a>.</p>
 
     <p style="font-size: 14px; margin-bottom: 20px; text-align: center;"><strong>Thank you for shopping with us!</strong></p>
@@ -108,7 +115,7 @@ const razorpayWebhook = async (req, res) => {
             const adminEmailHTML = `
 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; padding: 20px; background-color: #f9f9f9;">
     <h1 style="font-size: 1.5em; margin-bottom: 20px; color: #333;">New Payment Captured</h1>
-    <p><strong>Order ID:</strong> ${order._id}</p>
+    <p><strong>Order ID:</strong> ${order.orderId}</p>
     <p><strong>Customer Email:</strong> ${order.address.email}</p>
     <p><strong>Amount Paid:</strong> ₹${(order.amount || 0).toFixed(2)}</p>
     <h3 style="margin-bottom: 10px;">Items Purchased:</h3>

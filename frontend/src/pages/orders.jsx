@@ -137,11 +137,12 @@ const Orders = () => {
                   <p className="text-sm">
                     <strong>Quantity:</strong> {item.quantity}
                   </p>
-                  {item.size && (
-                    <p className="text-sm">
-                      <strong>Size:</strong> {item.size}
-                    </p>
-                  )}
+                  {item.sizes && item.sizes.length > 0 && item.size && (
+  <p className="text-sm">
+    <strong>Size:</strong> {item.size}
+  </p>
+)}
+
                   <p className="text-sm">
                     <strong>Payment Method:</strong> {item.paymentMethod}
                   </p>
