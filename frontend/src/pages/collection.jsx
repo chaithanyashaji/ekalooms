@@ -34,7 +34,7 @@ const Collection = () => {
     ],
     "Dress materials": [
       "Chanderi silk", "Cotton", "Georgette", "Kota silk", 
-      "Linen", "Muslin", "Rayon", "Tissue"
+      "Linen", "Muslin", "Rayon", "Tissue","Modal silk"
     ],
     "Home Decor": [
       "Bedsheets", "Cushion Covers", "Curtains", "Table Linen"
