@@ -41,13 +41,19 @@ const Add = ({ token }) => {
    ]
    };
 
+   useEffect(() => {
+    // Ensure a valid subCategory is always set when category changes
+    setSubCategory(categories[category]?.[0] || "");
+  }, [category]);
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
       const formData = new FormData();
       formData.append('name', name);
       formData.append('description', description);
-      formData.append('price', price);
+      formData.append('price', price); 
+
       formData.append('category', category);
       formData.append('subCategory', subCategory);
       formData.append('bestseller', bestseller);
@@ -85,6 +91,7 @@ const Add = ({ token }) => {
         setInStock(true);
         setSizes([]);
         setColors([]);
+        setStockQuantity(0);
         setImages([null, null, null, null]);
       } else {
         toast.error(response.data.message);
@@ -270,13 +277,14 @@ const Add = ({ token }) => {
             <div>
               <p className='mb-2 font-semibold'>Product Price</p>
               <input 
-                onChange={(e) => setPrice(e.target.value)} 
-                value={price} 
-                className='w-full px-3 py-2 border rounded' 
-                type='number' 
-                placeholder='Rs' 
-                required
-              />
+  onChange={(e) => setPrice(Number(e.target.value))} // ✅ Ensures price is always a number
+  value={price}
+  className='w-full px-3 py-2 border rounded' 
+  type='number' 
+  placeholder='Rs' 
+  required
+/>
+
             </div>
           </div>
           <div className="w-full max-w-[500px]">

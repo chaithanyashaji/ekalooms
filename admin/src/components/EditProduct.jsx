@@ -14,7 +14,7 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
 
   const [name, setName] = useState(product?.name || "");
   const [description, setDescription] = useState(product?.description || "");
-  const [price, setPrice] = useState(product?.price || "");
+  const [price, setPrice] = useState(product?.price ? Number(product.price) : 0); 
   const [category, setCategory] = useState(product?.category || "Saree");
   const [subCategory, setSubCategory] = useState(product?.subCategory || "");
   const [bestseller, setBestseller] = useState(product?.bestseller || false);

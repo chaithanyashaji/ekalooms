@@ -104,11 +104,13 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
   </span>
   <span
     role="text"
-    aria-label={`Original price: ${currency}${Math.round(price * 1.2)}`}
+    aria-label={`Original price: ${currency}${(Math.round(price * 1.2 * 100) / 100).toFixed(0)}`}
     className="text-xs line-through text-gray-600"
-  >
-    {currency}{Math.round(price * 1.2)}
-  </span>
+>
+    {currency}{(Math.round(price * 1.2 * 100) / 100).toFixed(0)}
+</span>
+
+
   <span
     role="text"
     aria-label="30% discount on the original price"
