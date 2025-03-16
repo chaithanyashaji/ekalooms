@@ -67,13 +67,13 @@ const Hero = () => {
   return (
     <div className="flex flex-col sm:flex-row border border-gray-400">
       <HeroText />
-      <div className="w-full sm:w-1/2 overflow-hidden relative flex items-center justify-center">
+      <div className="w-full sm:w-1/2 relative flex items-center justify-center overflow-hidden h-[450px] sm:h-[600px] md:h-[700px]">
         {loading || images.length === 0 ? (
           <div className="absolute inset-0 flex items-center justify-center bg-white/50">
-            <Spinner /> {/* Spinner centered inside the image box */}
+            <Spinner /> {/* Spinner centered inside the fixed-size box */}
           </div>
         ) : (
-          <picture className="relative w-full">
+          <picture className="relative w-full h-full">
             <source
               media="(min-width: 1024px)"
               srcSet={`${images[currentImage]?.url}?w=1024&h=768&c_fill`}
@@ -84,7 +84,7 @@ const Hero = () => {
             />
             <img
               ref={imageRef}
-              className={`w-full h-auto object-cover transition-opacity duration-1000 ease-in-out ${fade ? "opacity-100" : "opacity-0"}`}
+              className={`w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${fade ? "opacity-100" : "opacity-0"}`}
               src={images[currentImage]?.url || ""}
               alt="Featured Collection"
             />
