@@ -1,5 +1,5 @@
 import { v2 as cloudinary } from "cloudinary";
-import FeaturedImage from "../models/FeaturedImageModel.js";
+import FeaturedImage from "../models/featuredImageModel.js";
 import fs from "fs/promises"; // Use fs.promises for async operations
 
 // ✅ Add a featured image (Supports Multiple Uploads)
