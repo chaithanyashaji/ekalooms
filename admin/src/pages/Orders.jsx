@@ -48,7 +48,7 @@ const ordersPerPage = 30;
   // Flatten orders for CSV export
   const flattenOrders = () =>
     orders.map((order) => ({
-      OrderID: order._id,
+      OrderID: order.orderId,
       Date: new Date(order.date).toLocaleDateString(),
       Name: `${order.address.firstName} ${order.address.lastName}`,
       Email: order.address.email,
@@ -102,13 +102,16 @@ const ordersPerPage = 30;
   const handleSort = (event) => {
     const order = event.target.value;
     setSortOrder(order);
-    const sortedOrders = [...filteredOrders].sort((a, b) => {
+  
+    const sortedOrders = [...orders].sort((a, b) => {
       const dateA = new Date(a.date);
       const dateB = new Date(b.date);
       return order === "asc" ? dateA - dateB : dateB - dateA;
     });
+  
     setFilteredOrders(sortedOrders);
   };
+  
 
   const saveTrackingId = async (orderId, trackingId) => {
     try {
@@ -171,15 +174,19 @@ const ordersPerPage = 30;
           onChange={handleSearch}
           className="border p-3 rounded w-full sm:w-1/2"
         />
-        <select
-          onChange={(event) => setSortOrder(event.target.value)}
-          value={sortOrder}
-          className="p-3 border rounded w-full sm:w-1/4"
-        >
-          <option value="">Sort by Date</option>
-          <option value="asc">Oldest First</option>
-          <option value="desc">Newest First</option>
-        </select>
+   <select
+  onChange={(event) => {
+    setSortOrder(event.target.value);
+    handleSort(event);
+  }}
+  value={sortOrder}
+  className="p-3 border rounded w-full sm:w-1/4"
+>
+  <option value="">Sort by Date</option>
+  <option value="asc">Oldest First</option>
+  <option value="desc">Newest First</option>
+</select>
+
         <CSVLink
           data={flattenOrders()}
           filename="orders_complete.csv"
@@ -200,7 +207,7 @@ const ordersPerPage = 30;
       <div className="space-y-4">
       {currentOrders.map((order, index) => (
   <div
-  key={order._id}
+  key={order.orderId}
   className={`grid grid-cols-1 sm:grid-cols-[0.2fr_1.5fr_1fr_1fr_1fr] gap-3 w-full items-center border p-2 rounded-lg shadow-sm pb-20 ${
     order.status?.toLowerCase() === "delivered" ? "bg-green-100" : "bg-white"
   }`}
@@ -226,6 +233,7 @@ const ordersPerPage = 30;
           />
         ))}
       </div>
+      
       <div className="mt-3">
         {order.items.map((item, idx) => (
           <p className="text-sm text-gray-700" key={idx}>
@@ -234,6 +242,9 @@ const ordersPerPage = 30;
           </p>
         ))}
       </div>
+      <p className="text-lg font-medium text-gray-800">
+  Order ID: {order.orderId}
+</p>
     </div>
 
     {/* Address */}
@@ -269,6 +280,8 @@ const ordersPerPage = 30;
       <p className="text-sm text-gray-800">
         Date: {new Date(order.date).toLocaleDateString()}
       </p>
+     
+
     </div>
 
     {/* Order Status */}
@@ -277,7 +290,7 @@ const ordersPerPage = 30;
         {currency} {order.amount}
       </p>
       <select
-        onChange={(event) => statusHandler(event, order._id)}
+        onChange={(event) => statusHandler(event, order.orderId)}
         value={order.status}
         className="mt-2 p-2 border rounded w-full bg-gray-100 font-medium"
       >
@@ -298,13 +311,13 @@ const ordersPerPage = 30;
   <div className="flex gap-2">
     <input
       type="text"
-      value={trackingIds[order._id] || order.trackingId || ""}
-      onChange={(e) => handleTrackingIdChange(order._id, e.target.value)}
+      value={trackingIds[order.orderId] || order.trackingId || ""}
+      onChange={(e) => handleTrackingIdChange(order.orderId, e.target.value)}
       placeholder="Enter Tracking ID"
       className="mt-2 p-2 flex-1 border rounded"
     />
     <button
-      onClick={() => saveTrackingId(order._id, trackingIds[order._id] || "")}
+      onClick={() => saveTrackingId(order.orderId, trackingIds[order.orderId] || "")}
       className="mt-2 p-2 bg-blue-600 text-white rounded"
     >
       Save
