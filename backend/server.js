@@ -12,6 +12,7 @@ import orderRouter from './routes/orderRoute.js';
 import reviewRouter from './routes/reviewRoute.js';
 import razorpayWebhookRouter from './routes/razorpayWebhook.js';
 import couponRouter from './routes/couponRoute.js';
+import featuredRouter from './routes/featuredImageRoute.js';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -49,6 +50,7 @@ app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
 app.use('/api/review', reviewRouter);
 app.use('/api/coupon', couponRouter);
+app.use('/api/featured', featuredRouter); 
 
 // Default Route
 app.get('/', (req, res) => {

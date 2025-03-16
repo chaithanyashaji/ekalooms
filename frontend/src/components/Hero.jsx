@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useCallback, memo } from "react";
+import React, { useState, useEffect, useCallback,useContext, memo } from "react";
+import axios from "axios";
+import { ShopContext } from '../context/shopcontext';// Ensure backend URL is used dynamically
 
 const HeroText = memo(() => (
   <div className="w-full sm:w-1/2 flex items-center justify-center py-5 sm:py-0">
@@ -15,77 +17,79 @@ const HeroText = memo(() => (
 ));
 
 const Hero = () => {
+  const [images, setImages] = useState([]); // Stores fetched images
   const [currentImage, setCurrentImage] = useState(0);
+  const {backendUrl} = useContext(ShopContext);
   const [fadeClass, setFadeClass] = useState("opacity-100 transition-opacity duration-1000 ease-in-out");
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null); // Error handling
 
-  const images = [
-    // 🔹 Alternating SK, DM, RM
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147091/sk-pur_sxxot0.jpg", alt: "Purple Collection" },
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147085/sk-green_lzo9mb.jpg", alt: "Green Skirt" },
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147087/sk-red_f29tby.jpg", alt: "Red Skirt" },
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img7_v3rbfo.jpg", alt: "Hero Image 7" },
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222304/hero_img10_uthgu7.jpg", alt: "Hero Image 10" }, 
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147086/sk-white_zbycp1.jpg", alt: "White Skirt" },
-    
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147089/sr-r_ait6gs.jpg", alt: "Rust Red Collection" }, // DM
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147090/rm-purm_nivhwl.jpg", alt: "Purplish Mix" },
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147086/sk-ora_nzmoou.jpg", alt: "Orange Skirt" }, // SK
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147087/sk-pink_rnzbyp.jpg", alt: "Pink Skirt" }, // SK
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147092/dm-brown_orfh57.jpg", alt: "Dark Brown Collection" }, // DM
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147093/rm-pink_trx93x.jpg", alt: "Pink Collection" },
-   
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg", alt: "Hero Image 8" }, // RM
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147087/sk-bla_yfp0ue.jpg", alt: "Black Skirt" }, // SK
-    // DM
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147092/rm-by_jndwym.jpg", alt: "Burgundy Yellow Collection" }, // RM
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222267/hero_img4_xdmaiq.jpg", alt: "Hero Image 4" },
-  
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222285/hero_img6_prjeuj.jpg", alt: "Hero Image 6" },
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147090/dm-red_yp6ac2.jpg", alt: "Red Collection" }, // DM
-    { src: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147090/rm-pur_ehmhix.jpg", alt: "Purple Mix Collection" }// RM
+  // 🔥 Fetch featured images from backend
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const res = await axios.get(`${backendUrl}/api/featured/list`);
+        if (res.data.success) {
+          setImages(res.data.images);
+        }
+      } catch (err) {
+        setError("Failed to load featured images.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-   
-  ];
+    fetchImages();
+  }, []);
 
+  // 🔄 Auto-change images with fade transition
   const changeImage = useCallback(() => {
-    setFadeClass("opacity-0 transition-opacity duration-500 ease-in-out"); // Start fade-out
+    if (images.length === 0) return;
+    setFadeClass("opacity-0 transition-opacity duration-500 ease-in-out"); // Fade-out effect
     setTimeout(() => {
       setCurrentImage((prev) => (prev + 1) % images.length || 0);
-
       setFadeClass("opacity-100 transition-opacity duration-1000 ease-in-out"); // Fade-in new image
-    }, 500); // Ensure image updates after fade-out completes
+    }, 500);
   }, [images.length]);
 
   useEffect(() => {
-    const interval = setInterval(changeImage, 5000);
-    return () => clearInterval(interval);
-  }, [changeImage]);
+    if (images.length > 0) {
+      const interval = setInterval(changeImage, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [changeImage, images.length]);
 
   return (
     <div className="flex flex-col sm:flex-row border border-gray-400">
       <HeroText />
       <div className="w-full sm:w-1/2 overflow-hidden">
-        <picture>
-          <source
-            media="(min-width: 1024px)"
-            srcSet={`${images[currentImage].src}?w=1024&h=768&c_fill`}
-          />
-          <source
-            media="(min-width: 640px)"
-            srcSet={`${images[currentImage].src}?w=768&h=512&c_fill`}
-          />
-          <img
-  className={`w-full h-[450px] sm:h-[600px] md:h-[700px] object-cover transition-opacity duration-1000 ease-in-out ${fadeClass}`}
-  src={images[currentImage]?.src || ""}
-  loading="lazy"
-  alt={images[currentImage]?.alt || "Loading..."}
-/>
-
-        </picture>
+        {loading ? (
+          <p className="text-center text-gray-500">Loading images...</p>
+        ) : error ? (
+          <p className="text-center text-red-500">{error}</p>
+        ) : images.length > 0 ? (
+          <picture>
+            <source
+              media="(min-width: 1024px)"
+              srcSet={`${images[currentImage].url}?w=1024&h=768&c_fill`}
+            />
+            <source
+              media="(min-width: 640px)"
+              srcSet={`${images[currentImage].url}?w=768&h=512&c_fill`}
+            />
+            <img
+              className={`w-full h-[450px] sm:h-[600px] md:h-[700px] object-cover transition-opacity duration-1000 ease-in-out ${fadeClass}`}
+              src={images[currentImage]?.url || ""}
+              loading="lazy"
+              alt="Featured Collection"
+            />
+          </picture>
+        ) : (
+          <p className="text-center text-gray-500">No featured images available.</p>
+        )}
       </div>
     </div>
   );
 };
-
 
 export default memo(Hero);

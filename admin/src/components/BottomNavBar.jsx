@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { AiOutlinePlus, AiOutlineUnorderedList, AiOutlineShoppingCart, AiOutlineTags } from 'react-icons/ai';
+import { AiOutlinePlus, AiOutlineUnorderedList, AiOutlineShoppingCart, AiOutlineTags,AiOutlinePicture } from 'react-icons/ai';
 
 const BottomNavBar = () => {
   return (
@@ -82,6 +82,26 @@ const BottomNavBar = () => {
               }`}
             >
               <AiOutlineTags className="w-6 h-6 " />
+            </div>
+          )}
+        </NavLink>
+
+           {/* Featured Collections Manager */}
+           <NavLink
+          to="/featured-images"
+          className={({ isActive }) =>
+            `flex flex-col items-center text-white transition ${
+              isActive ? 'text-[#FFD1C1]' : ''
+            }`
+          }
+        >
+          {({ isActive }) => (
+            <div
+              className={`flex flex-col items-center p-3 ${
+                isActive ? 'bg-white text-[#A75D5D] rounded-full ' : ''
+              }`}
+            >
+              <AiOutlinePicture className="w-6 h-6 " />
             </div>
           )}
         </NavLink>
