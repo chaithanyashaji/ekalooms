@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useContext, memo, useRef } from "react";
 import axios from "axios";
-import { ShopContext } from '../context/shopcontext';
+import { ShopContext } from "../context/shopcontext";
+import Spinner from "../components/Spinner"; // Import Spinner
 
 const HeroText = memo(() => (
   <div className="w-full sm:w-1/2 flex items-center justify-center py-5 sm:py-0">
@@ -21,6 +22,7 @@ const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const { backendUrl } = useContext(ShopContext);
   const [fade, setFade] = useState(true);
+  const [loading, setLoading] = useState(true);
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -32,6 +34,8 @@ const Hero = () => {
         }
       } catch (err) {
         console.error("Failed to load featured images.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -63,8 +67,10 @@ const Hero = () => {
   return (
     <div className="flex flex-col sm:flex-row border border-gray-400">
       <HeroText />
-      <div className="w-full sm:w-1/2 overflow-hidden relative">
-        {images.length > 0 ? (
+      <div className="w-full sm:w-1/2 overflow-hidden relative flex items-center justify-center">
+        {loading ? (
+          <Spinner /> // Show spinner while loading
+        ) : images.length > 0 ? (
           <picture>
             <source
               media="(min-width: 1024px)"
