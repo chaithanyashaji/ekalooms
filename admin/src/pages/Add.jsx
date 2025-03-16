@@ -27,12 +27,12 @@ const Add = ({ token }) => {
     "Saree": [
      "Chanderi silk", "Jimmy Choo", "Kota Doria", "Linen", 
      "Madurai Sungudi / Velthari", "Maheshwari silk", "Mul Mul", 
-     "Organza", "Soft khadi cotton","Soft silk","Viscose/Georgettes"
+     "Organza", "Soft khadi cotton","Soft silk","Viscose/Georgettes","Silk"
    ],
-   "Stitched Suits": [
-     "Cotton", "Muslin", "Rayon"
+   "Readymades": [
+     "Cotton", "Muslin", "Rayon","Georgette"
    ],
-   "Unstitched Suits": [
+   "Dress materials": [
      "Chanderi silk", "Cotton", "Georgette", "Kota silk", 
      "Linen", "Muslin", "Rayon", "Tissue"
    ],
@@ -341,7 +341,7 @@ const Add = ({ token }) => {
           {/* Sizes */}
           <div className="w-full max-w-[500px]">
             <p className="mb-2 font-semibold">Product Sizes and Quantities</p>
-            {['S', 'M', 'L', 'XL', 'XXL','King','Queen','Single','Free-Size'].map((size) => (
+            {['S', 'M', 'L', 'XL', 'XXL', '3XL','King','Queen','Single','Free-Size'].map((size) => (
               <div key={size} className="flex items-center gap-4 mb-2">
                 <label className="w-1/3 font-medium">{size}</label>
                 <input

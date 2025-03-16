@@ -40,9 +40,9 @@ const CategorySection = () => {
       slug: "Saree",
     },
     {
-      name: "Stitched Suits",
+      name: "Readymades",
       image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222265/hero_img3_akf5rs.jpg",
-      slug: "Stitched-Suits",
+      slug: "Readymades",
     },
     {
       name: "Home Decor",
@@ -50,9 +50,9 @@ const CategorySection = () => {
       slug: "Home-Decor",
     },
     {
-      name: "Unstitched Suits",
+      name: "Dress materials",
       image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg",
-      slug: "Unstitched-Suits",
+      slug: "Dress materials",
     },
   ];
 

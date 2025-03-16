@@ -27,12 +27,12 @@ const Collection = () => {
     "Saree": [
       "Chanderi silk", "Jimmy Choo", "Kota Doria", "Linen", 
       "Madurai Sungudi / Velthari", "Maheshwari silk", "Mul Mul", 
-      "Organza", "Soft khadi cotton","Soft silk","Viscose/Georgettes"
+      "Organza", "Soft khadi cotton","Soft silk","Viscose/Georgettes","Silk"
     ],
-    "Stitched Suits": [
-      "Cotton", "Muslin", "Rayon"
+    "Readymades": [
+      "Cotton", "Muslin", "Rayon","Georgette"
     ],
-    "Unstitched Suits": [
+    "Dress materials": [
       "Chanderi silk", "Cotton", "Georgette", "Kota silk", 
       "Linen", "Muslin", "Rayon", "Tissue"
     ],
