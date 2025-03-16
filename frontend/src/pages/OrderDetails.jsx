@@ -196,7 +196,7 @@ const OrderDetails = () => {
                 {/* Connect line */}
                 <div className="absolute top-6 left-0 right-0 h-1 bg-gray-200">
                   <div 
-                    className="h-full bg-green-500 transition-all duration-500" 
+                    className="h-full bg-[#d1856c] transition-all duration-500" 
                     style={{ width: `${statusIndex >= 0 ? (statusIndex / (trackingStages.length - 1)) * 100 : 0}%` }}
                   ></div>
                 </div>
