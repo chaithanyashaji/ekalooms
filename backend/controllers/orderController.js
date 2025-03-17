@@ -59,47 +59,93 @@ const placeOrder = async (req,res) =>{
 //placing order using Razorpay
 
 const placeOrderRazorpay = async (req, res) => {
-    try {
-      const {  items, amount, address,couponCode,deliveryOption } = req.body;
-      const userId = req.user.id;
-      // Step 1: Create order data for the database
-      const newOrder = new orderModel({
-        userId,
-        items,
-        amount,
-        address,
-        deliveryOption,
-        couponCode,
-        paymentMethod: "Razorpay",
-        payment: false,
-        razorpayOrderId: null,
-        date: Date.now(),
-      });
-      
-      const shortOrderId = generateShortOrderId(newOrder._id);
-newOrder.orderId = shortOrderId; // Assign before saving
-await newOrder.save();
-      
-  
-      // Step 3: Create Razorpay order
-      const options = {
-        amount: amount * 100, // Amount in paise
-        currency: 'INR', // Default to INR if not provided
-        receipt: newOrder._id.toString(), // Use MongoDB order ID as receipt
-      };
-  
-      
-  
-      const razorpayOrder = await razorpayInstance.orders.create(options);
-      newOrder.razorpayOrderId = razorpayOrder.id;
-      await newOrder.save();
+  try {
+    const { items, amount, address, couponCode, deliveryOption } = req.body;
+    const userId = req.user.id;
 
-      for (const item of items) {
-        const { _id, size, quantity } = item;
-  
-        const product = await productModel.findById(_id);
-  
-        if (product) {
+    // Step 1: Check stock availability
+    for (const item of items) {
+      const { _id, size, quantity } = item;
+
+      const product = await productModel.findById(_id);
+
+      if (!product) {
+        return res.status(400).json({ success: false, message: `Product ${item.name} not found.` });
+      }
+
+      if (product.sizes && product.sizes.length > 0) {
+        // If product has sizes, check the quantity for the specific size
+        if (size) {
+          const sizeEntry = product.sizes.find((s) => s.size === size);
+          if (sizeEntry) {
+            if (sizeEntry.quantity < quantity) {
+              return res.status(400).json({
+                success: false,
+                message: `Insufficient stock for ${item.name} size ${size}.`,
+              });
+            }
+          } else {
+            return res.status(400).json({
+              success: false,
+              message: `Size ${size} for ${item.name} not found.`,
+            });
+          }
+        } else {
+          // If no size is selected but the product has sizes, return an error
+          return res.status(400).json({
+            success: false,
+            message: `Size must be selected for ${item.name}.`,
+          });
+        }
+      } else {
+        // If product doesn't have sizes, check the general stock quantity
+        if (product.stockQuantity < quantity) {
+          return res.status(400).json({
+            success: false,
+            message: `Insufficient stock for ${item.name}.`,
+          });
+        }
+      }
+    }
+
+    // Step 2: Create order data for the database
+    const newOrder = new orderModel({
+      userId,
+      items,
+      amount,
+      address,
+      deliveryOption,
+      couponCode,
+      paymentMethod: "Razorpay",
+      payment: false,
+      razorpayOrderId: null,
+      date: Date.now(),
+    });
+
+    const shortOrderId = generateShortOrderId(newOrder._id);
+    newOrder.orderId = shortOrderId; // Assign before saving
+    await newOrder.save();
+
+    // Step 3: Create Razorpay order
+    const options = {
+      amount: amount * 100, // Amount in paise
+      currency: 'INR',
+      receipt: newOrder._id.toString(),
+    };
+
+    const razorpayOrder = await razorpayInstance.orders.create(options);
+    newOrder.razorpayOrderId = razorpayOrder.id;
+    await newOrder.save();
+
+    // Step 4: Update the product stock
+    for (const item of items) {
+      const { _id, size, quantity } = item;
+
+      const product = await productModel.findById(_id);
+
+      if (product) {
+        if (product.sizes && product.sizes.length > 0) {
+          // If product has sizes, update the quantity for the specific size
           if (size) {
             const sizeEntry = product.sizes.find((s) => s.size === size);
             if (sizeEntry) {
@@ -108,37 +154,37 @@ await newOrder.save();
                 sizeEntry.quantity = 0;
               }
             }
-  
-            const totalStock = product.sizes.reduce((acc, s) => acc + s.quantity, 0);
-            product.stockQuantity = totalStock;
-            product.inStock = totalStock > 0;
-          } else {
-            product.stockQuantity -= quantity;
-            if (product.stockQuantity <= 0) {
-              product.stockQuantity = 0;
-              product.inStock = false;
-            }
           }
-          await product.save();
+          const totalStock = product.sizes.reduce((acc, s) => acc + s.quantity, 0);
+          product.stockQuantity = totalStock;
+          product.inStock = totalStock > 0;
+        } else {
+          // If product doesn't have sizes, reduce stockQuantity directly
+          product.stockQuantity -= quantity;
+          if (product.stockQuantity <= 0) {
+            product.stockQuantity = 0;
+            product.inStock = false;
+          }
         }
+        await product.save();
       }
-    
-  
-      // Step 5: Send the response back to the client
-      return res.json({
-        success: true,
-        order: {
-          id: newOrder.orderId,
-          amount: razorpayOrder.amount,
-          currency: razorpayOrder.currency,
-          razorpayOrderId: razorpayOrder.id,
-        },
-      });
-    } catch (error) {
-      console.error('Error placing Razorpay order:', error.message);
-      return res.status(500).json({ success: false, message: 'Failed to create Razorpay order' });
     }
-  };
+
+    // Step 5: Send the response back to the client
+    return res.json({
+      success: true,
+      order: {
+        id: newOrder.orderId,
+        amount: razorpayOrder.amount,
+        currency: razorpayOrder.currency,
+        razorpayOrderId: razorpayOrder.id,
+      },
+    });
+  } catch (error) {
+    console.error('Error placing Razorpay order:', error.message);
+    return res.status(500).json({ success: false, message: 'Failed to create Razorpay order' });
+  }
+};
 
 
   
@@ -227,34 +273,95 @@ const updateTrackingId = async (req, res) => {
 
 // Placing order using Razorpay for guest users
 const placeOrderRazorpayGuest = async (req, res) => {
-    try {
-      const { items, amount, address, email,couponCode,deliveryOption  } = req.body;
-  
-      // Step 1: Create order data for the database
-      const newOrder = new orderModel({
-        isGuest: true,
-        items,
-        amount,
-        address,
-        email,
-        paymentMethod: "Razorpay",
-        payment: false,
-        razorpayOrderId: null,
-        date: Date.now(),
-        couponCode,
-        deliveryOption,
-      });
-  
-      const shortOrderId = generateShortOrderId(newOrder._id);
-      newOrder.orderId = shortOrderId; // Assign before saving
-      await newOrder.save();
+  try {
+    const { items, amount, address, email, couponCode, deliveryOption } = req.body;
 
-      for (const item of items) {
-        const { _id, size, quantity } = item;
-  
-        const product = await productModel.findById(_id);
-  
-        if (product) {
+    // Step 1: Check stock availability
+    for (const item of items) {
+      const { _id, size, quantity } = item;
+
+      const product = await productModel.findById(_id);
+
+      if (!product) {
+        return res.status(400).json({ success: false, message: `Product ${item.name} not found.` });
+      }
+
+      if (product.sizes && product.sizes.length > 0) {
+        // If product has sizes, check the quantity for the specific size
+        if (size) {
+          const sizeEntry = product.sizes.find((s) => s.size === size);
+          if (sizeEntry) {
+            if (sizeEntry.quantity < quantity) {
+              return res.status(400).json({
+                success: false,
+                message: `Insufficient stock for ${item.name} size ${size}.`,
+              });
+            }
+          } else {
+            return res.status(400).json({
+              success: false,
+              message: `Size ${size} for ${item.name} not found.`,
+            });
+          }
+        } else {
+          // If no size is selected but the product has sizes, return an error
+          return res.status(400).json({
+            success: false,
+            message: `Size must be selected for ${item.name}.`,
+          });
+        }
+      } else {
+        // If product doesn't have sizes, check the general stock quantity
+        if (product.stockQuantity < quantity) {
+          return res.status(400).json({
+            success: false,
+            message: `Insufficient stock for ${item.name}.`,
+          });
+        }
+      }
+    }
+
+    // Step 2: Create order data for the database
+    const newOrder = new orderModel({
+      isGuest: true,
+      items,
+      amount,
+      address,
+      email,
+      paymentMethod: "Razorpay",
+      payment: false,
+      razorpayOrderId: null,
+      date: Date.now(),
+      couponCode,
+      deliveryOption,
+    });
+
+    const shortOrderId = generateShortOrderId(newOrder._id);
+    newOrder.orderId = shortOrderId; // Assign before saving
+    await newOrder.save();
+
+    // Step 3: Create Razorpay order
+    const options = {
+      amount: amount * 100, // Amount in paise
+      currency: 'INR',
+      receipt: newOrder._id.toString(),
+    };
+
+    const razorpayOrder = await razorpayInstance.orders.create(options);
+
+    // Step 4: Update the order with the Razorpay order ID
+    newOrder.razorpayOrderId = razorpayOrder.id;
+    await newOrder.save();
+
+    // Step 5: Update the product stock
+    for (const item of items) {
+      const { _id, size, quantity } = item;
+
+      const product = await productModel.findById(_id);
+
+      if (product) {
+        if (product.sizes && product.sizes.length > 0) {
+          // If product has sizes, update the quantity for the specific size
           if (size) {
             const sizeEntry = product.sizes.find((s) => s.size === size);
             if (sizeEntry) {
@@ -263,53 +370,37 @@ const placeOrderRazorpayGuest = async (req, res) => {
                 sizeEntry.quantity = 0;
               }
             }
-  
-            const totalStock = product.sizes.reduce((acc, s) => acc + s.quantity, 0);
-            product.stockQuantity = totalStock;
-            product.inStock = totalStock > 0;
-          } else {
-            product.stockQuantity -= quantity;
-            if (product.stockQuantity <= 0) {
-              product.stockQuantity = 0;
-              product.inStock = false;
-            }
           }
-          await product.save();
+          const totalStock = product.sizes.reduce((acc, s) => acc + s.quantity, 0);
+          product.stockQuantity = totalStock;
+          product.inStock = totalStock > 0;
+        } else {
+          // If product doesn't have sizes, reduce stockQuantity directly
+          product.stockQuantity -= quantity;
+          if (product.stockQuantity <= 0) {
+            product.stockQuantity = 0;
+            product.inStock = false;
+          }
         }
+        await product.save();
       }
-      
-
-  
-      // Step 3: Create Razorpay order
-      const options = {
-        amount: amount * 100, // Amount in paise
-        currency: 'INR', // Default to INR
-        receipt: newOrder._id.toString(), // Use MongoDB order ID as receipt
-      };
-  
-      
-  
-      const razorpayOrder = await razorpayInstance.orders.create(options);
-  
-      // Step 4: Update the order with the Razorpay order ID
-      newOrder.razorpayOrderId = razorpayOrder.id;
-      await newOrder.save();
-  
-      // Step 5: Send the response back to the client
-      return res.json({
-        success: true,
-        order: {
-        id: newOrder.orderId,
-          amount: razorpayOrder.amount,
-          currency: razorpayOrder.currency,
-          razorpayOrderId: razorpayOrder.id,
-        },
-      });
-    } catch (error) {
-      console.error('Error placing Razorpay guest order:', error.message);
-      return res.status(500).json({ success: false, message: 'Failed to create Razorpay order' });
     }
-  };
+
+    // Step 6: Send the response back to the client
+    return res.json({
+      success: true,
+      order: {
+        id: newOrder.orderId,
+        amount: razorpayOrder.amount,
+        currency: razorpayOrder.currency,
+        razorpayOrderId: razorpayOrder.id,
+      },
+    });
+  } catch (error) {
+    console.error('Error placing Razorpay guest order:', error.message);
+    return res.status(500).json({ success: false, message: 'Failed to create Razorpay order' });
+  }
+};
   
 
 // Verifying Razorpay payment for guest users

@@ -191,7 +191,7 @@ if (method === 'razorpay') {
          
           initPay(response.data.order, backendUrl, setCartItems, navigate);
         } else {
-          toast.error(response.data.message);
+          toast.error('An error occured while processing order');
         }
       }
     } catch (error) {

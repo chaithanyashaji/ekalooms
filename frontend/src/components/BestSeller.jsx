@@ -26,7 +26,7 @@ useEffect(() => {
                 bestSeller.map((item,index)=>(
                     <ProductItem key={index} id={item._id} name={item.name} image={item.image} price={item.price} rating={item.averageRating||0 }
                     totalReviews={item.totalReviews} bestseller={item.bestseller} inStock={item.inStock} category={item.category}
-                    subCategory={item.subCategory} sizes={item.sizes}/>
+                    subCategory={item.subCategory} sizes={item.sizes} stockQuantity={item.stockQuantity}/>
                 ))
             }
 

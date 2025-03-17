@@ -311,12 +311,12 @@ const adminLogin = async (req, res) => {
         const { email, password } = req.body;
 
         if (!email || !password) {
-            logger.warn("Admin login attempt with missing credentials");
+            
             return res.status(400).json({ success: false, message: "Email and password are required." });
         }
 
         if (email !== process.env.ADMIN_EMAIL || !bcrypt.compareSync(password, process.env.ADMIN_PASSWORD_HASH)) {
-            logger.warn("Invalid admin login credentials", { email });
+           
             return res.status(401).json({ success: false, message: "Invalid credentials." });
         }
 
@@ -326,7 +326,7 @@ const adminLogin = async (req, res) => {
             { expiresIn: "24h" }
         );
 
-        logger.info("Admin logged in successfully", { email });
+      
         return res.status(200).json({ success: true, token });
     } catch (error) {
         logger.error("Error during admin login", { error: error.message });

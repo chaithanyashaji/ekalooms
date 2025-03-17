@@ -30,7 +30,9 @@ const LatestCollections = () => {
         {
           latestProducts.map((item,index) => (
             <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} rating={item.averageRating||0} totalReviews={item.totalReviews} bestseller={item.bestseller} inStock={item.inStock} category={item.category}
-            subCategory={item.subCategory}/>
+            subCategory={item.subCategory} 
+            sizes={item.sizes}
+            stockQuantity={item.stockQuantity}/>
           ))
         }
 
