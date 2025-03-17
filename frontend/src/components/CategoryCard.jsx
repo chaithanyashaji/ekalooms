@@ -41,7 +41,7 @@ const CategorySection = () => {
     },
     {
       name: "Readymades",
-      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147086/sk-ora_nzmoou.jpg",
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147087/sk-red_f29tby.jpg",
       slug: "Readymades",
     },
     {
