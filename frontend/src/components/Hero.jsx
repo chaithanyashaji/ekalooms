@@ -76,31 +76,42 @@ const Hero = () => {
           </div>
         ) : (
           <picture className="relative w-full h-full">
-            <source
-              media="(min-width: 1024px)"
-              srcSet={`${images[currentImage]?.url}?w=1024&h=768&c_fill`}
-            />
-            <source
-              media="(min-width: 640px)"
-              srcSet={`${images[currentImage]?.url}?w=768&h=512&c_fill`}
-            />
+  <source
+    media="(min-width: 1024px)"
+    srcSet={images[currentImage]?.url ? `${images[currentImage].url}?w=1024&h=768&c_fill` : ""}
+  />
+  <source
+    media="(min-width: 640px)"
+    srcSet={images[currentImage]?.url ? `${images[currentImage].url}?w=768&h=512&c_fill` : ""}
+  />
 
-            {/* Spinner in the center of Featured Collection image */}
-            {imageLoading && (
-              <div className="absolute inset-0 flex items-center justify-center bg-white/30 z-10">
-                <Spinner />
-              </div>
-            )}
+  {/* Spinner while loading */}
+  {imageLoading && (
+    <div className="absolute inset-0 flex items-center justify-center bg-white/30 z-10">
+      <Spinner />
+    </div>
+  )}
 
-            <img
-              ref={imageRef}
-              className={`w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${fade ? "opacity-100" : "opacity-0"}`}
-              src={images[currentImage]?.url || ""}
-              alt="Featured Collection"
-              onLoad={() => setImageLoading(false)} // Hide spinner when image loads
-              onError={() => setImageLoading(false)} // Hide spinner if image fails to load
-            />
-          </picture>
+  {/* Ensure image exists before rendering */}
+  {images[currentImage]?.url && (
+    <img
+    ref={imageRef}
+    className={`w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+      fade ? "opacity-100" : "opacity-0"
+    }`}
+    src={images[currentImage]?.url || "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222265/hero_img3_akf5rs.jpg"} // Fallback image
+    alt="Featured Collection"
+    onLoad={() => setImageLoading(false)}
+    onError={(e) => {
+      console.error("Failed to load image:", e.target.src);
+      setImageLoading(false);
+      e.target.src = "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222243/hero_img1_n4rk9q.jpg"; // Replace with fallback image
+    }}
+  />
+  
+  )}
+</picture>
+
         )}
       </div>
     </div>
