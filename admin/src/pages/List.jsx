@@ -52,12 +52,17 @@ const List = ({ token }) => {
     fetchList();
   }, []);
 
+  useEffect(() => {
+    setCurrentPage(1); // Reset pagination when search query changes
+  }, [searchQuery]);
+  
+
   // Filter products based on search query
-  const filteredList = list.filter(
-    (item) =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.category.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredList = list.filter((item) =>
+    (item.name?.toLowerCase() || "").includes(searchQuery.trim().toLowerCase()) ||
+    (item.category?.toLowerCase() || "").includes(searchQuery.trim().toLowerCase())
   );
+  
 
   // Get products for current page
   const indexOfLastProduct = currentPage * productsPerPage;

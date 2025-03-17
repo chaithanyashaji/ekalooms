@@ -42,7 +42,8 @@ const addProduct = async (req, res) => {
       
       sizes: JSON.parse(sizes),
       colors: JSON.parse(colors),
-      bestseller: bestseller === "true",
+      bestseller: bestseller === "true" || bestseller === true || false,
+
       inStock: inStock === "true",
       image: imagesUrl,
       date: Date.now(),
