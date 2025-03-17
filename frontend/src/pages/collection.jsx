@@ -119,7 +119,14 @@ const Collection = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+    
+    // Scroll to top smoothly after changing page
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   };
+  
 
   const toggleCategory = (cat) => {
     setCategory((prev) =>
