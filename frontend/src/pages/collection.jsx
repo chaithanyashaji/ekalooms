@@ -48,6 +48,31 @@ const Collection = () => {
   }, [selectedCategory]);
 
   useEffect(() => {
+    const savedPosition = sessionStorage.getItem("scrollPosition");
+  
+    if (savedPosition !== null) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          window.scrollTo({
+            top: parseInt(savedPosition, 10),
+            behavior: "instant",
+          });
+  
+          // Delay clearing session storage after scroll restoration
+          setTimeout(() => {
+            sessionStorage.removeItem("scrollPosition");
+          }, 1000);
+        }, 200);
+      });
+    }
+  }, []);
+  
+  
+  
+  
+  
+
+  useEffect(() => {
     applyFilter();
   }, [category, subCategory, search, showSearch, products]);
 
@@ -233,7 +258,6 @@ const Collection = () => {
               inStock={item.inStock}
               sizes={item.sizes}
               stockQuantity={item.stockQuantity}
-              
               
             />
           ))}

@@ -63,7 +63,19 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
             )}
 
             {/* Product Image */}
-            <Link to={`/product/${id}`} className="block">
+            <Link
+  to={`/product/${id}`}
+  className="block"
+  onClick={() => {
+    const scrollY = window.scrollY;
+   
+    sessionStorage.setItem("scrollPosition", scrollY);
+  }}
+>
+
+
+
+
                 <div className="relative overflow-hidden">
                     <img
                         className="w-full h-[250px] sm:h-[320px] rounded-md shadow-lg border border-[#e6dede] object-cover group-hover:scale-105 transition-transform duration-300 "

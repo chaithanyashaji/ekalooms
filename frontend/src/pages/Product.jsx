@@ -71,6 +71,8 @@ const [isSubmittingReview, setIsSubmittingReview] = useState(false);
     });
   };
 
+ 
+
   useEffect(() => {
     fetchProductData();
     fetchReviews();
