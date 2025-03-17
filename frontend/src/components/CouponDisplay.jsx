@@ -1,17 +1,11 @@
 import React from 'react';
-import { Tag, Gift, Sparkles } from 'lucide-react';
+import { Gift } from 'lucide-react';
 
-const CouponDisplay = () => {
-  const coupons = [
-    {
-      text: 'ekatribe10 - Get 10% Off',
-      active: true,
-      icon: Gift,
-      code: 'ekatribe10',
-    },
-  ];
-
-  const activeCoupons = coupons.filter((coupon) => coupon.active);
+const MinimalistCouponDisplay = () => {
+  const coupon = {
+    text: 'EKA10 - Get 10% Off on your first order',
+    code: 'EKA10',
+  };
 
   const handleCopyCode = (code) => {
     navigator.clipboard.writeText(code);
@@ -19,36 +13,24 @@ const CouponDisplay = () => {
   };
 
   return (
-    <div className="pb-4 pt-2"> {/* Add padding here */}
-      <div className="w-full p-1 bg-gradient-to-r from-[#D3756B] to-[#e8948b] shadow-md rounded-sm overflow-hidden">
-        <div className="relative flex overflow-hidden">
-          {/* Continuous scrolling wrapper */}
-          <div
-            className="flex gap-4 whitespace-nowrap animate-scroll"
-            style={{
-              animation: 'scroll 6s linear infinite',
-            }}
-          >
-            {/* Duplicate the single coupon multiple times */}
-            {Array.from({ length: 10 }).map((_, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 text-white cursor-pointer group hover:scale-105 transition-transform duration-100"
-                onClick={() => handleCopyCode(activeCoupons[0].code)}
-              >
-                <div className="bg-white/10 p-1 rounded-full group-hover:bg-white/20 transition-colors">
-                  {/* Render the icon dynamically */}
-                  {React.createElement(activeCoupons[0].icon, { className: 'w-3 h-3' })}
+    <div className="py-3">
+      <div className="w-full border-t border-b border-[#A75D5D] overflow-hidden relative">
+        <div className="flex animate-scroll">
+          {/* Duplicating content for smooth infinite effect */}
+          {[...Array(2)].map((_, repeatIndex) => (
+            <div key={repeatIndex} className="flex gap-6 whitespace-nowrap">
+              {Array.from({ length: 20 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 px-3 py-2 text-[#A75D5D] cursor-pointer hover:bg-[#FFF5F2] transition-colors"
+                  onClick={() => handleCopyCode(coupon.code)}
+                >
+                  <Gift className="w-4 h-4 text-[#A75D5D]" />
+                  <span className="text-xs font-medium">{coupon.text}</span>
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-[10px]">{activeCoupons[0].text}</span>
-                  <span className="text-[4px] opacity-80 group-hover:opacity-100 transition-opacity">
-                    Click to copy: {activeCoupons[0].code}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -58,17 +40,17 @@ const CouponDisplay = () => {
             transform: translateX(0%);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-100%);
           }
         }
         .animate-scroll {
           display: flex;
-          width: calc(200%); /* Double width to hold duplicated items */
+          width: 200%; /* Ensures smooth infinite looping */
+          animation: scroll 20s linear infinite; /* Slower, smoother loop */
         }
       `}</style>
     </div>
   );
 };
 
-export default CouponDisplay;
-
+export default MinimalistCouponDisplay;

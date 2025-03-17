@@ -12,8 +12,9 @@ const home = () => {
   return (
     <div>
       <CategorySection/>
+      <CouponDisplay/>
       <Hero/>
-      
+     
       <WhatsAppChatWidget/>
       <LatestCollections/>
       <BestSeller/>
