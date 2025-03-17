@@ -18,7 +18,7 @@ const RelatedProducts = ({ category, subCategory }) => {
   }, [products, category, subCategory]);
 
   return (
-    <div className="my-24 ">
+    <div className="my-8">
       {/* Title */}
       <div className="text-center text-xl py-2">
         <Title text1={"You may "} text2={"also like"} />
@@ -48,6 +48,7 @@ const RelatedProducts = ({ category, subCategory }) => {
           ))}
         </div>
       </div>
+      <hr/>
     </div>
   );
 };

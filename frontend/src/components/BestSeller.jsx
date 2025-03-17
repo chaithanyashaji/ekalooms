@@ -16,7 +16,7 @@ useEffect(() => {
   return (
     <div className='mt-20 '>
         <hr/>
-        <div className='text-center text-3xl py-10 mt-5'>
+        <div className='text-center text-3xl py-10 '>
             <Title text1={'BEST '} text2={'SELLERS'}/>
             
         </div>
