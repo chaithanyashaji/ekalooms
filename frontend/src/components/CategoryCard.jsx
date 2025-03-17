@@ -36,7 +36,7 @@ const CategorySection = () => {
   const categories = [
     {
       name: "Saree",
-      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222267/hero_img4_xdmaiq.jpg",
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742193305/cpink_jh9nma.jpg",
       slug: "Saree",
     },
     {
