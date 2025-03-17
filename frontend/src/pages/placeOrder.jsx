@@ -35,11 +35,7 @@ const PlaceOrder = () => {
   };
 
   const calculateDeliveryFee = () => {
-    const cartAmount = getCartAmount();
-    if (cartAmount > 1499) {
-      return 0;
-    }
-    return deliveryOption === 'speedy' ? 95 : 60;
+    return deliveryOption === 'speedy' ? 95 : 60; // No free delivery
   };
 
   const applyCoupon = async () => {
@@ -47,23 +43,32 @@ const PlaceOrder = () => {
       toast.warning('Coupon already applied!');
       return;
     }
+  
+    if (!formData.email) {
+      toast.error('Please enter your details before applying a coupon.');
+      return;
+    }
+  
     try {
-      const response = await axios.post(`${backendUrl}/api/coupon/validate`, { code: couponCode });
-      if (response.data.success) {
-        setDiscount(response.data.discount);
-        setDiscountApplied(true);
-        toast.success('Coupon applied successfully!');
-      } else {
+      const response = await axios.post(`${backendUrl}/api/coupon/validate`, {
+        email: formData.email, // Ensure email is included
+        code: couponCode, // Ensure code is included
+      });
+  
+      if (!response.data.success) {
         toast.error(response.data.message);
-        setDiscount(0);
+        return;
       }
+  
+      setDiscount(response.data.discount);
+      setDiscountApplied(true);
+      toast.success('Coupon applied successfully!');
     } catch (error) {
-     
-      toast.error('Failed to apply coupon.');
+      toast.error(error.response?.data?.message || 'Failed to apply coupon.');
     }
   };
-
-
+  
+  
 
   const initPay = (order, backendUrl, setCartItems, navigate) => {
     if (!window.Razorpay) {
@@ -301,8 +306,14 @@ if (method === 'razorpay') {
         {/* Right Side - Order Summary */}
       <div className="mt-8">
         {/* Coupon Section */}
-        <Title text1={"APPLY "} text2={"COUPON"}/>
-        <div className="bg-none p-4 rounded-md">
+<Title text1={"APPLY "} text2={"COUPON"}/>
+<div className="bg-none p-4 rounded-md">
+  {/* Promo Message */}
+  <div className="mb-2 text-sm text-[#A75D5D] font-medium">
+    <i className="fas fa-gift mr-1"></i>
+    First time users: Use code <span className="font-bold">EKA10</span> for 10% off!
+  </div>
+  
   {/* Input and Apply Button */}
   <div className="flex gap-2 items-center">
     <input
@@ -320,12 +331,12 @@ if (method === 'razorpay') {
       Apply
     </button>
   </div>
-
+  
   {/* Display Applied Coupon */}
   {discountApplied && (
     <div className="flex items-center gap-1 mt-2 bg-none px-2 py-1 rounded-md text-sm text-[#A75D5D]">
       <span className="flex items-center gap-1">
-      <i className="fas fa-tag text-[#A75D5D] text-sm"></i>
+        <i className="fas fa-tag text-[#A75D5D] text-sm"></i>
         {couponCode}
       </span>
       <button
@@ -341,10 +352,7 @@ if (method === 'razorpay') {
       </button>
     </div>
   )}
-
-  
 </div>
-
 
 
         {/* Delivery Options */}
@@ -359,7 +367,7 @@ if (method === 'razorpay') {
                 checked={deliveryOption === 'normal'}
                 onChange={() => setDeliveryOption('normal')}
               />
-              Normal Delivery (5-7 Days) - INR 60
+              Normal Delivery (6-8 Days) - INR 60
             </label>
             <label className="flex items-center gap-2 text-gray-500">
               <input
@@ -371,8 +379,7 @@ if (method === 'razorpay') {
               />
               Speed Delivery (Within 2 Days) - INR 95
             </label>
-            <p className="text-sm text-[#D3756B] italic text-center mt-2">  
-             Shop above INR 1499 to avail free delivery. <i className="fas fa-shipping-fast text-[#D3756B]"></i> </p>
+          
 
           </div>
         </div>
@@ -411,11 +418,7 @@ if (method === 'razorpay') {
               </div>
             </div>
 
-            {subtotal > 1499 && (
-              <div className="mt-2 text-sm text-green-600">
-                You've qualified for free delivery!
-              </div>
-            )}
+           
           </div>
         </div>
 

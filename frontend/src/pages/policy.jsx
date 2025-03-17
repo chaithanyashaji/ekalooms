@@ -35,7 +35,7 @@ const Policy = () => {
 <section>
   <Title text1={'Shipping '} text2={'Policy'} />
   <p className="mb-4">
-    <strong>Domestic Shipments:</strong> Dispatched within 2 working days. Delivery typically takes 5-7 working days.
+    <strong>Domestic Shipments:</strong> Dispatched within 2 working days. Delivery typically takes 6-8 working days.
   </p>
   <p className="mb-4">
     <strong>International Shipments:</strong> Dispatched within 7 working days. Delivery time varies by destination and may take 10–15 working days. 
@@ -47,7 +47,6 @@ const Policy = () => {
   <ul className="list-disc pl-5 space-y-2">
     <li>Normal Delivery: ₹60</li>
     <li>Speed Delivery: ₹95 (delivered within 2 working days)</li>
-    <li>Free Delivery: On orders above ₹1499 (only within India)</li>
     <li>Additional Shipping Charges: Applicable for international shipments based on destination and package weight. </li>
   </ul>
 </section>

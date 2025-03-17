@@ -1,11 +1,19 @@
 import Coupon from "../models/couponModel.js";
+import orderModel from "../models/orderModel.js";
 
 /**
  * Validate a coupon code
  */
 const validateCoupon = async (req, res) => {
   try {
-    const { code } = req.body;
+    const { code, email } = req.body; // Get email & code from request body
+
+    // Check if the user has placed an order before
+    const existingOrder = await orderModel.findOne({ "address.email": email });
+
+    if (code === "EKA10" && existingOrder) {
+      return res.status(400).json({ success: false, message: "Coupon EKA10 is only for first-time users!" });
+    }
 
     // Find the coupon in the database
     const coupon = await Coupon.findOne({ code, isActive: true });
@@ -62,23 +70,20 @@ const deactivateCoupon = async (req, res) => {
   try {
     const { code } = req.body;
 
-    // Update the coupon status
-    const updatedCoupon = await Coupon.findOneAndUpdate(
-      { code },
-      { isActive: false },
-      { new: true }
-    );
+    // Delete the coupon instead of deactivating
+    const deletedCoupon = await Coupon.findOneAndDelete({ code });
 
-    if (!updatedCoupon) {
+    if (!deletedCoupon) {
       return res.status(404).json({ success: false, message: "Coupon not found" });
     }
 
-    res.json({ success: true, message: "Coupon deactivated successfully", coupon: updatedCoupon });
+    res.json({ success: true, message: "Coupon deleted successfully", coupon: deletedCoupon });
   } catch (error) {
-    console.error("Error deactivating coupon:", error.message);
+    console.error("Error deleting coupon:", error.message);
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
+
 
 /**
  * List all coupons (Admin only)
