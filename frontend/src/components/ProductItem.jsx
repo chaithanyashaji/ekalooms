@@ -1,13 +1,13 @@
-import React, { useContext,useState } from 'react';
+import React, { useContext } from 'react';
 import { ShopContext } from '../context/shopcontext';
 import { FaHeart, FaRegHeart, FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import Spinner from "../components/Spinner";
+
 const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller, description, inStock,sizes,stockQuantity,category,subCategory }) => {
     const { currency, wishlist, addToWishlist, removeFromWishlist, token } = useContext(ShopContext);
     const navigate = useNavigate();
     const isInWishlist = wishlist.some((item) => item._id === id);
-    const [isImageLoaded, setIsImageLoaded] = useState(false);
+
     const isOutOfStock =
   !sizes || sizes.length === 0
     ? stockQuantity === 0 || !inStock // For products without sizes, check stockQuantity and inStock
@@ -76,15 +76,22 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
 
 
 
-<div className="relative overflow-hidden w-full h-[250px] sm:h-[320px] flex items-center justify-center bg-gray-200">
-                    {!isImageLoaded && <Spinner />} {/* Show Spinner while loading */}
+                <div className="relative overflow-hidden">
                     <img
-                        className={`absolute inset-0 w-full h-full rounded-md shadow-lg border border-[#e6dede] object-cover group-hover:scale-105 transition-transform duration-300 ${isImageLoaded ? "opacity-100" : "opacity-0"}`}
+                        className="w-full h-[250px] sm:h-[320px] rounded-md shadow-lg border border-[#e6dede] object-cover group-hover:scale-105 transition-transform duration-300 "
                         src={image[0]}
                         alt={`Image of ${name}`}
-                        loading="lazy"
-                        onLoad={() => setIsImageLoaded(true)}
                     />
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
+
+                    {/* Out of Stock Badge */}
+                    {isOutOfStock && (
+                        <div role="status" aria-label="Out of Stock" className="absolute bottom-2 right-2 bg-[#A75D5D] text-white text-xs px-2 py-1 rounded shadow-md">
+
+                            OUT OF STOCK
+                        </div>
+                    )}
                 </div>
             </Link>
 
