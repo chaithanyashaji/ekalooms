@@ -23,6 +23,7 @@ const Hero = () => {
   const { backendUrl } = useContext(ShopContext);
   const [fade, setFade] = useState(true);
   const [loading, setLoading] = useState(true);
+  const [imageLoading, setImageLoading] = useState(false); // Track individual image loading
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -57,6 +58,7 @@ const Hero = () => {
         setTimeout(() => {
           setCurrentImage((prev) => (prev + 1) % images.length);
           setFade(true); // Fade-in new image
+          setImageLoading(true); // Show spinner for new image
         }, 500); // Change image **after** fade-out completes
       }, 5000);
 
@@ -70,7 +72,7 @@ const Hero = () => {
       <div className="w-full sm:w-1/2 relative flex items-center justify-center overflow-hidden h-[450px] sm:h-[600px] md:h-[700px]">
         {loading || images.length === 0 ? (
           <div className="absolute inset-0 flex items-center justify-center bg-white/50">
-            <Spinner /> {/* Spinner centered inside the fixed-size box */}
+            <Spinner /> {/* Spinner for initial image loading */}
           </div>
         ) : (
           <picture className="relative w-full h-full">
@@ -82,11 +84,21 @@ const Hero = () => {
               media="(min-width: 640px)"
               srcSet={`${images[currentImage]?.url}?w=768&h=512&c_fill`}
             />
+
+            {/* Spinner in the center of Featured Collection image */}
+            {imageLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-white/30 z-10">
+                <Spinner />
+              </div>
+            )}
+
             <img
               ref={imageRef}
               className={`w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${fade ? "opacity-100" : "opacity-0"}`}
               src={images[currentImage]?.url || ""}
               alt="Featured Collection"
+              onLoad={() => setImageLoading(false)} // Hide spinner when image loads
+              onError={() => setImageLoading(false)} // Hide spinner if image fails to load
             />
           </picture>
         )}
