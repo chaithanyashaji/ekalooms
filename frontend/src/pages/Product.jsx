@@ -34,6 +34,8 @@ const [isSubmittingReview, setIsSubmittingReview] = useState(false);
   const [showDescription, setShowDescription] = useState(true);
   const [showShareOptions, setShowShareOptions] = useState(false);
   const isInWishlist = wishlist.some((item) => item._id === productId);
+  const [showSizeChart, setShowSizeChart] = useState(false);
+
 
   const fetchReviews = async () => {
     try {
@@ -346,48 +348,57 @@ const renderWriteReview = () => (
       
 
       {/* Share Options Dropdown */}
-      {showShareOptions && (
-        <div
-          className="absolute right-4 top-16 bg-white shadow-lg rounded-lg p-3 flex flex-col gap-3 w-48"
-          style={{ zIndex: 9999 }}
-        >
-          
-          <WhatsappShareButton
-            url={shareUrl}
-            title={shareDescription}
-            className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
-          >
-            <WhatsappIcon size={24} round />
-            <span className="text-sm text-gray-600">WhatsApp</span>
-          </WhatsappShareButton>
+     {/* Share Options Dropdown */}
+{showShareOptions && (
+  <div
+    className="absolute right-4 top-16 bg-white shadow-lg rounded-lg p-3 flex flex-col gap-3 w-48"
+    style={{ zIndex: 9999 }}
+  >
+    {/* WhatsApp Share */}
+    <WhatsappShareButton
+      url={shareUrl}
+      title={shareDescription}
+    >
+      <div className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all">
+        <WhatsappIcon size={24} round />
+        <span className="text-sm text-gray-600">WhatsApp</span>
+      </div>
+    </WhatsappShareButton>
 
-          <FacebookShareButton
-            url={shareUrl}
-            quote={shareDescription}
-            className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
-          >
-            <FacebookIcon size={24} round />
-            <span className="text-sm text-gray-600">Facebook</span>
-          </FacebookShareButton>
+    {/* Facebook Share with Image */}
+    <FacebookShareButton
+      url={shareUrl}
+      quote={shareDescription}
+      hashtag="#ShopNow"
+    >
+      <div className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all">
+        <FacebookIcon size={24} round />
+        <span className="text-sm text-gray-600">Facebook</span>
+      </div>
+    </FacebookShareButton>
 
-          <TwitterShareButton
-            url={shareUrl}
-            title={shareDescription}
-            className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
-          >
-            <TwitterIcon size={24} round />
-            <span className="text-sm text-gray-600">X (Twitter)</span>
-          </TwitterShareButton>
+    {/* Twitter (X) Share with Image */}
+    <TwitterShareButton
+      url={shareUrl}
+      title={shareDescription}
+    >
+      <div className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all">
+        <TwitterIcon size={24} round />
+        <span className="text-sm text-gray-600">X (Twitter)</span>
+      </div>
+    </TwitterShareButton>
 
-          <button
-            onClick={copyLinkToClipboard}
-            className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
-          >
-            <FaLink className="text-[#A75D5D]" />
-            <span className="text-sm text-gray-600">Copy Link</span>
-          </button>
-        </div>
-      )}
+    {/* Copy Link */}
+    <button
+      onClick={copyLinkToClipboard}
+      className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
+    >
+      <FaLink className="text-[#A75D5D]" />
+      <span className="text-sm text-gray-600">Copy Link</span>
+    </button>
+  </div>
+)}
+
     </div>
 </div>
 
@@ -405,6 +416,7 @@ const renderWriteReview = () => (
           {productData.sizes && productData.sizes.length > 0 && (
   <div className="flex flex-col gap-4 my-8">
     <p className="text-[#d08268] prata-regular">Select Size</p>
+    
     <div className="flex flex-wrap gap-4">
       {productData.sizes.map((item, index) => (
         <div key={index} className="flex flex-col items-center">
@@ -421,13 +433,90 @@ const renderWriteReview = () => (
             {item.size}
           </button>
 
+
           {/* Quantity Indicator */}
          
         </div>
       ))}
     </div>
-  </div>
+    {/* Show "Size Chart" button only for Readymades */}
+    {productData.category === "Readymades" && (
+  <>
+    <button
+      onClick={() => setShowSizeChart(true)}
+      className="mt-2 text-[#A75D5D] underline text-left w-full"
+    >
+      Size Chart
+    </button>
+
+    {/* Size Chart Modal */}
+    {showSizeChart && (
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
+        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 w-full max-w-3xl max-h-[90vh] overflow-y-auto relative">
+          {/* Close Button */}
+          <button
+            onClick={() => setShowSizeChart(false)}
+            className="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-600 hover:text-gray-900"
+          >
+            <FaTimes size={18} />
+          </button>
+
+          {/* Modal Content */}
+          <h2 className="text-xl font-semibold text-[#A75D5D] mb-4">Size Chart</h2>
+
+          {/* Responsive Table Container */}
+          <div className="overflow-x-auto -mx-4 sm:mx-0">
+            <table className="min-w-full border-collapse border border-gray-300">
+              <thead>
+                <tr className="bg-[#F0997D] text-white">
+                  <th className="border border-gray-300 px-2 sm:px-4 py-2">Size</th>
+                  <th className="border border-gray-300 px-2 sm:px-4 py-2">Bust (in)</th>
+                  <th className="border border-gray-300 px-2 sm:px-4 py-2">Waist (in)</th>
+                  <th className="border border-gray-300 px-2 sm:px-4 py-2">Hips (in)</th>
+                  <th className="border border-gray-300 px-2 sm:px-4 py-2">Shoulder (in)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { size: "S", bust: 36, waist: 34, hips: 38, shoulder: 14 },
+                  { size: "M", bust: 38, waist: 36, hips: 40, shoulder: 14.5 },
+                  { size: "L", bust: 40, waist: 38, hips: 42, shoulder: 15 },
+                  { size: "XL", bust: 42, waist: 40, hips: 44, shoulder: 15.5 },
+                  { size: "XXL", bust: 44, waist: 42, hips: 46, shoulder: 16 },
+                  { size: "3XL", bust: 46, waist: 44, hips: 48, shoulder: 16.5 },
+                  { size: "4XL", bust: 48, waist: 46, hips: 50, shoulder: 17 },
+                ].map((row, index) => (
+                  <tr key={index} className="text-center">
+                    <td className="border border-gray-300 px-2 sm:px-4 py-2">{row.size}</td>
+                    <td className="border border-gray-300 px-2 sm:px-4 py-2">{row.bust}</td>
+                    <td className="border border-gray-300 px-2 sm:px-4 py-2">{row.waist}</td>
+                    <td className="border border-gray-300 px-2 sm:px-4 py-2">{row.hips}</td>
+                    <td className="border border-gray-300 px-2 sm:px-4 py-2">{row.shoulder}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Extra Notes */}
+          <div className="mt-4 text-sm text-gray-600">
+            <p>• Measurements are mentioned in inches.</p>
+            <p>• All garments have little to no margin.</p>
+            <p>• If you're between two sizes, choose smaller for a tight fit or larger for a relaxed fit.</p>
+            <p>• Larger sizes can be altered if needed.</p>
+          </div>
+        </div>
+      </div>
+    )}
+  </>
 )}
+  </div>
+  
+  
+  
+)}
+
+
 
 
 
@@ -477,6 +566,10 @@ const renderWriteReview = () => (
 
 
 
+
+
+
+
           
           <hr className="mt-8 sm:w-4/5" />
           <div className="text-sm  text-gray-500 mt-5 flex flex-col gap-2">
@@ -491,7 +584,7 @@ const renderWriteReview = () => (
       </div>
       <div className="flex items-center gap-2">
         <Truck size={16} color="#F0997D" />
-        <p>Standard delivery time is 6-7 working days</p>
+        <p>Standard delivery time is 6-8 working days</p>
       </div>
     </div>
         </div>
