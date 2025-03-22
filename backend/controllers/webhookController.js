@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import orderModel from '../models/orderModel.js';
 import { sendMail } from '../services/emailService.js';
+import productModel from '../models/productModel.js';
 
 const razorpayWebhook = async (req, res) => {
     try {
@@ -46,6 +47,30 @@ const razorpayWebhook = async (req, res) => {
                 console.error('Order not found for receipt:', order_id);
                 return res.status(404).json({ success: false, message: 'Order not found' });
             }
+
+            for (const item of order.items) {
+                const product = await productModel.findById(item._id);
+              
+                if (product) {
+                  if (product.sizes?.length > 0) {
+                    const sizeEntry = product.sizes.find((s) => s.size === item.size);
+                    if (sizeEntry) {
+                      sizeEntry.quantity -= item.quantity;
+                      sizeEntry.quantity = Math.max(sizeEntry.quantity, 0);
+                    }
+              
+                    const totalStock = product.sizes.reduce((acc, s) => acc + s.quantity, 0);
+                    product.stockQuantity = totalStock;
+                    product.inStock = totalStock > 0;
+                  } else {
+                    product.stockQuantity -= item.quantity;
+                    product.stockQuantity = Math.max(product.stockQuantity, 0);
+                    product.inStock = product.stockQuantity > 0;
+                  }
+              
+                  await product.save();
+                }
+              }
 
             
 

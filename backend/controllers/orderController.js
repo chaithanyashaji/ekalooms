@@ -138,37 +138,7 @@ const placeOrderRazorpay = async (req, res) => {
     await newOrder.save();
 
     // Step 4: Update the product stock
-    for (const item of items) {
-      const { _id, size, quantity } = item;
-
-      const product = await productModel.findById(_id);
-
-      if (product) {
-        if (product.sizes && product.sizes.length > 0) {
-          // If product has sizes, update the quantity for the specific size
-          if (size) {
-            const sizeEntry = product.sizes.find((s) => s.size === size);
-            if (sizeEntry) {
-              sizeEntry.quantity -= quantity;
-              if (sizeEntry.quantity <= 0) {
-                sizeEntry.quantity = 0;
-              }
-            }
-          }
-          const totalStock = product.sizes.reduce((acc, s) => acc + s.quantity, 0);
-          product.stockQuantity = totalStock;
-          product.inStock = totalStock > 0;
-        } else {
-          // If product doesn't have sizes, reduce stockQuantity directly
-          product.stockQuantity -= quantity;
-          if (product.stockQuantity <= 0) {
-            product.stockQuantity = 0;
-            product.inStock = false;
-          }
-        }
-        await product.save();
-      }
-    }
+   
 
     // Step 5: Send the response back to the client
     return res.json({
@@ -354,37 +324,6 @@ const placeOrderRazorpayGuest = async (req, res) => {
     await newOrder.save();
 
     // Step 5: Update the product stock
-    for (const item of items) {
-      const { _id, size, quantity } = item;
-
-      const product = await productModel.findById(_id);
-
-      if (product) {
-        if (product.sizes && product.sizes.length > 0) {
-          // If product has sizes, update the quantity for the specific size
-          if (size) {
-            const sizeEntry = product.sizes.find((s) => s.size === size);
-            if (sizeEntry) {
-              sizeEntry.quantity -= quantity;
-              if (sizeEntry.quantity <= 0) {
-                sizeEntry.quantity = 0;
-              }
-            }
-          }
-          const totalStock = product.sizes.reduce((acc, s) => acc + s.quantity, 0);
-          product.stockQuantity = totalStock;
-          product.inStock = totalStock > 0;
-        } else {
-          // If product doesn't have sizes, reduce stockQuantity directly
-          product.stockQuantity -= quantity;
-          if (product.stockQuantity <= 0) {
-            product.stockQuantity = 0;
-            product.inStock = false;
-          }
-        }
-        await product.save();
-      }
-    }
 
     // Step 6: Send the response back to the client
     return res.json({

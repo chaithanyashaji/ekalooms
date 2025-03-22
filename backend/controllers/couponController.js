@@ -6,33 +6,40 @@ import orderModel from "../models/orderModel.js";
  */
 const validateCoupon = async (req, res) => {
   try {
-    const { code, email } = req.body; // Get email & code from request body
+    const { code, email } = req.body;
 
-    // Check if the user has placed an order before
-    const existingOrder = await orderModel.findOne({ "address.email": email });
+    // ✅ Check if the user has placed a successful (paid) order before
+    const existingOrder = await orderModel.findOne({ "address.email": email, payment: true });
 
+    // ❌ Deny EKA10 if the user has already completed a paid order
     if (code === "EKA10" && existingOrder) {
-      return res.status(400).json({ success: false, message: "Coupon EKA10 is only for first-time users!" });
+      return res.status(400).json({
+        success: false,
+        message: "Coupon EKA10 is only for first-time users!",
+      });
     }
 
-    // Find the coupon in the database
+    // ✅ Find the coupon in the database
     const coupon = await Coupon.findOne({ code, isActive: true });
 
     if (!coupon) {
       return res.status(404).json({ success: false, message: "Invalid or expired coupon" });
     }
 
-    // Check if the coupon is expired
+    // ❌ Check if expired
     if (coupon.expiresAt < Date.now()) {
       return res.status(400).json({ success: false, message: "Coupon has expired" });
     }
 
+    // ✅ Coupon valid
     res.json({ success: true, discount: coupon.discount });
+
   } catch (error) {
     console.error("Error validating coupon:", error.message);
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
+
 
 /**
  * Create a new coupon (Admin only)
