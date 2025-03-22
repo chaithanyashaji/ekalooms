@@ -78,6 +78,7 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
 
                 <div className="relative overflow-hidden">
                     <img
+                          loading="lazy"
                         className="w-full h-[250px] sm:h-[320px] rounded-md shadow-lg border border-[#e6dede] object-cover group-hover:scale-105 transition-transform duration-300 "
                         src={image[0]}
                         alt={`Image of ${name}`}

@@ -11,18 +11,20 @@ const CategoryCard = memo(({ category }) => {
       onClick={() => navigate(`/collection?category=${category.name}`)}
     >
       <div className="w-20 h-24 sm:w-24 sm:h-28 lg:w-28 lg:h-32 shadow-xl border border-[#A75D5D] rounded-t-full overflow-hidden">
-        <img
-          src={`${category.image}?w=112&h=134&c_fill`}
-          srcSet={`
-            ${category.image}?w=112&h=134&c_fill 1x,
-            ${category.image}?w=224&h=268&c_fill 2x
-          `}
-          alt={category.name}
-          width="112" // Explicit width
-          height="134" // Explicit height
-          className="w-full h-full object-cover"
-          loading="lazy" // Enable lazy loading for better performance
-        />
+      <img
+  loading="lazy"
+  src={`${category.image}?w=112&h=134&c_fill&f=auto&q=70`} // Automatically pick best format (e.g., WebP)
+  srcSet={`
+    ${category.image}?w=112&h=134&c_fill&f=auto&q=70 1x,
+    ${category.image}?w=224&h=268&c_fill&f=auto&q=70 2x
+  `}
+  sizes="(max-width: 640px) 80px, 112px"
+  alt={category.name}
+  width="112"
+  height="134"
+  className="w-full h-full object-cover"
+/>
+
       </div>
       <p className="mt-2 mb-2 text-xs sm:text-sm lg:text-base prata-regular text-[#A75D5D] font-medium text-center">
         {category.name}
