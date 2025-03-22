@@ -45,8 +45,8 @@ const Policy = () => {
     <strong>Delivery Charges:</strong>
   </p>
   <ul className="list-disc pl-5 space-y-2">
-    <li>Normal Delivery: ₹60</li>
-    <li>Speed Delivery: ₹95 (delivered within 2 working days)</li>
+    <li>Normal Delivery: ₹150</li>
+    <li>Speed Delivery: ₹210 (delivered within 2 working days)</li>
     <li>Additional Shipping Charges: Applicable for international shipments based on destination and package weight. </li>
   </ul>
 </section>

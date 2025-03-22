@@ -35,7 +35,7 @@ const PlaceOrder = () => {
   };
 
   const calculateDeliveryFee = () => {
-    return deliveryOption === 'speedy' ? 95 : 60; // No free delivery
+    return deliveryOption === 'speedy' ? 210 : 150; // No free delivery
   };
 
   const applyCoupon = async () => {
@@ -367,7 +367,7 @@ if (method === 'razorpay') {
                 checked={deliveryOption === 'normal'}
                 onChange={() => setDeliveryOption('normal')}
               />
-              Normal Delivery (6-8 Days) - INR 60
+              Normal Delivery (6-8 Days) - INR 150
             </label>
             <label className="flex items-center gap-2 text-gray-500">
               <input
@@ -377,7 +377,7 @@ if (method === 'razorpay') {
                 checked={deliveryOption === 'speedy'}
                 onChange={() => setDeliveryOption('speedy')}
               />
-              Speed Delivery (Within 2 Days) - INR 95
+              Speed Delivery (Within 2 Days) - INR 210
             </label>
           
 

@@ -30,7 +30,7 @@ const Collection = () => {
       "Organza", "Soft khadi cotton","Soft silk","Viscose/Georgettes","Silk","Chiffon","Modal Silk","Cotton"
     ],
     "Readymades": [
-      "Cotton", "Muslin", "Rayon","Georgette"
+      "Cotton", "Muslin", "Rayon","Georgette","Silk"
     ],
     "Dress materials": [
       "Chanderi silk", "Cotton", "Georgette", "Kota silk", 
