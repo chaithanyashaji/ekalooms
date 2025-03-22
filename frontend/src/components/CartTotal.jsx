@@ -10,7 +10,7 @@ const CartTotal = () => {
     if (cartAmount > 1499) {
       return 0; // Free delivery for orders > 1499
     }
-    return deliveryOption === 'speedy' ? 95 : 60;
+    return deliveryOption === 'speedy' ? 150 : 210;
   };
 
   const calculateDiscount = () => {
@@ -21,14 +21,14 @@ const CartTotal = () => {
 
   const calculateTotal = () => {
     const subtotal = Number(getCartAmount() || 0);
-    const deliveryFee = 0.00;
+    const deliveryFee = 150.00;
     const discountAmount = Number(calculateDiscount() || 0);
     return subtotal + deliveryFee - discountAmount;
   };
 
   // Ensure we have valid numbers for display
   const subtotal = Number(getCartAmount() || 0).toFixed(2);
-  const deliveryFee = 0.00;
+  const deliveryFee = 150.00;
 
   const discountAmount = Number(calculateDiscount() || 0).toFixed(2);
   const total = Number(calculateTotal() || 0).toFixed(2);
@@ -65,7 +65,7 @@ const CartTotal = () => {
           <p>Shipping Fee</p>
           <p>
             
-            {deliveryFee}
+          {currency}{deliveryFee}
           </p>
         </div>
         <hr />
