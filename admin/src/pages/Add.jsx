@@ -369,7 +369,7 @@ const Add = ({ token }) => {
           </div>
           {/* Stock Quantity */}
 <div className="w-full max-w-[500px]">
-  <p className="mb-2 font-semibold">Stock Quantity</p>
+  <p className="mb-2 font-semibold">Stock Quantity(no need if sizes quantity is mentioned)</p>
   <input
     onChange={(e) => setStockQuantity(e.target.value)}
     value={stockQuantity}
