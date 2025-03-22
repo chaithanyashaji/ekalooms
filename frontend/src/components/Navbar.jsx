@@ -7,7 +7,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch, navigate, token, setToken } = useContext(ShopContext);
+  const { setShowSearch, navigate, token, setToken,setCartItems,setWishlist } = useContext(ShopContext);
   const location = useLocation(); // Get the current location
 
   const logout = () => {

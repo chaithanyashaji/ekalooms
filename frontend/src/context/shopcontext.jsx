@@ -393,6 +393,7 @@ useEffect(() => {
     wishlist,
     refreshToken,
     pagination, 
+    setWishlist
 
     }
     return (
