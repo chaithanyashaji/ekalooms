@@ -9,9 +9,9 @@ const generateShortOrderId = (mongoId) => {
   if (!mongoId || typeof mongoId.toString !== "function") {
     throw new Error("Invalid MongoDB ObjectId");
   }
-  const mongoIdStr = mongoId.toString(); // Convert ObjectId to string
-  const base36Id = parseInt(mongoIdStr.substring(0, 8), 16).toString(36).toUpperCase();
-  return `EKA-${base36Id}`;
+  const hash = crypto.createHash("sha1").update(mongoId.toString()).digest("hex");
+  const shortId = parseInt(hash.substring(0, 8), 16).toString(36).toUpperCase();
+  return `EKA-${shortId}`;
 };
 
 
