@@ -274,9 +274,10 @@ const ordersPerPage = 30;
       <p className="text-sm text-gray-800">
         Payment Method: {order.paymentMethod || "N/A"}
       </p>
-      <p className="text-sm text-gray-800">
-        Payment: {order.payment ? "Done" : "Pending"}
-      </p>
+      <p className={`text-sm ${order.payment ? "text-green-600" : "text-red-600"}`}>
+  Payment: {order.payment ? "Done" : "Pending"}
+</p>
+
       <p className="text-sm text-gray-800">
         Date: {new Date(order.date).toLocaleDateString()}
       </p>
