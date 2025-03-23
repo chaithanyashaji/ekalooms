@@ -1,28 +1,36 @@
 import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // Use a mail service of your choice (e.g., Gmail, Outlook, etc.)
-  auth: {
-    user: process.env.EMAIL, // Your email
-    pass: process.env.EMAIL_PASSWORD // App password or email password
-  }
+    host: process.env.ZOHO_SMTP_HOST,
+    port: parseInt(process.env.ZOHO_SMTP_PORT),
+    secure: process.env.ZOHO_SMTP_SECURE === 'true',
+    auth: {
+        user: process.env.ZOHO_EMAIL,
+        pass: process.env.ZOHO_PASSWORD,
+    },
 });
 
-export const sendMail = async (to, subject,content, isHTML = false) => {
-  const mailOptions = {
-    from: process.env.EMAIL,
-    to,
-    subject,
-    content,
-    text: !isHTML ? content : undefined, // Plain text fallback
-    html: isHTML ? content : undefined, 
-  };
+const transporter2 = nodemailer.createTransport({
+    host: process.env.ZOHO_SMTP_HOST,
+    port: parseInt(process.env.ZOHO_SMTP_PORT),
+    secure: process.env.ZOHO_SMTP_SECURE === 'true',
+    auth: {
+        user: process.env.ZOHO_EMAIL2,
+        pass: process.env.ZOHO_PASSWORD,
+    },
+});
 
-  try {
-    await transporter.sendMail(mailOptions);
-    
-  } catch (error) {
-    console.log('Error sending email:', error.message);
-    throw new Error('Email sending failed');
-  }
+export const sendMail = async (to, subject, content, isHTML = true, useSecondary = false) => {
+    const mailOptions = {
+        from: `"ekalooms" <${useSecondary ? process.env.ZOHO_EMAIL2 : process.env.ZOHO_EMAIL}>`,
+        to,
+        subject,
+        [isHTML ? 'html' : 'text']: content,
+    };
+
+    const transporterToUse = useSecondary ? transporter2 : transporter;
+    await transporterToUse.sendMail(mailOptions);
 };

@@ -125,7 +125,7 @@ const razorpayWebhook = async (req, res) => {
         </a>
     </div>
 
-    <p style="margin-bottom: 20px; font-size: 14px;">If you have any questions about your order, feel free to contact our support team at <a href="mailto:ekalooms@gmail.com" style="color: #007BFF; text-decoration: none;">ekalooms@gmail.com</a>.</p>
+    <p style="margin-bottom: 20px; font-size: 14px;">If you have any questions about your order, feel free to contact our support team at <a href="mailto:contact@ekalooms.com" style="color: #007BFF; text-decoration: none;">contact@ekalooms.com</a>.</p>
 
     <p style="font-size: 14px; margin-bottom: 20px; text-align: center;"><strong>Thank you for shopping with us!</strong></p>
 

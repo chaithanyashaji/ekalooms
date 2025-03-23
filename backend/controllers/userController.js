@@ -7,6 +7,7 @@ import nodemailer from "nodemailer";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
 import winston from "winston";
+import { sendMail } from "../services/emailService.js";
 
 dotenv.config();
 
@@ -239,12 +240,8 @@ const forgotPassword = async (req, res) => {
         // Check if the email exists in a case-insensitive manner
         const user = await userModel.findOne({ email: { $regex: new RegExp(`^${email}$`, 'i') } });
 
-        // Log for debugging purposes
         if (!user) {
-           
-            return res
-                .status(404)
-                .json({ success: false, message: "Email not found" });
+            return res.status(404).json({ success: false, message: "Email not found" });
         }
 
         // Generate reset token
@@ -258,20 +255,26 @@ const forgotPassword = async (req, res) => {
         // Construct reset URL
         const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
-        // Send email using SMTP
-        await transporter.sendMail({
-            from: `"Ekalooms" <${process.env.EMAIL}>`, // Sender address
-            to: email, // Recipient address
-            subject: "Password Reset Request",
-            html: `<p>You requested a password reset.</p>
-                   <p>Click <a href="${resetUrl}">here</a> to reset your password.</p>
-                   <p>This link is valid for 20 minutes.</p>`,
-        });
+        // Email content
+        const htmlContent = `
+            <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9;">
+                <h2>Password Reset Request</h2>
+                <p>You recently requested to reset your password.</p>
+                <p>Click the button below to reset your password:</p>
+                <a href="${resetUrl}" style="display: inline-block; padding: 10px 20px; background-color: #D3756B; color: white; text-decoration: none; border-radius: 5px;">Reset Password</a>
+                <p>This link will expire in 20 minutes.</p>
+                <p>If you did not request this, please ignore this email.</p>
+                <p>– ekalooms Team</p>
+            </div>
+        `;
 
-        res.status(200).json({ success: true, message: "Password reset confirmation email was sent to your email." });
+        
+        await sendMail(email, "Password Reset Request", htmlContent, true, true);
+
+        return res.status(200).json({ success: true, message: "Password reset email sent." });
     } catch (error) {
-       
-        res.status(500).json({ success: false, message: "Internal server error" });
+        console.error("Forgot password error:", error);
+        return res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
 

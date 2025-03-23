@@ -84,7 +84,7 @@ const Footer = () => {
                   href="mailto:ekalooms@gmail.com"
                   className="flex items-center gap-2 hover:text-[#A75D5D]"
                 >
-                  <i className="fas fa-envelope text-[#A75D5D]"></i> Email Us: ekalooms@gmail.com
+                  <i className="fas fa-envelope text-[#A75D5D]"></i> Email Us: contact@ekalooms.com
                 </a>
               </li>
               
@@ -100,7 +100,7 @@ const Footer = () => {
           className="py-5 text-sm text-center text-[#A75D5D]"
           style={{ marginBottom: '70px' }} // Adjust margin to avoid overlapping with bottom navigation
         >
-          &copy; {new Date().getFullYear()} @ekalooms.com - All rights reserved
+          &copy; {new Date().getFullYear()} ekalooms - All rights reserved
         </p>
       </div>
     </div>
