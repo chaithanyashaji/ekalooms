@@ -9,6 +9,8 @@ const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const { setShowSearch, navigate, token, setToken, setCartItems, setWishlist } = useContext(ShopContext);
+  const [expandedCategory, setExpandedCategory] = useState(null);
+
   const location = useLocation();
 
   const logout = () => {
@@ -27,11 +29,36 @@ const Navbar = () => {
 
   // Categories data
   const categories = [
-    { name: "Sarees", slug: "Saree" },
-    { name: "Readymades", slug: "Readymades" },
-    { name: "Home Decor", slug: "Home Decor" },
-    { name: "Dress Materials", slug: "Dress materials" },
+    {
+      name: "Sarees",
+      slug: "Saree",
+      subCategories: [
+        "Chanderi silk", "Jimmy Choo", "Kota Doria", "Linen", 
+        "Madurai Sungudi / Velthari", "Maheshwari silk", "Mul Mul", 
+        "Organza", "Soft khadi cotton", "Soft silk", "Viscose/Georgettes", 
+        "Silk", "Chiffon", "Modal Silk", "Cotton"
+      ],
+    },
+    {
+      name: "Readymades",
+      slug: "Readymades",
+      subCategories: ["Cotton", "Muslin", "Rayon", "Georgette", "Silk"],
+    },
+    {
+      name: "Home Decor",
+      slug: "Home Decor",
+      subCategories: ["Bedsheets", "Cushion Covers", "Curtains", "Table Linen"],
+    },
+    {
+      name: "Dress Materials",
+      slug: "Dress materials",
+      subCategories: [
+        "Chanderi silk", "Cotton", "Georgette", "Kota silk",
+        "Linen", "Muslin", "Rayon", "Tissue", "Modal silk"
+      ],
+    },
   ];
+  
 
   return (
     <div className="flex items-center justify-between h-16 px-4 sm:px-6 font-medium w-full mx-auto prata-regular">
@@ -190,28 +217,57 @@ const Navbar = () => {
               
               {/* Categories List - Fixed to remove any black background */}
               <div className={`transition-all duration-300 overflow-hidden prata-regular ${
-                categoriesOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-              }`}>
-                {categories.map((cat, index) => {
-                  const categoryParam = new URLSearchParams(location.search).get('category');
-                  const isCategoryActive = location.pathname.includes('/collection') && categoryParam === cat.slug;
-                  
-                  return (
-                    <NavLink
-                      key={cat.slug}
-                      to={`/collection?category=${encodeURIComponent(cat.slug)}`}
-                      onClick={() => setVisible(false)}
-                      className={`block p-3 mx-3 my-2 rounded text-center transition-all prata-regular ${
-                        isCategoryActive
-                          ? "!bg-white border-2 border-[#A75D5D] !text-[#A75D5D] font-medium"
-                          : "!bg-white border border-[#d1856c] !text-[#d1856c] hover:border-[#A75D5D] hover:!text-[#A75D5D]"
-                      }`}
-                    >
-                      {cat.name}
-                    </NavLink>
-                  );
-                })}
-              </div>
+  categoriesOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+}`}>
+  {categories.map((cat) => {
+    const categoryParam = new URLSearchParams(location.search).get("category");
+    const subParam = new URLSearchParams(location.search).get("sub");
+    const isCategoryActive = location.pathname.includes("/collection") && categoryParam === cat.slug;
+    const isExpanded = expandedCategory === cat.slug;
+
+    return (
+      <div key={cat.slug} className="mb-2 mx-3">
+        {/* Category Toggle Button */}
+        <button
+          onClick={() => setExpandedCategory(isExpanded ? null : cat.slug)}
+          className={`w-full text-left p-3 rounded-md flex justify-between items-center transition-all shadow-sm ${
+            isCategoryActive
+              ? "bg-[#fcf0ee] border-2 border-[#A75D5D] text-[#A75D5D]"
+              : "bg-white border border-[#d1856c] text-[#d1856c] hover:border-[#A75D5D] hover:text-[#A75D5D]"
+          }`}
+        >
+          <span className="text-sm">{cat.name}</span>
+          <i className={`fas fa-chevron-${isExpanded ? "up" : "down"} text-xs`} />
+        </button>
+
+        {/* Subcategories */}
+        {isExpanded && cat.subCategories && (
+          <div className="mt-2 ml-4 max-h-64 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-[#d1856c]/80 scrollbar-track-[#f0e0dc]/20">
+            {cat.subCategories.map((subCat) => {
+              const isSubActive = subParam === subCat;
+              return (
+                <NavLink
+  key={subCat}
+  to={`/collection?category=${encodeURIComponent(cat.slug)}&sub=${encodeURIComponent(subCat)}`}
+  onClick={() => setVisible(false)}
+  className={`block text-sm px-3 py-2 rounded-md mb-1 transition-all ${
+    isSubActive
+      ? "!bg-white !text-[#A75D5D] font-medium border-2 border-[#A75D5D]"
+      : "!bg-white !text-[#A75D5D] hover:!bg-[#f5d5c5] hover:!text-[#A75D5D] border border-[#d1856c]"
+  }`}
+>
+  {subCat}
+</NavLink>
+
+              );
+            })}
+          </div>
+        )}
+      </div>
+    );
+  })}
+</div>
+
             </div>
           </div>
 

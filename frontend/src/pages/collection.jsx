@@ -1,7 +1,7 @@
 // Collection Component
 import React, { useContext, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useParams, } from 'react-router-dom';
 import { ShopContext } from '../context/shopcontext';
 import { assets } from '../assets/assets';
 import Title from '../components/Title';
@@ -15,14 +15,17 @@ const Collection = () => {
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState('relevant');
+   // get 'sub'
+
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 60;
 
   const location = useLocation();
   const params = useParams();
+
   const queryParams = new URLSearchParams(location.search);
   const selectedCategory = params.categorySlug || queryParams.get('category');
-
+  const selectedSubCategory = queryParams.get('sub');
   const categorySubCategoryMap = {
     "Saree": [
       "Chanderi silk", "Jimmy Choo", "Kota Doria", "Linen", 
@@ -45,7 +48,11 @@ const Collection = () => {
     if (selectedCategory) {
       setCategory([selectedCategory]);
     }
-  }, [selectedCategory]);
+    if (selectedSubCategory) {
+      setSubCategory([selectedSubCategory]);
+    }
+  }, [selectedCategory, selectedSubCategory]);
+  
 
   useEffect(() => {
     const savedPosition = sessionStorage.getItem("scrollPosition");
