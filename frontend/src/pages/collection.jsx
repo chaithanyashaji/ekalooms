@@ -63,18 +63,19 @@ const Collection = () => {
     const savedSubCategory = sessionStorage.getItem("subCategoryFilter");
     const savedSortType = sessionStorage.getItem("sortType");
   
-    // ✅ Restore filters
-    if (savedCategory) setCategory(JSON.parse(savedCategory));
-    if (savedSubCategory) setSubCategory(JSON.parse(savedSubCategory));
+   
+  
+    setCategory(safeJSONParse(savedCategory));
+    setSubCategory(safeJSONParse(savedSubCategory));
+    
+  
     if (savedSortType) setSortType(savedSortType);
   
-    // ✅ Restore page
     if (savedPage) {
       setCurrentPage(parseInt(savedPage, 10));
       sessionStorage.setItem("currentPageRestored", "true");
     }
   
-    // ✅ Restore scroll
     if (savedPosition !== null) {
       requestAnimationFrame(() => {
         setTimeout(() => {
@@ -93,6 +94,9 @@ const Collection = () => {
   }, []);
   
   
+  
+  
+ 
   
   
   
@@ -141,6 +145,15 @@ const Collection = () => {
     const cameFromStorage = sessionStorage.getItem("currentPageRestored");
     if (!cameFromStorage) {
       setCurrentPage(1);
+    }
+  };
+  
+  const safeJSONParse = (value, fallback = []) => {
+    try {
+      if (!value || value === "undefined") return fallback;
+      return JSON.parse(value);
+    } catch {
+      return fallback;
     }
   };
   

@@ -68,11 +68,25 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
   className="block"
   onClick={() => {
     sessionStorage.setItem("scrollPosition", window.scrollY);
-    sessionStorage.setItem("currentPage", currentPage);
-    sessionStorage.setItem("categoryFilter", JSON.stringify(categoryFilter));
-    sessionStorage.setItem("subCategoryFilter", JSON.stringify(subCategoryFilter));
-    sessionStorage.setItem("sortType", sortType);
+  
+    if (typeof currentPage !== "undefined") {
+      sessionStorage.setItem("currentPage", currentPage);
+    }
+  
+    if (Array.isArray(categoryFilter) && categoryFilter.length > 0) {
+      sessionStorage.setItem("categoryFilter", JSON.stringify(categoryFilter));
+    }
+  
+    if (Array.isArray(subCategoryFilter) && subCategoryFilter.length > 0) {
+      sessionStorage.setItem("subCategoryFilter", JSON.stringify(subCategoryFilter));
+    }
+  
+    if (typeof sortType !== "undefined") {
+      sessionStorage.setItem("sortType", sortType);
+    }
   }}
+  
+  
   
 >
 

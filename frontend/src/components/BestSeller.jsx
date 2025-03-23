@@ -60,18 +60,26 @@ const BestSeller = () => {
   
     const finalSelection = shuffleArray(selected.slice(0, 8));
   
-    sessionStorage.setItem('bestSellers', JSON.stringify(finalSelection));
+    if (finalSelection.length > 0) {
+      sessionStorage.setItem('bestSellers', JSON.stringify(finalSelection));
+    }
     setBestSeller(finalSelection);
   }, [products]);
   
   useEffect(() => {
-    if (performance.navigation.type === 1) {
-      const cached = sessionStorage.getItem("bestSellers");
-      if (cached && JSON.parse(cached).length === 0) {
+    const cached = sessionStorage.getItem("bestSellers");
+    if (cached) {
+      try {
+        const parsed = JSON.parse(cached);
+        if (!Array.isArray(parsed) || parsed.length === 0) {
+          sessionStorage.removeItem("bestSellers");
+        }
+      } catch (err) {
         sessionStorage.removeItem("bestSellers");
       }
     }
   }, []);
+  
   
   
   return (
@@ -86,20 +94,27 @@ const BestSeller = () => {
           bestSeller.length > 0 ? (
             bestSeller.map((item) => (
               <ProductItem
-                key={item._id}
-                id={item._id}
-                name={item.name}
-                image={item.image}
-                price={item.price}
-                rating={item.averageRating || 0}
-                totalReviews={item.totalReviews}
-                bestseller={item.bestseller}
-                inStock={item.inStock}
-                category={item.category}
-                subCategory={item.subCategory}
-                sizes={item.sizes}
-                stockQuantity={item.stockQuantity}
-              />
+  key={item._id}
+  id={item._id}
+  name={item.name}
+  image={item.image}
+  price={item.price}
+  rating={item.averageRating || 0}
+  totalReviews={item.totalReviews}
+  bestseller={item.bestseller}
+  inStock={item.inStock}
+  category={item.category}
+  subCategory={item.subCategory}
+  sizes={item.sizes}
+  stockQuantity={item.stockQuantity}
+
+  // ✅ Pass fallback props
+  currentPage={1}
+  categoryFilter={[]}
+  subCategoryFilter={[]}
+  sortType={'relevant'}
+/>
+
             ))
           ) : (
             <div className='col-span-full text-center text-gray-500'>
