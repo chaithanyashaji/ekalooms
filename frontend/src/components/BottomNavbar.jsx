@@ -29,7 +29,7 @@ const BottomNavbar = () => {
       <NavLink
         to="/"
         onClick={() => handleNavigation('/')}
-        className={`cursor-pointer w-[55px] h-[55px] flex items-center justify-center rounded-full transition-all duration-300 ${
+        className={`cursor-pointer w-[55px] h-[55px] flex flex-col items-center justify-center rounded-full transition-all duration-300 ${
           active === '/'
             ? 'bg-gradient-to-br from-[#D3756B] to-[#FFC3A1] shadow-md shadow-[#F0997D]'
             : ''
@@ -38,17 +38,20 @@ const BottomNavbar = () => {
         <HomeIcon
           className={`w-6 h-6 ${
             active === '/'
-              ? 'text-white shadow-white'
+              ? 'text-white'
               : 'text-white/50'
           }`}
         />
+        <span className={`text-[8px] mt-0.5 ${
+          active === '/' ? 'text-white' : 'text-white/50'
+        }`}>Home</span>
       </NavLink>
 
       {/* Collection */}
       <NavLink
         to="/collection"
         onClick={() => handleNavigation('/collection')}
-        className={`cursor-pointer w-[55px] h-[55px] flex items-center justify-center rounded-full transition-all duration-300 ${
+        className={`cursor-pointer w-[55px] h-[55px] flex flex-col items-center justify-center rounded-full transition-all duration-300 ${
           active === '/collection'
             ? 'bg-gradient-to-br from-[#D3756B] to-[#FFC3A1] shadow-md shadow-[#F0997D]'
             : ''
@@ -57,10 +60,13 @@ const BottomNavbar = () => {
         <ViewGridIcon
           className={`w-6 h-6 ${
             active === '/collection'
-              ? 'text-white shadow-white'
+              ? 'text-white'
               : 'text-white/50'
           }`}
         />
+        <span className={`text-[8px] mt-0.5 ${
+          active === '/collection' ? 'text-white' : 'text-white/50'
+        }`}>Shop</span>
       </NavLink>
 
       {/* Orders */}
@@ -68,7 +74,7 @@ const BottomNavbar = () => {
         <NavLink
           to="/orders"
           onClick={() => handleNavigation('/orders')}
-          className={`cursor-pointer w-[55px] h-[55px] flex items-center justify-center rounded-full transition-all duration-300 ${
+          className={`cursor-pointer w-[55px] h-[55px] flex flex-col items-center justify-center rounded-full transition-all duration-300 ${
             active === '/orders'
               ? 'bg-gradient-to-br from-[#D3756B] to-[#FFC3A1] shadow-md shadow-[#F0997D]'
               : ''
@@ -77,10 +83,13 @@ const BottomNavbar = () => {
           <ClipboardListIcon
             className={`w-6 h-6 ${
               active === '/orders'
-                ? 'text-white shadow-white'
+                ? 'text-white'
                 : 'text-white/50'
             }`}
           />
+          <span className={`text-[8px] mt-0.5 ${
+            active === '/orders' ? 'text-white' : 'text-white/50'
+          }`}>Orders</span>
         </NavLink>
       )}
 
@@ -88,7 +97,7 @@ const BottomNavbar = () => {
       <NavLink
         to="/wishlist"
         onClick={() => handleNavigation('/wishlist')}
-        className={`cursor-pointer w-[55px] h-[55px] flex items-center justify-center rounded-full transition-all duration-300 ${
+        className={`cursor-pointer w-[55px] h-[55px] flex flex-col items-center justify-center rounded-full transition-all duration-300 ${
           active === '/wishlist'
             ? 'bg-gradient-to-br from-[#D3756B] to-[#FFC3A1] shadow-md shadow-[#F0997D]'
             : ''
@@ -97,33 +106,41 @@ const BottomNavbar = () => {
         <HeartIcon
           className={`w-6 h-6 ${
             active === '/wishlist'
-              ? 'text-white shadow-white'
+              ? 'text-white'
               : 'text-white/50'
           }`}
         />
+        <span className={`text-[7px] mt-0.5 ${
+          active === '/wishlist' ? 'text-white' : 'text-white/50'
+        }`}>Wishlist</span>
       </NavLink>
 
       {/* Cart */}
       <NavLink
         to="/cart"
         onClick={() => handleNavigation('/cart')}
-        className={`cursor-pointer w-[55px] h-[55px] flex items-center justify-center rounded-full transition-all duration-300 ${
+        className={`cursor-pointer w-[55px] h-[55px] flex flex-col items-center justify-center rounded-full transition-all duration-300 ${
           active === '/cart'
             ? 'bg-gradient-to-br from-[#D3756B] to-[#F0997D] shadow-md shadow-[#FFC3A1]'
             : ''
         } relative`}
       >
-        <div className="relative">
-          <ShoppingCartIcon
-            className={`w-6 h-6 ${
-              active === '/cart'
-                ? 'text-white shadow-white'
-                : 'text-white/50'
-            }`}
-          />
-          <p className="absolute top-[-4px] right-[-4px] w-3 h-3 text-center leading-3 text-white rounded-full text-[8px] bg-[#A75D5D]">
-            {getCartCount()}
-          </p>
+        <div className="flex flex-col items-center">
+          <div className="relative">
+            <ShoppingCartIcon
+              className={`w-6 h-6 ${
+                active === '/cart'
+                  ? 'text-white'
+                  : 'text-white/50'
+              }`}
+            />
+            <p className="absolute top-[-3px] right-[-3px] w-2.5 h-2.5 text-center leading-[10px] text-white rounded-full text-[6px] bg-[#A75D5D]">
+              {getCartCount()}
+            </p>
+          </div>
+          <span className={`text-[8px] mt-0.5 ${
+            active === '/cart' ? 'text-white' : 'text-white/50'
+          }`}>Cart</span>
         </div>
       </NavLink>
     </nav>
