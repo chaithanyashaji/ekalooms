@@ -43,6 +43,10 @@ const RelatedProducts = ({ category, subCategory }) => {
                 inStock={item.inStock}
                 category={item.category}
               subCategory={item.subCategory}
+              currentPage={1}
+  categoryFilter={[]}
+  subCategoryFilter={[]}
+  sortType={'relevant'}
               />
             </div>
           ))}

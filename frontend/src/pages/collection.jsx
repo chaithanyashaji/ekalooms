@@ -54,20 +54,32 @@ const Collection = () => {
       setSubCategory([selectedSubCategory]);
     }
   }, [selectedCategory, selectedSubCategory]);
+
+ 
   
 
   useEffect(() => {
     const savedPosition = sessionStorage.getItem("scrollPosition");
     const savedPage = sessionStorage.getItem("currentPage");
-    const savedCategory = sessionStorage.getItem("categoryFilter");
-    const savedSubCategory = sessionStorage.getItem("subCategoryFilter");
     const savedSortType = sessionStorage.getItem("sortType");
   
-   
+    const urlCategory = params.categorySlug || queryParams.get('category');
+    const urlSubCategory = queryParams.get('sub');
   
-    setCategory(safeJSONParse(savedCategory));
-    setSubCategory(safeJSONParse(savedSubCategory));
-    
+    // ✅ Use URL first, fallback to sessionStorage
+    if (urlCategory) {
+      setCategory([urlCategory]);
+    } else {
+      const savedCategory = sessionStorage.getItem("categoryFilter");
+      setCategory(safeJSONParse(savedCategory));
+    }
+  
+    if (urlSubCategory) {
+      setSubCategory([urlSubCategory]);
+    } else {
+      const savedSubCategory = sessionStorage.getItem("subCategoryFilter");
+      setSubCategory(safeJSONParse(savedSubCategory));
+    }
   
     if (savedSortType) setSortType(savedSortType);
   
