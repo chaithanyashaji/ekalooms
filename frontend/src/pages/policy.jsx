@@ -121,7 +121,7 @@ const Policy = () => {
             <br />
             <strong>Phone:</strong> +91-9113054569
             <br />
-            <strong>Email:</strong> ekalooms@gmail.com
+            <strong>Email:</strong> contact@ekalooms.com
             <br />
             <br/>
             <strong>Address:</strong>Akshaya Nagar,

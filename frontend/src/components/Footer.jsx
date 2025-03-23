@@ -81,7 +81,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:ekalooms@gmail.com"
+                  href="mailto:contact@ekalooms.com"
                   className="flex items-center gap-2 hover:text-[#A75D5D]"
                 >
                   <i className="fas fa-envelope text-[#A75D5D]"></i> Email Us: contact@ekalooms.com
