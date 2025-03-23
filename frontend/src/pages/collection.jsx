@@ -15,6 +15,8 @@ const Collection = () => {
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState('relevant');
+ 
+  
    // get 'sub'
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -56,23 +58,40 @@ const Collection = () => {
 
   useEffect(() => {
     const savedPosition = sessionStorage.getItem("scrollPosition");
+    const savedPage = sessionStorage.getItem("currentPage");
+    const savedCategory = sessionStorage.getItem("categoryFilter");
+    const savedSubCategory = sessionStorage.getItem("subCategoryFilter");
+    const savedSortType = sessionStorage.getItem("sortType");
   
+    // ✅ Restore filters
+    if (savedCategory) setCategory(JSON.parse(savedCategory));
+    if (savedSubCategory) setSubCategory(JSON.parse(savedSubCategory));
+    if (savedSortType) setSortType(savedSortType);
+  
+    // ✅ Restore page
+    if (savedPage) {
+      setCurrentPage(parseInt(savedPage, 10));
+      sessionStorage.setItem("currentPageRestored", "true");
+    }
+  
+    // ✅ Restore scroll
     if (savedPosition !== null) {
       requestAnimationFrame(() => {
         setTimeout(() => {
           window.scrollTo({
             top: parseInt(savedPosition, 10),
-            behavior: "instant",
+            behavior: "auto",
           });
   
-          // Delay clearing session storage after scroll restoration
           setTimeout(() => {
             sessionStorage.removeItem("scrollPosition");
+            sessionStorage.removeItem("currentPageRestored");
           }, 1000);
         }, 200);
       });
     }
   }, []);
+  
   
   
   
@@ -85,7 +104,7 @@ const Collection = () => {
 
   const applyFilter = () => {
     let filtered = [...products];
-
+  
     // Apply search filter
     if (showSearch && search) {
       const searchLowerCase = search.toLowerCase();
@@ -96,27 +115,35 @@ const Collection = () => {
           item.subCategory.toLowerCase().includes(searchLowerCase)
       );
     }
-
+  
     // Apply category and subcategory filters
     if (category.length > 0) {
       filtered = filtered.filter((item) => category.includes(item.category));
     }
     if (subCategory.length > 0) {
-      filtered = filtered.filter((item) => subCategory.includes(item.subCategory));
+      filtered = filtered.filter((item) =>
+        subCategory.includes(item.subCategory)
+      );
     }
-
+  
     // Apply sorting
     filtered.sort((a, b) => {
-      if (sortType === 'low-high') return a.price - b.price;
-      if (sortType === 'high-low') return b.price - a.price;
-      if (sortType === 'rating') return b.averageRating - a.averageRating;
-      if (sortType === 'bestseller') return b.bestseller ? 1 : -1;
-      return 0; // Default: Relevant
+      if (sortType === "low-high") return a.price - b.price;
+      if (sortType === "high-low") return b.price - a.price;
+      if (sortType === "rating") return b.averageRating - a.averageRating;
+      if (sortType === "bestseller") return b.bestseller ? 1 : -1;
+      return 0;
     });
-
+  
     setFilterProducts(filtered);
-    setCurrentPage(1); // Reset to the first page whenever filters are applied
+  
+    // Only reset to page 1 if NOT coming from sessionStorage
+    const cameFromStorage = sessionStorage.getItem("currentPageRestored");
+    if (!cameFromStorage) {
+      setCurrentPage(1);
+    }
   };
+  
 
   const paginate = () => {
     const startIndex = (currentPage - 1) * productsPerPage;
@@ -126,13 +153,15 @@ const Collection = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    
-    // Scroll to top smoothly after changing page
+    sessionStorage.setItem("currentPage", page);
+  
+    // Scroll to top after changing page
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
   };
+  
   
 
   const toggleCategory = (cat) => {
@@ -272,6 +301,10 @@ const Collection = () => {
               inStock={item.inStock}
               sizes={item.sizes}
               stockQuantity={item.stockQuantity}
+              currentPage={currentPage} // ✅ pass this
+              categoryFilter={category} // ✅ pass this
+              subCategoryFilter={subCategory} // ✅ pass this
+              sortType={sortType} // ✅ pass this
               
             />
           ))}

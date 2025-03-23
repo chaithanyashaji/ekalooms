@@ -3,7 +3,7 @@ import { ShopContext } from '../context/shopcontext';
 import { FaHeart, FaRegHeart, FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 
-const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller, description, inStock,sizes,stockQuantity,category,subCategory }) => {
+const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller, description, inStock,sizes,stockQuantity,category,subCategory,  currentPage,  categoryFilter,  subCategoryFilter, sortType }) => {
     const { currency, wishlist, addToWishlist, removeFromWishlist, token } = useContext(ShopContext);
     const navigate = useNavigate();
     const isInWishlist = wishlist.some((item) => item._id === id);
@@ -67,11 +67,15 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
   to={`/product/${id}`}
   className="block"
   onClick={() => {
-    const scrollY = window.scrollY;
-   
-    sessionStorage.setItem("scrollPosition", scrollY);
+    sessionStorage.setItem("scrollPosition", window.scrollY);
+    sessionStorage.setItem("currentPage", currentPage);
+    sessionStorage.setItem("categoryFilter", JSON.stringify(categoryFilter));
+    sessionStorage.setItem("subCategoryFilter", JSON.stringify(subCategoryFilter));
+    sessionStorage.setItem("sortType", sortType);
   }}
+  
 >
+
 
 
 
