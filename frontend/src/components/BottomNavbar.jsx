@@ -42,7 +42,7 @@ const BottomNavbar = () => {
               : 'text-white/50'
           }`}
         />
-        <span className={`text-[8px] mt-0.5 ${
+        <span className={`text-[8px]   mt-0.5 ${
           active === '/' ? 'text-white' : 'text-white/50'
         }`}>Home</span>
       </NavLink>
@@ -64,7 +64,7 @@ const BottomNavbar = () => {
               : 'text-white/50'
           }`}
         />
-        <span className={`text-[8px] mt-0.5 ${
+        <span className={`text-[9px]   mt-0.5 ${
           active === '/collection' ? 'text-white' : 'text-white/50'
         }`}>Shop</span>
       </NavLink>
@@ -87,7 +87,7 @@ const BottomNavbar = () => {
                 : 'text-white/50'
             }`}
           />
-          <span className={`text-[8px] mt-0.5 ${
+          <span className={`text-[9px]   mt-0.5 ${
             active === '/orders' ? 'text-white' : 'text-white/50'
           }`}>Orders</span>
         </NavLink>
@@ -110,7 +110,7 @@ const BottomNavbar = () => {
               : 'text-white/50'
           }`}
         />
-        <span className={`text-[7px] mt-0.5 ${
+        <span className={`text-[9px]   mt-0.5 ${
           active === '/wishlist' ? 'text-white' : 'text-white/50'
         }`}>Wishlist</span>
       </NavLink>
@@ -138,7 +138,7 @@ const BottomNavbar = () => {
               {getCartCount()}
             </p>
           </div>
-          <span className={`text-[8px] mt-0.5 ${
+          <span className={`text-[9px]    mt-0.5 ${
             active === '/cart' ? 'text-white' : 'text-white/50'
           }`}>Cart</span>
         </div>
