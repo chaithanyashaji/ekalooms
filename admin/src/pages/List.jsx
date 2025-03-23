@@ -89,7 +89,7 @@ const List = ({ token }) => {
 
       {/* Desktop Table */}
       <div className="hidden md:block pb-20">
-      <div className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b bg-gray-100 font-semibold text-sm">
+      <div className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b bg-gray-100 font-semibold text-sm">
   <b>#</b>
   <b>Image</b>
   <b>Name</b>
@@ -97,12 +97,15 @@ const List = ({ token }) => {
   <b>Sizes</b>
   <b>Colors</b> {/* New Column */}
   <b>Price</b>
+  <b>Stock Quantity</b>
   <b className="text-center">Actions</b>
+  <b>Product Status</b>
+  
 </div>
 {currentProducts.map((item, index) => (
   <div
     key={item._id}
-    className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b text-sm hover:bg-gray-50 transition"
+    className="grid grid-cols-[0.2fr_0.5fr_2fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] items-center py-2 px-4 border-b text-sm hover:bg-gray-50 transition"
   >
     <p>{indexOfFirstProduct + index + 1}</p>
     <img
@@ -125,6 +128,7 @@ const List = ({ token }) => {
         .join(', ')}
     </p> {/* Display Colors */}
     <p className="font-semibold">{currency}{item.price}</p>
+    <p className="font-semibold">{item.stockQuantity}</p>
     <div className="flex justify-center items-center space-x-3">
       <FaEdit
         className="text-blue-500 cursor-pointer hover:text-blue-600"
@@ -135,6 +139,13 @@ const List = ({ token }) => {
         onClick={() => setConfirmDelete(item._id)}
       />
     </div>
+    <p className="font-semibold">
+  {item.sizes.length === 0 && item.stockQuantity === 0 ? (
+    <span className="text-red-500">Out of Stock</span>
+  ) : (
+    "In Stock"
+  )}
+</p>
   </div>
 ))}
       </div>
