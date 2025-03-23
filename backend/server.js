@@ -13,6 +13,7 @@ import reviewRouter from './routes/reviewRoute.js';
 import razorpayWebhookRouter from './routes/razorpayWebhook.js';
 import couponRouter from './routes/couponRoute.js';
 import featuredRouter from './routes/featuredImageRoute.js';
+import helmet from 'helmet';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -28,6 +29,14 @@ app.set('trust proxy', 1);
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(helmet());
+
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'");
+    res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+    next();
+});
 
 const allowedOrigins = [process.env.FRONTEND_URL, process.env.ADMIN_URL];
 
