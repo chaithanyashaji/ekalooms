@@ -58,7 +58,7 @@
 
   <!-- Stitched Suits Collection -->
   <url>
-    <loc>https://ekalooms.com/collection?category=Stitched%20Suits</loc>
+    <loc>https://ekalooms.com/collection?category=Readymades</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -69,7 +69,7 @@
 
   <!-- Unstitched Suits Collection -->
   <url>
-    <loc>https://ekalooms.com/collection?category=Unstitched%20Suits</loc>
+    <loc>https://ekalooms.com/collection?category=Dress%20materials</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
