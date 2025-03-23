@@ -8,11 +8,17 @@ const BestSeller = () => {
   const [bestSeller, setBestSeller] = useState([]);
 
   useEffect(() => {
+    if (!products || products.length === 0) return; // Wait for products to be ready
+  
     const cachedBestsellers = sessionStorage.getItem('bestSellers');
   
+    // Don't use cached data if it's empty
     if (cachedBestsellers) {
-      setBestSeller(JSON.parse(cachedBestsellers));
-      return;
+      const parsed = JSON.parse(cachedBestsellers);
+      if (parsed.length > 0) {
+        setBestSeller(parsed);
+        return;
+      }
     }
   
     const bestProduct = products.filter((item) => item.bestseller);
@@ -54,10 +60,19 @@ const BestSeller = () => {
   
     const finalSelection = shuffleArray(selected.slice(0, 8));
   
-    // ✅ Cache in sessionStorage
     sessionStorage.setItem('bestSellers', JSON.stringify(finalSelection));
     setBestSeller(finalSelection);
   }, [products]);
+  
+  useEffect(() => {
+    if (performance.navigation.type === 1) {
+      const cached = sessionStorage.getItem("bestSellers");
+      if (cached && JSON.parse(cached).length === 0) {
+        sessionStorage.removeItem("bestSellers");
+      }
+    }
+  }, []);
+  
   
   return (
     <div className='mt-20'>
