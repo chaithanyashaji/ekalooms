@@ -33,8 +33,18 @@ app.use(cookieParser());
 app.use(helmet());
 
 app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'");
+    // Content Security Policy (adjust based on usage)
+    res.setHeader("Content-Security-Policy", "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'");
+
+    // X-Frame-Options - prevents clickjacking
+    res.setHeader("X-Frame-Options", "DENY");
+
+    // Strict-Transport-Security (HSTS) - enforces HTTPS
+    res.setHeader("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload");
+
+    // Permissions Policy - restricts browser APIs
     res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+
     next();
 });
 
