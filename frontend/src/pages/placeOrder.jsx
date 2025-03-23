@@ -10,7 +10,7 @@ const PlaceOrder = () => {
   const [method, setMethod] = useState('razorpay'); // Default to Razorpay
   const { navigate, backendUrl, token, cartItems, setCartItems, getCartAmount, products } = useContext(ShopContext);
   const [isGuest, setIsGuest] = useState(!token);
-  const [deliveryOption, setDeliveryOption] = useState('normal');
+  const [deliveryOption, setDeliveryOption] = useState('Standard');
   const [couponCode, setCouponCode] = useState('');
   const [discount, setDiscount] = useState(0);
   const [discountApplied, setDiscountApplied] = useState(false);
@@ -35,7 +35,7 @@ const PlaceOrder = () => {
   };
 
   const calculateDeliveryFee = () => {
-    return deliveryOption === 'speedy' ? 210 : 150; // No free delivery
+    return deliveryOption === 'Express' ? 210 : 150; // No free delivery
   };
 
   const applyCoupon = async () => {
@@ -363,21 +363,21 @@ if (method === 'razorpay') {
               <input
                 type="radio"
                 name="delivery"
-                value="normal"
-                checked={deliveryOption === 'normal'}
-                onChange={() => setDeliveryOption('normal')}
+                value="Standard"
+                checked={deliveryOption === 'Standard'}
+                onChange={() => setDeliveryOption('Standard')}
               />
-              Normal Delivery (6-8 Days) - INR 150
+              Standard Delivery (3-5 Days) - INR 150
             </label>
             <label className="flex items-center gap-2 text-gray-500">
               <input
                 type="radio"
                 name="delivery"
-                value="speedy"
-                checked={deliveryOption === 'speedy'}
-                onChange={() => setDeliveryOption('speedy')}
+                value="Express"
+                checked={deliveryOption === 'Express'}
+                onChange={() => setDeliveryOption('Express')}
               />
-              Speed Delivery (Within 2 Days) - INR 210
+              Express Delivery (Within 2 Days) - INR 210
             </label>
           
 
