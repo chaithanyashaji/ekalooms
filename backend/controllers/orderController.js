@@ -370,7 +370,7 @@ const getOrderStatus = async (req, res) => {
     res.json({
       success: true,
       status: order.status,
-      trackingId: order.trackingId || "Tracking ID not available",
+      trackingId: order.trackingId || "Tracking ID will be updated within 48hrs of placing the order.",
     });
   } catch (error) {
     res.status(500).json({
