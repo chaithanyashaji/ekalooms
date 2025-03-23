@@ -217,57 +217,55 @@ const Navbar = () => {
               
               {/* Categories List - Fixed to remove any black background */}
               <div className={`transition-all duration-300 overflow-hidden prata-regular ${
-  categoriesOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
-}`}>
-  {categories.map((cat) => {
-    const categoryParam = new URLSearchParams(location.search).get("category");
-    const subParam = new URLSearchParams(location.search).get("sub");
-    const isCategoryActive = location.pathname.includes("/collection") && categoryParam === cat.slug;
-    const isExpanded = expandedCategory === cat.slug;
+                categoriesOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                {categories.map((cat) => {
+                  const categoryParam = new URLSearchParams(location.search).get("category");
+                  const subParam = new URLSearchParams(location.search).get("sub");
+                  const isCategoryActive = location.pathname.includes("/collection") && categoryParam === cat.slug;
+                  const isExpanded = expandedCategory === cat.slug;
 
-    return (
-      <div key={cat.slug} className="mb-2 mx-3">
-        {/* Category Toggle Button */}
-        <button
-          onClick={() => setExpandedCategory(isExpanded ? null : cat.slug)}
-          className={`w-full text-left p-3 rounded-md flex justify-between items-center transition-all shadow-sm ${
-            isCategoryActive
-              ? "bg-[#fcf0ee] border-2 border-[#A75D5D] text-[#A75D5D]"
-              : "bg-white border border-[#d1856c] text-[#d1856c] hover:border-[#A75D5D] hover:text-[#A75D5D]"
-          }`}
-        >
-          <span className="text-sm">{cat.name}</span>
-          <i className={`fas fa-chevron-${isExpanded ? "up" : "down"} text-xs`} />
-        </button>
+                  return (
+                    <div key={cat.slug} className="mb-2 mx-3">
+                      {/* Category Toggle Button - CHANGED CHEVRON TO PLUS/MINUS */}
+                      <button
+                        onClick={() => setExpandedCategory(isExpanded ? null : cat.slug)}
+                        className={`w-full text-left p-3 rounded-md flex justify-between items-center transition-all shadow-sm ${
+                          isCategoryActive
+                            ? "bg-[#fcf0ee] border-2 border-[#A75D5D] text-[#A75D5D]"
+                            : "bg-white border border-[#d1856c] text-[#d1856c] hover:border-[#A75D5D] hover:text-[#A75D5D]"
+                        }`}
+                      >
+                        <span className="text-sm">{cat.name}</span>
+                        <i className={`fas ${isExpanded ? "fa-minus" : "fa-plus"} text-xs`} />
+                      </button>
 
-        {/* Subcategories */}
-        {isExpanded && cat.subCategories && (
-          <div className="mt-2 ml-4 max-h-64 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-[#d1856c]/80 scrollbar-track-[#f0e0dc]/20">
-            {cat.subCategories.map((subCat) => {
-              const isSubActive = subParam === subCat;
-              return (
-                <NavLink
-  key={subCat}
-  to={`/collection?category=${encodeURIComponent(cat.slug)}&sub=${encodeURIComponent(subCat)}`}
-  onClick={() => setVisible(false)}
-  className={`block text-sm px-3 py-2 rounded-md mb-1 transition-all ${
-    isSubActive
-      ? "!bg-white !text-[#A75D5D] font-medium border-2 border-[#A75D5D]"
-      : "!bg-white !text-[#A75D5D] hover:!bg-[#f5d5c5] hover:!text-[#A75D5D] border border-[#d1856c]"
-  }`}
->
-  {subCat}
-</NavLink>
-
-              );
-            })}
-          </div>
-        )}
-      </div>
-    );
-  })}
-</div>
-
+                      {/* Subcategories */}
+                      {isExpanded && cat.subCategories && (
+                        <div className="mt-2 ml-4 max-h-64 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-[#d1856c]/80 scrollbar-track-[#f0e0dc]/20">
+                          {cat.subCategories.map((subCat) => {
+                            const isSubActive = subParam === subCat;
+                            return (
+                              <NavLink
+                                key={subCat}
+                                to={`/collection?category=${encodeURIComponent(cat.slug)}&sub=${encodeURIComponent(subCat)}`}
+                                onClick={() => setVisible(false)}
+                                className={`block text-sm px-3 py-2 rounded-md mb-1 transition-all ${
+                                  isSubActive
+                                    ? "!bg-white !text-[#A75D5D] font-medium border-2 border-[#A75D5D]"
+                                    : "!bg-white !text-[#A75D5D] hover:!bg-[#f5d5c5] hover:!text-[#A75D5D] border border-[#d1856c]"
+                                }`}
+                              >
+                                {subCat}
+                              </NavLink>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
