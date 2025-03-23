@@ -43,7 +43,7 @@ const CategorySection = () => {
     },
     {
       name: "Readymades",
-      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147087/sk-red_f29tby.jpg",
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742725848/sk_pur2_woxd8l.jpg",
       slug: "Readymades",
     },
     {
@@ -53,7 +53,7 @@ const CategorySection = () => {
     },
     {
       name: "Dress materials",
-      image:  "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147090/rm-purm_nivhwl.jpg" ,
+      image:  "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742725558/sk_pista_z9db6d.jpg" ,
       slug: "Dress materials",
     },
   ];
