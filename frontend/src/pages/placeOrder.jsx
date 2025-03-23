@@ -367,7 +367,7 @@ if (method === 'razorpay') {
                 checked={deliveryOption === 'Standard'}
                 onChange={() => setDeliveryOption('Standard')}
               />
-              Standard Delivery (3-5 Days) - INR 150
+              Standard Delivery (3-5 Working Days) - INR 150
             </label>
             <label className="flex items-center gap-2 text-gray-500">
               <input
