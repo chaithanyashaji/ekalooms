@@ -8,10 +8,15 @@ const BestSeller = () => {
   const [bestSeller, setBestSeller] = useState([]);
 
   useEffect(() => {
-    // Filter only bestsellers
+    const cachedBestsellers = sessionStorage.getItem('bestSellers');
+  
+    if (cachedBestsellers) {
+      setBestSeller(JSON.parse(cachedBestsellers));
+      return;
+    }
+  
     const bestProduct = products.filter((item) => item.bestseller);
-
-    // Shuffle utility (Fisher-Yates)
+  
     const shuffleArray = (array) => {
       const shuffled = [...array];
       for (let i = shuffled.length - 1; i > 0; i--) {
@@ -20,17 +25,15 @@ const BestSeller = () => {
       }
       return shuffled;
     };
-
+  
     const categories = ['Saree', 'Readymades', 'Dress materials', 'Home Decor'];
     const selected = [];
     const selectedIds = new Set();
-
-    // Try to pick up to 2 bestsellers from each category
+  
     categories.forEach((cat) => {
       const itemsInCategory = bestProduct.filter((item) => item.category === cat);
       const shuffled = shuffleArray(itemsInCategory);
       const chosen = shuffled.slice(0, 2);
-
       chosen.forEach((item) => {
         if (!selectedIds.has(item._id)) {
           selected.push(item);
@@ -38,24 +41,24 @@ const BestSeller = () => {
         }
       });
     });
-
-    // Fill remaining spots (if any) with other bestsellers, without repeats
+  
     if (selected.length < 8) {
       const remaining = bestProduct.filter((item) => !selectedIds.has(item._id));
       const shuffledRemaining = shuffleArray(remaining);
-
+  
       for (let i = 0; i < shuffledRemaining.length && selected.length < 8; i++) {
         selected.push(shuffledRemaining[i]);
         selectedIds.add(shuffledRemaining[i]._id);
       }
     }
-
-    // Final shuffle of selected 8
+  
     const finalSelection = shuffleArray(selected.slice(0, 8));
-
+  
+    // ✅ Cache in sessionStorage
+    sessionStorage.setItem('bestSellers', JSON.stringify(finalSelection));
     setBestSeller(finalSelection);
   }, [products]);
-
+  
   return (
     <div className='mt-20'>
       <hr />
