@@ -11,6 +11,8 @@ const Orders = ({ token }) => {
   const [sortOrder, setSortOrder] = useState("");
   const [trackingIds, setTrackingIds] = useState({});
   const [hideDelivered, setHideDelivered] = useState(false); 
+  const [statusFilter, setStatusFilter] = useState("");
+
 
 // Handle tracking ID changes
 const handleTrackingIdChange = (orderId, value) => {
@@ -44,6 +46,45 @@ const ordersPerPage = 30;
   useEffect(() => {
     fetchAllOrders();
   }, [token]);
+
+  useEffect(() => {
+    let updatedOrders = [...orders];
+  
+    // Search
+    if (searchQuery) {
+      updatedOrders = updatedOrders.filter((order) =>
+        order.address.firstName.toLowerCase().includes(searchQuery) ||
+        order.address.lastName.toLowerCase().includes(searchQuery) ||
+        order.address.email.toLowerCase().includes(searchQuery)
+      );
+    }
+  
+    // Hide Delivered
+    if (hideDelivered) {
+      updatedOrders = updatedOrders.filter(
+        (order) => order.status?.toLowerCase() !== "delivered"
+      );
+    }
+  
+    // Filter by selected status
+    if (statusFilter) {
+      updatedOrders = updatedOrders.filter(
+        (order) => order.status === statusFilter
+      );
+    }
+  
+    // Sort
+    if (sortOrder) {
+      updatedOrders.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+      });
+    }
+  
+    setFilteredOrders(updatedOrders);
+  }, [orders, searchQuery, hideDelivered, sortOrder, statusFilter]);
+  
 
   // Flatten orders for CSV export
   const flattenOrders = () =>
@@ -186,6 +227,29 @@ const ordersPerPage = 30;
   <option value="asc">Oldest First</option>
   <option value="desc">Newest First</option>
 </select>
+<select
+    value={statusFilter}
+    onChange={(e) => setStatusFilter(e.target.value)}
+    className="p-3 border rounded w-full sm:w-1/4"
+  >
+    <option value="">Filter by Order Status</option>
+    <option value="Order Placed">Order Placed</option>
+    <option value="Packing">Packing</option>
+    <option value="Shipped">Shipped</option>
+    <option value="Out for delivery">Out for delivery</option>
+    <option value="Delivered">Delivered</option>
+    <option value="Cancelled">Cancelled</option>
+    <option value="Cancelled and Eligible for Refund">Cancelled and Eligible for Refund</option>
+  </select>
+
+  {statusFilter && (
+    <button
+      onClick={() => setStatusFilter("")}
+      className="p-3 bg-gray-200 text-gray-800 rounded w-full sm:w-1/4"
+    >
+      Clear Status Filter
+    </button>
+  )}
 
         <CSVLink
           data={flattenOrders()}

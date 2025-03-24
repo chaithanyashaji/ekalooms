@@ -53,7 +53,7 @@ const CategorySection = () => {
     },
     {
       name: "Dresses",
-      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147086/sk-ora_nzmoou.jpg", // Replace with relevant image if needed
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742821490/dress_icon1_jvpwpm.jpg", // Replace with relevant image if needed
       slug: "Dresses",
     },
     {

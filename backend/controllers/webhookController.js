@@ -78,7 +78,7 @@ const razorpayWebhook = async (req, res) => {
             const emailHTML = `
 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; padding: 20px; background-color: #f9f9f9;">
     <div style="text-align: center; margin-bottom: 20px;">
-        <img src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1734871280/logo_atw9av.png" alt="ekaloom Logo" style="width: 120px; height: auto;" />
+        <img src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742820840/cropped_ekalooms_rmp6ds.png" alt="ekaloom Logo" style="width: 120px; height: auto;" />
     </div>
 
     <h1 style="font-size: 1.5em; margin-bottom: 20px; color: #333; text-align: center;">Order Confirmation</h1>

@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Logo and About Section */}
         <div>
           <img
-            src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"
+            src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742820840/cropped_ekalooms_rmp6ds.png"
             className="mb-5 w-32"
             alt="Logo"
           />

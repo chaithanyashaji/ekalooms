@@ -92,7 +92,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-3">
           <img
             className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
-            src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"
+            src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742820840/cropped_ekalooms_rmp6ds.png"
             alt="Logo"
           />
        <h1 className="text-xl sm:text-2xl prata-regular text-[#65000B] drop-shadow-md">
@@ -149,7 +149,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <img
               className="w-9 h-9 object-contain"
-              src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"
+              src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742820840/cropped_ekalooms_rmp6ds.png"
               alt="Logo"
             />
            <h1 className="text-xl sm:text-2xl prata-regular text-[#65000B] drop-shadow-md">
