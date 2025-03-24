@@ -22,7 +22,7 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
   const [sizes, setSizes] = useState(product?.sizes || []);
   const [colors, setColors] = useState(product?.colors || []);
   const [stockQuantity, setStockQuantity] = useState(product?.stockQuantity || ""); // New state for stock quantity
-
+  const [preservedImages, setPreservedImages] = useState([...product.image]);
 
   const categories = {
    "Saree": [
@@ -59,38 +59,43 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
       formData.append('category', category);
       formData.append('subCategory', subCategory);
       formData.append('bestseller', bestseller);
-      formData.append('inStock', inStock); // Append inStock to form data
+      formData.append('inStock', inStock);
       formData.append('sizes', JSON.stringify(sizes.filter(size => size.quantity !== null)));
       formData.append('stockQuantity', stockQuantity);
       formData.append('colors', JSON.stringify(colors.filter((color) => color.quantity !== null && color.quantity > 0)));
-
-
+  
+      // Append images if newly selected
       if (image1) formData.append("image1", image1);
       if (image2) formData.append("image2", image2);
       if (image3) formData.append("image3", image3);
       if (image4) formData.append("image4", image4);
-
+  
+      // Final preserved image list (handled through delete UI)
+      formData.append("existingImages", JSON.stringify(preservedImages));
+  
       const response = await axios.post(
         backendUrl + "/api/product/update",
         formData,
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Use 'Bearer' prefix for the token
+            Authorization: `Bearer ${token}`,
           },
         }
       );
-      
+  
       if (response.data.success) {
         toast.success(response.data.message);
-        onUpdate(); // Notify parent to refresh the product list
-        onClose(); // Close the modal or form
+        onUpdate();
+        onClose();
       } else {
         toast.error(response.data.message);
       }
     } catch (error) {
+      console.error("Update error:", error);
       toast.error("An error occurred while updating the product");
     }
   };
+  
 
   const updateColorQuantity = (color, quantity) => {
     setColors((prevColors) => {
@@ -125,34 +130,62 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
     });
   };
 
-  const renderImageUpload = (image, setImage, id, existingImage) => (
-    <label htmlFor={id} className="cursor-pointer">
-      {!image && existingImage ? (
-        <img
-          src={existingImage}
-          alt="Existing Preview"
-          className="w-20 h-20 object-cover rounded-md"
-        />
-      ) : !image ? (
-        <div className="flex items-center justify-center w-20 h-20 border-2 border-dashed border-gray-300 rounded-md">
-          <i className="fas fa-upload text-gray-500 text-xl"></i>
-        </div>
-      ) : (
-        <img
-          src={URL.createObjectURL(image)}
-          alt="Uploaded Preview"
-          className="w-20 h-20 object-cover rounded-md"
-        />
-      )}
+  const handleImageDelete = (index) => {
+    setPreservedImages(prev => {
+      const updated = [...prev];
+      updated[index] = null;
+      return updated.filter(img => img !== null);
+    });
+  
+    // Clear the file input if any new image is selected for the same index
+    if (index === 0) setImage1(null);
+    if (index === 1) setImage2(null);
+    if (index === 2) setImage3(null);
+    if (index === 3) setImage4(null);
+  };
+  
+
+  const renderImageUpload = (image, setImage, id, existingImage, index) => (
+    <div className="relative">
+      <label htmlFor={id} className="cursor-pointer block">
+        {!image && existingImage ? (
+          <div>
+            <img
+              src={existingImage}
+              alt="Existing Preview"
+              className="w-20 h-20 object-cover rounded-md"
+            />
+            <button
+              type="button"
+              onClick={() => handleImageDelete(index)}
+              className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 text-xs"
+            >
+              <i className="fas fa-times" />
+            </button>
+          </div>
+        ) : !image ? (
+          <div className="flex items-center justify-center w-20 h-20 border-2 border-dashed border-gray-300 rounded-md">
+            <i className="fas fa-upload text-gray-500 text-xl"></i>
+          </div>
+        ) : (
+          <img
+            src={URL.createObjectURL(image)}
+            alt="Uploaded Preview"
+            className="w-20 h-20 object-cover rounded-md"
+          />
+        )}
+      </label>
+  
+      {/* File Input (always present but hidden) */}
       <input
         onChange={(e) => setImage(e.target.files[0])}
         type="file"
         id={id}
         hidden
       />
-    </label>
+    </div>
   );
-
+  
   return (
     <div className="min-h-screen flex flex-col pb-24">
        
@@ -170,10 +203,11 @@ const EditProduct = ({ product, token, onClose, onUpdate }) => {
           <div className="w-full">
             <p className="mb-2 font-semibold">Update Images</p>
             <div className="flex gap-2 overflow-x-auto pb-2 flex-nowrap">
-              {renderImageUpload(image1, setImage1, "image1", product.image[0])}
-              {renderImageUpload(image2, setImage2, "image2", product.image[1])}
-              {renderImageUpload(image3, setImage3, "image3", product.image[2])}
-              {renderImageUpload(image4, setImage4, "image4", product.image[3])}
+            {renderImageUpload(image1, setImage1, "image1", preservedImages[0], 0)}
+{renderImageUpload(image2, setImage2, "image2", preservedImages[1], 1)}
+{renderImageUpload(image3, setImage3, "image3", preservedImages[2], 2)}
+{renderImageUpload(image4, setImage4, "image4", preservedImages[3], 3)}
+
             </div>
           </div>
 

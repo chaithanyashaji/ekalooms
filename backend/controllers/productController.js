@@ -61,7 +61,20 @@ const addProduct = async (req, res) => {
 // Function to update a product
 const updateProduct = async (req, res) => {
   try {
-    const { productId, name, description, price, category, subCategory, sizes,colors, bestseller, inStock,stockQuantity } = req.body;
+    const {
+      productId,
+      name,
+      description,
+      price,
+      category,
+      subCategory,
+      sizes,
+      colors,
+      bestseller,
+      inStock,
+      stockQuantity,
+      existingImages
+    } = req.body;
 
     if (!productId) {
       return res.status(400).json({ success: false, message: "Product ID is required." });
@@ -72,29 +85,27 @@ const updateProduct = async (req, res) => {
       return res.status(404).json({ success: false, message: "Product not found." });
     }
 
-    const images = [
+    // Parse preserved images
+    let finalImages = [];
+    try {
+      finalImages = JSON.parse(existingImages || "[]");
+    } catch (parseError) {
+      console.error("Failed to parse existingImages:", parseError);
+      return res.status(400).json({ success: false, message: "Invalid existing images format." });
+    }
+
+    // Collect new images (from req.files)
+    const newImages = [
       req.files?.image1?.[0],
       req.files?.image2?.[0],
       req.files?.image3?.[0],
       req.files?.image4?.[0],
     ].filter(Boolean);
 
-    let imagesUrl = existingProduct.image;
-
-    if (images.length > 0) {
-      await Promise.all(
-        existingProduct.image.map(async (imageUrl) => {
-          try {
-            const publicId = imageUrl.split("/").pop().split(".")[0];
-            await cloudinary.uploader.destroy(publicId);
-          } catch (err) {
-            console.error("Failed to delete existing image:", err);
-          }
-        })
-      );
-
-      imagesUrl = await Promise.all(
-        images.map(async (item) => {
+    // Upload new images to Cloudinary
+    const newImageUrls = await Promise.all(
+      newImages.map(async (item) => {
+        try {
           const result = await cloudinary.uploader.upload(item.path, {
             resource_type: "image",
             transformation: [
@@ -103,41 +114,50 @@ const updateProduct = async (req, res) => {
               { fetch_format: "auto" },
             ],
           });
+          // Delete temp file
           fs.unlink(item.path, (err) => {
             if (err) console.error("Failed to delete temporary file:", err);
           });
           return result.secure_url;
-        })
-      );
-    }
+        } catch (uploadErr) {
+          console.error("Image upload failed:", uploadErr);
+          return null;
+        }
+      })
+    );
 
+    // Merge and filter nulls, limit to 4
+    finalImages = [...finalImages, ...newImageUrls.filter(Boolean)].slice(0, 4);
+
+    // Final update object
     const updateData = {
-      name: name || existingProduct.name,
-      description: description || existingProduct.description,
+      name: name ?? existingProduct.name,
+      description: description ?? existingProduct.description,
       price: price ? Number(price) : existingProduct.price,
-      category: category || existingProduct.category,
-      subCategory: subCategory || existingProduct.subCategory,
+      category: category ?? existingProduct.category,
+      subCategory: subCategory ?? existingProduct.subCategory,
       stockQuantity: stockQuantity ? Number(stockQuantity) : existingProduct.stockQuantity,
       sizes: sizes ? JSON.parse(sizes) : existingProduct.sizes,
-      colors:colors? JSON.parse(colors) : existingProduct.colors,
-      bestseller: bestseller !== undefined ? bestseller === "true" : existingProduct.bestseller,
-      inStock: inStock !== undefined ? inStock === "true" : existingProduct.inStock,
-      image: imagesUrl,
+      colors: colors ? JSON.parse(colors) : existingProduct.colors,
+      bestseller: bestseller !== undefined ? bestseller === "true" || bestseller === true : existingProduct.bestseller,
+      inStock: inStock !== undefined ? inStock === "true" || inStock === true : existingProduct.inStock,
+      image: finalImages,
       date: Date.now(),
     };
 
     const updatedProduct = await productModel.findByIdAndUpdate(productId, updateData, { new: true });
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "Product updated successfully.",
       product: updatedProduct,
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ success: false, message: err.message });
+    console.error("Error in updateProduct:", err);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
+
 
 // Function to list products with pagination and filtering
 const listProducts = async (req, res) => {
