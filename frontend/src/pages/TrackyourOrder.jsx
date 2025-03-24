@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { ShopContext } from "../context/shopcontext";
 import Title from "../components/Title";
+import { useNavigate } from "react-router-dom";
+
 
 const TrackYourOrder = () => {
   const { backendUrl } = useContext(ShopContext);
@@ -10,6 +12,10 @@ const TrackYourOrder = () => {
   const [trackingId, setTrackingId] = useState(null); // Added for tracking ID
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [orderData, setOrderData] = useState(null);
+
+  const navigate = useNavigate();
+
 
   const handleTrackOrder = async () => {
     if (!orderId.trim()) {
@@ -29,8 +35,10 @@ const TrackYourOrder = () => {
 
       if (response.data.success) {
         setOrderStatus(response.data.status);
-        setTrackingId(response.data.trackingId); // Fetch tracking ID
-      } else {
+        setTrackingId(response.data.trackingId);
+        setOrderData(response.data.order); // Store full order
+      }
+       else {
         setError("Order not found or invalid Order ID.");
       }
     } catch (error) {
@@ -73,18 +81,28 @@ const TrackYourOrder = () => {
 
       {/* Status or Error Message */}
       <div className="mt-6">
-        {orderStatus && (
-          <div className="p-4 text-center bg-green-100 text-green-700 rounded-sm">
-            <p>
-              <strong>Order Status:</strong> {orderStatus}
-            </p>
-            {trackingId && (
-              <p>
-                <strong>Tracking ID:</strong> {trackingId}
-              </p>
-            )}
-          </div>
-        )}
+      {orderStatus && (
+  <div className="p-4 text-center bg-green-100 text-green-700 rounded-sm">
+    <p>
+      <strong>Order Status:</strong> {orderStatus}
+    </p>
+    {trackingId && (
+      <p>
+        <strong>Tracking ID:</strong> {trackingId}
+      </p>
+    )}
+    <div className="mt-4 flex justify-center">
+      <button
+        onClick={() => navigate(`/order-details/${orderId}`)}
+        className="px-6 py-2 bg-[#67000B] text-white rounded-sm"
+      >
+        View Order Details
+      </button>
+    </div>
+  </div>
+)}
+
+
         {error && (
           <div className="p-4 text-center bg-red-100 text-red-700 rounded-sm">
             <p>{error}</p>
