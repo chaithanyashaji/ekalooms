@@ -5,7 +5,7 @@ const Title = ({ text1, text2, level = 1 }) => {
 
   return (
     <div className="inline-flex gap-1 items-center mb-3">
-      <HeadingTag className="text-[#A75D5D] prata-regular">
+      <HeadingTag className="text-[#65000B] prata-regular">
         {text1}
         <span className="text-[#d1856c] prata-regular">{text2}</span>
       </HeadingTag>

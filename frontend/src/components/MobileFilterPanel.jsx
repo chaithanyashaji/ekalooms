@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { X, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 
+// Redesigned color palette with better compatibility
+// Primary: #65000B (deep burgundy) - keeping as required
+// Secondary: #8B0010 (darker burgundy) - for contrast and depth
+// Accent: #CB0018 (bright red) - for highlights and focus elements
+// Light: #F5F0F0 (very light grey with subtle red tint) - for backgrounds
+// Background: #FFFFFF (white) - for main backgrounds
+
 function MobileFilterPanel({
   showFilter,
   setShowFilter,
@@ -29,30 +36,30 @@ function MobileFilterPanel({
 
   return (
     <div
-      className={`fixed inset-0 z-[100] bg-white transform transition-transform duration-300 ${
+      className={`fixed inset-0 z-50 bg-white transform transition-transform duration-300 ${
         showFilter ? 'translate-x-0' : 'translate-x-full'
       } flex flex-col`}
     >
-      {/* Header */}
-      <div className="sticky top-0 bg-white z-10 border-b p-4 flex justify-between items-center shadow-md">
+      {/* Header - Simplified with minimal styling */}
+      <div className="sticky top-0 bg-white z-10 border-b border-gray-200 p-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <Filter className="w-6 h-6 text-[#9d4a54]" />
-          <h2 className="text-xl font-bold text-[#9d4a54]">Filters</h2>
+          <Filter className="w-5 h-5 text-[#65000B]" />
+          <h2 className="text-lg font-medium text-[#65000B]">Filters</h2>
         </div>
         <button
           onClick={() => setShowFilter(false)}
-          className="p-2 rounded-md hover:bg-gray-200"
+          className="p-1 rounded-full hover:bg-gray-100"
         >
-          <X className="w-6 h-6 text-[#9d4a54]" />
+          <X className="w-5 h-5 text-[#65000B]" />
         </button>
       </div>
 
-      {/* Body */}
-      <div className="flex-1 overflow-y-auto px-4 pb-24">
-        {/* Sort By Section */}
-        <div className="mb-6 mt-4">
-          <h3 className="text-lg font-semibold mb-4 text-[#A75D5D]">Sort By</h3>
-          <div className="grid grid-cols-2 gap-3">
+      {/* Body - Cleaner spacing, reduced decorative elements */}
+      <div className="flex-1 overflow-y-auto p-4 pb-20 bg-white">
+        {/* Sort By Section - Simplified design */}
+        <div className="mb-6">
+          <h3 className="text-base font-medium mb-3 text-[#65000B]">Sort By</h3>
+          <div className="grid grid-cols-2 gap-2">
             {[
               { value: 'relevant', label: 'Relevant' },
               { value: 'low-high', label: 'Price: Low to High' },
@@ -63,10 +70,10 @@ function MobileFilterPanel({
               <button
                 key={option.value}
                 onClick={() => setSortType(option.value)}
-                className={`py-2 px-3 border rounded-lg text-[#9d4a54] ${
+                className={`py-2 px-3 border rounded-md text-sm ${
                   sortType === option.value
-                    ? 'bg-gradient-to-r from-[#D3756B] to-[#FFC3A1] text-white border-[#A75D5D]'
-                    : 'bg-white hover:bg-gray-100 text-[#9d4a54] border-[#D3756B]'
+                    ? 'bg-[#65000B] text-white border-[#65000B]'
+                    : 'bg-white text-gray-800 border-gray-300 hover:border-[#65000B] hover:text-[#65000B]'
                 }`}
               >
                 {option.label}
@@ -75,68 +82,64 @@ function MobileFilterPanel({
           </div>
         </div>
 
-        {/* Categories Section */}
+        {/* Categories Section - More minimal approach */}
         <div className="mb-6">
-          <h3 className="text-lg font-semibold mb-4 text-[#A75D5D]">Categories</h3>
+          <h3 className="text-base font-medium mb-3 text-[#65000B]">Categories</h3>
           {Object.keys(categorySubCategoryMap).map((cat) => (
-            <div key={cat} className="mb-4">
-              <div
-                className="flex justify-between items-center py-2 px-3 rounded-lg bg-gray-100 hover:bg-gray-200 cursor-pointer"
-              >
-                <label className="flex items-center gap-2">
+            <div key={cat} className="mb-3">
+              <div className="flex justify-between items-center py-2 cursor-pointer border-b border-gray-100">
+                <label className="flex items-center gap-2 flex-1">
                   <input
                     type="checkbox"
                     checked={category.includes(cat)}
                     onChange={() => toggleCategory(cat)}
-                    className="w-4 h-4 accent-[#D3756B]"
+                    className="w-4 h-4 accent-[#65000B]"
                   />
-                  <span className="text-[#9d4a54] font-medium">{cat}</span>
+                  <span className="text-gray-800 font-medium">{cat}</span>
                 </label>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     toggleCategoryExpand(cat);
                   }}
-                  className="p-1"
+                  className="p-1 text-gray-500"
                 >
-                  {expandedCategories[cat] ? <ChevronUp /> : <ChevronDown />}
+                  {expandedCategories[cat] ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </button>
               </div>
 
               {expandedCategories[cat] && Array.isArray(categorySubCategoryMap[cat]) && (
-  <div className="pl-6 mt-2 space-y-2">
-    {categorySubCategoryMap[cat].map((sub) => (
-      <label key={sub} className="flex items-center gap-2 cursor-pointer">
-        <input
-          type="checkbox"
-          checked={subCategory.includes(sub)}
-          onChange={() => {
-            if (category.includes(cat)) {
-              toggleSubCategory(sub);
-            } else {
-              // Ensure parent category is selected before allowing subcategory toggle
-              toggleCategory(cat);
-              toggleSubCategory(sub);
-            }
-          }}
-          className="w-4 h-4 accent-[#D3756B]"
-        />
-        <span className="text-[#9d4a54]">{sub}</span>
-      </label>
-    ))}
-  </div>
-)}
-
+                <div className="pl-6 mt-2 space-y-2">
+                  {categorySubCategoryMap[cat].map((sub) => (
+                    <label key={sub} className="flex items-center gap-2 cursor-pointer py-1">
+                      <input
+                        type="checkbox"
+                        checked={subCategory.includes(sub)}
+                        onChange={() => {
+                          if (category.includes(cat)) {
+                            toggleSubCategory(sub);
+                          } else {
+                            toggleCategory(cat);
+                            toggleSubCategory(sub);
+                          }
+                        }}
+                        className="w-4 h-4 accent-[#65000B]"
+                      />
+                      <span className="text-gray-600 text-sm">{sub}</span>
+                    </label>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
       </div>
 
-      {/* Apply Filters Button */}
-      <div className="sticky bottom-0 left-0 right-0 p-4 bg-white border-t shadow-lg">
+      {/* Apply Filters Button - Clean, minimal design */}
+      <div className="sticky bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
         <button
           onClick={handleApplyFilter}
-          className="w-full py-3 border border-[#A75D5D] rounded-lg text-lg text-white bg-gradient-to-r from-[#D3756B] to-[#F0997D] active:bg-gradient-to-r active:from-[#A75D5D] active:to-[#D3756B] hover:opacity-90 transition-all"
+          className="w-full py-3 rounded-md text-white bg-[#65000B] hover:bg-[#8B0010] transition-colors"
         >
           Apply Filters
         </button>

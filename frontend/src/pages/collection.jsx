@@ -211,7 +211,7 @@ const Collection = () => {
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
       <p
         onClick={() => setShowFilter(!showFilter)}
-        className="my-2 text-xl flex items-center text-[#9d4a54] cursor-pointer gap-2 sm:hidden"
+        className="my-2 text-xl flex items-center text-[#67000b] cursor-pointer gap-2 sm:hidden"
       >
         FILTERS
         <img
@@ -236,7 +236,7 @@ const Collection = () => {
 
 <div className="hidden sm:block w-1/3">
   <div className="sticky top-4 border border-[#D3756B]/20 p-6 rounded-xl shadow-md bg-white">
-    <h2 className="text-2xl font-bold text-[#A75D5D] mb-6">Filters</h2>
+    <h2 className="text-2xl font-bold text-[#65000B] mb-6">Filters</h2>
 
     {/* Category Section */}
     <div className="mb-8">
@@ -277,7 +277,7 @@ const Collection = () => {
             </label>
           ))
         ) : (
-          <p className="text-[#A75D5D] italic text-base">Select a category first</p>
+          <p className="text-[#65000B] italic text-base">Select a category first</p>
         )}
       </div>
     </div>
@@ -286,7 +286,7 @@ const Collection = () => {
     <button
       onClick={applyFilter}
       className="w-full py-3 bg-[#D3756B] text-white text-lg font-semibold rounded-lg shadow-md 
-                hover:bg-[#A75D5D] active:scale-[0.98] transition-all duration-200"
+                hover:bg-[#65000B] active:scale-[0.98] transition-all duration-200"
     >
       Apply Filters
     </button>
@@ -295,7 +295,7 @@ const Collection = () => {
 
       <div className="flex flex-col min-h-screen">
         <div className="hidden md:flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold text-[#A75D5D]">Products</h2>
+          <h2 className="text-2xl font-bold text-[#65000B]">Products</h2>
           <div className="flex items-center gap-4">
             <p className="text-lg  font-semibold text-[#9d4a54]">Sort By:</p>
             <select
@@ -304,7 +304,7 @@ const Collection = () => {
                 setSortType(e.target.value);
                 applyFilter();
               }}
-              className="py-2 px-4 rounded-lg text-[#A75D5D] border border-[#A75D5D]"
+              className="py-2 px-4 rounded-lg text-[#65000B] border border-[#65000B]"
             >
               <option value="relevant">Relevant</option>
               <option value="low-high">Price: Low to High</option>
@@ -349,7 +349,7 @@ const Collection = () => {
               className={`px-3 py-2 mx-1 rounded-md ${
                 currentPage === index + 1
                   ? 'bg-[#D3756B] text-white'
-                  : 'bg-[#F3F3F5] text-[#A75D5D]'
+                  : 'bg-[#F3F3F5] text-[#65000B]'
               }`}
               aria-label={`Go to page ${index + 1}`}
             >

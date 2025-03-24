@@ -61,7 +61,7 @@ const ReviewForm = ({ productId, onClose, onSubmit }) => {
           </button>
           <button
             onClick={submitReview}
-            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+            className="px-4 py-2 bg-[#67000b] hover:bg-[#a75d5d] text-white rounded-md"
           >
             Submit
           </button>

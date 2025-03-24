@@ -403,7 +403,7 @@ const Add = ({ token }) => {
           {/* Submit Button */}
           <button 
             type='submit' 
-            className=' w-full max-w-[200px] py-3 mt-4 bg-[#D3756B] border border-[#A75D5D] text-white rounded hover:bg-gray-800 transition duration-300'
+            className=' w-full max-w-[200px] py-3 mt-4 bg-[#D3756B] border border-[#65000B] text-white rounded hover:bg-gray-800 transition duration-300'
           >
             ADD PRODUCT
           </button>

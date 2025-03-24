@@ -5,6 +5,13 @@ import { MenuIcon, SearchIcon, UserIcon, XIcon } from "@heroicons/react/outline"
 import { useLocation } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+// Standardized color palette
+// Primary: #65000B (deep burgundy)
+// Secondary: #A75D5D (medium burgundy)
+// Accent: #D1856C (terracotta)
+// Light: #F0E0DC (light pink/beige)
+// Background: #FCF0EE (extremely light pink/beige)
+
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
@@ -69,8 +76,6 @@ const Navbar = () => {
     },
   ];
   
-  
-
   return (
     <div className="flex items-center justify-between h-16 px-4 sm:px-6 font-medium w-full mx-auto prata-regular">
       {/* Left Section: Menu Icon */}
@@ -78,7 +83,7 @@ const Navbar = () => {
         {/* Mobile menu toggle */}
         <MenuIcon
           onClick={() => setVisible(true)}
-          className="w-6 h-6 cursor-pointer text-[#A75D5D] hover:text-[#d1856c] transition-all"
+          className="w-6 h-6 cursor-pointer text-[#65000B] hover:text-[#A75D5D] transition-all"
         />
       </div>
 
@@ -90,7 +95,7 @@ const Navbar = () => {
             src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"
             alt="Logo"
           />
-          <h1 className="text-xl sm:text-2xl prata-regular text-[#A75D5D]">
+          <h1 className="text-xl sm:text-2xl prata-regular text-[#65000B]">
             ekalooms
           </h1>
         </Link>
@@ -102,7 +107,7 @@ const Navbar = () => {
         {isCollectionPage && (
           <SearchIcon
             onClick={() => setShowSearch(true)}
-            className="w-6 h-6 cursor-pointer text-[#A75D5D] hover:text-[#d1856c] transition-all"
+            className="w-6 h-6 cursor-pointer text-[#65000B] hover:text-[#A75D5D] transition-all"
           />
         )}
 
@@ -110,16 +115,16 @@ const Navbar = () => {
         <div className="relative group">
           <UserIcon
             onClick={() => (!token ? navigate("/login") : null)}
-            className="w-6 h-6 prata-regular cursor-pointer text-[#A75D5D] hover:text-[#d1856c] transition-all"
+            className="w-6 h-6 prata-regular cursor-pointer text-[#65000B] hover:text-[#A75D5D] transition-all"
             aria-label={token ? "User Options" : "Login"}
           />
 
           {token && (
             <div className="absolute right-0 mt-2 hidden group-hover:block z-50">
-              <div className="flex flex-col w-28 py-3 px-4 bg-white border border-[#F0E0DC] shadow-md text-[#A75D5D] rounded prata-regular">
+              <div className="flex flex-col w-28 py-3 px-4 bg-white border border-[#F0E0DC] shadow-md text-[#65000B] rounded prata-regular">
                 <p
                   onClick={logout}
-                  className="prata-regular hover:text-[#d1856c] cursor-pointer transition-colors"
+                  className="prata-regular hover:text-[#A75D5D] cursor-pointer transition-colors"
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => e.key === "Enter" && logout()}
@@ -146,7 +151,7 @@ const Navbar = () => {
               src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"
               alt="Logo"
             />
-            <h1 className="text-lg prata-regular text-[#A75D5D]">
+            <h1 className="text-lg prata-regular text-[#65000B]">
               ekalooms
             </h1>
           </div>
@@ -154,7 +159,7 @@ const Navbar = () => {
             onClick={() => setVisible(false)}
             className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#FCF0EE] transition-all"
           >
-            <XIcon className="w-5 h-5 text-[#A75D5D]" />
+            <XIcon className="w-5 h-5 text-[#65000B]" />
           </button>
         </div>
         
@@ -168,12 +173,12 @@ const Navbar = () => {
               onClick={() => setVisible(false)}
               className={({ isActive }) =>
                 `px-5 py-4 flex items-center justify-between border-b border-[#F0E0DC] prata-regular ${
-                  isActive ? "text-[#A75D5D] font-medium" : "text-[#d1856c]"
+                  isActive ? "text-[#65000B] font-medium" : "text-[#A75D5D]"
                 }`
               }
             >
               <div className="flex items-center prata-regular">
-                <i className="fas fa-info-circle w-5 h-5 mr-3 prata-regular text-[#A75D5D]"></i>
+                <i className="fas fa-info-circle w-5 h-5 mr-3 prata-regular text-[#65000B]"></i>
                 <span className="prata-regular">About Us</span>
               </div>
             </NavLink>
@@ -183,12 +188,12 @@ const Navbar = () => {
               onClick={() => setVisible(false)}
               className={({ isActive }) =>
                 `px-5 py-4 flex items-center justify-between border-b border-[#F0E0DC] prata-regular ${
-                  isActive ? "text-[#A75D5D] font-medium" : "text-[#d1856c]"
+                  isActive ? "text-[#65000B] font-medium" : "text-[#A75D5D]"
                 }`
               }
             >
               <div className="flex items-center prata-regular">
-                <i className="fas fa-map-marker-alt w-5 h-5 mr-3 text-[#A75D5D]"></i>
+                <i className="fas fa-map-marker-alt w-5 h-5 mr-3 text-[#65000B]"></i>
                 <span className="prata-regular">Track Order</span>
               </div>
             </NavLink>
@@ -198,12 +203,12 @@ const Navbar = () => {
               onClick={() => setVisible(false)}
               className={({ isActive }) =>
                 `px-5 py-4 flex items-center justify-between border-b border-[#F0E0DC] prata-regular ${
-                  isActive ? "text-[#A75D5D] font-medium" : "text-[#d1856c]"
+                  isActive ? "text-[#65000B] font-medium" : "text-[#A75D5D]"
                 }`
               }
             >
               <div className="flex items-center prata-regular">
-                <i className="fas fa-question-circle w-5 h-5 mr-3 text-[#A75D5D]"></i>
+                <i className="fas fa-question-circle w-5 h-5 mr-3 text-[#65000B]"></i>
                 <span className="prata-regular">FAQ</span>
               </div>
             </NavLink>
@@ -218,15 +223,15 @@ const Navbar = () => {
                 onKeyDown={(e) => e.key === "Enter" && toggleCategories()}
               >
                 <div className="flex items-center prata-regular">
-                  <i className="fas fa-tags w-5 h-5 mr-3 text-[#A75D5D]"></i>
-                  <span className={`prata-regular ${location.pathname.includes("/collection") ? "text-[#A75D5D] font-medium" : "text-[#d1856c]"}`}>
+                  <i className="fas fa-tags w-5 h-5 mr-3 text-[#65000B]"></i>
+                  <span className={`prata-regular ${location.pathname.includes("/collection") ? "text-[#65000B] font-medium" : "text-[#A75D5D]"}`}>
                     Categories
                   </span>
                 </div>
-                <i className={`fas ${categoriesOpen ? 'fa-minus' : 'fa-plus'} text-xs text-[#d1856c]`}></i>
+                <i className={`fas ${categoriesOpen ? 'fa-minus' : 'fa-plus'} text-xs text-[#A75D5D]`}></i>
               </div>
               
-              {/* Categories List - Fixed to remove any black background */}
+              {/* Categories List */}
               <div className={`transition-all duration-300 overflow-hidden prata-regular ${
                 categoriesOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
               }`}>
@@ -238,13 +243,13 @@ const Navbar = () => {
 
                   return (
                     <div key={cat.slug} className="mb-2 mx-3">
-                      {/* Category Toggle Button - CHANGED CHEVRON TO PLUS/MINUS */}
+                      {/* Category Toggle Button */}
                       <button
                         onClick={() => setExpandedCategory(isExpanded ? null : cat.slug)}
                         className={`w-full text-left p-3 rounded-md flex justify-between items-center transition-all shadow-sm ${
                           isCategoryActive
-                            ? "bg-[#fcf0ee] border-2 border-[#A75D5D] text-[#A75D5D]"
-                            : "bg-white border border-[#d1856c] text-[#d1856c] hover:border-[#A75D5D] hover:text-[#A75D5D]"
+                            ? "bg-[#FCF0EE] border-2 border-[#65000B] text-[#65000B]"
+                            : "bg-white border border-[#A75D5D] text-[#A75D5D] hover:border-[#65000B] hover:text-[#65000B]"
                         }`}
                       >
                         <span className="text-sm">{cat.name}</span>
@@ -253,7 +258,7 @@ const Navbar = () => {
 
                       {/* Subcategories */}
                       {isExpanded && cat.subCategories && (
-                        <div className="mt-2 ml-4 max-h-64 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-[#d1856c]/80 scrollbar-track-[#f0e0dc]/20">
+                        <div className="mt-2 ml-4 max-h-64 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-[#A75D5D]/80 scrollbar-track-[#F0E0DC]/20">
                           {cat.subCategories.map((subCat) => {
                             const isSubActive = subParam === subCat;
                             return (
@@ -263,8 +268,8 @@ const Navbar = () => {
                                 onClick={() => setVisible(false)}
                                 className={`block text-sm px-3 py-2 rounded-md mb-1 transition-all ${
                                   isSubActive
-                                    ? "!bg-white !text-[#A75D5D] font-medium border-2 border-[#A75D5D]"
-                                    : "!bg-white !text-[#A75D5D] hover:!bg-[#f5d5c5] hover:!text-[#A75D5D] border border-[#d1856c]"
+                                    ? "!bg-white !text-[#65000B] font-medium border-2 border-[#65000B]"
+                                    : "!bg-white !text-[#65000B] hover:!bg-[#FCF0EE] hover:!text-[#65000B] border border-[#A75D5D]"
                                 }`}
                               >
                                 {subCat}
@@ -288,7 +293,7 @@ const Navbar = () => {
                   logout();
                   setVisible(false);
                 }}
-                className="w-full py-2.5 px-4 rounded-md border border-[#A75D5D] text-[#A75D5D] hover:bg-[#fcf0ee] transition-all flex items-center justify-center gap-2 prata-regular"
+                className="w-full py-2.5 px-4 rounded-md border border-[#65000B] text-[#65000B] hover:bg-[#FCF0EE] transition-all flex items-center justify-center gap-2 prata-regular"
               >
                 <i className="fas fa-sign-out-alt"></i>
                 <span className="prata-regular">Logout</span>
@@ -301,8 +306,8 @@ const Navbar = () => {
                 }}
                 className={`w-full py-2.5 px-4 rounded-md prata-regular ${
                   location.pathname === "/login"
-                    ? "bg-[#A75D5D] text-white"
-                    : "border border-[#A75D5D] text-[#A75D5D] hover:bg-[#fcf0ee]"
+                    ? "bg-[#65000B] text-white"
+                    : "border border-[#65000B] text-[#65000B] hover:bg-[#FCF0EE]"
                 } transition-all flex items-center justify-center gap-2`}
               >
                 <i className="fas fa-sign-in-alt"></i>
@@ -312,7 +317,7 @@ const Navbar = () => {
           </div>
 
           {/* Footer */}
-          <div className="px-5 py-4 text-center text-xs text-[#d1856c] border-t border-[#F0E0DC] prata-regular">
+          <div className="px-5 py-4 text-center text-xs text-[#A75D5D] border-t border-[#F0E0DC] prata-regular">
             © 2025 ekalooms. All rights reserved.
           </div>
         </div>

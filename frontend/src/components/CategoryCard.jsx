@@ -10,7 +10,7 @@ const CategoryCard = memo(({ category }) => {
       className="flex flex-col items-center cursor-pointer"
       onClick={() => navigate(`/collection?category=${category.name}`)}
     >
-      <div className="w-20 h-24 sm:w-24 sm:h-28 lg:w-28 lg:h-32 shadow-xl border border-[#A75D5D] rounded-t-full overflow-hidden">
+      <div className="w-20 h-24 sm:w-24 sm:h-28 lg:w-28 lg:h-32 shadow-xl border border-[#65000B] rounded-t-full overflow-hidden">
       <img
   loading="lazy"
   src={`${category.image}?w=112&h=134&c_fill&f=auto&q=70`} // Automatically pick best format (e.g., WebP)
@@ -26,7 +26,7 @@ const CategoryCard = memo(({ category }) => {
 />
 
       </div>
-      <p className="mt-2 mb-2 text-xs sm:text-sm lg:text-base prata-regular text-[#A75D5D] font-medium text-center">
+      <p className="mt-2 mb-2 text-xs sm:text-sm lg:text-base prata-regular text-[#65000B] font-medium text-center">
         {category.name}
       </p>
     </div>

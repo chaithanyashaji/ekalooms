@@ -21,9 +21,9 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
 
         return (
             <div className="flex items-center text-xs">
-                {Array(fullStars).fill().map((_, i) => <FaStar key={`full-${i}`} className="text-[#A75D5D]" />)}
-                {halfStars ? <FaStarHalfAlt key="half" className="text-[#A75D5D]" /> : null}
-                {Array(emptyStars).fill().map((_, i) => <FaRegStar key={`empty-${i}`} className="text-[#A75D5D]" />)}
+                {Array(fullStars).fill().map((_, i) => <FaStar key={`full-${i}`} className="text-[#65000B]" />)}
+                {halfStars ? <FaStarHalfAlt key="half" className="text-[#65000B]" /> : null}
+                {Array(emptyStars).fill().map((_, i) => <FaRegStar key={`empty-${i}`} className="text-[#65000B]" />)}
             </div>
         );
     };
@@ -44,9 +44,9 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
 
             >
                 {isInWishlist ? (
-                    <FaHeart className="text-[#A75D5D] w-4 h-4" />
+                    <FaHeart className="text-[#65000B] w-4 h-4" />
                 ) : (
-                    <FaRegHeart className="text-[#A75D5D] w-4 h-4" />
+                    <FaRegHeart className="text-[#65000B] w-4 h-4" />
                 )}
             </button>
 
@@ -55,7 +55,7 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
                 <div
                 role="status"
                 aria-label="This product is a bestseller"
-                className="absolute shadow-lg top-2 left-2 bg-white text-[#A75D5D] text-xs px-2 py-0.5 rounded z-10"
+                className="absolute shadow-lg top-2 left-2 bg-white text-[#65000B] text-xs px-2 py-0.5 rounded z-10"
               >
                 BESTSELLER
               </div>
@@ -106,7 +106,7 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
 
                     {/* Out of Stock Badge */}
                     {isOutOfStock && (
-                        <div role="status" aria-label="Out of Stock" className="absolute bottom-2 right-2 bg-[#A75D5D] text-white text-xs px-2 py-1 rounded shadow-md">
+                        <div role="status" aria-label="Out of Stock" className="absolute bottom-2 right-2 bg-[#65000B] text-white text-xs px-2 py-1 rounded shadow-md">
 
                             OUT OF STOCK
                         </div>
@@ -128,7 +128,7 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
                 <div className="mt-1 prata-regular flex flex-wrap items-center gap-2">
   <span
     role="text"
-    style={{ color: "#A75D5D" }}
+    style={{ color: "#65000B" }}
     aria-label={`Price: ${currency}${price}`}
   >
     {currency}{price}

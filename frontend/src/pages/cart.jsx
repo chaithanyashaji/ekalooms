@@ -32,11 +32,11 @@ const Cart = () => {
         <Title text1={'YOUR '} text2={'CART'} />
       </div>
       {cartData.length === 0 ? ( // Check if cartData is empty
-        <div className="text-center py-20 text-[#A75D5D] text-lg">
+        <div className="text-center py-20 text-[#65000B] text-lg">
           <p>Your cart is empty :(</p>
           <button
             onClick={() => navigate('/collection')} // Navigate to the shop or products page
-            className="mt-5 px-6 py-2 bg-gradient-to-r from-[#F0997D] to-[#D3756B] text-white rounded-md hover:from-[#FFC3A1] hover:to-[#A75D5D]"
+            className="mt-5 px-6 py-2 bg-gradient-to-r from-[#F0997D] to-[#D3756B] text-white rounded-md hover:from-[#FFC3A1] hover:to-[#65000B]"
           >
             Continue Shopping
           </button>
@@ -93,7 +93,7 @@ const Cart = () => {
         <div>
           <p className="text-xs sm:text-lg font-medium">{productData.name}</p>
           <div className="flex items-center gap-5 mt-2">
-            <p className="text-[#A75D5D]">{currency}{productData.price}</p>
+            <p className="text-[#65000B]">{currency}{productData.price}</p>
             {productData.sizes && productData.sizes.length > 0 && (
               <p className="px-2 rounded-md sm:px-3 sm:py-1 border-[#F0997D] bg-[#e7deda] text-gray-800">
                 {item.size}
@@ -129,7 +129,7 @@ const Cart = () => {
               <div className="w-full text-end">
                 <button
                   onClick={() => navigate('/place-order')}
-                  className="rounded-md bg-gradient-to-r from-[#F0997D] to-[#D3756B] text-white text-sm my-8 py-3 px-3 hover:from-[#FFC3A1] hover:to-[#A75D5D]"
+                  className="rounded-md bg-gradient-to-r from-[#F0997D] to-[#D3756B] text-white text-sm my-8 py-3 px-3 hover:from-[#FFC3A1] hover:to-[#65000B]"
                 >
                   PROCEED TO CHECKOUT
                 </button>

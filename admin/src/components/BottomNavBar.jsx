@@ -4,7 +4,7 @@ import { AiOutlinePlus, AiOutlineUnorderedList, AiOutlineShoppingCart, AiOutline
 
 const BottomNavBar = () => {
   return (
-    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[90%] bg-[#A75D5D] bg-opacity-95 shadow-lg rounded-full z-50">
+    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[90%] bg-[#65000B] bg-opacity-95 shadow-lg rounded-full z-50">
       <div className="flex justify-around py-3 px-3">
         {/* Add Items */}
         <NavLink
@@ -18,7 +18,7 @@ const BottomNavBar = () => {
           {({ isActive }) => (
             <div
               className={`flex flex-col items-center p-3 ${
-                isActive ? 'bg-white text-[#A75D5D] rounded-full ' : ''
+                isActive ? 'bg-white text-[#65000B] rounded-full ' : ''
               }`}
             >
               <AiOutlinePlus className="w-6 h-6 " />
@@ -38,7 +38,7 @@ const BottomNavBar = () => {
           {({ isActive }) => (
             <div
               className={`flex flex-col items-center p-3 ${
-                isActive ? 'bg-white text-[#A75D5D] rounded-full ' : ''
+                isActive ? 'bg-white text-[#65000B] rounded-full ' : ''
               }`}
             >
               <AiOutlineUnorderedList className="w-6 h-6 " />
@@ -58,7 +58,7 @@ const BottomNavBar = () => {
           {({ isActive }) => (
             <div
               className={`flex flex-col items-center p-3 ${
-                isActive ? 'bg-white text-[#A75D5D] rounded-full ' : ''
+                isActive ? 'bg-white text-[#65000B] rounded-full ' : ''
               }`}
             >
               <AiOutlineShoppingCart className="w-6 h-6 " />
@@ -78,7 +78,7 @@ const BottomNavBar = () => {
           {({ isActive }) => (
             <div
               className={`flex flex-col items-center p-3 ${
-                isActive ? 'bg-white text-[#A75D5D] rounded-full ' : ''
+                isActive ? 'bg-white text-[#65000B] rounded-full ' : ''
               }`}
             >
               <AiOutlineTags className="w-6 h-6 " />
@@ -98,7 +98,7 @@ const BottomNavBar = () => {
           {({ isActive }) => (
             <div
               className={`flex flex-col items-center p-3 ${
-                isActive ? 'bg-white text-[#A75D5D] rounded-full ' : ''
+                isActive ? 'bg-white text-[#65000B] rounded-full ' : ''
               }`}
             >
               <AiOutlinePicture className="w-6 h-6 " />

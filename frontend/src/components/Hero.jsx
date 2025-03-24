@@ -5,13 +5,13 @@ import Spinner from "../components/Spinner";
 
 const HeroText = memo(() => (
   <div className="w-full sm:w-1/2 flex items-center justify-center py-5 sm:py-0">
-    <div className="text-[#A75D5D]">
+    <div className="text-[#65000B]">
       <h1 className="prata-regular text-2xl sm:py-3 lg:text-5xl leading-relaxed">
         Featured Collections
       </h1>
       <div className="flex items-center gap-2">
         <p className="font-semibold text-sm md:text-base">SHOP NOW</p>
-        <div className="w-8 md:w-11 h-[2px] bg-[#A75D5D]"></div>
+        <div className="w-8 md:w-11 h-[2px] bg-[#65000B]"></div>
       </div>
     </div>
   </div>

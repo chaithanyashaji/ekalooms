@@ -212,7 +212,7 @@ const OrderDetails = () => {
             <div key={index} className="flex flex-col items-center z-10 min-w-0 flex-1">
               <div
                 className={`w-8 h-8 flex items-center justify-center rounded-full shadow-md transition-all duration-300 ${
-                  isActive ? "bg-[#A75D5D] text-white" : "bg-white text-gray-400 border border-gray-200"
+                  isActive ? "bg-[#65000B] text-white" : "bg-white text-gray-400 border border-gray-200"
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -334,9 +334,9 @@ const OrderDetails = () => {
   <button
     onClick={() => window.location.href = "mailto:ekalooms@gmail.com"}
     className="w-full py-3 text-white rounded-md transition"
-    style={{ backgroundColor: "#A75D5D" }}
+    style={{ backgroundColor: "#65000B" }}
     onMouseOver={(e) => e.target.style.backgroundColor = "#D1856C"}
-    onMouseOut={(e) => e.target.style.backgroundColor = "#A75D5D"}
+    onMouseOut={(e) => e.target.style.backgroundColor = "#65000B"}
   >
     Contact Support
   </button>

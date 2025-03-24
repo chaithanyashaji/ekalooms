@@ -6,11 +6,11 @@ const Spinner = () => {
     { angle: 0, component: Heart, color: "#F0997D" },
     { angle: 45, component: ShoppingCart, color: "#FFC3A1" },
     { angle: 90, component: Truck, color: "#D3756B" },
-    { angle: 135, component: Check, color: "#A75D5D" },
+    { angle: 135, component: Check, color: "#65000B" },
     { angle: 180, component: Shirt, color: "#F0997D" },
     { angle: 225, component: Gift, color: "#FFC3A1" },
     { angle: 270, component: Star, color: "#D3756B" },
-    { angle: 315, component: User, color: "#A75D5D" }
+    { angle: 315, component: User, color: "#65000B" }
   ];
 
   const radius = 20; 

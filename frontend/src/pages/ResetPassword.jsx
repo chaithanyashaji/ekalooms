@@ -37,7 +37,7 @@ const ResetPassword = () => {
       onSubmit={onSubmitHandler}
       className="flex flex-col prata-regular items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4"
       style={{
-        color: '#A75D5D',
+        color: '#65000B',
        
         borderRadius: '10px',
         padding: '20px',
@@ -53,7 +53,7 @@ const ResetPassword = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
-         className="w-full px-3 py-2 border-2  text-[#A75D5D] border-[#D3756B] focus:border-[#F0997D] focus:outline-none"
+         className="w-full px-3 py-2 border-2  text-[#65000B] border-[#D3756B] focus:border-[#F0997D] focus:outline-none"
        
       />
       <input
@@ -62,7 +62,7 @@ const ResetPassword = () => {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         required
-         className="w-full px-3 py-2 border-2 r text-[#A75D5D] border-[#D3756B] focus:border-[#F0997D] focus:outline-none"
+         className="w-full px-3 py-2 border-2 r text-[#65000B] border-[#D3756B] focus:border-[#F0997D] focus:outline-none"
         
       />
       <button

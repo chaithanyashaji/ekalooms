@@ -330,9 +330,9 @@ const renderWriteReview = () => (
       className="p-2 bg-white/90 rounded-full shadow-md hover:bg-gray-100 transition-all"
     >
       {isInWishlist ? (
-        <FaHeart className="text-[#A75D5D] w-5 h-5" />
+        <FaHeart className="text-[#65000B] w-5 h-5" />
       ) : (
-        <FaRegHeart className="text-[#A75D5D] w-5 h-5" />
+        <FaRegHeart className="text-[#65000B] w-5 h-5" />
       )}
     </button>
   </div>
@@ -343,7 +343,7 @@ const renderWriteReview = () => (
         onClick={() => setShowShareOptions(!showShareOptions)}
         className="p-2 bg-white/90 rounded-full shadow-md hover:bg-gray-100 transition-all"
       >
-        <FaShareAlt className="text-[#A75D5D] w-5 h-5" />
+        <FaShareAlt className="text-[#65000B] w-5 h-5" />
       </button>
       
 
@@ -393,7 +393,7 @@ const renderWriteReview = () => (
       onClick={copyLinkToClipboard}
       className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded transition-all"
     >
-      <FaLink className="text-[#A75D5D]" />
+      <FaLink className="text-[#65000B]" />
       <span className="text-sm text-gray-600">Copy Link</span>
     </button>
   </div>
@@ -405,12 +405,12 @@ const renderWriteReview = () => (
         </div>
 
         <div className="flex-1">
-          <h1 className="font-medium prata-regular text-3xl mt-2 text-[#A75D5D]">{productData.name}</h1>
+          <h1 className="font-medium prata-regular text-3xl mt-2 text-[#65000B]">{productData.name}</h1>
           <div className="flex items-center gap-1 mt-2">
             {generateStars(averageRating)}
             <p className="pl-2 text-[#D3756B] ">({totalReviews})</p>
           </div>
-          <p className="mt-5 mb-5 text-2xl font-medium prata-regular text-[#A75D5D]">{currency}{productData.price}</p>
+          <p className="mt-5 mb-5 text-2xl font-medium prata-regular text-[#65000B]">{currency}{productData.price}</p>
          
           
           {productData.sizes && productData.sizes.length > 0 && (
@@ -444,7 +444,7 @@ const renderWriteReview = () => (
   <>
     <button
       onClick={() => setShowSizeChart(true)}
-      className="mt-2 text-[#A75D5D] underline text-left w-full"
+      className="mt-2 text-[#65000B] underline text-left w-full"
     >
       Size Chart
     </button>
@@ -462,7 +462,7 @@ const renderWriteReview = () => (
           </button>
 
           {/* Modal Content */}
-          <h2 className="text-xl font-semibold text-[#A75D5D] mb-4">Size Chart</h2>
+          <h2 className="text-xl font-semibold text-[#65000B] mb-4">Size Chart</h2>
 
           {/* Responsive Table Container */}
           <div className="overflow-x-auto -mx-4 sm:mx-0">
@@ -579,7 +579,7 @@ const renderWriteReview = () => (
         <p>Prepaid Orders Only</p>
       </div>
       <div className="flex items-center gap-2">
-        <XCircle size={16} color="#A75D5D" />
+        <XCircle size={16} color="#65000B" />
         <p>No Exchange Policy</p>
       </div>
       <div className="flex items-center gap-2">
@@ -596,7 +596,7 @@ const renderWriteReview = () => (
         <button
           onClick={() => setShowDescription(true)}
           className={`px-4 py-2 border prata-regular ${
-            showDescription ? "border-2 border-[#F0997D] text-[#A75D5D]" : ""
+            showDescription ? "border-2 border-[#F0997D] text-[#65000B]" : ""
           }`}
         >
           Description
@@ -604,7 +604,7 @@ const renderWriteReview = () => (
         <button
           onClick={() => setShowDescription(false)}
           className={`px-4 py-2 border prata-regular ${
-            !showDescription ? "border-2 border-[#F0997D] text-[#A75D5D]" : ""
+            !showDescription ? "border-2 border-[#F0997D] text-[#65000B]" : ""
           }`}
         >
           Reviews ({totalReviews})

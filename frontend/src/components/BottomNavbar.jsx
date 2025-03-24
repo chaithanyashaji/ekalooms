@@ -24,7 +24,7 @@ const BottomNavbar = () => {
   };
 
   return (
-    <nav className="fixed bottom-4 left-2 right-2 bg-[#9d4a54] bg-opacity-95 backdrop-blur-2xl p-1.5 rounded-full flex justify-between items-center z-50 max-w-[350px] mx-auto shadow-md">
+    <nav className="fixed bottom-4 left-2 right-2 bg-[#65000b] bg-opacity-95 backdrop-blur-2xl p-1.5 rounded-full flex justify-between items-center z-50 max-w-[350px] mx-auto shadow-md">
       {/* Home */}
       <NavLink
         to="/"
@@ -134,7 +134,7 @@ const BottomNavbar = () => {
                   : 'text-white/50'
               }`}
             />
-            <p className="absolute top-[-3px] right-[-3px] w-2.5 h-2.5 text-center leading-[10px] text-white rounded-full text-[6px] bg-[#A75D5D]">
+            <p className="absolute top-[-3px] right-[-3px] w-2.5 h-2.5 text-center leading-[10px] text-white rounded-full text-[6px] bg-[#65000B]">
               {getCartCount()}
             </p>
           </div>

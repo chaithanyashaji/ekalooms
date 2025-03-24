@@ -80,10 +80,10 @@ const Login = () => {
   }, [token]);
 
   return (
-    <form onSubmit={onSubmitHandler} className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-[#A75D5D]">
+    <form onSubmit={onSubmitHandler} className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-[#65000B]">
       <div className="inline-flex items-center gap-2 mb-2 mt-10">
         <p className="prata-regular text-3xl">{currentState}</p>
-        <hr className="border-none h-[1.5px] w-8 bg-[#A75D5D]" />
+        <hr className="border-none h-[1.5px] w-8 bg-[#65000B]" />
       </div>
       
       {currentState === 'Sign Up' && (
@@ -121,7 +121,7 @@ const Login = () => {
       </div>
 
       <div className="w-full flex justify-between text-sm mt-[-8px]">
-        <p onClick={() => navigate('/forgot-password')} className="cursor-pointer text-[#A75D5D]">
+        <p onClick={() => navigate('/forgot-password')} className="cursor-pointer text-[#65000B]">
           Forgot your password?
         </p>
         <p
@@ -129,7 +129,7 @@ const Login = () => {
             setCurrentState(currentState === 'Login' ? 'Sign Up' : 'Login');
             setPasswordError('');
           }}
-          className="cursor-pointer text-[#A75D5D]"
+          className="cursor-pointer text-[#65000B]"
         >
           {currentState === 'Login' ? 'Create account' : 'Login Here'}
         </p>

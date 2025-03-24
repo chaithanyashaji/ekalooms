@@ -29,10 +29,10 @@ const Login = ({ setToken }) => {
     return (
         <div className="min-h-screen flex items-center justify-center w-full">
             <div className="bg-white shadow-md border border-[#D3756B] rounded-lg px-8 py-6 max-w-md">
-                <h1 className="text-2xl text-[#A75D5D] font-bold mb-4">Admin Panel</h1>
+                <h1 className="text-2xl text-[#65000B] font-bold mb-4">Admin Panel</h1>
                 <form onSubmit={onSubmitHandler}>
                     <div>
-                        <p className="text-sm font-medium text-[#A75D5D] mb-2">Email Address</p>
+                        <p className="text-sm font-medium text-[#65000B] mb-2">Email Address</p>
                         <input
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
@@ -43,7 +43,7 @@ const Login = ({ setToken }) => {
                         />
                     </div>
                     <div>
-                        <p className="text-sm font-medium text-[#A75D5D] mb-2">Password</p>
+                        <p className="text-sm font-medium text-[#65000B] mb-2">Password</p>
                         <input
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
@@ -54,7 +54,7 @@ const Login = ({ setToken }) => {
                         />
                     </div>
                     <button
-                        className="mt-4 w-full py-2 px-4 rounded-md text-white bg-gradient-to-r from-[#FFC3A1] to-[#D3756B] border border-[#A75D5D]"
+                        className="mt-4 w-full py-2 px-4 rounded-md text-white bg-gradient-to-r from-[#FFC3A1] to-[#D3756B] border border-[#65000B]"
                         type="submit"
                     >
                         Login

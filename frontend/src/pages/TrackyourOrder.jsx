@@ -61,7 +61,7 @@ const TrackYourOrder = () => {
             onClick={handleTrackOrder}
             className="px-6 py-2 text-white rounded-sm"
             style={{
-              background: "linear-gradient(90deg, #A75D5D, #D3756B)",
+              background: "linear-gradient(90deg, #65000B, #D3756B)",
               boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
             }}
             disabled={loading}

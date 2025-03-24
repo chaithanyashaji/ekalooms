@@ -38,7 +38,7 @@ const ForgotPassword = () => {
     <form
       onSubmit={onSubmitHandler}
       className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4"
-      style={{ color: '#A75D5D', borderRadius: '10px', padding: '20px' }}
+      style={{ color: '#65000B', borderRadius: '10px', padding: '20px' }}
     >
       <Title text1={"FORGOT "} text2={"PASSWORD"} />
       <input
@@ -47,7 +47,7 @@ const ForgotPassword = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="w-full px-3 py-2 border-2 border-[#D3756B] focus:border-[#F0997D] focus:outline-none text-[#A75D5D]"
+        className="w-full px-3 py-2 border-2 border-[#D3756B] focus:border-[#F0997D] focus:outline-none text-[#65000B]"
       />
       <button
         type="submit"

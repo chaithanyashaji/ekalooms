@@ -45,7 +45,7 @@ const WhatsAppChatWidget = () => {
           aria-label="Open WhatsApp Chat"
           onClick={() => setIsOpen(true)}
           className="bg-[#D3756B] text-white p-3 sm:p-4 rounded-full shadow-xl 
-          hover:bg-[#A75D5D] transition-all duration-300 ease-in-out 
+          hover:bg-[#65000B] transition-all duration-300 ease-in-out 
           flex items-center justify-center ml-auto"
         >
           <FaWhatsapp className="w-6 h-6 sm:w-8 sm:h-8" />
@@ -61,7 +61,7 @@ const WhatsAppChatWidget = () => {
           max-h-[90vh] flex flex-col z-50"
         >
           {/* Chat Header */}
-          <div className="bg-[#A75D5D] text-white p-3 sm:p-4 rounded-t-xl flex justify-between items-center">
+          <div className="bg-[#65000B] text-white p-3 sm:p-4 rounded-t-xl flex justify-between items-center">
             <div className="flex items-center gap-2">
               <FaWhatsapp className="w-4 h-4 text-white" />
               <h3 className="font-semibold text-sm sm:text-base">Chat with Us</h3>

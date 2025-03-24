@@ -309,7 +309,7 @@ if (method === 'razorpay') {
 <Title text1={"APPLY "} text2={"COUPON"}/>
 <div className="bg-none p-4 rounded-md">
   {/* Promo Message */}
-  <div className="mb-2 text-sm text-[#A75D5D] font-medium">
+  <div className="mb-2 text-sm text-[#65000B] font-medium">
     <i className="fas fa-gift mr-1"></i>
     First time users: Use code <span className="font-bold">EKA10</span> for 10% off!
   </div>
@@ -334,9 +334,9 @@ if (method === 'razorpay') {
   
   {/* Display Applied Coupon */}
   {discountApplied && (
-    <div className="flex items-center gap-1 mt-2 bg-none px-2 py-1 rounded-md text-sm text-[#A75D5D]">
+    <div className="flex items-center gap-1 mt-2 bg-none px-2 py-1 rounded-md text-sm text-[#65000B]">
       <span className="flex items-center gap-1">
-        <i className="fas fa-tag text-[#A75D5D] text-sm"></i>
+        <i className="fas fa-tag text-[#65000B] text-sm"></i>
         {couponCode}
       </span>
       <button
@@ -346,9 +346,9 @@ if (method === 'razorpay') {
           setDiscountApplied(false);
           toast.info('Coupon removed!');
         }}
-        className="text-[#A75D5D] hover:text-[#FFC3A1]"
+        className="text-[#65000B] hover:text-[#FFC3A1]"
       >
-        <i className="fas fa-times text-[#A75D5D] text-sm"></i>
+        <i className="fas fa-times text-[#65000B] text-sm"></i>
       </button>
     </div>
   )}
@@ -426,7 +426,7 @@ if (method === 'razorpay') {
         <div className="w-full text-center mt-8">
           <button 
             type="submit" 
-            className="bg-gradient-to-r from-[#FFC3A1] to-[#D3756B] border-[#A75D5D] text-white rounded-md px-16 py-3 text-sm"
+            className="bg-gradient-to-r from-[#FFC3A1] to-[#D3756B] border-[#65000B] text-white rounded-md px-16 py-3 text-sm"
           >
             PLACE ORDER
           </button>
