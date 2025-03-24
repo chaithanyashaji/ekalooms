@@ -88,15 +88,15 @@ const [isSubmittingReview, setIsSubmittingReview] = useState(false);
     const stars = [];
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<FaStar key={`full-${i}`} className="text-[#67000b]" />);
+      stars.push(<FaStar key={`full-${i}`} className="text-[#F0997D]" />);
     }
 
     if (halfStars) {
-      stars.push(<FaStarHalfAlt key="half" className="text-[#67000b]" />);
+      stars.push(<FaStarHalfAlt key="half" className="text-[#F0997D]" />);
     }
 
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<FaRegStar key={`empty-${i}`} className="text-[#67000b]" />);
+      stars.push(<FaRegStar key={`empty-${i}`} className="text-[#F0997D]" />);
     }
 
     return stars;
