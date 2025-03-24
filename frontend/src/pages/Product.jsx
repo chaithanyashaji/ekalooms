@@ -415,7 +415,7 @@ const renderWriteReview = () => (
           
           {productData.sizes && productData.sizes.length > 0 && (
   <div className="flex flex-col gap-4 my-8">
-    <p className="text-[#d08268] prata-regular">Select Size</p>
+    <p className="text-[#a75d5d] prata-regular">Select Size</p>
     
     <div className="flex flex-wrap gap-4">
       {productData.sizes.map((item, index) => (
@@ -425,7 +425,7 @@ const renderWriteReview = () => (
             onClick={() => item.quantity > 0 && setSize(item.size)} // Only allow selection if quantity > 0
             disabled={item.quantity === 0} // Disable button if quantity is 0
             className={`border rounded-md py-2 px-4 ${
-              item.size === size ? 'border-[#F0997D] bg-[#FFC3A1]' : 'bg-gray-100'
+              item.size === size ? 'border-[#F0997D] bg-[#efc2c2]' : 'bg-gray-100'
             } ${
               item.quantity === 0 ? 'opacity-50 cursor-not-allowed' : ''
             }`}
@@ -468,7 +468,7 @@ const renderWriteReview = () => (
           <div className="overflow-x-auto -mx-4 sm:mx-0">
             <table className="min-w-full border-collapse border border-gray-300">
               <thead>
-                <tr className="bg-[#F0997D] text-white">
+                <tr className="bg-[#a75d5d] text-white">
                   <th className="border border-gray-300 px-2 sm:px-4 py-2">Size</th>
                   <th className="border border-gray-300 px-2 sm:px-4 py-2">Bust (in)</th>
                   <th className="border border-gray-300 px-2 sm:px-4 py-2">Waist (in)</th>
@@ -549,7 +549,7 @@ const renderWriteReview = () => (
   className={`px-8 rounded-md py-3 text-sm ${
     ((!productData.sizes || productData.sizes.length === 0) && productData.stockQuantity > 0) || // Product without sizes and stockQuantity > 0
     (productData.sizes && productData.sizes.some((s) => s.quantity > 0)) // Product with sizes and at least one size has quantity > 0
-      ? "text-white bg-gradient-to-r from-[#F0997D] to-[#D3756B] hover:from-[#D3756B] hover:to-[#F0997D]"
+      ? "text-white bg-gradient-to-r from-[#67000b] to-[#D3756B] hover:from-[#D3756B] hover:to-[#F0997D]"
       : "text-gray-500 bg-gray-200 cursor-not-allowed"
   }`}
 >
