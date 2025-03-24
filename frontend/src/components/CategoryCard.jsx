@@ -48,7 +48,7 @@ const CategorySection = () => {
     },
     {
       name: "Co-ords",
-      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg", // Replace with relevant image if needed
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742802137/dressessk_ttdeds.jpg", // Replace with relevant image if needed
       slug: "Co-ords",
     },
     {

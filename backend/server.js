@@ -14,6 +14,8 @@ import razorpayWebhookRouter from './routes/razorpayWebhook.js';
 import couponRouter from './routes/couponRoute.js';
 import featuredRouter from './routes/featuredImageRoute.js';
 import helmet from 'helmet';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -60,6 +62,11 @@ app.use(cors({
     },
     credentials: true, // Allow cookies to be sent
 }));
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/api/webhook/razorpay', express.raw({ type: 'application/json' }), razorpayWebhookRouter);
