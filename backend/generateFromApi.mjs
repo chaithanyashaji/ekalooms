@@ -14,6 +14,16 @@ const API_URL = `${backendUrl}/api/product/list`;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const XML_PATH = path.join(PUBLIC_DIR, 'feed.xml');
 
+// Google product category mappings
+const categoryMap = {
+  "Saree": "Apparel & Accessories > Clothing > Traditional & Cultural Clothing > Sarees",
+  "Kurta Sets": "Apparel & Accessories > Clothing > Traditional & Cultural Clothing > Salwar Kameez",
+  "Co-ords": "Apparel & Accessories > Clothing > Outfits & Sets",
+  "Dresses": "Apparel & Accessories > Clothing > Dresses",
+  "Dress materials": "Apparel & Accessories > Sewing & Needlecraft > Fabric",
+  "Home Decor": "Home & Garden > Linens & Bedding"
+};
+
 async function generateFeed() {
   try {
     if (!fs.existsSync(PUBLIC_DIR)) {
@@ -28,27 +38,45 @@ async function generateFeed() {
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
   <channel>
-    <title>ekalooms Product Feed</title>
+    <title>Ekalooms Product Feed</title>
     <link>${backendUrl}</link>
     <description>Google Product Feed</description>`;
 
     products.forEach(product => {
-      const imageLink = Array.isArray(product.image) && product.image.length > 0 ? product.image[0] : '';
-      const productLink = `https://ekalooms.com/product/${product._id}`;
       const productId = product._id;
+      const title = product.name?.trim();
+      const price = product.price;
+      const imageLink = Array.isArray(product.image) && product.image.length > 0 ? product.image[0] : '';
+      const productLink = `https://ekalooms.com/product/${productId}`;
+      const description = product.description?.replace(/<[^>]*>/g, '').trim() || 'Handmade product from Ekalooms.';
+      const availability = product.inStock ? 'in stock' : 'out of stock';
+      const condition = 'new';
+      const brand = 'Ekalooms';
+      const category = categoryMap[product.category] || 'Apparel & Accessories';
+      const productType = product.subCategory || 'N/A';
 
-      if (!productId || !product.name || !product.price) return;
+      if (!productId || !title || !price) return;
 
       xml += `
-      <item>
-        <g:id>${productId}</g:id>
-        <g:title><![CDATA[${product.name}]]></g:title>
-        <g:link>${productLink}</g:link>
-        <g:image_link>${imageLink}</g:image_link>
-        <g:price>${product.price} INR</g:price>
-        <g:google_product_category><![CDATA[${product.category || 'N/A'}]]></g:google_product_category>
-        <g:product_type><![CDATA[${product.subCategory || 'N/A'}]]></g:product_type>
-      </item>`;
+    <item>
+      <g:id>${productId}</g:id>
+      <g:title><![CDATA[${title}]]></g:title>
+      <g:description><![CDATA[${description}]]></g:description>
+      <g:link>${productLink}</g:link>
+      <g:image_link>${imageLink}</g:image_link>
+      <g:availability>${availability}</g:availability>
+      <g:price>${price} INR</g:price>
+      <g:condition>${condition}</g:condition>
+      <g:brand>${brand}</g:brand>
+      <g:google_product_category><![CDATA[${category}]]></g:google_product_category>
+      <g:product_type><![CDATA[${productType}]]></g:product_type>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Standard</g:service>
+        <g:price>150 INR</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+    </item>`;
     });
 
     xml += `
@@ -56,8 +84,9 @@ async function generateFeed() {
 </rss>`;
 
     fs.writeFileSync(XML_PATH, xml, 'utf8');
+    console.log('✅ Product feed generated successfully at:', XML_PATH);
   } catch (err) {
-    // Silent fail – useful for background jobs
+    console.error('❌ Failed to generate product feed:', err.message);
   }
 }
 
