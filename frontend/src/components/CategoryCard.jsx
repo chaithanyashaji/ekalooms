@@ -42,9 +42,19 @@ const CategorySection = () => {
       slug: "Saree",
     },
     {
-      name: "Readymades",
-      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742725848/sk_pur2_woxd8l.jpg",
-      slug: "Readymades",
+      name: "Kurta Sets",
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742725848/sk_pur2_woxd8l.jpg", // Replace with relevant image if needed
+      slug: "Kurta-Sets",
+    },
+    {
+      name: "Co-ords",
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222286/hero_img8_efebfh.jpg", // Replace with relevant image if needed
+      slug: "Co-ords",
+    },
+    {
+      name: "Dresses",
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742147086/sk-ora_nzmoou.jpg", // Replace with relevant image if needed
+      slug: "Dresses",
     },
     {
       name: "Home Decor",
@@ -53,10 +63,12 @@ const CategorySection = () => {
     },
     {
       name: "Dress materials",
-      image:  "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742725558/sk_pista_z9db6d.jpg" ,
-      slug: "Dress materials",
+      image: "https://res.cloudinary.com/dzzhbgbnp/image/upload/v1742725558/sk_pista_z9db6d.jpg",
+      slug: "Dress-materials",
     },
   ];
+
+
 
   return (
     <div className="mt-8">

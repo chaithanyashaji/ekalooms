@@ -40,8 +40,18 @@ const Navbar = () => {
       ],
     },
     {
-      name: "Readymades",
-      slug: "Readymades",
+      name: "Kurta Sets",
+      slug: "Kurta Sets",
+      subCategories: ["Cotton", "Muslin", "Rayon", "Georgette", "Silk"],
+    },
+    {
+      name: "Co-ords",
+      slug: "Co-ords",
+      subCategories: ["Cotton", "Muslin", "Rayon", "Georgette", "Silk"],
+    },
+    {
+      name: "Dresses",
+      slug: "Dresses",
       subCategories: ["Cotton", "Muslin", "Rayon", "Georgette", "Silk"],
     },
     {
@@ -58,6 +68,7 @@ const Navbar = () => {
       ],
     },
   ];
+  
   
 
   return (

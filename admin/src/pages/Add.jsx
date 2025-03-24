@@ -29,7 +29,13 @@ const Add = ({ token }) => {
      "Madurai Sungudi / Velthari", "Maheshwari silk", "Mul Mul", 
      "Organza", "Soft khadi cotton","Soft silk","Viscose/Georgettes","Silk","Chiffon","Modal Silk","Cotton"
    ],
-   "Readymades": [
+   "Kurta Sets": [
+     "Cotton", "Muslin", "Rayon","Georgette","Silk"
+   ],
+   "Co-ords": [
+     "Cotton", "Muslin", "Rayon","Georgette","Silk"
+   ],
+   "Dresses": [
      "Cotton", "Muslin", "Rayon","Georgette","Silk"
    ],
    "Dress materials": [
