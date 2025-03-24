@@ -59,4 +59,4 @@ async function generateFeed() {
   }
 }
 
-generateFeed();
+export default generateFeed;
