@@ -257,10 +257,10 @@ const renderWriteReview = () => (
       <button
         onClick={submitReview}
         disabled={isSubmittingReview}
-        className={`px-6 py-3 rounded-md font-medium transition ${
+        className={`px-6 py-3 rounded-md font-medium prata-regular transition ${
           isSubmittingReview
-            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            : 'bg-gradient-to-r from-[#F0997D] to-[#D3756B] text-white hover:from-[#D3756B] hover:to-[#F0997D]'
+            ? 'bg-gray-300 text-gray-500  cursor-not-allowed'
+            : 'bg-gradient-to-r from-[#67000b] to-[#D3756B] text-white hover:from-[#D3756B] hover:to-[#F0997D]'
         }`}
       >
         {isSubmittingReview ? 'Submitting...' : 'Submit Review'}
@@ -440,7 +440,7 @@ const renderWriteReview = () => (
       ))}
     </div>
     {/* Show "Size Chart" button only for Readymades */}
-    {productData.category === "Readymades" && (
+    {["Dresses", "Kurta Sets", "Co-ords"].includes(productData.category) && (
   <>
     <button
       onClick={() => setShowSizeChart(true)}
@@ -584,7 +584,7 @@ const renderWriteReview = () => (
       </div>
       <div className="flex items-center gap-2">
         <Truck size={16} color="#F0997D" />
-        <p>Standard delivery time is 6-8 working days</p>
+        <p>Standard delivery time is 3-5 working days</p>
       </div>
     </div>
         </div>
