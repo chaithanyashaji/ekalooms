@@ -95,9 +95,10 @@ const Navbar = () => {
             src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"
             alt="Logo"
           />
-          <h1 className="text-xl sm:text-2xl prata-regular text-[#65000B]">
-            ekalooms
-          </h1>
+       <h1 className="text-xl sm:text-2xl prata-regular text-[#65000B] drop-shadow-md">
+  ekalooms
+</h1>
+
         </Link>
       </div>
 
@@ -151,9 +152,9 @@ const Navbar = () => {
               src="https://res.cloudinary.com/dzzhbgbnp/image/upload/v1735222002/logo_bo4y6g.png"
               alt="Logo"
             />
-            <h1 className="text-lg prata-regular text-[#65000B]">
-              ekalooms
-            </h1>
+           <h1 className="text-xl sm:text-2xl prata-regular text-[#65000B] drop-shadow-md">
+  ekalooms
+</h1>
           </div>
           <button
             onClick={() => setVisible(false)}

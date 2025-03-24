@@ -44,8 +44,8 @@ const WhatsAppChatWidget = () => {
         <button 
           aria-label="Open WhatsApp Chat"
           onClick={() => setIsOpen(true)}
-          className="bg-[#D3756B] text-white p-3 sm:p-4 rounded-full shadow-xl 
-          hover:bg-[#65000B] transition-all duration-300 ease-in-out 
+          className="bg-[#65000b] text-white p-3 sm:p-4 rounded-full shadow-xl 
+          hover:bg-[#D3756B] transition-all duration-300 ease-in-out 
           flex items-center justify-center ml-auto"
         >
           <FaWhatsapp className="w-6 h-6 sm:w-8 sm:h-8" />
