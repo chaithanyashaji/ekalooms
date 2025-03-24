@@ -30,19 +30,23 @@ async function generateFeed() {
     <description>Google Product Feed</description>`;
 
     products.forEach(product => {
-      const imageLink = Array.isArray(product.image) && product.image.length > 0
-        ? product.image[0]
-        : '';
-
-      xml += `
-    <item>
-      <g:title><![CDATA[${product.name}]]></g:title>
-      <g:image_link>${imageLink}</g:image_link>
-      <g:price>${product.price} INR</g:price>
-      <g:google_product_category><![CDATA[${product.category}]]></g:google_product_category>
-      <g:product_type><![CDATA[${product.subCategory}]]></g:product_type>
-    </item>`;
-    });
+        const imageLink = Array.isArray(product.image) && product.image.length > 0
+          ? product.image[0]
+          : '';
+      
+        const productLink = `https://ekalooms.com/product/${product._id}`;
+      
+        xml += `
+        <item>
+          <g:title><![CDATA[${product.name}]]></g:title>
+          <g:link>${productLink}</g:link>
+          <g:image_link>${imageLink}</g:image_link>
+          <g:price>${product.price} INR</g:price>
+          <g:google_product_category><![CDATA[${product.category}]]></g:google_product_category>
+          <g:product_type><![CDATA[${product.subCategory}]]></g:product_type>
+        </item>`;
+      });
+      
 
     xml += `
   </channel>

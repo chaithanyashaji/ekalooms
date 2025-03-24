@@ -2,1575 +2,1799 @@
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
   <channel>
     <title>ekalooms Product Feed</title>
-   <link>https://ekalooms.com</link>
+    <link>http://localhost:4000</link>
     <description>Google Product Feed</description>
-    <item>
-      <g:title><![CDATA[Vichitra Silk embroidered Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478562/wdtquqol7g5xt5ggbxsw.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Vichitra Silk Embroidery Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478658/nc3c5bzzp9jqbq2kj5og.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Shimmer Silk Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478316/dm8kqxyhz14zbuey47pj.jpg</g:image_link>
-      <g:price>2395 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Shimmer Dual-tone Silk]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719733/kwugjejzmcbw0qfglrfb.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Shimmer Silk Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478124/iluzta3dofi8i8iq75n7.jpg</g:image_link>
-      <g:price>2295 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Silk Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742477727/q1851wkph5pargt43jxt.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Shimmer Silk Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478247/whmxbbptwfb9cepiarwp.jpg</g:image_link>
-      <g:price>2295 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Shimmer Dual-tone Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719994/xktsgbhnyzl3noz3z1xb.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Chiffon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Shimmer Dual-tone Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719806/ggysn2fhgabtaauamvge.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Chiffon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Shimmer Dual-tone Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719616/umnzajwceku5sbdrer2b.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Chiffon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Shimmer Dual-tone Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719553/qcx2hri367vajpd3ktpg.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Chiffon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Shimmer Dual-tone  Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719474/noi7dy1cqemzduyqa6x9.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Chiffon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742651062/ws40woqvxyei3nqgy6d1.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742651346/uytctq659jbpfj06cb2e.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742651232/hutrpxckvnt9d7fqwd9e.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742651150/ztbqh9h3fdpkqcjxzj6x.jpg</g:image_link>
-      <g:price>1200 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742650944/ghavnyzhhohg8vpupohw.jpg</g:image_link>
-      <g:price>1280 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742650878/cwpuizfjh9qpanrsw1an.jpg</g:image_link>
-      <g:price>1280 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul-Mul Saree ]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742650744/wt19l0bcudekvnuxaily.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul Cotton Saree with Zari Border]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560801/jva3tdu513v2hwokziyn.jpg</g:image_link>
-      <g:price>1700 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul Cotton Saree with Zari Border]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560886/kwvbsboz8ipfcxmuqhhw.jpg</g:image_link>
-      <g:price>1700 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul Cotton Saree With Zari Border]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560959/bna6r5mjfotpgqjagzmj.jpg</g:image_link>
-      <g:price>1700 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742567375/nko672hirsqz1q9rstvd.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742567275/jasvfhtjc0tzcmgyynme.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742567219/jglgxxjzdwiunz0gzwlb.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Soft Organza Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742566842/efkc7gpcbhtpbxtgfghm.jpg</g:image_link>
-      <g:price>2150 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Organza]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Soft Organza Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742566745/ketfocwrgdaggubvugnx.jpg</g:image_link>
-      <g:price>2150 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Organza]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Kubera Pattu Saree ]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742566022/zkfwasamwn9qkznwpbna.jpg</g:image_link>
-      <g:price>1200 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Kubera Pattu Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742565888/dam3lreygyjseqlycapa.jpg</g:image_link>
-      <g:price>1200 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Kubera Pattu Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742565818/qemdytpks7vm0ddo5wi4.jpg</g:image_link>
-      <g:price>1200 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Striped Dhonekali Khadi Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742562414/y5lnrdmfo5yicsbhwnoo.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Striped Dhonekali Khadi Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742562323/lpfz7x2r85pivpriq4bs.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Soft Khadi Barfi Saree ]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742562076/mvd6wgzzcoo9luzvkapm.jpg</g:image_link>
-      <g:price>1400 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Soft Khadi Barfi Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742562025/eedfeo4vm7krmtsp5wfr.jpg</g:image_link>
-      <g:price>1400 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[ Soft Khadi Hand Buti Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742561806/baphicithmgqmkitpint.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Soft Khadi Hand Buti Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742561714/xeszxftstvpodqiztunm.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Soft Khadi Flower Buti Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742561464/bf7aojjlhpiihvfczyra.jpg</g:image_link>
-      <g:price>1450 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Soft Khadi with Flower Buti Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742561388/uqzvdupg2rnzqiny1xxw.jpg</g:image_link>
-      <g:price>1450 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Soft Khadi Flower Buti Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742561313/ygahnyewrxvsaljdwtwz.jpg</g:image_link>
-      <g:price>1450 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560474/lkv5qkxs5ica4gnxox9i.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560408/mwqwgpqgiz7elzwaqh0n.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560348/jmteliytrjdlz4owm9my.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560298/axiiiuo8pk4ix4tqwimr.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560244/vtrkaqkvrtmxdw6n3lcg.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560178/s4rsktolbi8mlda7ohaw.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560122/paxcsigtnmm3cl8nwja4.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560063/d8pimghvqnplblxku7up.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Bengali Khadi Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742559774/ccdu0dlbdth5mqmh8hpu.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Bengali Khadi Sarees]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742559659/c963cqnygqkeab91mez1.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Pure Cotton Hakoba Blockprint Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478975/jzzecfdimnpslq2bhzyk.jpg</g:image_link>
-      <g:price>2195 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Vichitra silk set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742558518/c9jrppwekgyuvkkypjog.jpg</g:image_link>
-      <g:price>1895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Pure cotton suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1734893358/aogcs65mwu2dmacrdhba.jpg</g:image_link>
-      <g:price>1200 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742210998/kxhgyewdjfocedvfupnw.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Ajrakh Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742191850/rdb3qxbaf5xrqcyumweo.jpg</g:image_link>
-      <g:price>895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Maheshwari Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742215190/vak7pdvbsp5pbbxpcm6m.jpg</g:image_link>
-      <g:price>2550 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Maheshwari silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Plain Linen]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742479919/jewnliinvq0ib9gm8cii.jpg</g:image_link>
-      <g:price>1299 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Linen]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Plain Linen]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742479820/aoxe6eoch95yi7lqqepx.jpg</g:image_link>
-      <g:price>1299 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Linen]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Plain Linen Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742479727/f3kjgyjq4roozpgc5jom.jpg</g:image_link>
-      <g:price>1299 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Linen]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Co Ord set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742216566/fbmsilwhetnavmtpb0b5.jpg</g:image_link>
-      <g:price>950 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Co Ord set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742216545/q7vtatudzprq4kbhba1y.jpg</g:image_link>
-      <g:price>950 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Co Ord set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742216521/u8mywhucdxje6tyaogcs.jpg</g:image_link>
-      <g:price>950 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Co Ord set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742216494/ulm8zico5siuvarjbmmt.jpg</g:image_link>
-      <g:price>950 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Maheshwari Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742215373/iwrrblg22k6j1boyur82.jpg</g:image_link>
-      <g:price>2550 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Maheshwari silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Maheshwari Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742215446/sctukkvgaguqg7godjmu.jpg</g:image_link>
-      <g:price>2450 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Maheshwari silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741347018/ky0rzwazqbmm7cmlf5mo.jpg</g:image_link>
-      <g:price>2195 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Ajrakh Modal Silk set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742212622/okyrc4svkqliki0fu8wq.jpg</g:image_link>
-      <g:price>2895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Modal silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Ajrakh Modal Silk set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742212344/bsxxt6oyhz3ikegz3xsh.jpg</g:image_link>
-      <g:price>2895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Modal silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Ajrakh Modal Silk set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742212500/jjwk08xlh5kqfuqi6osx.jpg</g:image_link>
-      <g:price>2895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Modal silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette Batik suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742212014/exxok5fixias7gbjk4ya.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette Batik suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742211771/sbvqyiwkzkbhu0xhzqgy.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton suit in jamdani prints]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742211525/hoywhsg29wrrfedug7hb.jpg</g:image_link>
-      <g:price>1500 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton suit in jamdani prints]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742211462/i5qvm3nu5ppd1j814bmq.jpg</g:image_link>
-      <g:price>1500 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Silk Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742211197/eenv6c6umpnznqgo49wj.jpg</g:image_link>
-      <g:price>1850 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742210953/ftng6r19ymyzttaoul8o.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Rayon suit set ]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735542252/mlusduillydd5t6lzhet.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Rayon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Embroidered tissue dress material]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737095727/ebh2l5lwkodqey2gp3d9.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Tissue]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cushion cover set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735540110/yxnkrqwtsx18xrppwjvx.jpg</g:image_link>
-      <g:price>950 INR</g:price>
-      <g:google_product_category><![CDATA[Home Decor]]></g:google_product_category>
-      <g:product_type><![CDATA[Cushion Covers]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742137611/edtjdnvmw7roiixmt2yz.jpg</g:image_link>
-      <g:price>1280 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735480833/moynecssrsai829bcogh.jpg</g:image_link>
-      <g:price>2250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Jaipuri Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741326641/jtgkre9oo5fzq8cfbgsl.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Indigo Mul cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741325291/w2ovxt8efn8cqhk9cz63.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Ajrakh Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742191890/z0ntylvhlv4lsh5gbf2s.jpg</g:image_link>
-      <g:price>895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Ajrakh Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742191808/xvkts316ce6apq86lrsc.jpg</g:image_link>
-      <g:price>895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Linen salwar set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735482309/bj2swmobnrfi2stb526u.jpg</g:image_link>
-      <g:price>1500 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Linen]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Linen salwar set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735482259/t8bit3ao2fwapixzbjj0.jpg</g:image_link>
-      <g:price>1500 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Linen]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Linen salwar set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735482342/gcy8usk3tnqb1ueru7ij.jpg</g:image_link>
-      <g:price>1500 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Linen]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735482650/md3hxsmzs1opbgd98dg8.jpg</g:image_link>
-      <g:price>2250 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735482701/lzp2r5ekvuf9oxwa8bo2.jpg</g:image_link>
-      <g:price>2250 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Muslin salwar set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735541366/do663afkw4tr8b9ojoo6.jpg</g:image_link>
-      <g:price>1895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Muslin]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Muslin suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735541255/eqjghqfsom5fzxe3qktf.jpg</g:image_link>
-      <g:price>1895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Muslin]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Pink Rayon suit ]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735549179/sjztubeldsdzuanthoi8.jpg</g:image_link>
-      <g:price>1450 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Rayon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Kota silk suit Pink]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735549975/slreioyclyzaadkmolcf.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Kota silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Sage green Kota silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735550008/aessnmnfus0jjfynqfnd.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Kota silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Kota cotton suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735550708/lodqnconm0enyohhwv3j.jpg</g:image_link>
-      <g:price>1450 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Lavender Kota silk suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735549752/kwbd32drzxj418rbpjzb.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Kota silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Sea green Rayon set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735546842/mynwqdn6ne4gjiaoiiyj.jpg</g:image_link>
-      <g:price>1450 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Rayon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Embroidered crush tissue set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737094361/j3mp5msk7gni5dsuha7y.jpg</g:image_link>
-      <g:price>2295 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Tissue]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Embroidered crush tissue set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737094421/sivtfofngcuonzao14wk.jpg</g:image_link>
-      <g:price>2295 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Tissue]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Tissue suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737094838/e6ftxtzqnqcplcltpepi.jpg</g:image_link>
-      <g:price>1495 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Tissue]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Tissue suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737094805/vckak1vd9nvwhicxzup9.jpg</g:image_link>
-      <g:price>1495 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Tissue]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Floral tissue suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737094768/mtbjwdnhz49ldfnepqce.jpg</g:image_link>
-      <g:price>1495 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Tissue]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Unstitched linen suit with applique work  ]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737095591/jbhk1hsj5t1btdbzccyr.jpg</g:image_link>
-      <g:price>1895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Linen]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741607541/xe7nhy14k12qgqmjxzwv.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Unstitched linen suit ]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737095630/enveigszvtohhu5asgfe.jpg</g:image_link>
-      <g:price>1895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Linen]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Tissue dress material ]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737095842/qormgcwnwuaach5clurk.jpg</g:image_link>
-      <g:price>1495 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Tissue]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Tissue suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737095873/b7suicpw68y7jz31lery.jpg</g:image_link>
-      <g:price>1495 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Tissue]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handpainted Chiffon Saree with Zari Border]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742189726/r8wpd46wtrt3lqn94y2v.jpg</g:image_link>
-      <g:price>1850 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Chiffon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741257717/rw1h78pn0rvd9tbtng0c.jpg</g:image_link>
-      <g:price>2395 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741323515/fmxnelr6nlvci2xgmq72.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741323789/ca7ltdzab6i0ymvu17xd.jpg</g:image_link>
-      <g:price>1500 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Embroidered Cotton set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741324263/r8guj8pwrxzpfczuwsh5.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Indigo Cotton suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741325035/qrjccwn076m9lk1diou3.jpg</g:image_link>
-      <g:price>1795 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul-Mul Cotton suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741325554/h9sdatkgofj0rlkuihpg.jpg</g:image_link>
-      <g:price>1795 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton crush embroidery suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741325847/oaj5ip3mna0syhheqlnc.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Batik Cotton suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741326032/tzax54hicxiuxpkzwahw.jpg</g:image_link>
-      <g:price>1450 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Pure Cotton suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741326299/xkrohreqctpdglvhe3ws.jpg</g:image_link>
-      <g:price>1295 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Pure Cotton suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741326188/b8pzpq8upw4ikibccznk.jpg</g:image_link>
-      <g:price>1295 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chikankari suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741345743/uyuhmb7mmbok7drgmtqv.jpg</g:image_link>
-      <g:price>1750 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chikankari set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741345490/dcpwhzsekvcotnzu6uxr.jpg</g:image_link>
-      <g:price>1895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette Chikankari set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741346244/wk8yctb1kokntwq80mkz.jpg</g:image_link>
-      <g:price>1895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chikankari suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741346437/jeieomw6qksx3fgp57pk.jpg</g:image_link>
-      <g:price>995 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chikankari set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741346619/lazyd2intvzwa9kkmbzo.jpg</g:image_link>
-      <g:price>1295 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chikankari suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741346791/lip0xa5r7guvukaigijd.jpg</g:image_link>
-      <g:price>1295 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton suit set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741322579/zifg7suucdbuodt1uxpg.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Gadwal cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741322202/vlh99fddwdtbylcml92o.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Pure cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741321878/ngpphyvcyt8eauebqe2m.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741258555/g1hsw0ycqkwiu8ffdnmi.jpg</g:image_link>
-      <g:price>1600 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chnderi silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741258411/m4mhrpelnkva6xknfbz4.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741258282/iewjrq0icjdr7wredzhi.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741258171/hrthie5njh6rehoqp3gg.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741258005/xtce8e4dkprdzr28y8sn.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741347120/omfsi1tlkcpsfrii3ceo.jpg</g:image_link>
-      <g:price>2195 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741347591/pjtwgdyeuujhoilvaewd.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741347458/rgubxwaqlv0dx5icwdkj.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741347680/yybbayyzlvvx5pm7udbj.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Vichitra silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741348464/dq7xyg6my1siezjx5be1.jpg</g:image_link>
-      <g:price>1895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742043427/mtgsxtf4fj4rxbv4armk.jpg</g:image_link>
-      <g:price>1700 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741348816/vorqfz3lwildqvlnjlbz.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741348894/qphxiigiwfjydp9rj5ad.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chikankari Georgette set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741349313/xk8cumkj6jmott9rvbyq.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742137302/ttdhw4pe3m03doja3h4p.jpg</g:image_link>
-      <g:price>1200 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735480252/boltxbvetgpio4ppfdgq.jpg</g:image_link>
-      <g:price>2250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Maheshwari]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Ajrakh Modal Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742185845/kcidglky3jparb3bhhts.jpg</g:image_link>
-      <g:price>3950 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Modal Silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Premium Rayon suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742041956/agpircjyuuvfemmkgrtd.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Rayon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Premium Rayon suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742042162/flchc2yezoxs2kzl5rpz.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Rayon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Premium Rayon suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742041838/yp10r8jxqhxikoob1ukx.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Rayon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742040884/mylihfhtn1o0iv6eecim.jpg</g:image_link>
-      <g:price>1700 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Embroidered Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742044481/mm3na9f4vem8jiggjzrh.jpg</g:image_link>
-      <g:price>1500 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Modal Muslin suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742043783/tw5k7vjth4kg2rqtiybx.jpg</g:image_link>
-      <g:price>1700 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Muslin]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Kora Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742042972/v08cnl914dq6jl3hhhwj.jpg</g:image_link>
-      <g:price>1595 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Co-Ord set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742039356/sqqr3vn5ombdyzkvubiu.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742039950/padoc1uimsdp4qgt6ypt.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742036856/eze1ztn7yli6ofzf1tmh.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Printed Cotton suits]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741433659/bkp7fofabrzgn1m7e2qj.jpg</g:image_link>
-      <g:price>850 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435244/hvearcsbpjjpzilhd2tw.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435646/cxpo7vrwzzoxqp3t27e5.jpg</g:image_link>
-      <g:price>1450 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Hakoba Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741349565/eb6ibiyn57czpm7cp1vr.jpg</g:image_link>
-      <g:price>1995 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741349073/g0jegtef5loimdr7ljxz.jpg</g:image_link>
-      <g:price>1895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Crush Tissue Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741349930/ezuzmdtcipoatpohy91o.jpg</g:image_link>
-      <g:price>1595 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Tissue]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Linen suit with applique work]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741350131/ayyor9ld7tomfjyspvj1.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Linen]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Printed suits]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741432781/nvttd47f24vijy0dczdu.jpg</g:image_link>
-      <g:price>1495 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Printed suits]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741432915/lbzlwpwtouvduyee6rxx.jpg</g:image_link>
-      <g:price>1490 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741433129/z42qxw6sw3hzau0ssjf3.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741433331/ry7xlpmgsjcm0njpqnbi.jpg</g:image_link>
-      <g:price>1495 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Printed Cotton suits]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741433550/corudogmrb0hkeicratv.jpg</g:image_link>
-      <g:price>850 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Printed Cotton suits]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741433609/w1oqnour3rooocehxsyj.jpg</g:image_link>
-      <g:price>850 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Batik Cotton set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741434904/yhg7cna2x3bgn0mck7wh.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Batik Cotton set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435022/xn2wnw48s0bv28npyjbf.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Ajrakh Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435413/chgcw5te3ibfxyi7aaiw.jpg</g:image_link>
-      <g:price>950 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Indigo Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435970/lvaklqnrbcymvd6rmtvy.jpg</g:image_link>
-      <g:price>1050 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Hakoba suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741436119/pfs3kcgyjii010xbfjii.jpg</g:image_link>
-      <g:price>1950 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Crush suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435833/kgtpyoxqwnn5qzwyl3sl.jpg</g:image_link>
-      <g:price>1495 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741436320/c8woy2w1cqlaqwmwzu8j.jpg</g:image_link>
-      <g:price>1450 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Indigo Ajrakh suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741436534/b6eptlenkxv4vpoebgcb.jpg</g:image_link>
-      <g:price>2195 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Ajrakh Cotton set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741436633/t3a3eeo05ce3zog2axeo.jpg</g:image_link>
-      <g:price>895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741607493/zivg2iyuk6rdjoq7k6rw.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Pure Cotton set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741607722/g1ae1eq0uow0ujgjdlcu.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chanderi silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608012/henkoqj7eyjrwoqrn6sr.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chikankari suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608170/brl0zkpqdqr9vsbdpo5v.jpg</g:image_link>
-      <g:price>2095 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton Silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608429/upeine1k48ahhjvtgpnt.jpg</g:image_link>
-      <g:price>2190 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Chikankari Mul cotton  suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608583/vq28l6wpdj7jmpojic73.jpg</g:image_link>
-      <g:price>1895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Kota silk suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608794/qqtbrsp0hfeuh8n9pglo.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Kota silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Kota silk set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608928/hnbtvjbw5dasfrwh2qr6.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Kota silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741881994/lr0qp98gxyihbemycoit.jpg</g:image_link>
-      <g:price>2895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741882049/qrkmwt7jmuynaui9gxrl.jpg</g:image_link>
-      <g:price>2895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Embroidered Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741882431/dqmuy3rikuhf4gevvstt.jpg</g:image_link>
-      <g:price>1850 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Embroidered Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741882381/xgypcm8lux8n7o2tltsk.jpg</g:image_link>
-      <g:price>1850 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Muslin suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742036377/w6n6bact8gulrjizceuu.jpg</g:image_link>
-      <g:price>1550 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Muslin]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Premium Modal Muslin Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742037992/nzb3myyqjdu7hwofghqr.jpg</g:image_link>
-      <g:price>2495 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Muslin]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton co-ord set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742038852/nw1rgmqwmpz5abym0rda.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Dobby Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742039704/wnhrrnxwvlhnkxs6qf6d.jpg</g:image_link>
-      <g:price>2200 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Embroidered Tunic/Dress]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742042551/rh8fhzv1eqjts378iejr.jpg</g:image_link>
-      <g:price>1650 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742043270/gpb2mdawpooqzu1jcxxj.jpg</g:image_link>
-      <g:price>1700 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Hand block Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742044010/m5lpkkbos2e23ssf5gxr.jpg</g:image_link>
-      <g:price>1750 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul Cotton suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742044837/pxq2yb4v29cagqllhhvp.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Cotton]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741882101/mwx0ff5izmce6h27hn1y.jpg</g:image_link>
-      <g:price>2895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741882198/l163u1eeigrowvkrh8gl.jpg</g:image_link>
-      <g:price>2895 INR</g:price>
-      <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[German Rayon co-or set]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742038431/sahdpcp0qvzaojz2tzyu.jpg</g:image_link>
-      <g:price>1695 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Rayon]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Viscose Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742139230/e6qnziw2geo6gqyzcr9e.jpg</g:image_link>
-      <g:price>1050 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Viscose/Georgettes]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742139717/ynxruzsvsmbj3kcaxetr.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742139605/joukxhoigagok6y3tfzg.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Viscose Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742139168/aq2fhd6jkhsjq4wdrhlz.jpg</g:image_link>
-      <g:price>1050 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Viscose/Georgettes]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Viscose Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742139086/esvsl1pe1pzgy7srofkf.jpg</g:image_link>
-      <g:price>1050 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Viscose/Georgettes]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Soft Georgette Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742138767/qj4lhzextfluieqkf3py.jpg</g:image_link>
-      <g:price>1050 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Viscose/Georgettes]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Soft Georgette Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742138557/b1xx9zd2veomycll9rfp.jpg</g:image_link>
-      <g:price>1050 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Viscose/Georgettes]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Chanderi Silk Cotton Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742138254/wr1vsaj2bcmbbureoyuq.jpg</g:image_link>
-      <g:price>2300 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742137808/vc027d58idszp4elw7px.jpg</g:image_link>
-      <g:price>1280 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742137697/epya8rh8uj7ssymmz9q5.jpg</g:image_link>
-      <g:price>1280 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742136773/v7tjiypdfhi1he4uvkmr.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Georgette Suit]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742037357/l5bjlnjyd9juomtmayjr.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
-      <g:product_type><![CDATA[Georgette]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Sungudi Saree with Batik Prints]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742117357/mchqdn0cls8b1bbcdx1r.jpg</g:image_link>
-      <g:price>1500 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Madurai Sungudi / Velthari]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742116875/toa7wcucyadv954rz6xi.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[HandBlock Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742116749/we4muqy367qhywacpefk.jpg</g:image_link>
-      <g:price>1250 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742116386/wkeqfiu99qvsg0dtqklo.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742116126/lhlrysidsx8laoxdhwre.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742115935/ijspnrlfcmeh2ywzuknm.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul-Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742116016/ypczpj3egpc98kjwybs3.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Mul Mul Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742115637/zwionujsvylizjxwtmec.jpg</g:image_link>
-      <g:price>999 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Mul Mul]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Handblock Linen Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742114958/l4nypcrengcg2vuhbwmo.jpg</g:image_link>
-      <g:price>1350 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Linen]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Maheshwari Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742104774/kbfsyfnahcvbvq4shian.jpg</g:image_link>
-      <g:price>2550 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Maheshwari silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Semi Chanderi Silk Saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742106868/xx2imhhn1jzljqh4u7fz.jpg</g:image_link>
-      <g:price>1200 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[Maheshwari silk saree]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735483007/jnaokiir5de6yqnobgih.jpg</g:image_link>
-      <g:price>2450 INR</g:price>
-      <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
-      <g:product_type><![CDATA[Maheshwari silk]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[X'mas cushion cover]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735540268/wjhldt8qpy7ytun6d7d2.jpg</g:image_link>
-      <g:price>399 INR</g:price>
-      <g:google_product_category><![CDATA[Home Decor]]></g:google_product_category>
-      <g:product_type><![CDATA[Cushion Covers]]></g:product_type>
-    </item>
-    <item>
-      <g:title><![CDATA[X'mas Cushion cover]]></g:title>
-      <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735540379/m7j8tutjcspyyocmaugk.jpg</g:image_link>
-      <g:price>399 INR</g:price>
-      <g:google_product_category><![CDATA[Home Decor]]></g:google_product_category>
-      <g:product_type><![CDATA[Cushion Covers]]></g:product_type>
-    </item>
+        <item>
+          <g:title><![CDATA[Vichitra Silk embroidered Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67dc1ce347e253b8fbfec07f</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478562/wdtquqol7g5xt5ggbxsw.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Vichitra Silk Embroidery Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67dc1d4347e253b8fbfec085</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478658/nc3c5bzzp9jqbq2kj5og.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Shimmer Silk Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67dc1bed47e253b8fbfec079</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478316/dm8kqxyhz14zbuey47pj.jpg</g:image_link>
+          <g:price>2395 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Shimmer Dual-tone Silk]]></g:title>
+          <g:link>https://ekalooms.com/product/67dfcaf6cfcfce3c12a5ec70</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719733/kwugjejzmcbw0qfglrfb.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Shimmer Silk Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67dc1b2c47e253b8fbfec06d</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478124/iluzta3dofi8i8iq75n7.jpg</g:image_link>
+          <g:price>2295 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Silk Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67dc19a047e253b8fbfebe51</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742477727/q1851wkph5pargt43jxt.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Shimmer Silk Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67dc1ba847e253b8fbfec073</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478247/whmxbbptwfb9cepiarwp.jpg</g:image_link>
+          <g:price>2295 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Shimmer Dual-tone Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dfcbfbcfcfce3c12a5ec74</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719994/xktsgbhnyzl3noz3z1xb.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Chiffon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Shimmer Dual-tone Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dfcb3fcfcfce3c12a5ec72</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719806/ggysn2fhgabtaauamvge.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Chiffon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Shimmer Dual-tone Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dfca81cfcfce3c12a5eba6</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719616/umnzajwceku5sbdrer2b.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Chiffon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Shimmer Dual-tone Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dfca42cfcfce3c12a5eba4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719553/qcx2hri367vajpd3ktpg.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Chiffon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Shimmer Dual-tone  Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dfc9f3cfcfce3c12a5eba2</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742719474/noi7dy1cqemzduyqa6x9.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Chiffon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67debeb747e253b8fbfedc95</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742651062/ws40woqvxyei3nqgy6d1.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67debfd247e253b8fbfedd5f</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742651346/uytctq659jbpfj06cb2e.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67debf6147e253b8fbfedcfb</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742651232/hutrpxckvnt9d7fqwd9e.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67debf0f47e253b8fbfedc97</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742651150/ztbqh9h3fdpkqcjxzj6x.jpg</g:image_link>
+          <g:price>1200 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67debe4147e253b8fbfedc93</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742650944/ghavnyzhhohg8vpupohw.jpg</g:image_link>
+          <g:price>1280 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67debdfe47e253b8fbfedc91</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742650878/cwpuizfjh9qpanrsw1an.jpg</g:image_link>
+          <g:price>1280 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul-Mul Saree ]]></g:title>
+          <g:link>https://ekalooms.com/product/67debd7947e253b8fbfedc2d</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742650744/wt19l0bcudekvnuxaily.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul Cotton Saree with Zari Border]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5e2247e253b8fbfed2d4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560801/jva3tdu513v2hwokziyn.jpg</g:image_link>
+          <g:price>1700 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul Cotton Saree with Zari Border]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5e7747e253b8fbfed2d6</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560886/kwvbsboz8ipfcxmuqhhw.jpg</g:image_link>
+          <g:price>1700 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul Cotton Saree With Zari Border]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5ebf47e253b8fbfed2d8</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560959/bna6r5mjfotpgqjagzmj.jpg</g:image_link>
+          <g:price>1700 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd77d047e253b8fbfed755</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742567375/nko672hirsqz1q9rstvd.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd776c47e253b8fbfed6f1</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742567275/jasvfhtjc0tzcmgyynme.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd773447e253b8fbfed6ef</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742567219/jglgxxjzdwiunz0gzwlb.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Soft Organza Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd75bb47e253b8fbfed622</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742566842/efkc7gpcbhtpbxtgfghm.jpg</g:image_link>
+          <g:price>2150 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Organza]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Soft Organza Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd755947e253b8fbfed5be</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742566745/ketfocwrgdaggubvugnx.jpg</g:image_link>
+          <g:price>2150 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Organza]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Kubera Pattu Saree ]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd728747e253b8fbfed5bc</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742566022/zkfwasamwn9qkznwpbna.jpg</g:image_link>
+          <g:price>1200 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Kubera Pattu Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd720147e253b8fbfed5ba</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742565888/dam3lreygyjseqlycapa.jpg</g:image_link>
+          <g:price>1200 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Kubera Pattu Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd71bb47e253b8fbfed5b8</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742565818/qemdytpks7vm0ddo5wi4.jpg</g:image_link>
+          <g:price>1200 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Striped Dhonekali Khadi Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd646f47e253b8fbfed4d4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742562414/y5lnrdmfo5yicsbhwnoo.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Striped Dhonekali Khadi Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd641447e253b8fbfed4d2</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742562323/lpfz7x2r85pivpriq4bs.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Soft Khadi Barfi Saree ]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd631c47e253b8fbfed46e</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742562076/mvd6wgzzcoo9luzvkapm.jpg</g:image_link>
+          <g:price>1400 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Soft Khadi Barfi Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd62ea47e253b8fbfed46c</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742562025/eedfeo4vm7krmtsp5wfr.jpg</g:image_link>
+          <g:price>1400 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[ Soft Khadi Hand Buti Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd620f47e253b8fbfed3a6</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742561806/baphicithmgqmkitpint.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Soft Khadi Hand Buti Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd61b247e253b8fbfed3a4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742561714/xeszxftstvpodqiztunm.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Soft Khadi Flower Buti Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd60b947e253b8fbfed340</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742561464/bf7aojjlhpiihvfczyra.jpg</g:image_link>
+          <g:price>1450 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Soft Khadi with Flower Buti Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd606c47e253b8fbfed2dc</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742561388/uqzvdupg2rnzqiny1xxw.jpg</g:image_link>
+          <g:price>1450 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Soft Khadi Flower Buti Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd602247e253b8fbfed2da</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742561313/ygahnyewrxvsaljdwtwz.jpg</g:image_link>
+          <g:price>1450 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Soft khadi cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5cda47e253b8fbfed270</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560474/lkv5qkxs5ica4gnxox9i.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5c9947e253b8fbfed26e</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560408/mwqwgpqgiz7elzwaqh0n.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5c5d47e253b8fbfed26c</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560348/jmteliytrjdlz4owm9my.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5c2b47e253b8fbfed26a</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560298/axiiiuo8pk4ix4tqwimr.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5bf547e253b8fbfed268</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560244/vtrkaqkvrtmxdw6n3lcg.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5bb347e253b8fbfed204</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560178/s4rsktolbi8mlda7ohaw.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5b7b47e253b8fbfed202</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560122/paxcsigtnmm3cl8nwja4.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Dhaniakhali Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5b4047e253b8fbfed200</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742560063/d8pimghvqnplblxku7up.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Bengali Khadi Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd5a1e47e253b8fbfed1fe</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742559774/ccdu0dlbdth5mqmh8hpu.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Bengali Khadi Sarees]]></g:title>
+          <g:link>https://ekalooms.com/product/67dd59ac47e253b8fbfed19a</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742559659/c963cqnygqkeab91mez1.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Pure Cotton Hakoba Blockprint Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67dc1e5347e253b8fbfec156</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742478975/jzzecfdimnpslq2bhzyk.jpg</g:image_link>
+          <g:price>2195 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Vichitra silk set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cadecd0b96b2f6520f0c5d</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742558518/c9jrppwekgyuvkkypjog.jpg</g:image_link>
+          <g:price>1895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Pure cotton suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/67685f2eb4bf5cb28f062422</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1734893358/aogcs65mwu2dmacrdhba.jpg</g:image_link>
+          <g:price>1200 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d807b647e253b8fbfe9c2d</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742210998/kxhgyewdjfocedvfupnw.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Ajrakh Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d7bceac60503b19f93bb80</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742191850/rdb3qxbaf5xrqcyumweo.jpg</g:image_link>
+          <g:price>895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Maheshwari Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d8181847e253b8fbfea3e0</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742215190/vak7pdvbsp5pbbxpcm6m.jpg</g:image_link>
+          <g:price>2550 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Maheshwari silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Plain Linen]]></g:title>
+          <g:link>https://ekalooms.com/product/67dc223047e253b8fbfec358</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742479919/jewnliinvq0ib9gm8cii.jpg</g:image_link>
+          <g:price>1299 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Linen]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Plain Linen]]></g:title>
+          <g:link>https://ekalooms.com/product/67dc21cd47e253b8fbfec356</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742479820/aoxe6eoch95yi7lqqepx.jpg</g:image_link>
+          <g:price>1299 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Linen]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Plain Linen Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67dc217047e253b8fbfec2f2</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742479727/f3kjgyjq4roozpgc5jom.jpg</g:image_link>
+          <g:price>1299 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Linen]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Co Ord set]]></g:title>
+          <g:link>https://ekalooms.com/product/677144506dc2c1aca076648e</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742216566/fbmsilwhetnavmtpb0b5.jpg</g:image_link>
+          <g:price>950 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Co Ord set]]></g:title>
+          <g:link>https://ekalooms.com/product/677144266dc2c1aca076648c</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742216545/q7vtatudzprq4kbhba1y.jpg</g:image_link>
+          <g:price>950 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Co Ord set]]></g:title>
+          <g:link>https://ekalooms.com/product/677144026dc2c1aca076648a</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742216521/u8mywhucdxje6tyaogcs.jpg</g:image_link>
+          <g:price>950 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Co Ord set]]></g:title>
+          <g:link>https://ekalooms.com/product/677143d96dc2c1aca0766488</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742216494/ulm8zico5siuvarjbmmt.jpg</g:image_link>
+          <g:price>950 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Maheshwari Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d818ce47e253b8fbfea3e2</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742215373/iwrrblg22k6j1boyur82.jpg</g:image_link>
+          <g:price>2550 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Maheshwari silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Maheshwari Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d8191747e253b8fbfea3e4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742215446/sctukkvgaguqg7godjmu.jpg</g:image_link>
+          <g:price>2450 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Maheshwari silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cad8cb0b96b2f6520f0c4e</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741347018/ky0rzwazqbmm7cmlf5mo.jpg</g:image_link>
+          <g:price>2195 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Ajrakh Modal Silk set]]></g:title>
+          <g:link>https://ekalooms.com/product/67d80e0f47e253b8fbfe9e89</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742212622/okyrc4svkqliki0fu8wq.jpg</g:image_link>
+          <g:price>2895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Modal silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Ajrakh Modal Silk set]]></g:title>
+          <g:link>https://ekalooms.com/product/67d80cfb47e253b8fbfe9df7</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742212344/bsxxt6oyhz3ikegz3xsh.jpg</g:image_link>
+          <g:price>2895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Modal silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Ajrakh Modal Silk set]]></g:title>
+          <g:link>https://ekalooms.com/product/67d80d9647e253b8fbfe9df9</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742212500/jjwk08xlh5kqfuqi6osx.jpg</g:image_link>
+          <g:price>2895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Modal silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette Batik suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d80bb047e253b8fbfe9da4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742212014/exxok5fixias7gbjk4ya.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette Batik suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d80abc47e253b8fbfe9d14</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742211771/sbvqyiwkzkbhu0xhzqgy.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton suit in jamdani prints]]></g:title>
+          <g:link>https://ekalooms.com/product/67d809c647e253b8fbfe9cc1</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742211525/hoywhsg29wrrfedug7hb.jpg</g:image_link>
+          <g:price>1500 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton suit in jamdani prints]]></g:title>
+          <g:link>https://ekalooms.com/product/67d8098747e253b8fbfe9cbf</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742211462/i5qvm3nu5ppd1j814bmq.jpg</g:image_link>
+          <g:price>1500 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Silk Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d8087e47e253b8fbfe9c2f</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742211197/eenv6c6umpnznqgo49wj.jpg</g:image_link>
+          <g:price>1850 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d8078a47e253b8fbfe9c2b</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742210953/ftng6r19ymyzttaoul8o.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Rayon suit set ]]></g:title>
+          <g:link>https://ekalooms.com/product/677245ed80cd30f2be3dc29e</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735542252/mlusduillydd5t6lzhet.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Rayon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Embroidered tissue dress material]]></g:title>
+          <g:link>https://ekalooms.com/product/6789fa30b7b59925d9fdf305</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737095727/ebh2l5lwkodqey2gp3d9.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Tissue]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cushion cover set]]></g:title>
+          <g:link>https://ekalooms.com/product/67723d8e80cd30f2be3dc267</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735540110/yxnkrqwtsx18xrppwjvx.jpg</g:image_link>
+          <g:price>950 INR</g:price>
+          <g:google_product_category><![CDATA[Home Decor]]></g:google_product_category>
+          <g:product_type><![CDATA[Cushion Covers]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6e90b0b96b2f6520f1f50</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742137611/edtjdnvmw7roiixmt2yz.jpg</g:image_link>
+          <g:price>1280 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/6771560280cd30f2be3dbfe9</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735480833/moynecssrsai829bcogh.jpg</g:image_link>
+          <g:price>2250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Jaipuri Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca89330b96b2f6520f0c21</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741326641/jtgkre9oo5fzq8cfbgsl.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Indigo Mul cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca83ec0b96b2f6520f0c11</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741325291/w2ovxt8efn8cqhk9cz63.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Ajrakh Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d7bd13c60503b19f93bb86</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742191890/z0ntylvhlv4lsh5gbf2s.jpg</g:image_link>
+          <g:price>895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Ajrakh Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d7bcc1c60503b19f93bb36</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742191808/xvkts316ce6apq86lrsc.jpg</g:image_link>
+          <g:price>895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Linen salwar set]]></g:title>
+          <g:link>https://ekalooms.com/product/67715bc580cd30f2be3dbffd</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735482309/bj2swmobnrfi2stb526u.jpg</g:image_link>
+          <g:price>1500 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Linen]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Linen salwar set]]></g:title>
+          <g:link>https://ekalooms.com/product/67715b9480cd30f2be3dbffb</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735482259/t8bit3ao2fwapixzbjj0.jpg</g:image_link>
+          <g:price>1500 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Linen]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Linen salwar set]]></g:title>
+          <g:link>https://ekalooms.com/product/67715be780cd30f2be3dbfff</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735482342/gcy8usk3tnqb1ueru7ij.jpg</g:image_link>
+          <g:price>1500 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Linen]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/67715d1b80cd30f2be3dc001</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735482650/md3hxsmzs1opbgd98dg8.jpg</g:image_link>
+          <g:price>2250 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/67715d4d80cd30f2be3dc005</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735482701/lzp2r5ekvuf9oxwa8bo2.jpg</g:image_link>
+          <g:price>2250 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Muslin salwar set]]></g:title>
+          <g:link>https://ekalooms.com/product/6772427780cd30f2be3dc281</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735541366/do663afkw4tr8b9ojoo6.jpg</g:image_link>
+          <g:price>1895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Muslin]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Muslin suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/6772420880cd30f2be3dc275</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735541255/eqjghqfsom5fzxe3qktf.jpg</g:image_link>
+          <g:price>1895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Muslin]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Pink Rayon suit ]]></g:title>
+          <g:link>https://ekalooms.com/product/677260fc80cd30f2be3dc2b4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735549179/sjztubeldsdzuanthoi8.jpg</g:image_link>
+          <g:price>1450 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Rayon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Kota silk suit Pink]]></g:title>
+          <g:link>https://ekalooms.com/product/6772641880cd30f2be3dc2be</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735549975/slreioyclyzaadkmolcf.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Kota silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Sage green Kota silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/6772643980cd30f2be3dc2c0</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735550008/aessnmnfus0jjfynqfnd.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Kota silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Kota cotton suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/677266f580cd30f2be3dc2d4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735550708/lodqnconm0enyohhwv3j.jpg</g:image_link>
+          <g:price>1450 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Lavender Kota silk suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/6772633980cd30f2be3dc2b6</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735549752/kwbd32drzxj418rbpjzb.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Kota silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Sea green Rayon set]]></g:title>
+          <g:link>https://ekalooms.com/product/677257db80cd30f2be3dc2a6</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735546842/mynwqdn6ne4gjiaoiiyj.jpg</g:image_link>
+          <g:price>1450 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Rayon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Embroidered crush tissue set]]></g:title>
+          <g:link>https://ekalooms.com/product/6789f4dab7b59925d9fdf2e6</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737094361/j3mp5msk7gni5dsuha7y.jpg</g:image_link>
+          <g:price>2295 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Tissue]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Embroidered crush tissue set]]></g:title>
+          <g:link>https://ekalooms.com/product/6789f516b7b59925d9fdf2e8</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737094421/sivtfofngcuonzao14wk.jpg</g:image_link>
+          <g:price>2295 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Tissue]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Tissue suit]]></g:title>
+          <g:link>https://ekalooms.com/product/6789f6b7b7b59925d9fdf2ee</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737094838/e6ftxtzqnqcplcltpepi.jpg</g:image_link>
+          <g:price>1495 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Tissue]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Tissue suit]]></g:title>
+          <g:link>https://ekalooms.com/product/6789f696b7b59925d9fdf2ec</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737094805/vckak1vd9nvwhicxzup9.jpg</g:image_link>
+          <g:price>1495 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Tissue]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Floral tissue suit]]></g:title>
+          <g:link>https://ekalooms.com/product/6789f671b7b59925d9fdf2ea</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737094768/mtbjwdnhz49ldfnepqce.jpg</g:image_link>
+          <g:price>1495 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Tissue]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Unstitched linen suit with applique work  ]]></g:title>
+          <g:link>https://ekalooms.com/product/6789f9a8b7b59925d9fdf301</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737095591/jbhk1hsj5t1btdbzccyr.jpg</g:image_link>
+          <g:price>1895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Linen]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ced2760b96b2f6520f0ccb</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741607541/xe7nhy14k12qgqmjxzwv.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Unstitched linen suit ]]></g:title>
+          <g:link>https://ekalooms.com/product/6789f9cfb7b59925d9fdf303</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737095630/enveigszvtohhu5asgfe.jpg</g:image_link>
+          <g:price>1895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Linen]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Tissue dress material ]]></g:title>
+          <g:link>https://ekalooms.com/product/6789faa3b7b59925d9fdf307</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737095842/qormgcwnwuaach5clurk.jpg</g:image_link>
+          <g:price>1495 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Tissue]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Tissue suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/6789fac1b7b59925d9fdf309</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1737095873/b7suicpw68y7jz31lery.jpg</g:image_link>
+          <g:price>1495 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Tissue]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handpainted Chiffon Saree with Zari Border]]></g:title>
+          <g:link>https://ekalooms.com/product/67d7b49fc60503b19f93ae9f</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742189726/r8wpd46wtrt3lqn94y2v.jpg</g:image_link>
+          <g:price>1850 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Chiffon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67c97bf60b96b2f6520f0bc1</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741257717/rw1h78pn0rvd9tbtng0c.jpg</g:image_link>
+          <g:price>2395 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca7cfc0b96b2f6520f0c01</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741323515/fmxnelr6nlvci2xgmq72.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca7e0e0b96b2f6520f0c03</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741323789/ca7ltdzab6i0ymvu17xd.jpg</g:image_link>
+          <g:price>1500 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Embroidered Cotton set]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca7fe80b96b2f6520f0c05</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741324263/r8guj8pwrxzpfczuwsh5.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Indigo Cotton suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca82ec0b96b2f6520f0c0f</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741325035/qrjccwn076m9lk1diou3.jpg</g:image_link>
+          <g:price>1795 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul-Mul Cotton suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca84f20b96b2f6520f0c13</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741325554/h9sdatkgofj0rlkuihpg.jpg</g:image_link>
+          <g:price>1795 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton crush embroidery suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca86180b96b2f6520f0c15</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741325847/oaj5ip3mna0syhheqlnc.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Batik Cotton suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca86d10b96b2f6520f0c17</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741326032/tzax54hicxiuxpkzwahw.jpg</g:image_link>
+          <g:price>1450 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Pure Cotton suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca87dc0b96b2f6520f0c1b</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741326299/xkrohreqctpdglvhe3ws.jpg</g:image_link>
+          <g:price>1295 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Pure Cotton suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca876d0b96b2f6520f0c19</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741326188/b8pzpq8upw4ikibccznk.jpg</g:image_link>
+          <g:price>1295 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chikankari suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cad3d00b96b2f6520f0c35</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741345743/uyuhmb7mmbok7drgmtqv.jpg</g:image_link>
+          <g:price>1750 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chikankari set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cad2d30b96b2f6520f0c2d</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741345490/dcpwhzsekvcotnzu6uxr.jpg</g:image_link>
+          <g:price>1895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette Chikankari set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cad5c50b96b2f6520f0c45</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741346244/wk8yctb1kokntwq80mkz.jpg</g:image_link>
+          <g:price>1895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chikankari suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cad6860b96b2f6520f0c47</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741346437/jeieomw6qksx3fgp57pk.jpg</g:image_link>
+          <g:price>995 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chikankari set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cad73c0b96b2f6520f0c49</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741346619/lazyd2intvzwa9kkmbzo.jpg</g:image_link>
+          <g:price>1295 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chikankari suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cad7e80b96b2f6520f0c4c</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741346791/lip0xa5r7guvukaigijd.jpg</g:image_link>
+          <g:price>1295 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton suit set]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca79540b96b2f6520f0bfb</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741322579/zifg7suucdbuodt1uxpg.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Gadwal cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca77db0b96b2f6520f0bf6</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741322202/vlh99fddwdtbylcml92o.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Pure cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ca76970b96b2f6520f0bf4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741321878/ngpphyvcyt8eauebqe2m.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67c97f3c0b96b2f6520f0bd4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741258555/g1hsw0ycqkwiu8ffdnmi.jpg</g:image_link>
+          <g:price>1600 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chnderi silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67c97eac0b96b2f6520f0bd2</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741258411/m4mhrpelnkva6xknfbz4.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67c97e2b0b96b2f6520f0bce</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741258282/iewjrq0icjdr7wredzhi.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67c97dbc0b96b2f6520f0bcc</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741258171/hrthie5njh6rehoqp3gg.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67c97d160b96b2f6520f0bca</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741258005/xtce8e4dkprdzr28y8sn.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cad9310b96b2f6520f0c50</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741347120/omfsi1tlkcpsfrii3ceo.jpg</g:image_link>
+          <g:price>2195 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cadb080b96b2f6520f0c55</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741347591/pjtwgdyeuujhoilvaewd.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cada830b96b2f6520f0c52</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741347458/rgubxwaqlv0dx5icwdkj.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cadb610b96b2f6520f0c57</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741347680/yybbayyzlvvx5pm7udbj.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Vichitra silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cade710b96b2f6520f0c5a</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741348464/dq7xyg6my1siezjx5be1.jpg</g:image_link>
+          <g:price>1895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d579240b96b2f6520f10de</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742043427/mtgsxtf4fj4rxbv4armk.jpg</g:image_link>
+          <g:price>1700 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cadfd20b96b2f6520f0c5f</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741348816/vorqfz3lwildqvlnjlbz.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cae01f0b96b2f6520f0c62</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741348894/qphxiigiwfjydp9rj5ad.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chikankari Georgette set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cae1c20b96b2f6520f0c67</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741349313/xk8cumkj6jmott9rvbyq.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6e7d80b96b2f6520f1f4e</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742137302/ttdhw4pe3m03doja3h4p.jpg</g:image_link>
+          <g:price>1200 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/6769cf72932b25798b7c9075</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735480252/boltxbvetgpio4ppfdgq.jpg</g:image_link>
+          <g:price>2250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Maheshwari]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Ajrakh Modal Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d7a576c60503b19f939dab</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742185845/kcidglky3jparb3bhhts.jpg</g:image_link>
+          <g:price>3950 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Modal Silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Premium Rayon suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d573650b96b2f6520f102a</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742041956/agpircjyuuvfemmkgrtd.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Rayon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Premium Rayon suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d574330b96b2f6520f102f</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742042162/flchc2yezoxs2kzl5rpz.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Rayon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Premium Rayon suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d572ef0b96b2f6520f1025</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742041838/yp10r8jxqhxikoob1ukx.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Rayon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d56f350b96b2f6520f0f5e</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742040884/mylihfhtn1o0iv6eecim.jpg</g:image_link>
+          <g:price>1700 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Embroidered Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d57d420b96b2f6520f1122</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742044481/mm3na9f4vem8jiggjzrh.jpg</g:image_link>
+          <g:price>1500 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Modal Muslin suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d57a880b96b2f6520f10e4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742043783/tw5k7vjth4kg2rqtiybx.jpg</g:image_link>
+          <g:price>1700 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Muslin]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Kora Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d5775d0b96b2f6520f1038</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742042972/v08cnl914dq6jl3hhhwj.jpg</g:image_link>
+          <g:price>1595 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Co-Ord set]]></g:title>
+          <g:link>https://ekalooms.com/product/67d5693e0b96b2f6520f0ea5</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742039356/sqqr3vn5ombdyzkvubiu.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d56b8f0b96b2f6520f0f00</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742039950/padoc1uimsdp4qgt6ypt.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d55f790b96b2f6520f0d88</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742036856/eze1ztn7yli6ofzf1tmh.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Printed Cotton suits]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc2b3c0b96b2f6520f0c8e</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741433659/bkp7fofabrzgn1m7e2qj.jpg</g:image_link>
+          <g:price>850 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc316d0b96b2f6520f0ca0</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435244/hvearcsbpjjpzilhd2tw.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc32fe0b96b2f6520f0ca6</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435646/cxpo7vrwzzoxqp3t27e5.jpg</g:image_link>
+          <g:price>1450 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Hakoba Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cae2bf0b96b2f6520f0c69</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741349565/eb6ibiyn57czpm7cp1vr.jpg</g:image_link>
+          <g:price>1995 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cae0d20b96b2f6520f0c64</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741349073/g0jegtef5loimdr7ljxz.jpg</g:image_link>
+          <g:price>1895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Crush Tissue Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cae42b0b96b2f6520f0c70</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741349930/ezuzmdtcipoatpohy91o.jpg</g:image_link>
+          <g:price>1595 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Tissue]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Linen suit with applique work]]></g:title>
+          <g:link>https://ekalooms.com/product/67cae4f40b96b2f6520f0c72</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741350131/ayyor9ld7tomfjyspvj1.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Linen]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Printed suits]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc27ce0b96b2f6520f0c80</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741432781/nvttd47f24vijy0dczdu.jpg</g:image_link>
+          <g:price>1495 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Printed suits]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc28530b96b2f6520f0c84</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741432915/lbzlwpwtouvduyee6rxx.jpg</g:image_link>
+          <g:price>1490 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc292a0b96b2f6520f0c86</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741433129/z42qxw6sw3hzau0ssjf3.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc29f40b96b2f6520f0c88</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741433331/ry7xlpmgsjcm0njpqnbi.jpg</g:image_link>
+          <g:price>1495 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Printed Cotton suits]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc2acf0b96b2f6520f0c8a</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741433550/corudogmrb0hkeicratv.jpg</g:image_link>
+          <g:price>850 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Printed Cotton suits]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc2b0a0b96b2f6520f0c8c</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741433609/w1oqnour3rooocehxsyj.jpg</g:image_link>
+          <g:price>850 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Batik Cotton set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc30190b96b2f6520f0c9c</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741434904/yhg7cna2x3bgn0mck7wh.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Batik Cotton set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc308f0b96b2f6520f0c9e</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435022/xn2wnw48s0bv28npyjbf.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Ajrakh Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc32160b96b2f6520f0ca4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435413/chgcw5te3ibfxyi7aaiw.jpg</g:image_link>
+          <g:price>950 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Indigo Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc34430b96b2f6520f0caa</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435970/lvaklqnrbcymvd6rmtvy.jpg</g:image_link>
+          <g:price>1050 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Hakoba suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc34d80b96b2f6520f0cac</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741436119/pfs3kcgyjii010xbfjii.jpg</g:image_link>
+          <g:price>1950 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Crush suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc33ba0b96b2f6520f0ca8</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741435833/kgtpyoxqwnn5qzwyl3sl.jpg</g:image_link>
+          <g:price>1495 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc35a10b96b2f6520f0cb2</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741436320/c8woy2w1cqlaqwmwzu8j.jpg</g:image_link>
+          <g:price>1450 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Indigo Ajrakh suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc36770b96b2f6520f0cb5</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741436534/b6eptlenkxv4vpoebgcb.jpg</g:image_link>
+          <g:price>2195 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Ajrakh Cotton set]]></g:title>
+          <g:link>https://ekalooms.com/product/67cc36db0b96b2f6520f0cb8</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741436633/t3a3eeo05ce3zog2axeo.jpg</g:image_link>
+          <g:price>895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ced2470b96b2f6520f0cc9</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741607493/zivg2iyuk6rdjoq7k6rw.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Pure Cotton set]]></g:title>
+          <g:link>https://ekalooms.com/product/67ced32b0b96b2f6520f0ccd</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741607722/g1ae1eq0uow0ujgjdlcu.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chanderi silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ced41d0b96b2f6520f0ccf</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608012/henkoqj7eyjrwoqrn6sr.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chikankari suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ced4eb0b96b2f6520f0cd6</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608170/brl0zkpqdqr9vsbdpo5v.jpg</g:image_link>
+          <g:price>2095 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton Silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ced5ee0b96b2f6520f0cd8</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608429/upeine1k48ahhjvtgpnt.jpg</g:image_link>
+          <g:price>2190 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Chikankari Mul cotton  suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ced6880b96b2f6520f0cda</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608583/vq28l6wpdj7jmpojic73.jpg</g:image_link>
+          <g:price>1895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Kota silk suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67ced75a0b96b2f6520f0cdc</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608794/qqtbrsp0hfeuh8n9pglo.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Kota silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Kota silk set]]></g:title>
+          <g:link>https://ekalooms.com/product/67ced7e10b96b2f6520f0cde</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741608928/hnbtvjbw5dasfrwh2qr6.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Kota silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d3028b0b96b2f6520f0d04</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741881994/lr0qp98gxyihbemycoit.jpg</g:image_link>
+          <g:price>2895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d302c20b96b2f6520f0d06</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741882049/qrkmwt7jmuynaui9gxrl.jpg</g:image_link>
+          <g:price>2895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Embroidered Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d3043f0b96b2f6520f0d0e</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741882431/dqmuy3rikuhf4gevvstt.jpg</g:image_link>
+          <g:price>1850 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Embroidered Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d3040e0b96b2f6520f0d0c</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741882381/xgypcm8lux8n7o2tltsk.jpg</g:image_link>
+          <g:price>1850 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Muslin suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d55d9a0b96b2f6520f0d37</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742036377/w6n6bact8gulrjizceuu.jpg</g:image_link>
+          <g:price>1550 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Muslin]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Premium Modal Muslin Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d563e90b96b2f6520f0e16</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742037992/nzb3myyqjdu7hwofghqr.jpg</g:image_link>
+          <g:price>2495 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Muslin]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton co-ord set]]></g:title>
+          <g:link>https://ekalooms.com/product/67d567450b96b2f6520f0e6c</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742038852/nw1rgmqwmpz5abym0rda.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Dobby Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d56a990b96b2f6520f0eaa</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742039704/wnhrrnxwvlhnkxs6qf6d.jpg</g:image_link>
+          <g:price>2200 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Embroidered Tunic/Dress]]></g:title>
+          <g:link>https://ekalooms.com/product/67d575b80b96b2f6520f1034</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742042551/rh8fhzv1eqjts378iejr.jpg</g:image_link>
+          <g:price>1650 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d5788a0b96b2f6520f103c</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742043270/gpb2mdawpooqzu1jcxxj.jpg</g:image_link>
+          <g:price>1700 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Hand block Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d57b6b0b96b2f6520f10e7</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742044010/m5lpkkbos2e23ssf5gxr.jpg</g:image_link>
+          <g:price>1750 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul Cotton suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d57ea60b96b2f6520f11d9</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742044837/pxq2yb4v29cagqllhhvp.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Cotton]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d302f60b96b2f6520f0d08</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741882101/mwx0ff5izmce6h27hn1y.jpg</g:image_link>
+          <g:price>2895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d303570b96b2f6520f0d0a</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1741882198/l163u1eeigrowvkrh8gl.jpg</g:image_link>
+          <g:price>2895 INR</g:price>
+          <g:google_product_category><![CDATA[Dress materials]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[German Rayon co-or set]]></g:title>
+          <g:link>https://ekalooms.com/product/67d565a00b96b2f6520f0e1a</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742038431/sahdpcp0qvzaojz2tzyu.jpg</g:image_link>
+          <g:price>1695 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Rayon]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Viscose Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6ef5f0b96b2f6520f20c6</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742139230/e6qnziw2geo6gqyzcr9e.jpg</g:image_link>
+          <g:price>1050 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Viscose/Georgettes]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6f1460b96b2f6520f2107</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742139717/ynxruzsvsmbj3kcaxetr.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6f0d60b96b2f6520f2105</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742139605/joukxhoigagok6y3tfzg.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Viscose Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6ef210b96b2f6520f20c4</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742139168/aq2fhd6jkhsjq4wdrhlz.jpg</g:image_link>
+          <g:price>1050 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Viscose/Georgettes]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Viscose Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6eecf0b96b2f6520f20c2</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742139086/esvsl1pe1pzgy7srofkf.jpg</g:image_link>
+          <g:price>1050 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Viscose/Georgettes]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Soft Georgette Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6ed900b96b2f6520f20c0</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742138767/qj4lhzextfluieqkf3py.jpg</g:image_link>
+          <g:price>1050 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Viscose/Georgettes]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Soft Georgette Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6ecbe0b96b2f6520f2046</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742138557/b1xx9zd2veomycll9rfp.jpg</g:image_link>
+          <g:price>1050 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Viscose/Georgettes]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Chanderi Silk Cotton Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6eb8f0b96b2f6520f2044</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742138254/wr1vsaj2bcmbbureoyuq.jpg</g:image_link>
+          <g:price>2300 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6e9d10b96b2f6520f1fcc</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742137808/vc027d58idszp4elw7px.jpg</g:image_link>
+          <g:price>1280 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6e9620b96b2f6520f1f52</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742137697/epya8rh8uj7ssymmz9q5.jpg</g:image_link>
+          <g:price>1280 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6e5c60b96b2f6520f1f11</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742136773/v7tjiypdfhi1he4uvkmr.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Georgette Suit]]></g:title>
+          <g:link>https://ekalooms.com/product/67d5616e0b96b2f6520f0dde</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742037357/l5bjlnjyd9juomtmayjr.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Readymades]]></g:google_product_category>
+          <g:product_type><![CDATA[Georgette]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Sungudi Saree with Batik Prints]]></g:title>
+          <g:link>https://ekalooms.com/product/67d699ee0b96b2f6520f1c01</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742117357/mchqdn0cls8b1bbcdx1r.jpg</g:image_link>
+          <g:price>1500 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Madurai Sungudi / Velthari]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6980d0b96b2f6520f1bff</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742116875/toa7wcucyadv954rz6xi.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[HandBlock Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6978e0b96b2f6520f1b87</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742116749/we4muqy367qhywacpefk.jpg</g:image_link>
+          <g:price>1250 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d696230b96b2f6520f1b4a</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742116386/wkeqfiu99qvsg0dtqklo.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6951f0b96b2f6520f1b0d</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742116126/lhlrysidsx8laoxdhwre.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d694600b96b2f6520f1a91</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742115935/ijspnrlfcmeh2ywzuknm.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul-Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d694b10b96b2f6520f1a93</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742116016/ypczpj3egpc98kjwybs3.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Mul Mul Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d693360b96b2f6520f1a54</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742115637/zwionujsvylizjxwtmec.jpg</g:image_link>
+          <g:price>999 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Mul Mul]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Handblock Linen Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d6908f0b96b2f6520f1927</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742114958/l4nypcrengcg2vuhbwmo.jpg</g:image_link>
+          <g:price>1350 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Linen]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Maheshwari Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d668c70b96b2f6520f13bd</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742104774/kbfsyfnahcvbvq4shian.jpg</g:image_link>
+          <g:price>2550 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Maheshwari silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Semi Chanderi Silk Saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67d670f50b96b2f6520f1536</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1742106868/xx2imhhn1jzljqh4u7fz.jpg</g:image_link>
+          <g:price>1200 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Chanderi silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[Maheshwari silk saree]]></g:title>
+          <g:link>https://ekalooms.com/product/67715e8080cd30f2be3dc009</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735483007/jnaokiir5de6yqnobgih.jpg</g:image_link>
+          <g:price>2450 INR</g:price>
+          <g:google_product_category><![CDATA[Saree]]></g:google_product_category>
+          <g:product_type><![CDATA[Maheshwari silk]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[X'mas cushion cover]]></g:title>
+          <g:link>https://ekalooms.com/product/67723e2d80cd30f2be3dc26b</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735540268/wjhldt8qpy7ytun6d7d2.jpg</g:image_link>
+          <g:price>399 INR</g:price>
+          <g:google_product_category><![CDATA[Home Decor]]></g:google_product_category>
+          <g:product_type><![CDATA[Cushion Covers]]></g:product_type>
+        </item>
+        <item>
+          <g:title><![CDATA[X'mas Cushion cover]]></g:title>
+          <g:link>https://ekalooms.com/product/67723e9c80cd30f2be3dc26d</g:link>
+          <g:image_link>https://res.cloudinary.com/dzuuzspyj/image/upload/v1735540379/m7j8tutjcspyyocmaugk.jpg</g:image_link>
+          <g:price>399 INR</g:price>
+          <g:google_product_category><![CDATA[Home Decor]]></g:google_product_category>
+          <g:product_type><![CDATA[Cushion Covers]]></g:product_type>
+        </item>
   </channel>
 </rss>

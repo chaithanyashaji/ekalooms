@@ -16,6 +16,7 @@ import featuredRouter from './routes/featuredImageRoute.js';
 import helmet from 'helmet';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import generateFeed from './generateFromApi.mjs';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -77,6 +78,21 @@ app.use('/api/order', orderRouter);
 app.use('/api/review', reviewRouter);
 app.use('/api/coupon', couponRouter);
 app.use('/api/featured', featuredRouter); 
+
+app.get('/api/generate-feed', async (req, res) => {
+    const token = req.query.token;
+    if (token !== process.env.FEED_GENERATION_SECRET) {
+      return res.status(401).send('Unauthorized');
+    }
+  
+    try {
+      await generateFeed();
+      res.status(200).send('✅ Feed generated successfully.');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('❌ Feed generation failed.');
+    }
+  });
 
 // Default Route
 app.get('/', (req, res) => {
