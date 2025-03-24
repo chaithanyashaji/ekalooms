@@ -3,6 +3,7 @@ import userModel from "../models/userModel.js";
 import razorpay from 'razorpay'
 import productModel from "../models/productModel.js";
 import crypto from 'crypto';
+import { sendMail } from '../services/emailService.js';
 
 
 const generateShortOrderId = (mongoId) => {
@@ -195,21 +196,47 @@ const userOrders = async(req,res) =>{
 }
 
 //update order status
-const updateStatus = async (req,res) =>{
+const updateStatus = async (req, res) => {
+  try {
+      const { orderId, status } = req.body;
 
-    try {
-        
-        const {orderId,status} = req.body
-        await orderModel.findOneAndUpdate({ orderId }, { status });
-        res.json({success:true,message:"Order Status Updated"})
+      const order = await orderModel.findOneAndUpdate(
+          { orderId },
+          { status },
+          { new: true }
+      );
 
-    } catch (error) {
-        console.log(error)
-        res.json({success:false,message:error.message})
-    }
+      if (!order) {
+          return res.status(404).json({ success: false, message: 'Order not found' });
+      }
 
+      const FRONTEND_URL = process.env.FRONTEND_URL;
 
-}
+      const emailHTML = `
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; padding: 20px; background-color: #f9f9f9;">
+          <h2 style="color: #D3756B;">Order Status Update</h2>
+          <p>Dear <strong>${order.address.firstName || 'Customer'}</strong>,</p>
+          <p>Your order <strong>${order.orderId}</strong> status has been updated to: <strong>${status}</strong>.</p>
+          
+          <div style="text-align: center; margin-top: 20px;">
+              <a href="${FRONTEND_URL}/order-details/${order.orderId}" style="background-color: #D3756B; color: white; padding: 12px 20px; border-radius: 6px; text-decoration: none; font-size: 16px;">
+                  View Order Details
+              </a>
+          </div>
+
+          <p style="margin-top: 20px;">If you have any questions, please contact us at <a href="mailto:contact@ekalooms.com">contact@ekalooms.com</a>.</p>
+          <p style="font-size: 14px; text-align: center;">Best regards,<br><strong>ekalooms Team</strong></p>
+      </div>
+      `;
+
+      await sendMail(order.address.email, 'Order Status Updated', emailHTML, true);
+
+      res.json({ success: true, message: 'Order Status Updated and Email Sent' });
+  } catch (error) {
+      console.log(error);
+      res.json({ success: false, message: error.message });
+  }
+};
 
 const updateTrackingId = async (req, res) => {
   try {
@@ -223,12 +250,48 @@ const updateTrackingId = async (req, res) => {
       });
     }
 
-    // Update the order's tracking ID
-    await orderModel.findOneAndUpdate({ orderId }, { trackingId });
+    // Update the order's tracking ID and return the updated order
+    const order = await orderModel.findOneAndUpdate(
+      { orderId },
+      { trackingId },
+      { new: true }
+    );
+
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        message: "Order not found",
+      });
+    }
+
+    // Customize this base URL as per your courier service
+    const TRACKING_LINK = `https://your-courier.com/track/${trackingId}`;
+
+    const emailHTML = `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; padding: 20px; background-color: #f9f9f9;">
+        <h2 style="color: #D3756B;">Your Order is on the Way!</h2>
+        <p>Dear <strong>${order.address.firstName || 'Customer'}</strong>,</p>
+        <p>Your order <strong>${order.orderId}</strong> has been dispatched and a tracking ID has been assigned.</p>
+        <p><strong>Tracking ID:</strong> ${trackingId}</p>
+
+        <div style="text-align: center; margin: 20px 0;">
+          <a href="${TRACKING_LINK}" style="background-color: #D3756B; color: white; padding: 12px 20px; border-radius: 6px; text-decoration: none; font-size: 16px;">
+              Track Your Order
+          </a>
+        </div>
+
+        <p>If you have any questions or need help, feel free to contact our support team at <a href="mailto:contact@ekalooms.com" style="color: #007BFF;">contact@ekalooms.com</a>.</p>
+
+        <p style="font-size: 14px; text-align: center;">Thank you for shopping with us!<br><strong>– ekalooms Team</strong></p>
+    </div>
+    `;
+
+    // Send email
+    await sendMail(order.address.email, 'Your Order Tracking ID', emailHTML, true);
 
     res.json({
       success: true,
-      message: "Tracking ID updated successfully",
+      message: "Tracking ID updated and email sent successfully",
     });
   } catch (error) {
     console.error(error);
@@ -238,7 +301,6 @@ const updateTrackingId = async (req, res) => {
     });
   }
 };
-
 
 
 // Placing order using Razorpay for guest users
