@@ -178,22 +178,26 @@ const allOrders = async(req,res)=>{
 }
 
 // user order data for frontend
-const userOrders = async(req,res) =>{
-
-    try {
-        
-        const userId = req.user.id
-        const orders = await orderModel.find({userId})
-        res.json({success:true, orders})
-
-    } catch (error) {
-
-        console.log(error)
-        res.json({success:false,message:error.message})
-        
+const userOrders = async (req, res) => {
+  try {
+    // If no token or user attached, block immediately
+    if (!req.user || !req.user.id) {
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized access. Please login again.",
+      });
     }
 
-}
+    const userId = req.user.id;
+    const orders = await orderModel.find({ userId });
+
+    res.json({ success: true, orders });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
 
 //update order status
 const updateStatus = async (req, res) => {

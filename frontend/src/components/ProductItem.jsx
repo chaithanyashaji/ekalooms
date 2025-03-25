@@ -73,14 +73,14 @@ const ProductItem = ({ id, image, name, price, rating, totalReviews, bestseller,
       sessionStorage.setItem("currentPage", currentPage);
     }
   
-    if (Array.isArray(categoryFilter) && categoryFilter.length > 0) {
+    if (Array.isArray(categoryFilter)) {
       sessionStorage.setItem("categoryFilter", JSON.stringify(categoryFilter));
     }
-  
-    if (Array.isArray(subCategoryFilter) && subCategoryFilter.length > 0) {
+    
+    if (Array.isArray(subCategoryFilter)) {
       sessionStorage.setItem("subCategoryFilter", JSON.stringify(subCategoryFilter));
     }
-  
+    
     if (typeof sortType !== "undefined") {
       sessionStorage.setItem("sortType", sortType);
     }

@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { X, Filter, ChevronDown, ChevronUp } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
-// Redesigned color palette with better compatibility
-// Primary: #65000B (deep burgundy) - keeping as required
-// Secondary: #8B0010 (darker burgundy) - for contrast and depth
-// Accent: #CB0018 (bright red) - for highlights and focus elements
-// Light: #F5F0F0 (very light grey with subtle red tint) - for backgrounds
-// Background: #FFFFFF (white) - for main backgrounds
+
 
 function MobileFilterPanel({
   showFilter,
@@ -33,6 +29,13 @@ function MobileFilterPanel({
     applyFilter();
     setShowFilter(false);
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    // Close filter when path changes
+    setShowFilter(false);
+  }, [location.pathname]);
 
   return (
     <div

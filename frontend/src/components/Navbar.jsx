@@ -22,9 +22,10 @@ const Navbar = () => {
 
   const logout = () => {
     setToken(null);
+    localStorage.removeItem("token");
     setCartItems({});
     setWishlist([]);
-    localStorage.removeItem("token");
+  
     navigate("/login");
   };
   

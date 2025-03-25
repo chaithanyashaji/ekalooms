@@ -1,5 +1,5 @@
 // Collection Component
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect,useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useParams, } from 'react-router-dom';
 import { ShopContext } from '../context/shopcontext';
@@ -15,13 +15,16 @@ const Collection = () => {
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState('relevant');
+  const [filtersReady, setFiltersReady] = useState(false);
+
+
  
   
    // get 'sub'
 
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 60;
-
+  const previousPath = useRef('');
   const location = useLocation();
   const params = useParams();
 
@@ -50,7 +53,7 @@ const Collection = () => {
     "Home Decor": [
       "Bedsheets", "Cushion Covers", "Curtains", "Table Linen"
     ]
-  };
+  }
 
   useEffect(() => {
     if (selectedCategory) {
@@ -65,43 +68,46 @@ const Collection = () => {
   
 
   useEffect(() => {
-    const savedPosition = sessionStorage.getItem("scrollPosition");
-    const savedPage = sessionStorage.getItem("currentPage");
-    const savedSortType = sessionStorage.getItem("sortType");
+    const currentPath = location.pathname + location.search;
   
     const urlCategory = params.categorySlug || queryParams.get('category');
     const urlSubCategory = queryParams.get('sub');
   
-    // ✅ Use URL first, fallback to sessionStorage
+    // If the category/subCategory is in the URL, use it
     if (urlCategory) {
       setCategory([urlCategory]);
+      sessionStorage.setItem("categoryFilter", JSON.stringify([urlCategory]));
     } else {
       const savedCategory = sessionStorage.getItem("categoryFilter");
-      setCategory(safeJSONParse(savedCategory));
+      setCategory(savedCategory ? JSON.parse(savedCategory) : []);
     }
+    
   
     if (urlSubCategory) {
       setSubCategory([urlSubCategory]);
+      sessionStorage.setItem("subCategoryFilter", JSON.stringify([urlSubCategory]));
     } else {
-      const savedSubCategory = sessionStorage.getItem("subCategoryFilter");
-      setSubCategory(safeJSONParse(savedSubCategory));
+      const savedSub = sessionStorage.getItem("subCategoryFilter");
+      setSubCategory(savedSub ? JSON.parse(savedSub) : []);
     }
+    
+  
+    // Restore sort type or page if needed
+    const savedSortType = sessionStorage.getItem("sortType");
+    const savedPage = sessionStorage.getItem("currentPage");
   
     if (savedSortType) setSortType(savedSortType);
-  
     if (savedPage) {
       setCurrentPage(parseInt(savedPage, 10));
       sessionStorage.setItem("currentPageRestored", "true");
     }
   
+    // Reset scroll if needed
+    const savedPosition = sessionStorage.getItem("scrollPosition");
     if (savedPosition !== null) {
       requestAnimationFrame(() => {
         setTimeout(() => {
-          window.scrollTo({
-            top: parseInt(savedPosition, 10),
-            behavior: "auto",
-          });
-  
+          window.scrollTo({ top: parseInt(savedPosition, 10), behavior: "auto" });
           setTimeout(() => {
             sessionStorage.removeItem("scrollPosition");
             sessionStorage.removeItem("currentPageRestored");
@@ -109,7 +115,13 @@ const Collection = () => {
         }, 200);
       });
     }
-  }, []);
+  
+    // Store current path
+    previousPath.current = currentPath;
+    setFiltersReady(true); // ✅ filters are now ready
+
+  
+  }, [location.pathname, location.search]);
   
   
   
@@ -119,10 +131,12 @@ const Collection = () => {
   
   
   
-
   useEffect(() => {
-    applyFilter();
-  }, [category, subCategory, search, showSearch, products,sortType]);
+    if (filtersReady) {
+      applyFilter();
+    }
+  }, [category, subCategory, search, showSearch, products, sortType, filtersReady]);
+  
 
   const applyFilter = () => {
     let filtered = [...products];
@@ -159,12 +173,18 @@ const Collection = () => {
   
     setFilterProducts(filtered);
   
+    // ✅ Save current filters to sessionStorage
+    sessionStorage.setItem("categoryFilter", JSON.stringify(category));
+    sessionStorage.setItem("subCategoryFilter", JSON.stringify(subCategory));
+    sessionStorage.setItem("sortType", sortType);
+  
     // Only reset to page 1 if NOT coming from sessionStorage
     const cameFromStorage = sessionStorage.getItem("currentPageRestored");
     if (!cameFromStorage) {
       setCurrentPage(1);
     }
   };
+  
   
   const safeJSONParse = (value, fallback = []) => {
     try {
